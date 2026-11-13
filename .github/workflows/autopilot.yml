@@ -74,7 +74,7 @@ jobs:
           DRY: ${{ inputs.dry }}
         run: |
           ARGS=""
-          [[ "$DRY" == "true" ]] && ARGS="$ARGS --dry"
+          if [[ "$DRY" == "true" ]]; then ARGS="$ARGS --dry"; python main.py check; fi
           [[ "$EVENT" == "push" ]] && ARGS="$ARGS --render-only"
           python main.py autopilot $ARGS
 
