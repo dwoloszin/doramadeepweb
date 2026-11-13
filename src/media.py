@@ -35,8 +35,10 @@ def exists(ep_id: str) -> bool:
 
 
 def rendered(ep_id: str) -> bool:
-    """Ja existe video (local ou na release)?"""
-    return (ROOT / "output" / ep_id / f"{ep_id}.mp4").exists() or exists(ep_id)
+    """Ja foi renderizado (metadata.json no git, video local ou release)? Nunca re-renderiza
+    sozinho um episodio que ja existe: refazer e sempre decisao manual."""
+    out = ROOT / "output" / ep_id
+    return (out / "metadata.json").exists() or (out / f"{ep_id}.mp4").exists() or exists(ep_id)
 
 
 def push(ep_id: str) -> None:

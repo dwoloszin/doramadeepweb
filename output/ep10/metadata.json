@@ -1,6 +1,6 @@
 {
   "episode": "ep10",
-  "duration": 181.11,
+  "duration": 174.35,
   "video": "ep10.mp4",
   "srt": "ep10.srt",
   "audiobook": "ep10_audiobook.mp3",
@@ -53,86 +53,86 @@
     {
       "id": "s05",
       "start": 21.15,
-      "dur": 16.28
+      "dur": 13.84
     },
     {
       "id": "s06",
-      "start": 37.43,
+      "start": 34.99,
       "dur": 8.06
     },
     {
       "id": "s07",
-      "start": 45.49,
+      "start": 43.05,
       "dur": 5.72
     },
     {
       "id": "s08",
-      "start": 51.2,
+      "start": 48.76,
       "dur": 6.33
     },
     {
       "id": "s09",
-      "start": 57.54,
+      "start": 55.1,
       "dur": 15.41
     },
     {
       "id": "s10",
-      "start": 72.95,
+      "start": 70.5,
       "dur": 16.67
     },
     {
       "id": "s11",
-      "start": 89.61,
+      "start": 87.17,
       "dur": 6.4
     },
     {
       "id": "s12",
-      "start": 96.02,
+      "start": 93.58,
       "dur": 7.63
     },
     {
       "id": "s13",
-      "start": 103.64,
+      "start": 101.2,
       "dur": 5.2
     },
     {
       "id": "s14",
-      "start": 108.84,
+      "start": 106.4,
       "dur": 4.53
     },
     {
       "id": "s15",
-      "start": 113.37,
+      "start": 110.93,
       "dur": 4.63
     },
     {
       "id": "s16",
-      "start": 118.0,
+      "start": 115.56,
       "dur": 6.82
     },
     {
       "id": "s17",
-      "start": 124.82,
+      "start": 122.38,
       "dur": 18.59
     },
     {
       "id": "s18",
-      "start": 143.41,
+      "start": 140.97,
       "dur": 8.07
     },
     {
       "id": "s19",
-      "start": 151.48,
-      "dur": 10.34
+      "start": 149.04,
+      "dur": 6.03
     },
     {
       "id": "s20",
-      "start": 161.82,
+      "start": 155.07,
       "dur": 12.68
     },
     {
       "id": "s21",
-      "start": 174.5,
+      "start": 167.75,
       "dur": 6.6
     }
   ]
