@@ -1,0 +1,601 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 6 — adaptado de scenes/scene6.txt  (continua o MESMO dia do fim do Ep. 5)
+#
+#  Estrutura:
+#    0-6s   COLD OPEN MAGICO: o bilhete brilhando nas maos, petalas de luz
+#    titulo
+#    O DORAMA  a Camila imaginaria na porta, malas prontas, lagrimas nos olhos verdes,
+#              "a declaracao de despedida" (voz da Camila)
+#    CHOQUE    card: shock
+#    REAL      e a letra da MAE (voz dela lendo): Bras, almoco no fogao, pao, patinho
+#    ALIVIO    risada -> louca, patinho, mercadinho com decisao
+#    TORTURA   o relogio da sala, tique-taque, a tarde vira noite
+#    RETORNO   a porta abre: mae com sacolas, primos no sofa, Camila por ultimo
+#    JANTAR    olhares; a mae percebe
+#    GANCHO    deitado, decidido -> amanhecer: o telefone fixo bege toca sozinho
+#
+#  Objetos novos: patinho (ceramica, pia) e relogio_sala. O bilhete vem do Ep. 5.
+#  Nota de continuidade do autor: Davi e Camila VAO ficar juntos (nao revelar ainda).
+# ============================================================================
+
+id: ep06
+number: 6
+title: "O Bilhete na Mesa, o Tique-Taque e a Decisão"
+source: scenes/scene6.txt
+
+days:
+  sonho:
+    time: "golden magical light, slow motion"
+    wardrobe:
+      davi: escola_uniforme
+      camila: chegada
+  tarde:
+    time: "early afternoon, the same day he came back from school"
+    wardrobe:
+      davi: escola_uniforme
+  noite:
+    time: "evening, warm yellow lamp light"
+    wardrobe:
+      davi: escola_uniforme
+      mae: passeio
+      camila: passeio
+      primos: passeio
+  madrugada:
+    time: "late night and then the first light of dawn"
+    wardrobe:
+      davi: pos_banho
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN (magico)
+  - id: s01
+    day: sonho
+    location: sala_casa
+    cast: [davi]
+    props: [bilhete]
+    look: dream
+    visual: >-
+      Magical close-up: Davi's two hands slowly unfolding a folded sheet of
+      notebook paper that glows from within with warm golden light; tiny
+      glowing petals and sparkling light particles rise from the paper and
+      swirl into the air like fireflies, his amazed face softly out of focus
+      behind; the living room bathed in golden cinematic haze.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Paper slowly unfolding, crisp and close", line: 0, dur: 2, db: -3}
+      - {gen: "Magical shimmering sparkles rising with a soft harp glissando and celestial choir", word: "brilhava", dur: 5, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Tem papel que pesa mais que pedra. [dreamy] E aquele bilhete... brilhava nas minhas mãos.", pause: 0.3}
+
+  - id: s02
+    card: title
+    bg: s03
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- O DORAMA (a despedida imaginaria)
+  - id: s03
+    day: sonho
+    location: sala_casa
+    cast: [camila]
+    look: dream
+    visual: >-
+      Slow-motion dreamlike shot: the blonde girl stands at the open front
+      door of the simple living room with two packed suitcases at her feet,
+      looking back over her shoulder with soft tears shining in her emerald
+      green eyes and a sweet melancholic smile; golden backlight through the
+      doorway, her long hair floating in a gentle breeze, glowing petals
+      drifting in the air.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Emotional orchestral theme, violins and piano slowly rising, romantic confession", line: 0, dur: 14, db: -5}
+    lines:
+      - {who: narrador, text: "[dreamy] Na minha cabeça, aquilo só podia ser uma carta de despedida.", pause: 0.2}
+      - {who: camila, text: "[Brazilian accent] [softly] Sabe, Davi... meu coração quase saiu pela boca quando eu te vi pela primeira vez. [emotional] Fazia anos que ele não batia assim.", pause: 0.3}
+
+  - id: s04
+    day: sonho
+    location: sala_casa
+    cast: [camila]
+    look: dream
+    visual: >-
+      Cinematic close-up in golden slow motion: the blonde girl's face, a
+      single tear rolling down her cheek, her emerald-green eyes shining, a
+      tender sad smile, her hand resting on her heart; floating light
+      particles and soft bloom, everything romantic and heartbreaking.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A soft emotional piano phrase with a gentle cello, heartbreaking", word: "voz", dur: 5, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [tenderly] Meu mundo mudou desde que eu pisei nesta casa... [sad] e antes de ir embora, eu só queria ouvir a sua voz.", pause: 0.3}
+
+  - id: s05
+    day: sonho
+    location: sala_casa
+    cast: [davi]
+    props: [bilhete]
+    look: dream
+    visual: >-
+      Dramatic close-up in golden light: Davi in his school uniform clutches
+      the folded paper against his chest, eyes shining with tears, mouth
+      trembling, as if his heart were breaking; glowing petals falling slowly
+      around him like snow.
+    motion: push_in
+    transition: dissolve
+    sfx: [heartbeat]
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [desperate] Ela foi embora... e eu não falei nada! [pleading] Por que eu não falei nada, Davi?!", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s06
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Glass window shattering loudly, shards falling and tinkling", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A REALIDADE (a letra da mae)
+  - id: s07
+    day: tarde
+    location: sala_casa
+    cast: []
+    props: [bilhete]
+    offscreen: [mae]
+    look: real
+    time: "early afternoon, flat ordinary daylight"
+    ambience: "Quiet house in the early afternoon, a lid clattering on a pot in the kitchen, distant neighborhood sounds, a dog barking far away"
+    visual: >-
+      Flat ordinary close-up from above: an unfolded sheet torn from a spiral
+      school notebook lying on a plastic floral tablecloth, a few lines of
+      quick hurried blue ballpoint handwriting, blurred and unreadable, a
+      ragged torn edge. Plain daylight, nothing magical.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "A metal pot lid clanking onto a pot on the stove", at: 0.0, dur: 1.5, db: -3}
+    lines:
+      - {who: mae, text: "[Brazilian accent] [hurried] Davi, levei seus primos pra fazer compras comigo lá no Brás. Voltamos mais tarde. Seu almoço tá no fogão, é só esquentar.", pause: 0.2}
+      - {who: mae, text: "[Brazilian accent] [matter-of-fact] Vai no mercadinho e compra pão pro lanche. O dinheiro tá do lado do patinho de cerâmica, na pia. Beijo, mãe.", pause: 0.25}
+
+  - id: s08
+    day: tarde
+    location: sala_casa
+    cast: [davi]
+    props: [bilhete]
+    look: real
+    time: "early afternoon, ordinary daylight"
+    visual: >-
+      Medium shot: Davi in his school uniform leans with both hands on the
+      small living-room table, the unfolded note between his hands, letting
+      out a huge sigh of relief, then laughing at himself and shaking his
+      head, shoulders dropping, a relieved embarrassed grin.
+    motion: pull_out
+    transition: cut
+    sfx:
+      - {gen: "A long relieved exhale followed by a soft embarrassed laugh, comedic", line: 0, dur: 2, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [relieved] Que alívio! Não era despedida nenhuma! [laughs] Eles só foram bater perna no Brás, Davi!", pause: 0.2}
+      - {who: narrador, text: "[chuckles] Eu já tinha enterrado o nosso amor... por causa de uma lista de compras.", pause: 0.25}
+
+  - id: s09
+    day: tarde
+    location: cozinha_casa
+    cast: [davi]
+    props: [patinho]
+    look: real
+    time: "early afternoon"
+    ambience: "Small home kitchen, water running in the sink, dishes clinking, a radio playing quietly"
+    visual: >-
+      Medium shot at the kitchen sink, Davi ALONE in the empty house (nobody
+      else in the frame): Davi washes a plate quickly, and next to
+      the dish rack on the sink counter sits the small yellow ceramic duck
+      figurine with a few folded banknotes tucked under it; Davi reaches for
+      the money with a wet hand, a determined look on his face.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Washing dishes in a sink, water running, plates clinking, quick", line: 0, dur: 4, db: -5}
+    lines:
+      - {who: narrador, text: "[energetic] Almocei, lavei a louça, peguei o dinheiro do patinho... e fui buscar o pão.", pause: 0.15}
+
+  - id: s10
+    day: tarde
+    location: rua_periferia
+    cast: [davi]
+    look: real
+    time: "afternoon, bright sun"
+    visual: >-
+      Medium tracking shot on the periphery street: Davi in his school uniform
+      walks with long determined steps along the cracked sidewalk carrying a
+      paper bag of bread rolls, jaw set, serious focused eyes, the corner
+      grocery store behind him with no signs and no readable text.
+    motion: pan_left
+    transition: cut
+    sfx:
+      - {gen: "Small shop door bell chime ringing", at: 0.0, dur: 1.5, db: -5}
+      - {gen: "Determined steady footsteps on a sidewalk with a low driving drum beat", line: 0, dur: 6, db: -6}
+    lines:
+      - {who: narrador, text: "[determined] No caminho, um único pensamento martelava na minha cabeça. Aquele susto da casa vazia tinha me acordado.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [determined] Chega de travar, Davi! Chega de medo! [urgently] Amanhã você fala com ela, nem que o mundo acabe!", pause: 0.25}
+
+  # ---------------------------------------------------------------- A TORTURA DO RELOGIO
+  - id: s11
+    day: tarde
+    location: sala_casa
+    cast: []
+    props: [relogio_sala]
+    look: real
+    time: "late afternoon, orange light"
+    ambience: none
+    visual: >-
+      Extreme close-up of the simple round white wall clock on the pale-yellow
+      living-room wall: the thin red second hand ticking forward, the face
+      with only tick marks and no numbers, orange late-afternoon light and
+      long shadows sliding across the wall.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Loud wall clock ticking, tic tac, getting louder and louder, deafening, oppressive", line: 0, dur: 10, db: 0}
+    lines:
+      - {who: narrador, text: "[tense] Tentei fazer os deveres. Mas o relógio da sala parecia zombar de mim. [slowly] Tic... tac... tic... tac...", pause: 0.3}
+
+  - id: s12
+    day: tarde
+    location: sala_casa
+    cast: [davi]
+    look: night
+    time: "dusk turning into night, the window light fading from orange to dark blue"
+    visual: >-
+      Medium shot: Davi sits at the living-room table with open school
+      notebooks, pen in hand over a completely blank page, looking up anxiously
+      at the wall clock; through the barred window the sky fades from orange
+      to deep night blue; the room getting darker around him.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Wall clock ticking loudly with a low tense drone slowly rising", line: 0, dur: 8, db: -3}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [frustrated] Cadê vocês? Já escureceu! [pleading] Volta logo, Camila... por favor, volta logo!", pause: 0.2}
+      - {who: narrador, text: "[sighs] Os minutos pareciam horas. A noite caiu... e eu não tinha escrito uma única linha.", pause: 0.25}
+
+  # ---------------------------------------------------------------- O RETORNO
+  - id: s13
+    day: noite
+    location: sala_casa
+    cast: [mae, primos]
+    look: real
+    time: "night, warm yellow lamp light"
+    ambience: "Living room at night, many shopping bags rustling, excited tired voices, kids laughing, a TV turned on"
+    visual: >-
+      Medium wide shot: the front door is open; the mother walks in first
+      loaded with many big plastic shopping bags from downtown, laughing and
+      tired; behind her the four cousins rush in and throw themselves
+      exhausted onto the old sofa, the little girl hugging her teddy bear.
+    motion: pan_right
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Keys turning in a door lock and a door opening, voices outside", line: 0, dur: 2, db: -2}
+      - {gen: "Warm gentle acoustic guitar melody, cozy and welcoming", after_line: 0, dur: 10, db: -7}
+    lines:
+      - {who: mae, text: "[Brazilian accent] [laughing] Chegamos! Ai, meu Deus, esse Brás acaba com a gente! [tired] Davi, comprou o pão?", pause: 0.2}
+      - {who: primos, text: "[Brazilian accent] [exhausted] Tia, eu não ando nem mais um passo! [laughs] Meu pé virou pão de queijo!", pause: 0.25}
+
+  - id: s14
+    day: noite
+    location: sala_casa
+    cast: [camila]
+    look: real
+    time: "night, warm yellow lamp light"
+    visual: >-
+      Medium close-up, ONLY the blonde girl in the frame (no other people):
+      she is the last one to walk in through the front door, a little tired, tucking a strand of her long blonde hair
+      behind her ear with a small shopping bag in her hand; she looks up
+      toward someone across the room and smiles softly with her emerald-green
+      eyes. Warm lamp light.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A soft warm romantic harp glissando", line: 0, dur: 3, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [softly] Oi, Davi... [playfully] sentiu falta da gente?", pause: 0.25}
+      - {who: pensamento, text: "[Brazilian accent] [excited] Ela voltou! Ela voltou, Davi! [overjoyed] E ela sorriu pra você!", pause: 0.25}
+
+  - id: s15
+    day: noite
+    location: cozinha_casa
+    cast: [davi, camila, mae, primos]
+    look: real
+    time: "night, a single warm ceiling lamp over the table"
+    ambience: "Quiet family dinner, cutlery on plates, tired soft chatter, crickets outside the window"
+    visual: >-
+      Wide shot from a high corner of the small kitchen at dinner, SEVEN people
+      squeezed around the small table, everyone eating in tired silence: the
+      mother in her navy polka-dot blouse at the head of the table, the four
+      cousins (two boys and two little girls) on one side, Davi and the blonde
+      girl facing each other; Davi steals a shy glance across the table at the blonde
+      girl, who glances back; at the head of the table the mother notices the
+      exchange, raises one eyebrow and holds back a small knowing smile; the
+      four cousins eating, sleepy.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Cutlery clinking on plates at a quiet dinner table", line: 0, dur: 4, db: -6}
+      - {gen: "A playful curious pizzicato phrase, light and cheeky", word: "percebeu", dur: 3, db: -6}
+    lines:
+      - {who: narrador, text: "[softly] No jantar, eu não conseguia parar de olhar pra ela. [chuckles] Até a minha mãe percebeu que tinha alguma coisa diferente no ar.", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s16
+    day: madrugada
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    time: "late night, dark bedroom, blue moonlight through the small window"
+    ambience: "Quiet bedroom late at night, crickets outside, a distant dog, the house asleep"
+    visual: >-
+      Davi lies on his narrow bed in the dark bedroom, staring up at the
+      ceiling with eyes wide open and a firm determined look, blue moonlight
+      across his face, one hand clenched on his chest.
+    motion: push_in
+    transition: fadeblack
+    music: night
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [determined] Amanhã, Davi. Amanhã você fala com ela. [firmly] E nada, nada vai te impedir!", pause: 0.25}
+      - {who: narrador, text: "[softly] Dormi ensaiando cada palavra, cada passo. [mysterious] Mas na vida real, os planos raramente seguem o roteiro que a gente escreve antes de dormir...", pause: 0.2}
+
+  - id: s17
+    day: madrugada
+    location: sala_casa
+    cast: []
+    look: night
+    time: "first light of dawn, a cold blue room with a single golden sunbeam"
+    ambience: "Silent house at dawn, first birds outside"
+    visual: >-
+      The empty living room at dawn: the first golden sunbeam cuts through the
+      barred window and falls on the old beige corded landline telephone on
+      its crochet doily on the small side table; the receiver seems to tremble
+      as it rings, dust floating in the beam. Mysterious and tense.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "An old landline telephone ringing loudly in a silent house at dawn", line: 0, dur: 6, db: -3}
+      - {gen: "Tense mysterious single piano note echoing in the dark", word: "nascesse?", dur: 4, db: -3}
+    lines:
+      - {who: narrador, text: "[suspenseful] Às seis da manhã, o telefone da sala tocou. [slowly] E o que esperava por nós quando o sol nascesse?", pause: 0.45}
+
+  - id: s18
+    card: question
+    bg: s15
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? No lugar do Davi, se declarava amanhã de qualquer jeito... [playfully] ou esperava o momento certo? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 6"
+    title: "O Bilhete na Mesa"
+    subtitle: "o Tique-Taque e a Decisão"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Se declarava amanhã... ou esperava?"
+    subtitle: "De qualquer jeito, ou no momento certo? Conta nos comentários."
+    footer: "Continua no Episódio 7"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 6 — O Bilhete na Mesa 💌 #dorama #novela"
+  description: |
+    Uma casa vazia, um bilhete dobrado e um coração que já tinha imaginado a pior despedida do mundo.
+
+    Episódio 6 da vídeo-novela: o que estava escrito no bilhete, a tortura do relógio da sala e a decisão de não deixar mais o medo travar.
+
+    💬 E você? No lugar do Davi, se declarava amanhã de qualquer jeito ou esperava o momento certo? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 7.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroamor #crush #declaracao #olhosverdes #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro amor,
+         bilhete, carta de despedida, declaracao, crush, olhos verdes, timidez, periferia de sao paulo, romance, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 6 — O Bilhete na Mesa, o Tique-Taque e a Decisão 💌
+
+    Na minha cabeça, era uma carta de despedida.
+    Na vida real... era a letra da minha mãe.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Se declarava amanhã de qualquer jeito ou esperava o momento certo?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 7.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroamor #declaracao #historianarrada
+  tiktok_caption: |
+    Eu achei que era uma carta de despedida dela... 💌 era a lista de compras da minha mãe.
+
+    Ep. 6 — O Bilhete na Mesa
+
+    💬 Se declarava amanhã de qualquer jeito ou esperava o momento certo? Conta aqui 👇
+    Segue pra não perder o Ep. 7 🍿
+
+    #dorama #kdrama #primeiroamor #declaracao #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 6"
+    title: "O Bilhete na Mesa, o Tique-Taque e a Decisão"
+    hook: "Tem papel que pesa mais que pedra."
+
+  - bg: s03
+    text: |
+      O som do papel se desdobrando ecoou na sala vazia. E, na minha cabeça, os violinos começaram a tocar.
+
+      Eu via a Camila parada na porta, as malas prontas, olhando para trás com lágrimas nos olhos verdes.
+
+  - bg: s04
+    text: |
+      **— Davi... meu coração quase saiu pela boca quando eu te vi pela primeira vez. Fazia anos que ele não batia assim.**
+
+      **— Meu mundo mudou desde que eu pisei nesta casa... e antes de ir embora, eu só queria ouvir a sua voz.**
+
+  - bg: s05
+    text: |
+      Na minha cabeça, aquele papel era a declaração definitiva de despedida. Um amor impossível que tinha ido embora para sempre enquanto eu estava na escola.
+
+      _Ela foi embora... e eu não falei nada._
+
+  - bg: s07
+    text: |
+      Mas o filtro dourado sumiu na hora. Era uma folha de caderno arrancada, com uma letra rápida de caneta azul.
+
+      A letra da minha mãe.
+
+      **— Davi, levei seus primos pra fazer compras comigo lá no Brás. Voltamos mais tarde. Seu almoço tá no fogão. Vai no mercadinho e compra pão pro lanche. O dinheiro tá do lado do patinho de cerâmica, na pia.**
+
+  - bg: s08
+    text: |
+      Que alívio!
+
+      Não era despedida nenhuma. Eles só tinham ido bater perna nas compras do Brás. E eu já tinha enterrado o nosso amor por causa de uma lista de compras.
+
+  - bg: s10
+    text: |
+      Almocei, lavei a louça, peguei o dinheiro do patinho e fui buscar o pão.
+
+      No caminho, um único pensamento martelava na minha cabeça: eu não podia mais deixar o medo e a timidez me travarem. Aquele susto da casa vazia tinha me acordado.
+
+  - bg: s11
+    text: |
+      Tentei fazer os deveres da escola, mas o relógio da sala parecia zombar de mim.
+
+      Tic... tac... tic... tac...
+
+      Os minutos pareciam horas. A noite caiu, e eu não tinha escrito uma única linha no caderno.
+
+  - bg: s14
+    text: |
+      Quando a porta finalmente se abriu, meu coração encheu de alegria. A minha mãe com as sacolas do Brás, os primos se jogando no sofá...
+
+      E, por último, ela. Linda, mesmo depois de um dia inteiro na rua.
+
+      **— Oi, Davi... sentiu falta da gente?**
+
+  - bg: s15
+    text: |
+      No jantar, eu não conseguia parar de olhar para ela. Até a minha mãe percebeu: arqueou a sobrancelha e segurou um sorriso de canto de boca.
+
+      Eu sabia que aquela noite não era o momento certo. Mas a decisão estava tomada.
+
+  - type: end
+    bg: s17
+    big: "Amanhã, nada vai me impedir."
+    text: |
+      Dormi ensaiando cada palavra e cada passo. Mas na vida real, os planos raramente seguem o roteiro que a gente escreve antes de dormir...
+
+      O que esperava por nós quando o sol nascesse?
+    cta: "CONTINUA NO CAPÍTULO 7 · Salve e siga para não perder"
+
+  - type: question
+    bg: s15
+    kicker: "E VOCÊ?"
+    title: "Se declarava amanhã... ou esperava?"
+    text: |
+      O medo passou. A decisão está tomada.
+
+      _No lugar do Davi, você se declarava de qualquer jeito... ou esperava o momento certo?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" (divulgacao no meio da semana, antes do episodio sair)
+# `python main.py teaser ep06` -> output/ep06/teaser/ (formato em src/teaser.py)
+teaser:
+  - id: t1
+    from: s05
+    zoom: 1.3
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "O que será que tem **nesse papel?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Ele aperta esse papel contra o peito como se fosse a vida dele 📝😢
+      O que será que tem escrito aí?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova, intrigante e sem contar a historia
+    shot:
+      day: tarde
+      location: sala_casa
+      cast: []
+      look: real
+      props: [bilhete]
+      visual: >-
+        Moody close shot from a high angle in the empty silent living room in
+        dim grey afternoon light, nobody in the frame: a single folded sheet of
+        notebook paper lies FLAT on the top of the small wooden table, resting
+        on the table surface (not floating), lit by a thin ray of light, dust
+        in the air; the empty sofa and the closed front door blurred in the
+        background. The table and the note in the upper half of the frame.
+        Physically realistic, intriguing and quiet.
+    zoom: 1.0
+    focus: [0.5, 0.32]
+    badge: "ALERTA DE SPOILER"
+    title: "Casa vazia. Um bilhete na mesa. **Onde foi todo mundo?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Casa vazia. Silêncio. Um bilhete na mesa... 📝
+      Onde será que foi todo mundo?
+
+      Deixa seu palpite aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3                          # cartaz do episodio (tema, sem historia)
+    style: poster
+    from: s01
+    zoom: 1.0
+    focus: [0.5, 0.15]
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 6"
+    title: "O Bilhete na Mesa, o Tique-Taque e a Decisão"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 6: O Bilhete na Mesa, o Tique-Taque e a Decisão
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

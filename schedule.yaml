@@ -1,0 +1,29 @@
+# ============================================================================
+#  CALENDARIO DE PUBLICACAO — lido pelo GitHub Actions (python main.py autopilot)
+#
+#  * 1 episodio por semana, DOMINGO 12h (Brasilia):
+#      YouTube  -> enviado ANTES, ja agendado (publishAt) para o domingo 12h
+#      Instagram -> Reel + carrossel publicados NO PROPRIO domingo 12h
+#  * Teasers do episodio na semana ANTERIOR, 12h, no Instagram (post no feed + Story):
+#      terca = t1 (alerta de spoiler) · quinta = t2 (alerta de spoiler) · sabado = t3 (cartaz)
+#  * So entra aqui episodio APROVADO (python main.py approve epNN). Episodio aprovado que
+#    ainda nao tem data ganha o proximo domingo livre automaticamente.
+#  * Pode editar as datas a mao (formato AAAA-MM-DD). TikTok continua manual (tiktok.txt).
+# ============================================================================
+timezone: America/Sao_Paulo
+time: "12:00"
+episode_weekday: sunday
+teasers:              # dias ANTES do domingo do episodio
+  t1: 5               # terca
+  t2: 3               # quinta
+  t3: 1               # sabado
+
+episodes:
+  ep02: 2026-11-15
+  ep03: 2026-11-22
+  ep04: 2026-11-29
+  ep05: 2026-12-06
+  ep06: 2026-12-13
+  ep07: 2026-12-20
+  ep08: 2026-12-27
+  ep09: 2027-01-03

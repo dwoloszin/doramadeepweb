@@ -1,0 +1,9 @@
+{
+  "fp": "f5732df90de0ff66",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Davi's aunt, a 46-year-old Brazilian woman from the countryside of São Paulo state, the father's sister: fair skin with an olive undertone, tanned, the same brown eyes and thick straight dark eyebrows as Davi's father, shoulder-length light-brown wavy hair with sun-lightened streaks, a few laugh lines, a broad warm talkative smile, sturdy medium build. Clearly a DIFFERENT woman from Davi's mother (lighter, shorter hair, no bun, no apron). Outfit (must be shown clearly, every detail): Travel clothes: a white cotton blouse with small red flowers, a light beige cardigan, dark-blue jeans, comfortable brown leather sandals, a small brown shoulder purse, sunglasses pushed up on her head, a thin gold chain with a small cross. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

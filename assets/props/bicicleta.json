@@ -1,0 +1,10 @@
+{
+  "fp": "61567721824ddd98",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "The reference image(s) are scenes already shown to the audience: copy EXACTLY this object from them (same model, shape, colors, wear, dents, details). OBJECT REFERENCE SHEET on a plain light-grey studio background: the same single object shown in three views side by side (front, side, three-quarter), no people. Object: Davi's old city bicycle: a rusty dark-red steel frame with chipped paint and rust spots, a cracked worn brown leather saddle, a brown woven wire front basket (EMPTY: nothing inside the basket), straight handlebars, old black tires with thin spokes, no gears, no logos. Photorealistic, even soft studio light. No text, no letters, no logos, no watermark.",
+  "refs": [
+    "s19.png",
+    "s18.png"
+  ],
+  "locked": true
+}

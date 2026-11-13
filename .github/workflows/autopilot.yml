@@ -1,0 +1,91 @@
+# Piloto automatico do Dorama da Deep Web (ver README > Automacao e schedule.yaml)
+#  * todo dia ~11h40 de Brasilia: o script espera ate 12h e publica o que o schedule.yaml manda
+#  * push de um roteiro novo (story/epNN.yaml): so RENDERIZA (nao publica; espera aprovacao)
+#  * manual (Actions > autopilot > Run workflow): aprovar um episodio e/ou simular
+name: autopilot
+
+on:
+  schedule:
+    - cron: "40 14 * * *"          # 14:40 UTC = 11:40 em Brasilia (UTC-3)
+  push:
+    branches: [main]
+    paths: ["story/ep*.yaml"]
+  workflow_dispatch:
+    inputs:
+      approve:
+        description: "Aprovar episodio antes de rodar (ex.: ep10). Vazio = nao aprova nada"
+        required: false
+        default: ""
+      dry:
+        description: "So simular (nao publica nada)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: autopilot
+  cancel-in-progress: false
+
+permissions:
+  contents: write                  # salvar status.json/schedule.yaml e criar releases de midia
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Dependencias
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core > /dev/null
+
+      - name: Credenciais do YouTube (secrets -> arquivos, nunca versionados)
+        env:
+          YT_TOKEN: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          YT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
+        run: |
+          printf '%s' "$YT_TOKEN" > token.json
+          printf '%s' "$YT_SECRET" > client_secret.json
+
+      - name: Aprovar episodio (manual)
+        if: github.event_name == 'workflow_dispatch' && inputs.approve != ''
+        env:
+          EP: ${{ inputs.approve }}
+        run: |
+          [[ "$EP" =~ ^ep[0-9]+$ ]] || { echo "episodio invalido: $EP"; exit 1; }
+          python main.py approve "$EP"
+
+      - name: Autopilot
+        env:
+          GEMINI_API_KEY_IMG: ${{ secrets.GEMINI_API_KEY_IMG }}
+          ELEVENLABS_API_KEYS: ${{ secrets.ELEVENLABS_API_KEYS }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          DB_ARCHIVE_GITHUB_TOKEN: ${{ secrets.DB_ARCHIVE_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          PYTHONIOENCODING: utf-8
+          EVENT: ${{ github.event_name }}
+          DRY: ${{ inputs.dry }}
+        run: |
+          ARGS=""
+          [[ "$DRY" == "true" ]] && ARGS="$ARGS --dry"
+          [[ "$EVENT" == "push" ]] && ARGS="$ARGS --render-only"
+          python main.py autopilot $ARGS
+
+      - name: Salvar estado (status.json, schedule.yaml, caches)
+        if: always()
+        run: |
+          rm -f token.json client_secret.json
+          git config user.name "dorama-autopilot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A schedule.yaml output story assets
+          if git diff --cached --quiet; then echo "nada mudou"; exit 0; fi
+          git commit -m "autopilot: estado de $(TZ=America/Sao_Paulo date +%F)"
+          git pull --rebase
+          git push

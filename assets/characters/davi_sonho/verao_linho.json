@@ -1,0 +1,9 @@
+{
+  "fp": "40f081d12fdf1ac6",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: An idealized version of the same 17-year-old boy Davi (same face as the model photos): same fair skin with olive undertone, same brown eyes, same thick straight dark eyebrows and nose, but slimmer, with a defined jawline, clean-shaven, and perfect posture, like a K-drama male lead. Same short dark-brown hair, but neatly styled with soft volume. No glasses. Outfit (must be shown clearly, every detail): Romantic summer-morning outfit: a soft cream linen shirt with the collar open and sleeves rolled to the elbows, light beige linen trousers, simple brown leather sandals, a thin braided leather bracelet. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

@@ -1,0 +1,9 @@
+{
+  "fp": "98131486540b15d6",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Davi's mother, a 44-year-old Brazilian woman from the São Paulo periphery. Fair skin with an olive undertone (Davi has her round face and brown eyes), dark-brown wavy hair tied up in a messy bun with a few loose strands, slightly plump, energetic and warm expression, small gold hoop earrings. Outfit (must be shown clearly, every detail): At home: a faded pink floral cotton blouse, an old light-blue kitchen apron with small stains, dark leggings, simple house slippers, a white dish towel over one shoulder. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

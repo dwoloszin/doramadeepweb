@@ -1,0 +1,9 @@
+{
+  "fp": "c18fd4cf02811156",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: A GROUP of four Brazilian siblings from the countryside, always shown together as the same four kids: MATEUS, a lanky 14-year-old boy with short light-brown hair and a shy grin; RICARDO, a skinny 12-year-old boy with messy sandy hair and freckles; JOANA, a 7-year-old girl with long light-brown hair in two braids; PATRICIA, a tiny 4-year-old girl with curly blonde hair and chubby cheeks. All with fair sun-kissed skin. Outfit (must be shown clearly, every detail): Travel clothes: Mateus in a dark-green hoodie and jeans carrying a big duffel bag; Ricardo in a red-and-white striped t-shirt and denim shorts with a small backpack; Joana in a yellow cotton dress and sandals; Patricia in pink overalls hugging a worn brown teddy bear. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

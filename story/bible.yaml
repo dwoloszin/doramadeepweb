@@ -1,0 +1,645 @@
+# ============================================================================
+#  BIBLIA DA SERIE — fonte unica da aparencia dos personagens e lugares.
+#
+#  Regra de continuidade:
+#   * "identity" = o que NUNCA muda (rosto, corpo, cabelo, pele...).
+#   * "wardrobe" = roupas nomeadas. Cada episodio diz, por DIA, qual roupa cada
+#     personagem usa (story/epXX.yaml -> days). Mesmo dia = mesma roupa em
+#     todas as cenas. Dia novo = roupa nova (crie uma entrada aqui).
+#   * Para cada roupa e gerada UMA folha de referencia (assets/characters/...)
+#     que vai junto em TODA imagem de cena. Aprovou a folha? Ela fica travada.
+#     Para refazer: apague o png e rode `python main.py refs`.
+#   * "aliases" = como o personagem aparece no texto do `visual` (father, porter...).
+#     Se o visual citar um alias e o personagem nao estiver no `cast`, a geracao
+#     PARA: personagem recorrente e sempre a MESMA pessoa (referencia), nunca um novo.
+#   * Figurantes (quem nao esta no cast) sao sempre pessoas DIFERENTES dos personagens.
+# ============================================================================
+
+series:
+  title: "Dorama da Deep Web"
+  language: "pt-BR"
+
+style:
+  # Vai em todas as imagens.
+  global: >-
+    Photorealistic cinematic film still, shot on 35mm anamorphic lens, natural
+    skin texture, subtle film grain, shallow depth of field, professional color
+    grading, emotionally expressive faces, vertical 9:16 composition with the
+    main subject in the upper two thirds of the frame. Absolutely no text, no
+    letters, no captions, no subtitles, no logos, no watermarks.
+  looks:
+    dream: >-
+      Romantic K-drama aesthetic: soft golden-hour sunlight, glowing haze,
+      floating dust particles that sparkle like petals, pastel warm palette,
+      dreamy bloom, everything slightly too perfect, like a memory polished by
+      imagination.
+    real: >-
+      Gritty realistic Brazilian urban periphery look: harsh flat afternoon
+      light, slightly desaturated colors with warm-green tint, worn surfaces,
+      documentary realism, honest and a bit heavy.
+    night: >-
+      Cold night look: deep blue moonlight through a small window, a single
+      warm practical light, strong shadows, silent and tense atmosphere.
+
+characters:
+  davi:
+    name: "Davi"
+    role: "protagonista e narrador (conta a historia ja adulto, em 1a pessoa)"
+    # Rosto = foto-modelo do usuario (assets/characters/davi/modelo/, fase 17 anos).
+    identity: >-
+      Davi, a 17-year-old Brazilian boy (the exact person in the model photos).
+      Fair skin with a light olive undertone, chubby with a soft round face,
+      full cheeks and a soft double chin, overweight soft body with a round
+      belly, medium height. Short dark-brown straight hair, spiky and a little
+      messy on top, shorter on the sides. Brown eyes, thick straight dark
+      eyebrows, small straight nose, faint stubble shadow on the upper lip.
+      No glasses. Shy body language: slightly hunched shoulders, eyes often
+      looking down.
+    wardrobe:
+      escola_uniforme: >-
+        Brazilian public school uniform: plain white short-sleeve cotton
+        t-shirt with a small plain navy-blue round crest patch on the left
+        chest (no letters), dark navy-blue track pants with a thin white side
+        stripe, worn black canvas sneakers, black digital wristwatch on the
+        left wrist.
+      madrugada_trabalho: >-
+        Work clothes for the cold early-morning produce market: an old faded
+        charcoal-grey zip-up hoodie (slightly tight on the belly, sleeves
+        pushed up a little, no logos), a plain white t-shirt under it, worn
+        dark-blue jeans with dirt marks on the knees, old grey-and-white
+        sneakers stained with mud, black digital wristwatch on the left wrist.
+      pedalada: >-
+        Hot-day clothes for cycling: a faded light-grey cotton t-shirt (thin
+        jersey fabric, slightly tight on the belly), worn dark-blue jeans, the
+        same old grey-and-white sneakers, black digital wristwatch on the left
+        wrist.
+      pos_banho: >-
+        Clean and fresh after a shower: a plain clean navy-blue cotton t-shirt,
+        grey cotton shorts, black rubber flip-flops, black digital wristwatch on
+        the left wrist; hair neatly combed and still slightly damp.
+      dormir: >-
+        Sleeping clothes: an old oversized faded grey cotton t-shirt with a
+        small hole near the collar (no prints, no letters), old dark-blue
+        cotton shorts; no wristwatch.
+
+  pai:
+    name: "Pai do Davi"
+    aliases: [father, dad]   # citou no visual -> pai TEM que estar no cast
+    role: "entregador de hortifruti; trabalha com o Davi de madrugada"
+    identity: >-
+      Davi's father, a 48-year-old Brazilian man from the São Paulo periphery.
+      Fair skin with an olive undertone, tanned and weathered by the sun, same
+      family features as Davi (same brown eyes, same thick straight dark
+      eyebrows, round face). Stocky strong build with a round belly, broad
+      shoulders, thick forearms, rough calloused hands. Short dark-brown hair
+      greying at the temples, a thick greying mustache, deep tired lines around
+      the eyes, a quiet, serious and kind expression.
+    wardrobe:
+      trabalho_ceasa: >-
+        Worn faded red-and-black plaid flannel shirt with sleeves rolled up over
+        a grey t-shirt, old dark jeans, black rubber work boots, faded navy-blue
+        baseball cap with no logo.
+      sonho_madrugada: >-
+        Clean vintage-style outfit: a neat beige canvas work jacket over a
+        crisp dark-blue denim shirt, dark trousers, polished brown leather
+        boots, a grey tweed flat cap.
+      casa: >-
+        At home: a faded white sleeveless cotton undershirt (regata), old grey
+        cotton shorts, blue-and-white rubber flip-flops.
+
+  porteiro:
+    name: "Porteiro da fabrica"
+    aliases: [porter, gatekeeper]
+    role: "porteiro entediado de uma fabrica na zona industrial (Ep. 3)"
+    identity: >-
+      A 50-year-old Brazilian man, dark brown skin, heavyset with a big belly,
+      bald head shining with sweat, short thick grey beard, tired heavy-lidded
+      eyes, bored indifferent expression, a toothpick in the corner of his mouth.
+    wardrobe:
+      uniforme_portaria: >-
+        Faded navy-blue short-sleeve security uniform shirt with a plain blank
+        patch on the chest (no letters), black trousers, black work shoes, a
+        walkie-talkie clipped to the belt.
+
+  mae:
+    name: "Mae do Davi"
+    aliases: [mother, mom]
+    role: "mae do Davi; energica, manda na casa (estreia no Ep. 4)"
+    identity: >-
+      Davi's mother, a 44-year-old Brazilian woman from the São Paulo
+      periphery. Fair skin with an olive undertone (Davi has her round face
+      and brown eyes), dark-brown wavy hair tied up in a messy bun with a few
+      loose strands, slightly plump, energetic and warm expression, small gold
+      hoop earrings.
+    wardrobe:
+      casa: >-
+        At home: a faded pink floral cotton blouse, an old light-blue kitchen
+        apron with small stains, dark leggings, simple house slippers, a white
+        dish towel over one shoulder.
+      passeio: >-
+        Going out shopping downtown: a navy-blue short-sleeve blouse with small
+        white polka dots, dark-blue jeans, comfortable brown sandals, hair tied
+        in a neat low bun, a big brown faux-leather shoulder bag, small gold
+        hoop earrings.
+
+  camila:
+    name: "Camila"
+    aliases: [blonde girl]
+    role: "prima do interior, 17 anos; o coracao do Davi dispara (Ep. 4 em diante)"
+    identity: >-
+      Camila, a 17-year-old Brazilian girl from the countryside of São Paulo
+      state. Long silky straight blonde hair falling to the middle of her back,
+      fair luminous skin, deep bright emerald-green eyes, a sweet radiant
+      smile, delicate soft features, a few faint freckles on the nose, slim
+      build, gentle curious body language.
+    wardrobe:
+      chegada: >-
+        Travel clothes: a soft light-blue denim jacket over a simple white
+        cotton top, high-waisted light-wash jeans, white canvas sneakers, a thin
+        black hair tie on her wrist.
+      casa_verao: >-
+        At home on a summer morning: a loose pastel-lilac cotton t-shirt,
+        light-wash denim shorts reaching mid-thigh, white flip-flops, hair loose,
+        a thin black hair tie on her wrist.
+      pijama_manha: >-
+        Early school-day morning at home: a loose soft pale-pink cotton
+        t-shirt and long light-grey cotton pajama pants, barefoot, long hair
+        loose and slightly tousled, a thin black hair tie on her wrist.
+      vestido_sonho: >-
+        Dreamy romantic outfit: a flowing white cotton summer sundress with
+        delicate white embroidery and short puff sleeves, a small white flower
+        clip in her hair, thin white sandals.
+      vestido_floral: >-
+        A simple light summer dress: soft mint-green cotton with tiny white
+        flowers, thin straps over a white t-shirt underneath, knee length, white
+        canvas sneakers, long blonde hair loose with a small white hair clip.
+      passeio: >-
+        Going out shopping downtown: a mustard-yellow short-sleeve cotton
+        blouse, high-waisted light-wash jeans, white canvas sneakers, a small
+        brown crossbody bag, hair in a loose low ponytail.
+
+  primos:
+    name: "Os primos do interior"
+    aliases: [cousins]
+    role: "4 primos do interior que chegam com a Camila (Ep. 4): Mateus 14, Ricardo 12, Joana 7, Patricia 4"
+    identity: >-
+      A GROUP of four Brazilian siblings from the countryside, always shown
+      together as the same four kids: MATEUS, a lanky 14-year-old boy with
+      short light-brown hair and a shy grin; RICARDO, a skinny 12-year-old boy
+      with messy sandy hair and freckles; JOANA, a 7-year-old girl with long
+      light-brown hair in two braids; PATRICIA, a tiny 4-year-old girl with
+      curly blonde hair and chubby cheeks. All with fair sun-kissed skin.
+    wardrobe:
+      chegada: >-
+        Travel clothes: Mateus in a dark-green hoodie and jeans carrying a big
+        duffel bag; Ricardo in a red-and-white striped t-shirt and denim shorts
+        with a small backpack; Joana in a yellow cotton dress and sandals;
+        Patricia in pink overalls hugging a worn brown teddy bear.
+      brincando: >-
+        Playing in the street on a hot day: Mateus in a plain white t-shirt and
+        black sports shorts; Ricardo in a plain royal-blue soccer jersey with no
+        logos or numbers and denim shorts; Joana in a pink t-shirt and white
+        shorts with her two braids; Patricia in a little yellow cotton dress,
+        holding her worn brown teddy bear. All in rubber flip-flops.
+      passeio: >-
+        Back from a shopping day downtown: Mateus in a black t-shirt and jeans
+        with a grey hoodie tied around his waist; Ricardo in a lime-green
+        t-shirt and denim shorts; Joana in a denim pinafore dress over a white
+        t-shirt; Patricia in a purple t-shirt and leggings, hugging her worn
+        brown teddy bear.
+
+  amigo_escola:
+    name: "Bruno"
+    aliases: [school friend, best friend]   # citou no visual -> Bruno no cast
+    role: "melhor amigo do Davi na escola; brincalhao (estreia no Ep. 5, voz Charlie)"
+    identity: >-
+      Bruno, a 16-year-old Brazilian boy from the São Paulo periphery: dark
+      brown skin, short black tightly curled hair with a thin line shaved on
+      one side, tall and lanky with long arms, a wide mischievous grin with
+      metal dental braces, lively expressive eyebrows. Clearly a DIFFERENT
+      person from Davi (not chubby, much darker skin, curly hair).
+    wardrobe:
+      escola_uniforme: >-
+        The same Brazilian public school uniform as Davi: plain white
+        short-sleeve cotton t-shirt with a small plain navy-blue round crest
+        patch on the left chest (no letters), dark navy-blue track pants with a
+        thin white side stripe, worn white sneakers, a red string bracelet.
+
+  tia:
+    name: "Tia do interior"
+    aliases: [aunt]   # citou no visual -> tia no cast
+    role: "irma do pai do Davi, mae da Camila e dos primos; mora no interior (estreia no Ep. 9, voz River)"
+    identity: >-
+      Davi's aunt, a 46-year-old Brazilian woman from the countryside of São
+      Paulo state, the father's sister: fair skin with an olive undertone,
+      tanned, the same brown eyes and thick straight dark eyebrows as Davi's
+      father, shoulder-length light-brown wavy hair with sun-lightened
+      streaks, a few laugh lines, a broad warm talkative smile, sturdy
+      medium build. Clearly a DIFFERENT woman from Davi's mother (lighter,
+      shorter hair, no bun, no apron).
+    wardrobe:
+      viagem: >-
+        Travel clothes: a white cotton blouse with small red flowers, a light
+        beige cardigan, dark-blue jeans, comfortable brown leather sandals, a
+        small brown shoulder purse, sunglasses pushed up on her head, a thin
+        gold chain with a small cross.
+
+  jornaleiro:
+    name: "Seu Joaquim, o jornaleiro"
+    aliases: [newsagent, newspaper vendor]   # citou no visual -> jornaleiro no cast
+    role: "dono da banca de jornal da esquina no centro; amigo do pai (estreia no Ep. 10, voz George)"
+    identity: >-
+      A 63-year-old Brazilian man of Portuguese descent: fair ruddy skin,
+      thick white hair combed back, a big bushy white mustache, bushy white
+      eyebrows, round belly, kind crinkled eyes, a pencil tucked behind one
+      ear. Clearly a DIFFERENT person from Davi's father (white hair, much
+      older, no cap).
+    wardrobe:
+      banca: >-
+        A short-sleeve light-blue button shirt, an old beige vest with many
+        pockets full of pens and coins, dark grey trousers, worn black shoes.
+
+  davi_sonho:
+    name: "Davi (versao do sonho)"
+    role: "como Davi se imaginava: o protagonista perfeito de um dorama"
+    identity: >-
+      An idealized version of the same 17-year-old boy Davi (same face as the
+      model photos): same fair skin with olive undertone, same brown eyes, same
+      thick straight dark eyebrows and nose, but slimmer, with a defined
+      jawline, clean-shaven, and perfect posture, like a K-drama male lead.
+      Same short dark-brown hair, but neatly styled with soft volume. No
+      glasses.
+    wardrobe:
+      uniforme_dorama: >-
+        Impeccable Korean elite private school uniform: tailored navy-blue
+        blazer with a small gold crest (no letters), crisp white shirt,
+        burgundy and navy diagonal-striped tie, grey trousers, polished black
+        leather shoes.
+      jaqueta_favorita: >-
+        Stylish K-drama casual outfit: a tan suede trucker jacket with the
+        collar slightly up, a cream cable-knit turtleneck sweater, dark slim
+        jeans, clean white leather sneakers.
+      camisa_social: >-
+        Crisp white button-down shirt with the collar open and sleeves neatly
+        folded once, slim beige chino trousers, polished brown leather loafers,
+        carrying a sleek brown leather document portfolio.
+      verao_linho: >-
+        Romantic summer-morning outfit: a soft cream linen shirt with the
+        collar open and sleeves rolled to the elbows, light beige linen
+        trousers, simple brown leather sandals, a thin braided leather bracelet.
+
+      cientista: >-
+        Elegant vintage inventor outfit: a crisp white shirt with sleeves
+        rolled to the elbows, a fitted dark-brown waistcoat with a brass pocket
+        watch chain, dark trousers, polished brown leather shoes.
+
+  clara:
+    name: "Teacher Clara"
+    aliases: [teacher]
+    role: "professora de ingles — a primeira paixao (platonica) de Davi"
+    identity: >-
+      Clara, a 28-year-old woman, English teacher. Fair porcelain skin, long
+      straight jet-black glossy hair falling past her shoulders with a center
+      part, strikingly intense emerald-green eyes, full lips with a natural
+      rose tone, soft elegant features, slim build, graceful calm posture,
+      gentle warm smile.
+    wardrobe:
+      aula_dia1: >-
+        Ivory silk blouse with small pearl buttons and long sleeves loosely
+        rolled at the wrists, high-waisted black knee-length pencil skirt,
+        thin delicate gold necklace with a tiny round pendant, small gold stud
+        earrings, black pointed-toe heels.
+
+locations:
+  # ambience = som de fundo do lugar (ElevenLabs SFX, em cache em assets/sfx/gen).
+  # A cena pode trocar com `ambience:` (ou `ambience: none`).
+  sala_sonho:
+    ambience: "Peaceful sunlit classroom in spring, very quiet room tone, soft birdsong outside open windows, a gentle breeze, faint distant wind chimes"
+    description: >-
+      Spacious elegant classroom of an elite school in Seoul: tall windows on
+      the left wall with cherry blossom trees outside, polished light-wood
+      desks in neat rows, a big dark-green chalkboard that is completely blank and clean
+      (nothing written on it, no clock), warm golden sunlight
+      cutting through the air full of floating dust particles.
+    look: dream
+  sala_real:
+    ambience: "Noisy Brazilian public school classroom, teenagers chatting and laughing, chairs scraping, an old ceiling fan humming, motorcycles revving outside in the distance, faint funk music from a far speaker"
+    description: >-
+      Crowded classroom of a public school in a poor Brazilian periphery
+      neighborhood: walls painted half green half off-white with scuffs and
+      faded marks, windows with metal security bars on the left wall, a
+      wobbly ceiling fan, worn chipped school desks of wood and metal, an old
+      green chalkboard with only faint chalk smudges (no readable writing), outside the windows unplastered red-brick houses
+      stacked on a hill and tangled electric wires.
+    look: real
+  rua_periferia:
+    ambience: "Busy favela street in Brazil in the late afternoon, motorcycles passing and revving, people talking, dogs barking in the distance, funk music from a speaker down the street"
+    description: >-
+      Street in a Brazilian favela-like periphery neighborhood in the late
+      afternoon: unplastered red-brick houses, tangled electrical wires,
+      motorcycles parked and riding, a big portable loudspeaker on the
+      sidewalk at the corner, teenagers hanging out.
+    look: real
+  quarto_davi:
+    ambience: "Small bedroom in a Brazilian favela in the evening, quiet room tone, distant neighborhood sounds, a dog barking far away, a motorcycle passing far away, faint TV from a neighbor"
+    description: >-
+      Davi's small simple bedroom: unplastered brick wall partly painted light
+      blue, narrow single bed with a faded blue blanket, a small wooden desk
+      with stacked school books, an old wooden chest of drawers, a small
+      window with a curtain, a cheap digital alarm clock on the desk.
+    look: real
+  casa_davi:
+    # fachada da casa do Davi (estreou no Ep. 2, s16/s18) — o quarto e quarto_davi
+    from_frames: [output/ep02/frames/s18.png, output/ep02/frames/s16.png]
+    ambience: "Periphery street in São Paulo at midday, distant motorcycles, neighbors talking, a dog barking, a radio playing far away, light wind"
+    description: >-
+      Front of Davi's family house in the São Paulo periphery: a small
+      one-story house of unplastered red bricks with grey mortar, a tall grey
+      metal gate with vertical bars next to the front door, a window with metal
+      security bars, a corrugated fiber-cement roof edge, a cracked narrow
+      concrete sidewalk, on a steep street of stacked red-brick houses with
+      tangled electric wires and poles.
+    look: real
+  # ---------------------------------------------------------------- Ep. 2
+  # ---------------------------------------------------------------- Ep. 4
+  cozinha_casa:
+    ambience: "Small Brazilian home kitchen in the late afternoon, pots and pans clattering, a pressure cooker hissing softly, water running, a radio playing quietly"
+    description: >-
+      The small kitchen of Davi's family house: old white tiles with a few
+      cracked ones, a simple four-burner stove with pots, a small wooden table
+      with a plastic floral tablecloth, an old refrigerator with magnets, a
+      window with metal bars, a dish rack by the sink, warm late-afternoon light.
+    look: real
+  mercadinho:
+    ambience: "Small neighborhood grocery store, a door bell chime, a fridge humming, a cash register beeping, people chatting quietly"
+    description: >-
+      A tiny neighborhood corner grocery store in the São Paulo periphery:
+      narrow aisles with crowded shelves of rice, beans, cookies and cleaning
+      products, an old counter with a cash register, a humming soda fridge,
+      bananas hanging, a door with a small bell. Any labels and signs blurred,
+      with no readable text.
+    look: real
+  # ---------------------------------------------------------------- Ep. 5
+  banheiro_casa:
+    ambience: "Small bathroom in the early morning, a dripping tap, soft echo of tiles, birds singing outside a small window"
+    description: >-
+      The tiny bathroom of Davi's family house: old white square tiles with a
+      few cracked ones, a small white sink with a chrome tap, an oval mirror
+      with a chipped white plastic frame above it, a plastic cup with
+      toothbrushes, a small frosted window high on the wall.
+    look: real
+  corredor_casa:
+    ambience: "Narrow house hallway in the morning, muffled family voices from the kitchen, distant birds, a radio playing very low in another room"
+    description: >-
+      The short narrow hallway of Davi's family house connecting the living
+      room to the bedrooms: walls painted pale yellow like the living room,
+      two plain wooden bedroom doors, a ceramic floor, a small framed picture
+      of a landscape, a small window at the end letting in soft morning light.
+    look: real
+  varanda_sonho:
+    ambience: "Magical dawn on a hillside veranda, soft wind chimes, gentle breeze, distant birdsong, a faint shimmering celestial hum"
+    description: >-
+      A dreamy white wooden veranda on a hillside at dawn: a white wooden
+      railing wrapped in tiny warm fairy lights and climbing jasmine flowers,
+      a wooden bench with soft cushions, a view of misty green hills and a
+      distant valley, the sky still full of fading stars and a faint glowing
+      galaxy above a soft pink-and-gold sunrise.
+    look: dream
+  # ---------------------------------------------------------------- Ep. 7
+  rua_flores:
+    ambience: "Quiet periphery side street in the early afternoon, bees buzzing around flowers, birds, distant kids playing, light wind"
+    description: >-
+      A quiet sloping side street in the São Paulo periphery: a low old wall
+      painted white, completely overflowing with blooming flowers (magenta
+      bougainvillea, red hibiscus, small orange ixora and white daisies)
+      spilling over from a small house garden, a cracked sidewalk, a few
+      red-brick houses and electric wires behind, early afternoon sun.
+    look: real
+  # ---------------------------------------------------------------- Ep. 8
+  quintal_casa:
+    ambience: "Quiet periphery street on a Friday night, crickets, a distant dog barking, a motorcycle far away, the soft buzz of a street lamp, muffled TV and family laughter from inside the house"
+    description: >-
+      The small front yard of Davi's family house at night, just inside the
+      tall grey metal gate with vertical bars: a narrow rough concrete yard
+      with a few potted plants (a fern, a small rose bush in a paint can), a
+      clothesline with a few clothes, the unplastered red-brick front wall of
+      the house with a lit window with metal bars and the front door ajar
+      spilling warm light; outside the gate, a tall street lamp bathes
+      everything in warm yellow-orange light; tangled electric wires above.
+    look: real
+  locadora:
+    ambience: "Small video rental store in the 1990s, a fluorescent light humming, a VHS tape being rewound in a machine, quiet chatter"
+    description: >-
+      A small 1990s neighborhood video rental store in Brazil: tall wooden
+      shelves packed with rows of VHS tape boxes with colorful blurred
+      covers (no readable titles or text), a counter with an old VCR rewinder,
+      fluorescent ceiling light, a worn tiled floor, nostalgic warm tones.
+    look: real
+  # ---------------------------------------------------------------- Ep. 9
+  banca_jornal:
+    ambience: "Busy downtown São Paulo corner in the morning, crowd footsteps and chatter, city buses passing, a newspaper vendor calling out, pigeons"
+    description: >-
+      A classic São Paulo street newsstand (banca de jornal) on a busy
+      downtown corner: a big dark-green metal kiosk with its folding doors
+      wide open, rows of colorful magazines, comic books, sticker albums and
+      small toy boxes hanging from clips, a glass display window full of
+      colorful boxes catching the morning sunlight; old buildings and
+      hurried people behind. All covers, signs and labels blurred, with no
+      readable text.
+    look: real
+  # ---------------------------------------------------------------- Ep. 10
+  laboratorio_sonho:
+    ambience: "Quiet magical study at night, a crackling fireplace far away, a clock ticking softly, gentle violin and piano"
+    description: >-
+      A dreamy private inventor's laboratory at night: a dark polished wood
+      workbench, an antique brass desk lamp with a warm golden glow, glass
+      flasks with softly glowing liquids, old leather-bound books with blank
+      spines, brass instruments, star charts on the walls with no readable
+      text, warm bokeh and floating golden dust.
+    look: dream
+  lamina:
+    ambience: "Very quiet room at night, a soft electric hum of a small lamp"
+    description: >-
+      The view through a microscope eyepiece: a single bright perfectly round
+      circle of light filling the center of a black frame, like a scientific
+      micrograph, no text, no scale bars, no labels.
+    look: real
+  # ---------------------------------------------------------------- Ep. 3
+  sala_casa:
+    ambience: "Small Brazilian living room in the evening, quiet room tone, a TV murmuring softly, a ceiling fan humming, distant neighborhood sounds through the window"
+    description: >-
+      The small living room of Davi's family house in the periphery: walls
+      painted pale yellow with a few cracks, an old brown fabric sofa with a
+      crocheted cover, a small wooden side table with an old beige corded
+      landline telephone on a crochet doily, a small old TV on a rack, a
+      window with metal bars and a floral curtain, a ceramic floor.
+    look: real
+  avenida_sonho:
+    ambience: "Elegant tree-lined avenue in the afternoon, gentle breeze in the leaves, birdsong, soft distant city hum, a fountain trickling"
+    description: >-
+      Elegant wide tree-lined avenue in a rich business district on a golden
+      afternoon: tall leafy trees with sunbeams cutting through the leaves,
+      clean wide sidewalks, and a modern office tower with a mirrored glass
+      facade and a grand glass entrance door with a doorman.
+    look: dream
+  zona_industrial:
+    ambience: "Hot industrial zone road at noon, heavy trucks passing, cicadas buzzing, hot wind, distant factory machinery humming"
+    description: >-
+      A long hot avenue in an industrial zone on the outskirts of São Paulo
+      at noon: cracked asphalt with potholes shimmering in the heat, long
+      concrete factory walls and closed metal gates, warehouses, power lines,
+      a few dusty trucks, no shade, harsh overhead sun, dust in the air. Any
+      signs are blurred, with no readable text.
+    look: real
+  portaria_fabrica:
+    ambience: "Factory gatehouse at midday, an electric fan buzzing, a radio playing quietly inside, trucks passing outside, a gate buzzer"
+    description: >-
+      The gatehouse of a factory: a small concrete guard booth with a sliding
+      glass window and a small counter, next to a tall closed metal gate in a
+      long grey concrete wall, a faded painted wall, hot noon sun, dusty
+      ground. Any signs are blurred, with no readable text.
+    look: real
+  rua_sonho_madrugada:
+    ambience: "Peaceful foggy old-town street at dawn, soft cool breeze, distant church bell, first birds singing, faint soft footsteps on cobblestones"
+    description: >-
+      Charming foggy cobblestone street at dawn in an old romantic city: retro
+      cast-iron street lamps glowing warm amber in the mist, old low buildings
+      with flower boxes, a gleaming two-tone cream and mint-green classic
+      1960s Volkswagen split-window van parked at the curb, neat wooden crates
+      full of perfect glossy fruits and tomatoes beside it.
+    look: dream
+  entreposto:
+    ambience: "Huge wholesale produce market warehouse at night, wooden cart wheels rattling on concrete, vendors shouting prices in Portuguese, crates being stacked, a forklift beeping, echo under a metal roof"
+    description: >-
+      Huge wholesale produce market warehouse in São Paulo at 2 AM: endless
+      aisles of stacked wooden and plastic crates of tomatoes, potatoes,
+      bananas, oranges and cabbages under harsh orange sodium and white
+      fluorescent lights, wet concrete floor with crushed leaves, heavy wooden
+      hand carts, a high steel roof structure, cold air.
+    look: night
+  rua_kombi:
+    ambience: "Cold empty city street at 4 AM, a truck idling nearby, distant engines, a light cold wind, wooden crates being moved on the sidewalk"
+    description: >-
+      Dark street next to the wholesale market before dawn: an old beat-up
+      white Volkswagen Kombi van with rust spots and dented doors parked at the
+      curb with its side and back doors open, opened wooden crates of tomatoes
+      and potatoes on the wet sidewalk, an orange sodium street light, wet
+      asphalt, other old trucks and vans parked further away.
+    look: night
+  centro_sp:
+    ambience: "Busy downtown São Paulo street in the morning, crowd footsteps and chatter, city buses passing, car horns, metal roll-up doors opening, a street vendor calling out"
+    description: >-
+      Busy downtown São Paulo street at 8 AM: crowded sidewalk with people in a
+      hurry going to work, old stained buildings and gray towers, small bars
+      and lunch counters with metal roll-up doors half open, a street vendor
+      stall, city buses, low morning sun between the buildings. Signs and
+      storefronts blurred, with no readable text.
+    look: real
+
+# ============================================================================
+#  OBJETOS RECORRENTES (props) — mesma regra dos personagens: UMA folha de
+#  referencia em assets/props/<id>.png, travada, enviada em toda cena que liste
+#  o objeto em `props: [id]`. from_frames = cenas ja publicadas que DEFINEM o
+#  visual (a referencia nasce delas, para o objeto ser o mesmo que o publico viu).
+# ============================================================================
+props:
+  bicicleta:
+    name: "Bicicleta do Davi"
+    from_frames: [output/ep02/frames/s19.png, output/ep02/frames/s18.png]
+    description: >-
+      Davi's old city bicycle: a rusty dark-red steel frame with chipped paint
+      and rust spots, a cracked worn brown leather saddle, a brown woven wire
+      front basket (EMPTY: nothing inside the basket), straight handlebars, old
+      black tires with thin spokes, no gears, no logos.
+  kombi:
+    name: "Kombi velha do pai"
+    from_frames: [output/ep02/frames/s16.png, output/ep02/frames/s13.png, output/ep02/frames/s10.png]
+    description: >-
+      The father's old beat-up white Volkswagen Kombi van (Brazilian late
+      model, boxy front with a single flat windshield): faded white paint with
+      rust spots and patches, dented sliding side door and back doors, old
+      chrome bumpers, worn tires, no logos and no lettering.
+  mochila:
+    name: "Mochila do Davi"
+    from_frames: [output/ep02/frames/s18.png]
+    description: >-
+      Davi's worn dark olive-green canvas backpack with two shoulder straps,
+      faded fabric, frayed edges, a front pocket, no logos.
+  bicicleta_sonho:
+    name: "Bicicleta do sonho"
+    description: >-
+      An impeccable vintage city bicycle as in a romantic film: glossy cream
+      frame, polished chrome fenders and handlebars, tan leather saddle and
+      grips, a small wicker front basket, whitewall tires, no logos.
+  # ---------------------------------------------------------------- Ep. 5/6
+  bilhete:
+    name: "O bilhete da mae (gancho do Ep. 5, abre o Ep. 6)"
+    description: >-
+      A single sheet torn from a spiral school notebook (ragged torn edge,
+      faint blue lines), folded in half, with a few lines of quick hurried
+      handwriting in blue ballpoint pen that are too small and blurred to
+      read (no legible letters).
+  patinho:
+    name: "Patinho de ceramica da pia"
+    description: >-
+      A small old ceramic duck figurine about the size of a fist, glossy
+      yellow with an orange beak and tiny black painted eyes, a small chip on
+      its tail, the kind of kitschy ornament kept next to a kitchen sink.
+  relogio_sala:
+    name: "Relogio de parede da sala"
+    description: >-
+      A simple cheap round wall clock with a white plastic frame and a white
+      face with only black tick marks (no numerals, no text), black hour and
+      minute hands and a thin red second hand.
+  # ---------------------------------------------------------------- Ep. 7
+  flores:
+    name: "As flores que o Davi colheu para a Camila (Ep. 7)"
+    description: >-
+      A small hand-picked bouquet held together loosely with no ribbon: three
+      magenta bougainvillea sprigs, two red hibiscus flowers, a cluster of
+      small orange ixora and a few white daisies, slightly uneven stems,
+      fresh and bright.
+  # ---------------------------------------------------------------- Ep. 8
+  pizzas:
+    name: "As tres pizzas de sexta-feira"
+    description: >-
+      Three large FLAT square plain white cardboard pizza boxes (wide and
+      very thin, about 40 cm wide and only 4 cm tall each, like standard
+      delivery pizza boxes) stacked on top of each other, warm, with slightly greasy corners and a little steam
+      escaping from the edges, no print, no logos, no letters.
+  videocassete:
+    name: "O video cassete velho da familia"
+    description: >-
+      An old black 1990s VHS video cassette recorder (VCR) with a front tape
+      slot flap, a few silver buttons and a small green digital display (only
+      blinking dashes, no letters), sitting under an old small silver-grey CRT
+      tube television with a curved glass screen; a black VHS tape with white
+      tape reels visible through its little window, no labels. One single
+      clean product photo, no captions, no view labels, no text at all.
+  # ---------------------------------------------------------------- Ep. 10
+  microscopio:
+    name: "O microscopio do kit de ciencias (Ep. 10)"
+    description: >-
+      A simple cheap educational toy microscope made of glossy white and
+      bright blue plastic: a single eyepiece, a small rotating turret with
+      three little lenses, a round stage with two metal clips, a small
+      battery LED light underneath; a few thin plastic slides beside it. No
+      logos, no letters.
+  cartela_selos:
+    name: "A cartela de selos do jornal"
+    description: >-
+      A rectangular cardboard collector card printed in red and yellow with
+      a grid of empty square boxes, many of them already filled with small
+      glued paper stamps cut from newspapers; a small colorful drawing of a
+      microscope in one corner; no readable text.
+  jornais:
+    name: "Os jornais encalhados"
+    description: >-
+      A thick bundle of folded unsold newspapers tied with a white plastic
+      string, grey newsprint with blurred columns and photos, no readable
+      headlines or letters.
+  carteira_trabalho:
+    name: "A carteira de trabalho (ainda em branco)"
+    description: >-
+      A small Brazilian work-card booklet with a dark-blue plastic cover,
+      slightly worn corners, closed, with no readable letters on the cover.

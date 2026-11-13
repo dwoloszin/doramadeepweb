@@ -1,0 +1,611 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 10 — adaptado de scenes/scene10.txt  (semanas depois do Ep. 9; fim do ensino medio)
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: o jovem inventor no laboratorio dourado, microscopio de bronze,
+#              galaxias refletidas no olho
+#    titulo
+#    CHOQUE    card: shock -> buzinas do centro: as entregas, o telefone mudo, a esperanca cansada
+#    A BANCA   o anuncio do kit com microscopio -> o jornaleiro (NOVO, fala) -> os jornais encalhados
+#    OS SELOS  a "barrinha de esperanca" na cartela -> o kit chega: plastico simples, "um portal"
+#    O MUNDO   pingo d'agua, cebola, asa -> formigas, aranha, abelhas (o que cada um ensinou)
+#    A CURIOSIDADE  as celulas do proprio corpo: os espermatozoides. PEDIDO DO AUTOR: nada de
+#              nojento ou vulgar — curioso e explicativo (micrografia de livro de biologia,
+#              "a unica celula do corpo que tem cauda e nada sozinha", humor leve e envergonhado)
+#    GANCHO    o microscopio guardado ao lado da carteira de trabalho -> o telefone da sala toca
+#
+#  Voz: pensamento grave (override do Ep. 7, thought_mid).
+#  Novos: jornaleiro (personagem, voz George), laboratorio_sonho e lamina (lugares),
+#  microscopio, cartela_selos, jornais, carteira_trabalho (objetos), davi_sonho.cientista (roupa).
+#  Davi NAO usa oculos (o txt fala em "atras dos oculos": ignorado de proposito).
+# ============================================================================
+
+id: ep10
+number: 10
+title: "O Universo num Pingo d'Água"
+source: scenes/scene10.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "night, a single warm golden lamp"
+    wardrobe:
+      davi_sonho: cientista
+  entregas:
+    time: "weekday morning, harsh bright sun between the buildings"
+    wardrobe:
+      davi: madrugada_trabalho
+      pai: trabalho_ceasa
+      jornaleiro: banca
+  noite:
+    time: "night, a small desk lamp in a dark bedroom"
+    wardrobe:
+      davi: pos_banho
+  natureza:
+    time: "early morning, soft first sunlight, dew"
+    wardrobe: {}
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (abertura magica)
+  - id: s01
+    day: sonho
+    location: laboratorio_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Enchanted macro detail shot at night, NO face in the frame, only the
+      young man's hands (white shirt sleeves rolled up): under the warm golden
+      light of an antique brass lamp, his hands delicately adjust the
+      gleaming brass knobs of an ornate antique brass microscope with crystal
+      lenses on a dark polished wood workbench, a glass slide glowing with a
+      tiny blue light; extremely shallow depth of field, floating golden
+      dust, glowing flasks blurred behind. Magical, poetic.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Soft mysterious violin and piano melody slowly growing, wonder and genius", line: 0, dur: 12, db: -4}
+      - {gen: "Delicate brass mechanism clicking and a glass slide sliding into place", at: 0.3, dur: 2, db: -10}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Tem gente que olha pro céu procurando as estrelas... [softly] eu encontrei um universo inteiro dentro de um pingo d'água.", pause: 0.3}
+
+  - id: s02
+    card: title
+    bg: s11
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: sonho
+    location: laboratorio_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Extreme magical close-up at night: the idealized young man brings his
+      eye to the brass eyepiece of the antique microscope; a beam of magical
+      bluish light rises from the lens and lights his face; his brown eye,
+      wide open with deep fascination, reflects swirling galaxies and
+      glowing atomic structures sparkling in the pupil. No glasses.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Twinkling cosmic shimmer with a soft magical swell", line: 0, dur: 6, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [calmly] Na minha cabeça, eu era um grande inventor... [softly] descobrindo mundos invisíveis que o resto da humanidade ignorava.", pause: 0.25}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s04
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Fast camera zoom out whoosh, then abrupt city traffic noise", at: 0.0, dur: 1.2, db: 0}
+      - {gen: "Car horns honking in heavy downtown traffic", at: 0.4, dur: 2, db: -2}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A VIDA REAL
+  - id: s05
+    day: entregas
+    location: centro_sp
+    cast: [davi, pai]
+    props: [kombi]
+    look: real
+    visual: >-
+      Medium wide shot in harsh morning sun on a busy downtown São Paulo
+      street: Davi in his grey hoodie carries a heavy wooden crate of
+      tomatoes on his shoulder, sweaty and tired, walking past the open old
+      white Kombi where his father unloads more crates; hurried crowd and
+      buses around.
+    motion: pan_right
+    transition: cut
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [sighs] Na vida real, a rotina pesada das entregas seguia... [sadly] e o telefone da sala, mudo. Nenhuma entrevista.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [firmly] Desistir nunca foi opção. [sighs] Mas a esperança dava uma desanimada feia.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A BANCA
+  - id: s06
+    day: entregas
+    location: banca_jornal
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Close-up at the open green newsstand in bright sun: hanging from a clip
+      among the magazines, a colorful cardboard promotional poster showing a
+      big picture of a white-and-blue toy microscope and a science kit with
+      little test tubes (no readable text); in the foreground, slightly out
+      of focus, Davi's face in his grey hoodie, eyes locked on it, wide open.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A magical curious twinkle chime, like a sudden idea", at: 0.2, dur: 2, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [excited] Até que eu vi, pendurado na banca: junte os selos do jornal... [amazed] e ganhe um kit de ciências com microscópio!", pause: 0.2}
+
+  - id: s07
+    day: entregas
+    location: banca_jornal
+    cast: [pai, jornaleiro]
+    props: [jornais]
+    look: real
+    visual: >-
+      Friendly medium two-shot at the corner newsstand: the old newsagent
+      with white hair and a big white mustache hands a thick tied bundle of
+      unsold newspapers to Davi's father in his plaid flannel shirt and cap;
+      both laughing like old friends.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: jornaleiro, text: "[Brazilian accent] [laughing] Leva, leva! Esses de ontem encalharam, [warmly] iam tudo pro lixo mesmo.", pause: 0.2}
+
+  - id: s08
+    day: entregas
+    location: centro_sp
+    cast: [davi, pai]
+    props: [kombi, jornais]
+    look: real
+    visual: >-
+      Medium two-shot next to the open old white Kombi on the downtown
+      street: the father, grinning, drops the tied bundle of newspapers into
+      Davi's arms; Davi in his grey hoodie hugs the bundle like a treasure,
+      eyes shining.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A heavy bundle of newspapers dropped into arms, paper rustling", at: 0.2, dur: 2, db: -6}
+    lines:
+      - {who: pai, text: "[Brazilian accent] [playfully] Tá aí, moleque! O jornaleiro deu tudo. [laughing] Pode cortar seus selinhos à vontade!", pause: 0.2}
+
+  # ---------------------------------------------------------------- OS SELOS
+  - id: s09
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [cartela_selos, jornais]
+    look: real
+    visual: >-
+      Cozy medium close shot at night in Davi's small bedroom lit by the desk
+      lamp: Davi in his navy t-shirt, focused, cuts a tiny stamp out of a
+      newspaper with small scissors and glues it onto the collector card on
+      the desk, almost full; a pile of cut newspapers around him.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Scissors snipping paper and a glue stick, quiet bedroom at night", line: 0, dur: 6, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] Eu não tinha dinheiro pra comprar jornal todo dia... mas os encalhados viraram o meu tesouro.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [warmly] Cada selinho colado era uma barrinha de esperança enchendo... [softly] a mesma que a vida esvaziava durante a semana.", pause: 0.2}
+
+  - id: s10
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Joyful medium shot at night in the small bedroom: Davi in his navy
+      t-shirt has just torn open a cardboard box on the bed and lifts the
+      simple white-and-blue plastic toy microscope with both hands like a
+      precious jewel, a huge ear-to-ear smile, the desk lamp glowing warm.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Cardboard box being torn open excitedly, then a curious playful discovery melody", at: 0.0, dur: 6, db: -5}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] Era de plástico, simples, humilde... [proudly] mas pra mim? Era um portal pra outra dimensão.", pause: 0.2}
+      - {who: narrador, text: "[warmly] Se o mundo lá fora não me dava uma oportunidade... [firmly] eu ia criar o meu, da porta pra dentro.", pause: 0.2}
+
+  # ---------------------------------------------------------------- O MUNDO EM MINIATURA
+  - id: s11
+    day: noite
+    location: lamina
+    cast: []
+    look: real
+    visual: >-
+      Breathtaking scientific microscope view: inside the round circle of
+      light, a single drop of pond water teeming with life, translucent green
+      algae, tiny paramecia and a spinning rotifer swimming, glowing jewel
+      colors on the bright background, like a beautiful nature documentary
+      micrograph. No text, no labels.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Magical curious rhythmic discovery music with tiny bubbling water sounds", line: 0, dur: 10, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] Um pingo de água de poça... e lá dentro, um zoológico inteiro nadando!", pause: 0.15}
+
+  - id: s12
+    day: noite
+    location: lamina
+    cast: []
+    look: real
+    visual: >-
+      Scientific microscope view inside the round circle of light: thin onion
+      skin cells lined up perfectly like little bricks, each with a tiny dark
+      nucleus, in soft purple and amber stain, and at one side the delicate
+      geometric veins of an insect wing like a stained-glass window. No text,
+      no labels.
+    motion: pan_right
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[softly] Casca de cebola, com as células enfileiradas feito tijolinhos... [dreamy] e a asa de um inseto, desenhada como um vitral.", pause: 0.2}
+
+  - id: s13
+    day: natureza
+    location: rua_flores
+    cast: []
+    look: real
+    visual: >-
+      Extreme macro close-up (insect photography, very close, ants big and
+      sharp in the center of the frame): a long organized line of reddish-brown
+      leaf-cutter ANTS marching across a cracked concrete wall, each ant
+      clearly visible with legs and antennae, each one carrying a big green
+      leaf piece held up over its head, much larger than itself; dew drops
+      sparkling, soft golden first light, background softly blurred.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "Early morning birds and a very soft rustle of leaves, intimate nature sound", line: 0, dur: 5, db: -10}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [calmly] As formigas me ensinavam determinação e trabalho em equipe...", pause: 0.1}
+
+  - id: s14
+    day: natureza
+    location: rua_flores
+    cast: []
+    look: real
+    visual: >-
+      Macro nature shot before sunrise: a garden spider carefully weaving its
+      round web between two flower stems, the silk threads covered in tiny
+      dew drops shining like pearls against the soft blue dawn sky.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] as aranhas, paciência e precisão na madrugada...", pause: 0.1}
+
+  - id: s15
+    day: natureza
+    location: rua_flores
+    cast: []
+    look: real
+    visual: >-
+      Macro nature shot in the first morning sun: a honeybee covered in
+      golden pollen working hard inside a red hibiscus flower, tiny pollen
+      grains glowing in the light.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A single honeybee buzzing close in a flower, warm morning", line: 0, dur: 4, db: -8}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [firmly] e as abelhas, disciplina... toda santa manhã.", pause: 0.25}
+
+  # ---------------------------------------------------------------- A CURIOSIDADE (cientifica, sem vulgaridade)
+  - id: s16
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Comic medium close shot at night in the small bedroom lit by the desk
+      lamp: Davi in his navy t-shirt sits at the desk with the toy
+      microscope, glancing sideways at the closed bedroom door with a
+      suspicious, mischievous look, one finger raised as if to say "shh",
+      about to place a new glass slide under the lens.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A short comic boing sound and a sudden musical stop", at: 0.0, dur: 1.2, db: -6}
+      - {gen: "Playful curious pizzicato strings, light comedy", line: 0, dur: 8, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [chuckles] E é claro... teve a noite da curiosidade máxima de qualquer adolescente com um microscópio no quarto.", pause: 0.15}
+
+  - id: s17
+    day: noite
+    location: lamina
+    cast: []
+    look: real
+    visual: >-
+      Clean scientific microscope view like a biology textbook micrograph:
+      inside the round circle of light on a soft blue-violet background,
+      several tiny human sperm cells swimming, each with a small smooth oval
+      head and a long thin wavy tail, drawn with elegant clarity; educational,
+      tasteful and beautiful, like a science museum illustration. No text,
+      no labels.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Gentle wondrous science documentary music, a soft magical shimmer", line: 0, dur: 14, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] Conhecer as células do meu próprio corpo! [excited] Os espermatozoides: aqueles girininhos dos livros de biologia... ali, vivos, nadando na minha frente!", pause: 0.2}
+      - {who: narrador, text: "[curious] Sabia que é a única célula do corpo humano que tem cauda e nada sozinha? [softly] Uma cabecinha que carrega metade da receita de uma vida.", pause: 0.2}
+
+  - id: s18
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Close-up at night: Davi in his navy t-shirt lifts his eye from the toy
+      microscope with a half-embarrassed, half-impressed smile, cheeks a
+      little red, eyebrows raised in amazement, lit by the warm desk lamp.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] Biologia nunca mais foi a mesma pra mim. [warmly] E aquele universo escondido mantinha a minha esperança acesa.", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s19
+    day: noite
+    location: quarto_davi
+    cast: []
+    props: [microscopio, carteira_trabalho]
+    look: real
+    visual: >-
+      Quiet close shot at night, nobody in the frame: on the small wooden
+      desk, the white-and-blue toy microscope carefully put away next to a
+      neat stack of blank white printer paper; below it, the drawer half
+      open, and at the bottom of the drawer a closed dark-blue work-card
+      booklet, untouched. Warm lamp light.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A slow low suspenseful pulse rising, a clock ticking", line: 0, dur: 10, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Os meses foram passando... [mysterious] e a carteira de trabalho seguia em branco, no fundo da gaveta.", pause: 0.2}
+
+  - id: s20
+    day: entregas
+    location: sala_casa
+    cast: []
+    look: real
+    time: "morning, a beam of sunlight in the empty living room"
+    visual: >-
+      Close-up in the empty silent living room: the old beige corded landline
+      telephone on its crochet doily on the small side table, a beam of
+      morning sunlight on it, dust floating; the receiver slightly vibrating
+      as it starts to ring. Nobody in the frame.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "An old landline telephone ringing loudly in a silent house", line: 0, dur: 4, db: -3}
+    lines:
+      - {who: narrador, text: "[suspenseful] Até que, quando eu menos esperava... o telefone fixo da sala finalmente tocou.", pause: 0.15}
+      - {who: narrador, text: "[slowly] E o garoto da bicicleta ia vestir a sua melhor roupa... [suspenseful] pra encarar a maior escolha da juventude dele.", pause: 0.45}
+
+  - id: s21
+    card: question
+    bg: s11
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já teve um hobby que segurou a sua esperança num tempo difícil? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 10"
+    title: "O Universo num Pingo d'Água"
+    subtitle: "os selos do jornal e o microscópio de plástico"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Que hobby segurou a sua esperança?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 11"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 10 — O Universo num Pingo d'Água 🔬 #dorama #novela"
+  description: |
+    Jornais encalhados, selinhos colados um por um... e um microscópio de plástico que virou um portal para outro mundo.
+
+    Episódio 10 da vídeo-novela: quando as portas do mundo adulto pareciam fechadas, o garoto da periferia descobriu um universo inteiro dentro de um pingo d'água.
+
+    💬 E você? Já teve um hobby que segurou a sua esperança num tempo difícil? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 11.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #ciencia #microscopio #curiosidade #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, ciencia,
+         microscopio, biologia, curiosidade, banca de jornal, esperanca, periferia de sao paulo, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 10 — O Universo num Pingo d'Água 🔬
+
+    O mundo lá fora não me dava uma oportunidade.
+    Então eu criei o meu, da porta pra dentro.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já teve um hobby que segurou a sua esperança num tempo difícil?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 11.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #ciencia #microscopio #historianarrada
+  tiktok_caption: |
+    Um microscópio de plástico e um universo inteiro num pingo d'água 🔬✨
+
+    Ep. 10 — O Universo num Pingo d'Água
+
+    💬 Que hobby segurou a sua esperança num tempo difícil? Conta aqui 👇
+    Segue pra não perder o Ep. 11 🍿
+
+    #dorama #kdrama #ciencia #curiosidade #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s03
+    kicker: "CAPÍTULO 10"
+    title: "O Universo num Pingo d'Água"
+    hook: "Eu encontrei um universo inteiro dentro de um pingo d'água."
+
+  - bg: s05
+    text: |
+      As semanas passavam. A saudade da Camila ia dando lugar à rotina pesada das entregas com o meu pai.
+
+      E o telefone fixo da sala continuava mudo. Nenhuma entrevista de emprego.
+
+      _Desistir nunca foi opção. Mas a esperança dava uma desanimada feia._
+
+  - bg: s06
+    text: |
+      Até que, no meio de uma entrega, eu vi, pendurado na banca de jornal da esquina:
+
+      **Junte os selos do jornal e ganhe um kit de ciências com microscópio!**
+
+  - bg: s08
+    text: |
+      **— Leva, leva! Esses de ontem encalharam, iam tudo pro lixo mesmo.**
+
+      **— Tá aí, moleque! Pode cortar seus selinhos à vontade!**
+
+      Graças aos contatos do meu pai, os jornais encalhados viraram o meu tesouro.
+
+  - bg: s09
+    text: |
+      Cortar e colar cada selinho na cartela era como encher uma barrinha de esperança — a mesma que as preocupações da vida esvaziavam durante a semana.
+
+  - bg: s10
+    text: |
+      Quando colei o último selo e peguei aquele kit nas mãos, a alegria foi indescritível.
+
+      _Era de plástico, simples, humilde. Mas pra mim? Era um portal pra outra dimensão._
+
+      Se o mundo lá fora não me dava uma oportunidade, eu ia criar o meu, da porta pra dentro.
+
+  - bg: s11
+    text: |
+      Um pingo de água de poça... e lá dentro, um zoológico inteiro nadando.
+
+      Casca de cebola com as células enfileiradas feito tijolinhos. A asa de um inseto desenhada como um vitral.
+
+  - bg: s14
+    text: |
+      Passei a olhar para os pequenos seres com outros olhos.
+
+      _As formigas me ensinavam determinação e trabalho em equipe. As aranhas, paciência e precisão na madrugada. E as abelhas, disciplina toda santa manhã._
+
+  - bg: s17
+    text: |
+      E é claro: teve a noite da curiosidade máxima de qualquer adolescente com um microscópio no quarto. Conhecer as células do meu próprio corpo.
+
+      Os espermatozoides — aqueles girininhos dos livros de biologia — ali, vivos, nadando na minha frente.
+
+      Sabia que é a única célula do corpo humano que tem cauda e nada sozinha?
+
+  - type: end
+    bg: s20
+    big: "O telefone tocou."
+    text: |
+      Os meses foram passando, entre formigas, aranhas e lentes de plástico. E a carteira de trabalho, ainda em branco, no fundo da gaveta.
+
+      Até que, quando eu menos esperava, o telefone fixo da sala finalmente tocou.
+    cta: "CONTINUA NO CAPÍTULO 11 · Salve e siga para não perder"
+
+  - type: question
+    bg: s11
+    kicker: "E VOCÊ?"
+    title: "Que hobby segurou a sua esperança?"
+    text: |
+      Pra mim, foi um microscópio de plástico conquistado com selinhos de jornal.
+
+      _E pra você: o que te segurou num tempo difícil?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep10`
+teaser:
+  - id: t1
+    from: s18
+    zoom: 1.2
+    focus: [0.5, 0.38]
+    badge: "ALERTA DE SPOILER"
+    title: "O que será que o Davi viu **nesse microscópio?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Meio envergonhado, meio impressionado... 😳🔬
+      O que será que o Davi viu nesse microscópio?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s11
+    zoom: 1.0
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "Um universo inteiro **num pingo d'água.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Isso aqui é um pingo de água de poça 💧🔬
+      Dá pra acreditar no universo que tem lá dentro?
+
+      Deixa seu palpite: o que mais o Davi vai descobrir? 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #ciencia
+  - id: t3
+    style: poster
+    from: s03
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 10"
+    title: "O Universo num Pingo d'Água"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 10: O Universo num Pingo d'Água 🔬✨
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

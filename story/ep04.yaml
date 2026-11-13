@@ -1,0 +1,556 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): pergunta final, som imersivo, transicao nao e fala,
+# sonho->real = card: shock, personagem em cena FALA, referencia p/ todo personagem/lugar/objeto,
+# elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 4 — adaptado de scenes/scene4.txt
+#
+#  PEDIDO DO AUTOR: entra uma passagem AMOROSA (Camila), mas SEM DETALHES —
+#  o que acontece entre eles e contado a partir do Ep. 5. Aqui so: o impacto,
+#  o coracao disparado, o "oi" travado, um sorriso no corredor.
+#
+#  Estrutura:
+#    0-6s   COLD OPEN: a porta se abre na luz dourada (sem rosto)
+#    titulo
+#    CORRERIA chega da escola -> MAE: primos do interior! -> faxina relampago -> mercadinho de bike
+#    CALMARIA banho, deveres na sala, relogio tique-taque
+#    O DORAMA a porta abre, camera lenta, primos... e a CAMILA (olhos verdes de novo!)
+#    CHOQUE card: shock (a mae cutuca: "cumprimenta seus primos!")
+#    REAL   aceno travado, corredor, o sorriso dela, ele abaixa o olhar
+#    GANCHO "o que acontece quando o garoto timido convive todo dia com a garota dos olhos verdes?"
+#
+#  Continuidade: Davi SEM oculos (foto-modelo), apesar da scene4 citar oculos.
+#  Dias: "tarde" (uniforme, chegando da escola) e "noite" (depois do banho).
+# ============================================================================
+
+id: ep04
+number: 4
+title: "O Caos Antes da Chegada e o Impacto dos Olhos Verdes"
+source: scenes/scene4.txt
+
+days:
+  tarde:
+    time: "late weekday afternoon"
+    wardrobe:
+      davi: escola_uniforme
+      mae: casa
+  noite:
+    time: "early evening at home, warm yellow lamp light"
+    wardrobe:
+      davi: pos_banho
+      mae: casa
+      camila: chegada
+      primos: chegada
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN
+  - id: s01
+    day: noite
+    location: sala_casa
+    cast: []
+    look: dream
+    visual: >-
+      The front door of a small simple living room slowly swings open from
+      inside view: a soft warm golden bloom light pours in from outside, and in
+      the doorway stands the backlit silhouette of a slim girl with very long
+      flowing hair moving in the night breeze, her face hidden in the glow,
+      floating light particles, magical and mysterious.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "A door latch turning and a door slowly creaking open, quiet room", line: 0, dur: 3, db: -3}
+      - {gen: "Soft romantic grand piano melody, dreamy and magical, a few notes", word: "coração", dur: 5, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Tem gente que entra na sua vida... e muda o ar da casa inteira.", pause: 0.3}
+      - {who: narrador, text: "[Brazilian accent] [whispers] Naquela noite, a porta se abriu... [dramatic] e o meu coração nunca mais bateu do mesmo jeito.", pause: 0.15}
+
+  - id: s02
+    card: title
+    bg: s11
+    duration: 2.2
+    transition: fadeblack
+    music: real
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- A CORRERIA
+  - id: s03
+    day: tarde
+    location: sala_casa
+    cast: [davi, mae]
+    look: real
+    time: "late afternoon"
+    ambience: "Brazilian periphery house in the late afternoon, dogs barking outside, a neighbor's music playing low, pots clanging in the kitchen"
+    visual: >-
+      Medium shot in the small living room: Davi, sweaty in his school
+      uniform, has just come in and drops his heavy olive-green backpack onto
+      the old sofa; his mother rushes in from the kitchen doorway, wiping her
+      hands on a dish towel, wide-eyed and in a hurry.
+    props: [mochila]
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Iron house gate creaking open and heavy footsteps on concrete", at: 0.0, dur: 2.5, db: -3}
+      - {gen: "Heavy backpack thrown onto an old sofa, thud", word: "chegava", dur: 1.5, db: -3}
+    lines:
+      - {who: narrador, text: "[tired] Era só mais uma tarde. Eu chegava da escola suado... [sighs] pensando no telefone que não tocava.", pause: 0.2}
+      - {who: mae, text: "[Brazilian accent] [urgently] Davi! Ainda bem que você chegou! Seus primos do interior vêm passar uns dias aqui! [excited] Já tão na estrada! Arruma esse quarto e tira essa bagunça da sala, agora!", pause: 0.25}
+
+  - id: s04
+    day: tarde
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    time: "late afternoon, warm light"
+    visual: >-
+      Fast-paced close shot: Davi, still in his school uniform, hurriedly folds
+      a faded blue blanket on his narrow bed and stacks scattered school
+      notebooks, a broom leaning against the wall, motion and urgency.
+    motion: pan_right
+    transition: cut
+    sfx:
+      - {gen: "Fast comedic cleaning montage: broom sweeping, blankets flapping, books stacked, quick", line: 0, dur: 5, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [playfully] Descansar depois da escola? Luxo raro. Nem deu tempo de tirar o uniforme.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [excited] Atenção, atenção: modo faxina de emergência... ativado!", pause: 0.2}
+
+  - id: s05
+    day: tarde
+    location: cozinha_casa
+    cast: [davi, mae]
+    look: real
+    time: "late afternoon"
+    visual: >-
+      Medium shot in the small kitchen: the mother hands Davi a scribbled
+      shopping list on a piece of brown bread-bag paper (handwriting
+      unreadable) and a few crumpled banknotes, pointing at the door; pots on
+      the stove steaming behind her.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: mae, text: "[Brazilian accent] [urgently] Corre no mercadinho da esquina e traz isso aqui antes que eles cheguem! [playfully] Voando, hein!", pause: 0.2}
+
+  - id: s06
+    day: tarde
+    location: rua_periferia
+    cast: [davi]
+    props: [bicicleta]
+    look: real
+    time: "sunset, orange golden light"
+    visual: >-
+      Wide shot on the steep periphery street at sunset: Davi in his school
+      uniform pedals fast on his old rusty dark-red bicycle over the uneven
+      asphalt, two plastic grocery bags swinging from the handlebars, orange
+      sun flaring between the red-brick houses.
+    motion: pan_left
+    transition: dissolve
+    sfx:
+      - {gen: "Bicycle chain spinning fast and plastic grocery bags rustling on handlebars", line: 0, dur: 5, db: -4}
+      - {gen: "Small shop door bell chime ringing", word: "mercadinho", dur: 1.5, db: -4}
+    lines:
+      - {who: narrador, text: "[energetic] Fui e voltei voando do mercadinho. Joguei as sacolas na mesa da cozinha... [laughs] e corri direto pro chuveiro.", pause: 0.25}
+
+  # ---------------------------------------------------------------- A CALMARIA
+  - id: s07
+    day: noite
+    location: sala_casa
+    cast: [davi]
+    look: real
+    time: "night, warm yellow lamp light"
+    ambience: "Quiet living room at night, a soft wall clock ticking, a pencil scratching on paper, faint crickets outside"
+    visual: >-
+      Intimate medium shot: Davi, freshly showered in a clean navy t-shirt with
+      neatly combed damp hair, sits at the small living-room table under a warm
+      yellow lamp, completely absorbed in his homework, books and notebooks
+      open around him, peaceful.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx: [{gen: "Shower water turning off, then quiet", at: 0.0, dur: 1.5, db: -6}]
+    lines:
+      - {who: narrador, text: "[softly] De banho tomado, eu só queria terminar os deveres em paz.", pause: 0.25}
+      - {who: narrador, text: "[Brazilian accent] [thoughtful] Parentes distantes do interior, gente que a gente quase não via. [mysterious] Eu nem imaginava o que ia atravessar aquela porta.", pause: 0.3}
+
+  # ---------------------------------------------------------------- O DORAMA
+  - id: s08
+    day: noite
+    location: sala_casa
+    cast: [primos, camila]
+    look: dream
+    visual: >-
+      Slow-motion wide shot: the front door is open and a soft golden bloom
+      light frames the entrance; the four cousins walk in carrying suitcases
+      and backpacks (the 14-year-old with a duffel bag, the 12-year-old, the
+      7-year-old girl with braids, the tiny 4-year-old with a teddy bear),
+      slightly out of focus; behind them, the blonde girl steps through the
+      doorway in sharp focus, glowing.
+    motion: pan_right
+    transition: dissolve
+    music: dream
+    sfx:
+      - {gen: "Two soft knocks on a wooden door", at: 0.0, dur: 1.5, db: -2}
+      - {gen: "Emotional romantic piano and strings theme, K-drama soundtrack, slowly rising", line: 0, dur: 12, db: -5}
+    lines:
+      - {who: narrador, text: "[dreamy] Duas batidinhas na porta. E de repente... [softly] todo o barulho da casa sumiu.", pause: 0.25}
+      - {who: narrador, text: "[in awe] Os primos foram entrando com as malas... mas os meus olhos passaram direto por eles.", pause: 0.2}
+
+  - id: s09
+    day: noite
+    location: sala_casa
+    cast: [camila]
+    look: dream
+    visual: >-
+      Cinematic slow-motion close-up: the night breeze gently lifts her long
+      silky blonde hair, warm golden backlight, her fair skin glowing, and a
+      pair of deep bright emerald-green eyes looking around the simple living
+      room, then opening into a sweet luminous smile. Floating light particles.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "A soft harp glissando, romantic and magical", word: "verdes", dur: 3, db: -3}]
+    lines:
+      - {who: narrador, text: "[in awe] Cabelos loiros, longos... balançando em câmera lenta. [breathless] E uns olhos verdes...", pause: 0.3}
+      - {who: pensamento, text: "[Brazilian accent] [nervous] Não acredito... olhos verdes de novo? [panicking] Por que sempre os olhos verdes?!", pause: 0.2}
+
+  - id: s10
+    day: noite
+    location: sala_casa
+    cast: [camila]
+    look: dream
+    visual: >-
+      Medium close-up: the blonde girl stands in the middle of the simple
+      living room smiling softly, the golden bloom making her look like a movie
+      star stepping into a humble periphery home, the background soft and
+      dreamy.
+    motion: pull_out
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[dreamy] O nome dela era Camila. Dezessete anos, só um ano mais velha que eu... [softly] e parecia uma estrela de cinema que tinha acabado de descer no meio do meu bairro.", pause: 0.25}
+
+  - id: s11
+    day: noite
+    location: sala_casa
+    cast: [davi]
+    look: dream
+    visual: >-
+      Extreme close-up of Davi's face at the living-room table: his pen frozen a
+      millimeter above the notebook page, eyes wide open, lips slightly apart,
+      holding his breath, a faint blush, golden dreamy light on his face, time
+      frozen.
+    motion: push_in
+    transition: cut
+    sfx: [heartbeat]
+    lines:
+      - {who: narrador, text: "[breathless] O tempo congelou. Meu coração disparou num ritmo que eu nunca tinha sentido.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [panicking] Fala alguma coisa, Davi... [urgently] qualquer coisa!", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s12
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Glass window shattering loudly, shards falling and tinkling", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A REALIDADE
+  - id: s13
+    day: noite
+    location: sala_casa
+    cast: [davi, mae, primos]
+    look: real
+    time: "night, normal ceiling light"
+    ambience: "Crowded small living room, many people greeting and talking at once, suitcases being dragged, kids laughing, a TV on"
+    visual: >-
+      Medium shot in the crowded living room with normal flat ceiling light:
+      the mother, smiling excitedly at the visitors, pokes Davi's shoulder as
+      he sits frozen at the table; the four cousins stand around with
+      suitcases, the 12-year-old already looking at the TV.
+    motion: pan_right
+    transition: cut
+    music: real
+    lines:
+      - {who: mae, text: "[Brazilian accent] [laughing] Cumprimenta seus primos, Davi! Não fica aí parado! [urgently] Vai, mostra o quarto onde eles vão ficar!", pause: 0.2}
+      - {who: primos, text: "[Brazilian accent] [excited] E aí, primo! [laughs] Cadê o quarto? A gente tá morto da viagem!", pause: 0.25}
+
+  - id: s14
+    day: noite
+    location: sala_casa
+    cast: [davi]
+    look: real
+    time: "night, normal ceiling light"
+    visual: >-
+      Medium close-up: Davi stands up from the chair a bit clumsily, ears
+      bright red with embarrassment, giving a small shy wave with one hand,
+      eyes deliberately looking away to the side, an awkward nervous smile.
+    motion: push_in
+    transition: cut
+    sfx: [{gen: "Short comedic awkward pluck, two descending notes", word: "oi", dur: 1.5, db: -6}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [chuckles] Orelha pegando fogo. Eu era o gordinho tímido que mal conseguia dizer oi sem travar...", pause: 0.2}
+      - {who: narrador, text: "[softly] e ela parecia ter saído de outro mundo. Dentro da minha própria casa.", pause: 0.25}
+
+  - id: s15
+    day: noite
+    location: quarto_davi
+    cast: [davi, camila]
+    look: real
+    time: "night, warm hallway light"
+    visual: >-
+      Medium two-shot, ONLY these two people in the frame: at the bedroom
+      doorway in the narrow hallway, Davi holds the door open; the blonde girl,
+      passing through the door, turns her head and gives him a gentle curious
+      smile; Davi quickly lowers his gaze to the floor, holding back a nervous
+      smile. Warm soft light, empty room behind them.
+    motion: push_in
+    transition: dissolve
+    music: night
+    sfx: [{gen: "Soft romantic suspense: low warm heartbeat-like bass pulse with a gentle rising synth pad", line: 0, dur: 6, db: -6}]
+    lines:
+      - {who: camila, text: "[Brazilian accent] [softly] Oi... você é o Davi, né? [playfully] A tia fala tanto de você.", pause: 0.3}
+      - {who: pensamento, text: "[Brazilian accent] [excited] Ela sabe o meu nome... ela sabe o meu nome! [nervous] Fica calmo, Davi, fica calmo!", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s16
+    day: noite
+    location: sala_casa
+    cast: [davi]
+    look: night
+    time: "late night, only a small lamp on"
+    ambience: "Quiet house late at night, distant laughter of kids in another room, crickets outside, a wall clock ticking"
+    visual: >-
+      Davi sits alone at the living-room table late at night, the notebook
+      still open in front of him, his hand resting on his chest, a secret
+      shy smile on his face, staring at the hallway door where soft voices and
+      a warm light come from. Intimate, hopeful.
+    motion: push_in
+    transition: fadeblack
+    sfx:
+      - {gen: "Deep soft romantic suspense hit with a long warm reverb tail", word: "verdes?", dur: 4, db: -3}
+    lines:
+      - {who: narrador, text: "[softly] Ter a Camila debaixo do mesmo teto mudou o ar daquela casa. [mysterious] Eu ainda não sabia... mas os próximos dias seriam os mais emocionantes da minha adolescência.", pause: 0.25}
+      - {who: narrador, text: "[suspenseful] O que acontece quando o garoto mais tímido do bairro... [whispers] tem que conviver todo dia com a garota dos olhos verdes?", pause: 0.45}
+
+  - id: s17
+    card: question
+    bg: s15
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já ficou sem palavras na frente de alguém? [playfully] Ou é do tipo que manda logo um oi? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 4"
+    title: "O Caos Antes da Chegada"
+    subtitle: "e o Impacto dos Olhos Verdes"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Já ficou sem palavras na frente de alguém?"
+    subtitle: "Ou é do tipo que manda logo um oi? Conta nos comentários."
+    footer: "Continua no Episódio 5"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 4 — O Impacto dos Olhos Verdes 💚 #dorama #novela"
+  description: |
+    Uma faxina de emergência, uma corrida até o mercadinho... e uma visita do interior que fez o coração dele bater como nunca.
+
+    Episódio 4 da vídeo-novela: os primos chegam para passar uns dias — e, com eles, a Camila.
+
+    💬 E você? Já ficou sem palavras na frente de alguém... ou é do tipo que manda logo um oi? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 5.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroamor #olhosverdes #crush #historianarrada #doramasbrasil #audiobook #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro amor,
+         crush, prima, visita do interior, olhos verdes, timidez, periferia de sao paulo, romance, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 4 — O Caos Antes da Chegada e o Impacto dos Olhos Verdes 💚
+
+    Uma faxina de emergência, uma corrida até o mercadinho...
+    e uma visita do interior que fez meu coração disparar.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já ficou sem palavras na frente de alguém?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 5.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroamor #olhosverdes #historianarrada
+  tiktok_caption: |
+    Uma faxina de emergência, uma corrida ao mercadinho... e ela atravessou a porta. 💚
+
+    Ep. 4 — O Impacto dos Olhos Verdes
+
+    💬 E você, já ficou sem palavras na frente de alguém? Conta aqui 👇
+    Segue pra não perder o Ep. 5 🍿
+
+    #dorama #kdrama #primeiroamor #olhosverdes #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s09
+    kicker: "CAPÍTULO 4"
+    title: "O Caos Antes da Chegada e o Impacto dos Olhos Verdes"
+    hook: "Tem gente que entra na sua vida e muda o ar da casa inteira."
+
+  - bg: s03
+    text: |
+      O portão de ferro rangeu. Ao longe, latidos, uma música baixinha na janela de algum vizinho, o som das panelas na cozinha.
+
+      Eu mal tinha jogado a mochila no sofá quando veio o chamado:
+
+      **— Davi! Ainda bem que você chegou! Seus primos do interior vêm passar uns dias aqui! Já tão na estrada! Arruma esse quarto e tira essa bagunça da sala, agora!**
+
+  - bg: s04
+    text: |
+      Naquela época, descansar depois da escola era um luxo raro. Nem deu tempo de tirar o uniforme.
+
+      _Modo faxina de emergência: ativado._
+
+      Cadernos recolhidos, cobertores dobrados, vassoura na sala.
+
+  - bg: s06
+    text: |
+      **— Corre no mercadinho da esquina e traz isso aqui antes que eles cheguem!**
+
+      Uma lista rabiscada no papel de pão, umas notas amassadas, e lá fui eu, voando na minha fiel bicicleta sob a luz alaranjada do fim de tarde.
+
+  - bg: s07
+    text: |
+      De banho tomado, camiseta limpa, cabelo penteado, eu só queria terminar os deveres em paz, sob a luz amarelada da sala.
+
+      Parentes distantes do interior, gente que a gente quase não via. Eu nem imaginava o que estava prestes a atravessar aquela porta.
+
+  - bg: s08
+    text: |
+      Duas batidinhas na porta. O trinco girando. E, de repente, todo o barulho da casa sumiu.
+
+      Os primos foram entrando com as malas: Joana, Patrícia, Ricardo e Mateus. Mas os meus olhos passaram direto por eles.
+
+  - bg: s09
+    text: |
+      Cabelos loiros, longos e sedosos, balançando em câmera lenta com o vento da noite. A pele clara. E um par de olhos verdes profundos, brilhantes.
+
+      _Olhos verdes. De novo._
+
+  - bg: s10
+    text: |
+      O nome dela era **Camila**. Dezessete anos, só um ano mais velha que eu. Parecia uma estrela de cinema que tinha acabado de descer no meio do meu bairro.
+
+  - bg: s11
+    text: |
+      A caneta congelou a milímetros da folha. O tempo parou na minha sala de estar.
+
+      Meu coração disparou num ritmo que eu nunca tinha sentido antes: susto, encantamento e timidez, tudo junto. As palavras simplesmente sumiram.
+
+  - bg: s14
+    text: |
+      **— Cumprimenta seus primos, Davi! Não fica aí parado!**
+
+      Orelha pegando fogo. Um aceno desajeitado. Eu era o gordinho tímido que mal conseguia dizer "oi" sem travar, e ela parecia saída de outro mundo, dentro da minha própria casa.
+
+  - bg: s15
+    text: |
+      No corredor, ao passar pela porta do quarto, ela olhou para mim com um sorriso gentil e curioso.
+
+      **— Oi... você é o Davi, né? A tia fala tanto de você.**
+
+      Eu abaixei o olhar, segurando um sorriso nervoso.
+
+  - type: end
+    bg: s16
+    big: "Debaixo do mesmo teto."
+    text: |
+      Eu ainda não sabia, mas os próximos dias seriam os mais emocionantes da minha adolescência.
+
+      O que acontece quando o garoto mais tímido do bairro tem que conviver todo dia com a garota dos olhos verdes?
+    cta: "CONTINUA NO CAPÍTULO 5 · Salve e siga para não perder"
+
+  - type: question
+    bg: s15
+    kicker: "E VOCÊ?"
+    title: "Já ficou sem palavras na frente de alguém?"
+    text: |
+      Um "oi" travado, a orelha pegando fogo, o olhar no chão.
+
+      _Você já passou por isso... ou é do tipo que manda logo um oi?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" (divulgacao no meio da semana, antes do episodio sair)
+# `python main.py teaser ep04` -> output/ep04/teaser/ (formato em src/teaser.py)
+teaser:
+  - id: t1
+    from: s11
+    zoom: 1.0
+    focus: [0.55, 0.30]
+    badge: "ALERTA DE SPOILER"
+    title: "O que será que o Davi **acabou de ver?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      A caneta parou no ar. O mundo parou junto 😳
+      O que será que o Davi acabou de ver?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova, intrigante e sem contar a historia
+    shot:
+      day: noite
+      location: sala_casa
+      cast: [davi]
+      look: real
+      visual: >-
+        Medium close shot at night in the small living room: Davi, freshly
+        showered in a clean navy t-shirt with neatly combed damp hair, peeks
+        nervously through a gap in the floral curtain of the barred window,
+        holding his breath, the warm glow of car headlights arriving outside
+        lighting his face. His face in the upper half of the frame.
+    zoom: 1.0
+    focus: [0.5, 0.32]
+    badge: "ALERTA DE SPOILER"
+    title: "Alguém está chegando... **e o coração do Davi já sabe.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Banho tomado, cabelo penteado, espiando pela janela... 👀
+      Quem será que está chegando?
+
+      Deixa seu palpite aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3                          # cartaz do episodio (tema, sem historia)
+    style: poster
+    from: s09
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 4"
+    title: "O Caos Antes da Chegada e o Impacto dos Olhos Verdes"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 4: O Caos Antes da Chegada e o Impacto dos Olhos Verdes
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

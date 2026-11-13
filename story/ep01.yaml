@@ -1,0 +1,569 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): pergunta final ao publico,
+# som ambiente + efeitos + instrumentos em toda cena, transicao nao e fala.
+# ============================================================================
+#  EPISODIO 1 — adaptado de scenes/scene1.txt
+#
+#  Estrutura (retencao):
+#    0-6s   COLD OPEN: a frase que obriga a ficar ("47 cartas, nenhuma lida")
+#    titulo do capitulo
+#    SONHO  dorama perfeito: luz dourada, piano, coracao batendo
+#    QUEBRA flash branco + glitch + musica morre (transicao) -> "o sonho se quebrava em mil pedacos"
+#    REAL   a periferia, a revelacao ("aquele garoto... era eu")
+#    GANCHO 1h da manha, o alarme. "Continua..."
+#
+#  Vozes (config.yaml -> voices):
+#    narrador   = Davi adulto lembrando (voz de filme, 1a pessoa)
+#    pensamento = a voz de dentro da cabeca do Davi adolescente (eco, italico)
+#    clara      = Teacher Clara (fala em ingles; legenda traz a traducao)
+#
+#  Campos de cada cena:
+#    day/location/cast -> definem roupa e referencias (continuidade)
+#    visual            -> o que a imagem mostra (ingles, vai pro Gemini)
+#    motion            -> push_in | pull_out | pan_up | pan_down | pan_left | pan_right
+#    transition        -> como ENTRA nesta cena: dissolve | fadeblack | fadewhite | flash | cut
+#    music             -> troca a trilha a partir desta cena: dream | real | night | none
+#    sfx               -> efeitos: heartbeat | heels | whoosh | alarm | glitch
+#    lines             -> falas, na ordem. pause = respiro depois da fala (s)
+# ============================================================================
+
+id: ep01
+number: 1
+title: "O Garoto do Fundo da Sala e os Olhos Verdes"
+source: scenes/scene1.txt
+
+days:
+  d1:
+    time: "a weekday afternoon"
+    wardrobe:
+      davi: escola_uniforme
+      davi_sonho: uniforme_dorama
+      clara: aula_dia1
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN
+  - id: s01
+    ambience: "Empty school classroom in the late afternoon, quiet room tone, a ceiling fan humming slowly, distant street sounds and a faraway motorcycle"
+    day: d1
+    location: sala_real
+    cast: [davi]
+    look: real
+    time: "late afternoon, dim"
+    visual: >-
+      Extreme close-up under a worn school desk: Davi's chubby hands (black
+      digital wristwatch on the left wrist, white t-shirt sleeve visible)
+      nervously holding a carefully folded handwritten letter on lined
+      notebook paper, fingers slightly trembling. Shallow depth of field,
+      moody side light.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Eu escrevi quarenta e sete cartas de amor. Todas pra mesma pessoa.", pause: 0.3}
+      - {who: narrador, text: "[Brazilian accent] [sad] Ela nunca leu nenhuma.", pause: 0.25}
+      - {who: narrador, text: "[Brazilian accent] [mysterious] E essa... é a história de por quê.", pause: 0.1}
+
+  - id: s02
+    card: title
+    bg: s03
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- O SONHO
+  - id: s03
+    day: d1
+    location: sala_sonho
+    cast: []
+    look: dream
+    visual: >-
+      Wide shot of the elegant classroom with students in navy blazers seen
+      softly out of focus at their desks, golden afternoon light pouring
+      through the tall windows, dust particles floating and sparkling in the
+      sunbeams like cherry blossom petals in slow motion, cherry trees
+      outside.
+    motion: pan_down
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[dreamy] Na minha cabeça, era sempre assim.", pause: 0.25}
+      - {who: narrador, text: "[in awe] A luz da tarde na janela... e a poeira flutuando, como pétalas de cerejeira em câmera lenta.", pause: 0.2}
+
+  - id: s04
+    day: d1
+    location: sala_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Medium shot: the boy sits at the last desk in the back of the classroom
+      by the window, writing with a fountain pen on the back pages of an open
+      English notebook, absorbed and secretly in love, golden backlight
+      glowing on his hair.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[warmly] No fundo da sala, um garoto de uniforme impecável escrevia versos no caderno de inglês.", pause: 0.25}
+      - {who: narrador, text: "Cada rima... [whispers] trancada a sete chaves.", pause: 0.2}
+
+  - id: s05
+    sfx: [{"gen": "Chalk writing on a chalkboard, smooth confident strokes, quiet classroom", "line": 0, "at": 0.2, "dur": 4}]
+    day: d1
+    location: sala_sonho
+    cast: [clara]
+    look: dream
+    visual: >-
+      Medium shot from behind: the teacher stands at the dark-green
+      chalkboard writing in white chalk (the writing itself is hidden by her body and out of focus), her
+      long straight jet-black hair falling down her back over the ivory silk
+      blouse, golden light.
+    motion: pan_left
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[admiringly] Lá na frente, ela escrevia no quadro. O giz... perfeito.", pause: 0.25}
+
+  - id: s06
+    sfx: [{"gen": "A soft harp glissando, romantic and magical", "word": "olhos", "dur": 3, "db": -3}]
+    day: d1
+    location: sala_sonho
+    cast: [clara]
+    look: dream
+    visual: >-
+      Close-up: the teacher slowly turns her head over her shoulder toward
+      the camera, black hair swaying softly, her intense emerald-green eyes
+      catching the golden light, serene and luminous, gold necklace
+      glinting.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[breathless] Então ela se virava. [slowly] Bem... devagar.", pause: 0.25}
+      - {who: narrador, text: "[in awe] Cabelos negros caindo sobre os ombros... [excited] e uns olhos verdes que hipnotizavam a sala inteira!", pause: 0.25}
+
+  - id: s07
+    sfx: [{"gen": "Soft romantic grand piano melody starting gently, dreamy and magical, a few notes", "word": "piano", "dur": 5, "db": -2}]
+    day: d1
+    location: sala_sonho
+    cast: [clara]
+    look: dream
+    visual: >-
+      Soft close-up: the teacher smiles warmly toward the class, a kind and
+      gentle smile, natural rose lips, glowing bloom light around her,
+      romantic K-drama moment.
+    motion: pull_out
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[dreamy] Quando ela sorria... [laughs softly] eu juro! Um piano começava a tocar do nada.", pause: 0.35}
+
+  - id: s08
+    day: d1
+    location: sala_sonho
+    cast: [clara]
+    look: dream
+    visual: >-
+      Low-angle shot at floor level along the aisle between rows of wooden
+      desks: the teacher's black pointed-toe heels and the hem of her black
+      pencil skirt walking toward the camera, golden light on the polished
+      wood floor.
+    motion: push_in
+    transition: dissolve
+    sfx: [heels, heartbeat]
+    lines:
+      - {who: narrador, text: "[tense] Ela caminhava entre as carteiras.", pause: 0.4}
+      - {who: narrador, text: "[nervous] E o som do salto ecoava... no mesmo ritmo do meu coração.", pause: 0.35}
+
+  - id: s09
+    sfx: [{"gen": "A notebook slammed shut quickly, paper rustling", "word": "fechava", "dur": 1.5}]
+    day: d1
+    location: sala_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Close-up on the boy's desk: he quickly closes his plain navy notebook
+      (blank cover, no writing on it), hiding a carefully folded letter inside
+      it, his eyes darting up nervously, blushing.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: narrador, text: "[urgently] Ele fechava o caderno, rápido! A carta... escondida.", pause: 0.25}
+
+  - id: s10
+    day: d1
+    location: sala_sonho
+    cast: [clara, davi_sonho]
+    look: dream
+    visual: >-
+      Medium two-shot: the teacher stops right beside the boy's desk in the
+      back row and leans forward slightly with a warm encouraging teacher's
+      smile, one hand resting on the edge of the desk; the boy looks up at her,
+      frozen, with only a faint natural blush. Respectful classroom moment, golden light.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: clara, text: "[warmly] You're doing a great job, Davi. [playfully] Ready to read the next sentence for me?", tr: "Você está indo muito bem, Davi. Pronto pra ler a próxima frase pra mim?", pause: 0.4}
+
+  - id: s11
+    day: d1
+    location: sala_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Extreme close-up of the boy's face holding his breath, eyes wide behind
+      the golden haze, the world around him blurred, time frozen, dust
+      particles suspended in the air.
+    motion: push_in
+    transition: cut
+    sfx: [heartbeat]
+    lines:
+      - {who: narrador, text: "[slowly] O tempo parava. [whispers] A carta, escondida debaixo da mesa.", pause: 0.25}
+      - {who: pensamento, text: "[nervous] É agora. [urgently] Entrega. [whispers] Só entrega...", pause: 0.25}
+      - {who: narrador, text: "[sighs] Mas a voz... engasgava.", pause: 0.1}
+
+  # ---------------------------------------------------------------- O CORTE
+  - id: s12
+    day: d1
+    location: sala_real
+    cast: []
+    look: real
+    visual: >-
+      Wide shot of the crowded noisy public school classroom: teenagers in
+      white t-shirts talking loudly, some on their phones, a boy throwing a
+      paper ball, the ceiling fan spinning, metal bars on the windows, red
+      brick houses outside. Chaotic and real.
+    motion: pan_right
+    transition: flash
+    music: real
+    sfx: [glitch]
+    lines:
+      # a QUEBRA e transicao (flash + glitch + a musica troca), nao fala.
+      # motos e funk agora estao no SOM AMBIENTE (nao precisa narrar).
+      # A frase abaixo e para quem so ouve sentir a queda do sonho pra realidade.
+      - {who: narrador, text: "[Brazilian accent] [sad] Mas aí... o sonho se quebrava em mil pedaços.", pause: 0.35}
+      - {who: narrador, text: "[Brazilian accent] [sighs] Eu não estava em Seul. [bitterly] Eu estava no coração da periferia.", pause: 0.25}
+
+  - id: s13
+    sfx: [{"gen": "A single deep dramatic cello note, sad and heavy, cinematic", "word": "Era", "dur": 3, "db": -4}]
+    day: d1
+    location: sala_real
+    cast: [davi]
+    look: real
+    visual: >-
+      Close medium shot, waist up, Davi fills most of the frame: he sits at
+      the last desk in the back corner of the real classroom by the barred
+      window, shoulders hunched, hugging his notebook close to his chest,
+      looking down shyly; classmates behind him are blurred and loud.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: narrador, text: "[dramatic] E aquele garoto do uniforme impecável?", pause: 0.35}
+      - {who: narrador, text: "[deadpan] Era eu.", pause: 0.35}
+      - {who: narrador, text: "[chuckles] Gordinho. Tímido até o osso. [self-deprecating] O único da turma que ligava pra nota.", pause: 0.2}
+
+  - id: s14
+    sfx: [{"gen": "Motorcycle revving loudly and accelerating away on a street", "word": "empinavam", "dur": 3, "db": -2}]
+    day: d1
+    location: rua_periferia
+    cast: []
+    look: real
+    time: "late afternoon after school"
+    visual: >-
+      Street outside the school: teenage boys around 16 with visible arm
+      tattoos doing a wheelie on a motorcycle without a helmet while friends
+      cheer, teenage girls in school t-shirts watching them and laughing, a
+      big loudspeaker on the sidewalk. Energetic, dangerous charm.
+    motion: pan_left
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[energetic] Os garotos da minha idade tinham tatuagem antes de ter barba, empinavam moto sem capacete... e as meninas eram loucas por eles.", pause: 0.25}
+      - {who: narrador, text: "[laughs] Eu? Vivia em outro planeta.", pause: 0.2}
+
+  - id: s15
+    sfx: [{"gen": "Short hopeful rising string swell, cinematic", "word": "sair", "dur": 3, "db": -6}]
+    day: d1
+    location: sala_real
+    cast: [davi]
+    look: real
+    visual: >-
+      Davi seen from outside through the metal bars of the classroom window,
+      looking out at the street below with a quiet, melancholic and determined
+      expression, eyes lowered.
+    motion: pull_out
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[thoughtful] As meninas eram lindas. Mas eu só enxergava ali... um futuro incerto.", pause: 0.25}
+      - {who: narrador, text: "[serious] Eu não queria afundar naquela realidade.", pause: 0.25}
+      - {who: narrador, text: "[determined] Eu queria sair dela.", pause: 0.25}
+
+  - id: s16
+    sfx: [{"gen": "Pencil writing on paper, close and intimate", "line": 0, "dur": 4, "db": -4}]
+    day: d1
+    location: sala_real
+    cast: [clara, davi]
+    look: real
+    visual: >-
+      Over-the-shoulder shot from behind Davi at the back of the real
+      classroom: in sharp focus in the background, the teacher writes on the
+      old green chalkboard in front of the noisy class; Davi in the foreground,
+      seated at his desk, slightly out of focus, seen from behind and a little
+      to the side — his chubby round shoulders, soft wide back and full cheek
+      visible — gazing at her with quiet admiration, a poem notebook open in
+      front of him.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[tenderly] Meu refúgio eram as palavras. Poemas. Cartas.", pause: 0.25}
+      - {who: narrador, text: "[softly] Todas pra ela.", pause: 0.25}
+
+  - id: s17
+    ambience: "Small bedroom in a Brazilian favela in the evening, quiet room tone, distant neighborhood sounds, a dog barking far away, a motorcycle passing far away, faint TV from a neighbor"
+    sfx: [{"gen": "Old wooden drawer sliding open, papers and letters rustling", "line": 0, "dur": 2.5}]
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    time: "evening, warm lamp light"
+    visual: >-
+      Close-up from above: an old wooden drawer pulled open, filled with
+      dozens of folded handwritten letters on lined notebook paper, some tied
+      with string; Davi's chubby hand with the black digital wristwatch places
+      one more folded letter on top of the pile.
+    motion: push_in
+    transition: fadeblack
+    music: night
+    lines:
+      - {who: narrador, text: "[bitterly] Mas nenhuma saiu da minha gaveta. [sad] O medo da rejeição... e a vergonha do meu próprio corpo... me paralisavam.", pause: 0.2}
+      - {who: pensamento, text: "[sadly, whispering] Na vida real, o gordinho tímido da periferia não termina com a garota dos olhos verdes.", pause: 0.25}
+      - {who: narrador, text: "[Brazilian accent] [sighs] Era isso... um amor platônico. [softly] Absoluto.", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s18
+    sfx: [{"gen": "A wooden drawer closing softly", "word": "guardei", "dur": 1.5, "db": -2}, {"gen": "A person lying down on an old creaky single bed, springs creaking", "word": "deitei", "dur": 2}]
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    time: "dusk, last blue light from the small window"
+    visual: >-
+      Davi lies on his back on the narrow single bed, still wearing his school
+      uniform and sneakers, staring at the ceiling, exhausted and
+      dreamy, the closed drawer of letters beside the bed.
+    motion: pan_down
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[tired] Naquele dia, guardei mais uma carta na gaveta... e deitei, pedindo só umas horas de paz pra sonhar.", pause: 0.25}
+
+  - id: s19
+    ambience: "Very quiet small bedroom at 1 AM, cold night wind against a small window, crickets, a dog barking very far away, deep silence"
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    time: "1 AM, deep night"
+    visual: >-
+      Dark bedroom at night: in the foreground on the desk a cheap digital
+      alarm clock glows bright red showing 1:00, its light washing the
+      darkness; in the background Davi, still in his white school t-shirt,
+      jolts awake on the bed, startled, hair messy, cold blue moonlight
+      from the window.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx: [{name: alarm, after_line: 0}]
+    lines:
+      - {who: narrador, text: "[suspenseful] Mas o descanso durou pouco.", pause: 2.4}
+      - {who: narrador, text: "[tense] Uma da manhã. [urgently] O alarme rasgou o silêncio do quarto!", pause: 0.25}
+
+  - id: s20
+    ambience: "Very quiet small bedroom at 1 AM, cold night wind against a small window, crickets, a dog barking very far away, deep silence"
+    sfx: [{"gen": "Cold night wind gust whistling through a gap in a small window", "line": 0, "dur": 5, "db": -3}, {"gen": "Deep cinematic suspense boom hit with long reverb tail", "word": "sempre.", "dur": 4, "db": -2}]
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    time: "1 AM, cold night"
+    visual: >-
+      Davi sits on the edge of the bed in the dark, seen from the side,
+      silhouetted against the cold blue window light, his breath faintly
+      visible in the cold air, staring at the dark doorway as if something is
+      waiting for him outside. Tense, mysterious.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[mysterious] E o que me esperava do outro lado daquela madrugada gelada...", pause: 0.3}
+      - {who: narrador, text: "[dramatic] ia mudar a minha vida... pra sempre.", pause: 0.45}
+
+  - id: s21
+    # PERGUNTA FINAL (regra da serie): a voz pergunta ao publico sobre a decisao
+    # do episodio -> comentarios. A cartela mostra a pergunta + "continua".
+    card: question
+    bg: s20
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Teria entregado as cartas... [playfully] ou faria igual a mim? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+# Textos de tela / publicacao
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 1"
+    title: "O Garoto do Fundo da Sala"
+    subtitle: "e os Olhos Verdes"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Teria entregado as cartas?"
+    subtitle: "Ou faria igual a ele? Conta nos comentários."
+    footer: "Continua no Episódio 2"
+  end:
+    kicker: "CONTINUA..."
+    title: "Episódio 2"
+    subtitle: "Siga para não perder o próximo capítulo"
+
+publish:
+  title: "Ep. 1 — O Garoto do Fundo da Sala e os Olhos Verdes 💚 #dorama #novela"
+  description: |
+    Ele escreveu 47 cartas de amor. Ela nunca leu nenhuma.
+
+    Episódio 1 de uma vídeo-novela sobre primeiro amor, timidez e um garoto da periferia que sonhava com algo maior — até um alarme tocar à 1h da manhã.
+
+    💬 E você? Teria entregado as cartas... ou faria igual a ele? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 2.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroamor #amorplatonico #periferia #historianarrada #doramasbrasil #audiobook #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro amor,
+         amor platonico, crush na professora, periferia, periferia de sao paulo, historia de amor, romance, drama,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 1 — O Garoto do Fundo da Sala e os Olhos Verdes 💚
+
+    Ele escreveu 47 cartas de amor. Ela nunca leu nenhuma.
+    E à 1h da manhã... o alarme tocou.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Teria entregado as cartas... ou faria igual a ele?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 2.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroamor #amorplatonico #historianarrada
+  # TikTok (manual): vira output/epNN/tiktok.txt no publish. Curto + gancho + pergunta + 5 hashtags.
+  tiktok_caption: |
+    Ele escreveu 47 cartas de amor pra professora. Ela nunca leu nenhuma… e à 1h da manhã o alarme tocou. 💚
+
+    Ep. 1 — O Garoto do Fundo da Sala e os Olhos Verdes
+
+    💬 E você, teria entregado as cartas? Conta aqui 👇
+    Segue pra não perder o Ep. 2 🍿
+
+    #dorama #kdrama #primeiroamor #amorplatonico #historianarrada
+
+# ----------------------------------------------------------------------------
+# CARROSSEL — o capitulo escrito (Instagram, 4:5). Cada item = 1 slide.
+#   bg: imagem de fundo (id da cena). text: prosa. Use **negrito** e _italico_.
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s06
+    kicker: "CAPÍTULO 1"
+    title: "O Garoto do Fundo da Sala e os Olhos Verdes"
+    hook: "Eu escrevi 47 cartas de amor. Ela nunca leu nenhuma."
+
+  - bg: s03
+    text: |
+      Na minha cabeça, era sempre assim.
+
+      A luz da tarde atravessava a janela da sala de aula e fazia a poeira flutuar no ar, devagar, como pétalas de cerejeira em câmera lenta.
+
+  - bg: s04
+    text: |
+      No fundo da sala, um garoto de uniforme impecável segurava a caneta como quem segura um segredo.
+
+      No verso do caderno de inglês, ele traçava versos apaixonados. Cada palavra escolhida a dedo. Cada rima, trancada a sete chaves.
+
+  - bg: s06
+    text: |
+      Lá na frente, ela escrevia no quadro. Então se virava, bem devagar.
+
+      Cabelos negros e lisos caindo sobre os ombros. A pele clara. E uns olhos verdes tão intensos que hipnotizavam a sala inteira.
+
+      _Quando ela sorria, eu juro: um piano começava a tocar do nada._
+
+  - bg: s08
+    text: |
+      Ela caminhava entre as carteiras, e o som do salto ecoava no mesmo ritmo do meu coração.
+
+      Fechei o caderno rápido. A carta, dobrada com cuidado, sumiu lá dentro.
+
+      Ela parou bem ao lado da minha mesa. Debruçou-se um pouco. E disse, com a voz mais aveludada do mundo:
+
+  - bg: s10
+    text: |
+      **— You're doing a great job, Davi. Ready to read the next sentence for me?**
+
+      O tempo parou. Debaixo da mesa, a carta secreta. A coragem quase vencendo o medo.
+
+      _É agora. Entrega. Só entrega..._
+
+      Mas a voz engasgou.
+
+  - bg: s12
+    text: |
+      **Mas aí... o sonho se quebrava em mil pedaços.**
+
+      Eu não estava num colégio de elite de Seul. Eu estava no coração da periferia, onde o ronco das motos e o funk estourado na caixa de som da esquina brigavam com a voz da professora.
+
+  - bg: s13
+    text: |
+      E aquele garoto do uniforme impecável?
+
+      **Era eu.**
+
+      Gordinho. Tímido até o osso. O único da turma que ainda se importava com nota.
+
+  - bg: s14
+    text: |
+      Os garotos da minha idade tinham tatuagem antes de ter barba. Empinavam moto sem capacete e tinham aquele charme perigoso que enlouquecia as meninas da escola.
+
+      As meninas? Lindas, sim. Mas eu olhava para elas e só via um futuro incerto. Eu não queria afundar naquela realidade.
+
+      **Eu queria sair dela.**
+
+  - bg: s17
+    text: |
+      Meu refúgio eram as palavras. Poemas. Cartas cheias de sentimento. Todas para ela.
+
+      Nenhuma saiu da minha gaveta. O medo da rejeição e a vergonha do meu próprio corpo me paralisavam.
+
+      _Na vida real, o gordinho tímido da periferia não termina com a garota dos olhos verdes._
+
+  - bg: s18
+    text: |
+      Naquele dia, cheguei em casa moído. Guardei mais uma carta no fundo da gaveta e deitei, pedindo só umas horas de paz para sonhar.
+
+      Mas o descanso durou pouco.
+
+  - type: end
+    bg: s19
+    big: "1h da manhã."
+    text: |
+      O alarme do relógio rasgou o silêncio do quarto.
+
+      O que me esperava do outro lado daquela madrugada gelada?
+    cta: "CONTINUA NO CAPÍTULO 2 · Salve e siga para não perder"
+
+  - type: question
+    bg: s17
+    kicker: "E VOCÊ?"
+    title: "Teria entregado as cartas?"
+    text: |
+      Quarenta e sete cartas. Nenhuma entregue.
+
+      Medo ou prudência? _Você teria coragem... ou faria igual a ele?_
+    cta: "RESPONDA NOS COMENTÁRIOS"

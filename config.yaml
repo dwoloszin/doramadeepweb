@@ -1,0 +1,200 @@
+# ============================================================================
+#  DORAMA DA DEEP WEB — configuracao
+# ============================================================================
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  max_seconds: 179.5          # Shorts aceita ate 3 min; avisa se passar
+  grain: 7                  # granulado de filme (0 desliga)
+  vignette: true
+  lead_in: 0.25             # respiro antes da 1a fala de cada cena (s)
+  tail: 0.15                # respiro depois da ultima fala (s)
+  transition_seconds:
+    dissolve: 0.8
+    fadeblack: 0.9
+    fadewhite: 0.5
+    flash: 0.35
+    cut: 0.06
+
+# --------------------------------------------------------------------------
+# VOZ — ElevenLabs eleven_v3 (o mesmo pool de chaves do ubt-bemnamosca).
+# O roteiro dirige a atuacao com marcacoes entre colchetes, que o v3 interpreta
+# e NAO fala: [whispers] [excited] [sighs] [laughs softly] [nervous] [sad] ...
+# Reserva automatica: edge-tts (campos voice/rate/pitch), se o ElevenLabs falhar.
+# --------------------------------------------------------------------------
+tts:
+  provider: "elevenlabs"        # elevenlabs | edge
+  model: "eleven_v3"
+  # Cada fala e nivelada em level_lufs (por voz, padrao -18) antes da mixagem.
+  # silencio maximo DENTRO de uma fala (o v3 as vezes respira 1s+). 0 = nao mexe
+  max_gap: 0.4
+
+# Vozes premade (as unicas liberadas nas chaves gratuitas). Amostras para
+# comparar em output/amostras_voz/ — trocar = mudar o voice_id aqui.
+#   stability no v3: 0.0 criativo (mais emocao, menos previsivel) | 0.5 natural | 1.0 robusto
+#   tempo: acelera/desacelera depois de gerar (1.0 = como a voz falou)
+# Imagens das cenas (Gemini). batch = metade do preco; o Google promete ate 24h,
+# costuma sair em minutos. O comando espera ate batch_wait_minutes; se nao
+# terminar, rode o mesmo comando de novo depois (ele retoma). --now = na hora.
+images:
+  batch: true
+  batch_wait_minutes: 30
+
+voices:
+  narrador:                     # Davi adulto contando a historia
+    # Liam (escolha do usuario 11/11: Brian puxava sotaque ingles as vezes)
+    eleven: {voice_id: "TX3LPaxmHKxFdv7VOQHJ", name: "Liam", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.135                # o v3 narra devagar/dramatico; 1.135 = mais energia e cabe em 3 min
+    fx: ""
+    voice: "pt-BR-AntonioNeural"   # reserva edge-tts
+    rate: "+0%"
+    pitch: "-4Hz"
+    volume: "+0%"
+  pensamento:                   # a voz de dentro da cabeca do Davi adolescente
+    # stability 0.0 = modo CRIATIVO do v3 (mais emocao). Aprovado pelo ouvido do usuario em 12/11.
+    eleven: {voice_id: "TX3LPaxmHKxFdv7VOQHJ", name: "Liam", lang: "pt", stability: 0.0, similarity: 0.8, style: 0.0}
+    level_lufs: -17               # pensamento um pouco a frente
+    tempo: 1.08                 # versao "C" aprovada pelo usuario (12/11)
+    fx: "thought_light"         # quase cru: preserva emocao (o intimo/eco soaram robotizados)
+    voice: "pt-BR-AntonioNeural"
+    rate: "-4%"
+    pitch: "+6Hz"
+    volume: "+0%"
+  pai:                          # pai do Davi (estreia no Ep. 3)
+    # Bill: o Gemini ouviu as amostras e deu 10/10 de sotaque paulista, "homem maduro 45-60"
+    # (output/amostras_voz/pai_*.mp3). Eric levou 5/10 (sotaque americano): evitar.
+    eleven: {voice_id: "pqHfZKP75CvOlQylNhV4", name: "Bill", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.05
+    fx: ""
+    voice: "pt-BR-FabioNeural"
+    rate: "-4%"
+    pitch: "-6Hz"
+    volume: "+0%"
+  porteiro:                     # porteiro da fabrica (Ep. 3)
+    # Will: 10/10 no teste de sotaque. Roger levou 4/10: evitar.
+    eleven: {voice_id: "bIHbv24MWmeRgasZH58o", name: "Will", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.05
+    fx: ""
+    voice: "pt-BR-ValerioNeural"
+    rate: "+0%"
+    pitch: "-2Hz"
+    volume: "+0%"
+  # VOZES FEMININAS APROVADAS PELO USUARIO (12/11, pelo ouvido): Jessica, River, Sarah (ElevenLabs)
+  # e Aoede, Leda, Sulafat (Gemini TTS — exigiria adaptar o sistema). Alice/Bella/Laura/Matilda: NAO.
+  mae:                          # mae do Davi (Ep. 4)
+    eleven: {voice_id: "EXAVITQu4vr4xnSDxMaL", name: "Sarah", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.08
+    fx: ""
+    voice: "pt-BR-FranciscaNeural"
+    rate: "+4%"
+    pitch: "+0Hz"
+    volume: "+0%"
+  camila:                       # Camila, 17 (Ep. 4). Jessica: a mais jovem/doce da lista aprovada
+    eleven: {voice_id: "cgSgspJ2msm6clMCkdW9", name: "Jessica", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.0
+    fx: ""
+    voice: "pt-BR-ThalitaNeural"
+    rate: "-4%"
+    pitch: "+2Hz"
+    volume: "+0%"
+  primos:                       # Mateus (14) fala pelo grupo. Harry: 10/10, "jovem"
+    eleven: {voice_id: "SOYHLrjzK2X1ezoPC6cr", name: "Harry", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.08
+    fx: ""
+    voice: "pt-BR-NicolauNeural"
+    rate: "+6%"
+    pitch: "+8Hz"
+    volume: "+0%"
+  davi:                         # Davi FALANDO EM VOZ ALTA (Ep. 7+): mesma voz do narrador/pensamento,
+    # mais grave e firme ("mais HOMEM" — pedido do usuario 12/11). Legenda = estilo de dialogo.
+    eleven: {voice_id: "TX3LPaxmHKxFdv7VOQHJ", name: "Liam", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -17
+    tempo: 1.0
+    fx: "mid_dry"               # meio-termo (deep_dry ficou grosso demais)
+    voice: "pt-BR-AntonioNeural"
+    rate: "+0%"
+    pitch: "-4Hz"
+    volume: "+0%"
+  amigo_escola:                 # Bruno, 16, melhor amigo na escola (Ep. 5)
+    # Charlie: 10/10 "paulistano, adolescente" (Callum tambem 10; Chris 3, Brian 5, Adam 4 = americanos)
+    # amostras: output/amostras_voz/amigo_*.mp3
+    eleven: {voice_id: "IKne3meq5aSn9XLyUdCD", name: "Charlie", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.08
+    fx: ""
+    voice: "pt-BR-JulioNeural"
+    rate: "+6%"
+    pitch: "+4Hz"
+    volume: "+0%"
+  tia:                          # tia do interior, mae da Camila (Ep. 9). River: aprovada pelo usuario
+    eleven: {voice_id: "SAz9YHcvj6GT2YYXdXww", name: "River", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.06
+    fx: ""
+    voice: "pt-BR-FranciscaNeural"
+    rate: "+4%"
+    pitch: "-2Hz"
+    volume: "+0%"
+  jornaleiro:                   # Seu Joaquim, jornaleiro (Ep. 10). George: 10/10 "nativo" no teste do Gemini
+    eleven: {voice_id: "JBFqnCBsd6RMkjVDRZzb", name: "George", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.05
+    fx: ""
+    voice: "pt-BR-FabioNeural"
+    rate: "+0%"
+    pitch: "-4Hz"
+    volume: "+0%"
+  clara:                        # Teacher Clara (fala em ingles)
+    eleven: {voice_id: "pFZP5JQG7iQjIQuC4Bku", name: "Lily", lang: "en", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.0
+    fx: ""
+    voice: "en-US-AvaNeural"
+    rate: "-12%"
+    pitch: "-2Hz"
+    volume: "+0%"
+
+# Trilhas: cada cena pode trocar com `music:` no episodio.
+music:
+  volume: 0.16
+  duck: true                # abaixa a musica quando alguem fala
+  tracks:
+    dream: {file: "assets/music/bed_calm_piano.mp3", volume: 1.0, filter: ""}
+    # "o funk estourado na caixa de som da esquina": batida abafada, vinda de fora
+    real:  {file: "assets/music/bed_modern_pop.mp3", volume: 0.9, filter: "lowpass=f=420,volume=1.6"}
+    night: {file: "assets/music/bed_calm_piano.mp3", volume: 0.7, filter: "lowpass=f=1800,aecho=0.8:0.7:120:0.35,atempo=0.85"}
+  loudness_lufs: -14
+
+subtitles:
+  font: "Poppins SemiBold"          # narracao
+  thought_font: "Lora Italic"       # pensamento
+  dialogue_font: "Cormorant SemiBold Italic"  # fala de personagem
+  size: 80                          # px (em 1920 de altura)
+  highlight: "&H0070D7FF"           # palavra falada (dourado) — ASS BGR
+  thought_color: "&H00F5D8E6"       # lilas claro
+  margin_v: 470                     # acima da interface do Shorts/Reels
+  max_chars: 22                     # por linha (2 linhas no maximo)
+
+youtube:
+  enabled: true             # liga so depois da aprovacao dos episodios
+  account: "doramadadeepweb@gmail.com"
+  channel_id: "UCqk0O7ZQcr5kXgrt2-7VHpQ"   # @doramadadeepweb — publish recusa canal diferente
+  privacy: "private"        # usado so se schedule estiver vazio
+  # SEMPRE agendado (pedido do usuario): proximo horario livre, fuso de Brasilia
+  schedule: ["12:00", "18:00"]
+  timezone: "America/Sao_Paulo"
+  min_lead_minutes: 30      # folga minima entre o envio e a estreia
+  category_id: "24"         # Entertainment
+  synthetic_media: true     # imagens de IA -> obrigatorio marcar
+
+instagram:
+  enabled: true
+  username: "doramadadeepweb"   # publish recusa se o token for de outro perfil

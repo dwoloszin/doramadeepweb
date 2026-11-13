@@ -1,0 +1,636 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 9 — adaptado de scenes/scene9.txt  (sabado, a manha seguinte ao Ep. 8)
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: acorda num quarto dourado, quase 10h -> corre pelo corredor ->
+#              a mao dela no ombro -> o quintal florido -> "eu vou ficar mais tempo" -> quase beijo
+#    titulo
+#    CHOQUE    card: shock (batidas na porta) -> a mae: "ja sao nove horas! sua tia chegou"
+#    REAL      agua fria no rosto -> a tia na sala ("que menino lindo!") -> ela nao esta ali
+#    O ADEUS   no portao: abraco coletivo dos primos -> ela na calcada, ao lado das malas ->
+#              olhos nos olhos -> vao embora, sem o ultimo abraco
+#    O VAZIO   o fim de semana no quarto: coracoes no caderno -> a rotina volta (entregas)
+#    GANCHO    semanas depois, no centro: um brilho na vitrine da banca de jornal
+#
+#  Voz: pensamento grave (override do Ep. 7, thought_mid). Davi fala = voices.davi.
+#  Personagem NOVA: tia (irma do pai, mae da Camila) — voz River (aprovada), ref em bible.
+#  Lugar novo: banca_jornal. O sonho abre o episodio (regra 0: abertura magica).
+#  Continuidade: Davi acorda com a roupa de dormir do Ep. 8 e vai assim mesmo pra sala;
+#  Camila e os primos de roupa de viagem (a mesma da chegada, Ep. 4).
+#  O gancho NAO mostra o microscopio (Ep. 10): so o brilho colorido e a cara do Davi.
+# ============================================================================
+
+id: ep09
+number: 9
+title: "O Sonho das Dez Horas, o Adeus na Calçada e os Corações no Caderno"
+source: scenes/scene9.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "morning, magical warm golden sunlight"
+    wardrobe:
+      davi: dormir
+      camila: vestido_sonho
+  sabado:
+    time: "Saturday 9 AM, flat ordinary morning light"
+    wardrobe:
+      davi: dormir
+      mae: casa
+      tia: viagem
+      camila: chegada
+      primos: chegada
+  fimdesemana:
+    time: "Sunday afternoon, grey melancholic light through the curtain"
+    wardrobe:
+      davi: pos_banho
+  semanas:
+    time: "weekday morning, bright sun between the buildings"
+    wardrobe:
+      davi: madrugada_trabalho
+      pai: trabalho_ceasa
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (abertura magica)
+  - id: s01
+    day: sonho
+    location: quarto_davi
+    cast: [davi]
+    look: dream
+    visual: >-
+      Enchanted fairy-tale slow-motion shot in Davi's small bedroom
+      transformed by magic: thick beams of glowing golden sunlight pour
+      through the window like liquid gold, the whole room shimmering, a swirl
+      of sparkling golden particles and tiny glowing petals floating in the
+      air, strong dreamy bloom and pastel haze, not realistic: Davi sits up
+      abruptly in his narrow bed in his old grey t-shirt, eyes wide, staring
+      at the cheap digital alarm clock on the desk; glowing dust particles
+      floating like tiny stars, soft bloom, everything polished like a
+      memory. Only Davi in the frame.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Soft birdsong with a sweet slow harp and piano melody, magical and dreamy", line: 0, dur: 10, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Acordei com o sol dourado entrando pela janela... [surprised] e o relógio marcando quase dez horas!", pause: 0.2}
+
+  - id: s02
+    card: title
+    bg: s05
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: sonho
+    location: corredor_casa
+    cast: [davi]
+    look: dream
+    visual: >-
+      Dreamy slow-motion shot in the narrow pale-yellow hallway glowing with
+      golden light: Davi in his old grey t-shirt and shorts runs barefoot
+      toward the camera, hair messy, a hopeful desperate look, golden dust
+      particles swirling around him. Only Davi in the frame.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Bare feet running on a ceramic floor in slow motion, a heartbeat, soft whoosh", line: 0, dur: 4, db: -8}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [urgently] Hoje era o dia. Ela ia embora... [firmly] e eu tinha perdido a hora!", pause: 0.2}
+
+  - id: s04
+    day: sonho
+    location: cozinha_casa
+    cast: [davi, camila]
+    look: dream
+    visual: >-
+      Magical medium shot in the silent kitchen bathed in golden morning sun,
+      ONLY these two people: Davi turns around surprised as a soft delicate
+      hand rests on his shoulder; behind him the blonde girl in a flowing
+      white sundress smiles radiantly, sunbeams in her long hair, floating
+      sparkles, dreamy bloom.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A soft sparkling harp glissando, tender and magical", line: 0, dur: 3, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [tenderly] Bom dia, dorminhoco... [softly] vem comigo, eu quero te contar uma coisa.", pause: 0.25}
+
+  - id: s05
+    day: sonho
+    location: quintal_casa
+    cast: [davi, camila]
+    look: dream
+    time: "daytime, bright golden MORNING sunlight, blue sky"
+    visual: >-
+      Romantic K-drama shot in the small front yard in bright golden MORNING
+      daylight, transformed into a garden full of blooming flowers in every
+      pot, petals floating in the air, ONLY these two people: the blonde girl
+      in her white sundress holds Davi in a tight warm hug and looks up into
+      his eyes with a sweet smile; Davi in his old grey t-shirt looks at her
+      in disbelief, happy; sunlight and bloom.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Romantic slow piano and soft strings swelling, magical morning birdsong", line: 0, dur: 12, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [tenderly] Eu conversei com a minha mãe, Davi... [softly] eu vou ficar mais tempo aqui. Com você.", pause: 0.3}
+
+  - id: s06
+    day: sonho
+    location: quintal_casa
+    cast: [davi, camila]
+    look: dream
+    time: "daytime, bright golden MORNING sunlight"
+    visual: >-
+      Extreme romantic close-up in golden morning light, ONLY these two
+      people: Davi and the blonde girl, both with eyes closed, slowly lean
+      toward each other for a kiss, their faces almost touching, petals and
+      golden sparkles floating between them, strong dreamy bloom.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [tenderly] Ela ia ficar... [softly] e o mundo inteiro cabia naquele quintal.", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s07
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Loud fast knocking on a wooden bedroom door, urgent", at: 0.0, dur: 1.5, db: 2}
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.2, dur: 1.2, db: 0}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- NOVE HORAS
+  - id: s08
+    day: sabado
+    location: quarto_davi
+    cast: [davi, mae]
+    look: real
+    ambience: "Bedroom in the morning, a door thrown open, voices and suitcases in the house, a car idling outside"
+    visual: >-
+      Medium shot in Davi's dim small bedroom in flat ordinary morning light:
+      Davi, startled awake, half sits up in his narrow bed in his old grey
+      t-shirt, hair a mess, eyes squinting; his mother has thrown the bedroom
+      door open and leans in from the doorway, urgent, one hand on the door.
+    motion: push_in
+    transition: cut
+    music: real
+    lines:
+      - {who: mae, text: "[Brazilian accent] [urgently] Davi! Acorda, menino! Já são nove horas! [hurriedly] Sua tia chegou pra buscar seus primos, e eles já tão com as malas prontas!", pause: 0.2}
+      - {who: narrador, text: "[Brazilian accent] [sighs] Eu tinha perdido a hora... [softly] de tanto ficar acordado lembrando daquele beijo.", pause: 0.2}
+
+  - id: s09
+    day: sabado
+    location: banheiro_casa
+    cast: [davi]
+    look: real
+    visual: >-
+      Fast medium close shot in the tiny bathroom in flat morning light: Davi
+      in his old grey t-shirt splashes cold water on his face over the small
+      white sink, water droplets flying, then rakes his messy hair with wet
+      hands, looking at himself in the oval mirror, anxious. Only Davi.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Tap running and cold water splashing on a face, quick and hurried", at: 0.0, dur: 3, db: -4}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [sadly] Era só um sonho. [firmly] Na vida real, eram nove da manhã... e a despedida já tinha chegado.", pause: 0.2}
+
+  - id: s10
+    day: sabado
+    location: sala_casa
+    cast: [davi, tia, mae]
+    look: real
+    ambience: "Small living room in the morning, women chatting, suitcases being zipped, a car idling outside"
+    visual: >-
+      Medium wide shot in the small living room: next to a pile of packed
+      suitcases and bags by the front door, the aunt chats with Davi's mother;
+      the aunt turns to Davi, who has just come in from the hallway in his
+      old grey t-shirt and shorts with wet combed hair, and opens her arms
+      with a big admiring smile; Davi scratches the back of his neck,
+      embarrassed.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: tia, text: "[Brazilian accent] [warmly] Nossa, Davi! Que menino lindo você ficou! [laughs] Cresceu bastante, hein!", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [shyly] Obrigado, tia... [awkwardly] obrigado mesmo.", pause: 0.2}
+
+  - id: s11
+    day: sabado
+    location: sala_casa
+    cast: [davi]
+    look: real
+    visual: >-
+      Medium close shot in the living room: Davi in his old grey t-shirt
+      stands still, eyes searching anxiously around the room, past the
+      suitcases toward the open front door, a quiet sinking feeling on his
+      face. Only Davi in focus.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Fiquei sem graça... mas meus olhos só procuravam uma pessoa naquela sala. [sadly] E ela não estava ali.", pause: 0.2}
+
+  # ---------------------------------------------------------------- O ADEUS SEM ULTIMO ABRACO
+  - id: s12
+    day: sabado
+    location: casa_davi
+    cast: [davi, tia]
+    look: real
+    ambience: "Periphery street on a Saturday morning, suitcase wheels rolling on concrete, distant buses on an avenue, a dog barking"
+    visual: >-
+      Medium shot at the grey metal gate of the red-brick house in morning
+      light: the aunt pulls a rolling suitcase out to the sidewalk, looking
+      back with a grateful smile; behind her, Davi stretches his neck to look
+      down the sidewalk, searching for someone.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "Suitcase wheels rolling on a rough concrete sidewalk", at: 0.0, dur: 3, db: -5}
+    lines:
+      - {who: tia, text: "[Brazilian accent] [warmly] Muito obrigada por tudo, viu? [hurriedly] Mas a gente tem que correr, senão perde o ônibus na rodoviária!", pause: 0.2}
+
+  - id: s13
+    day: sabado
+    location: casa_davi
+    cast: [davi, primos]
+    look: real
+    visual: >-
+      Joyful noisy medium shot on the sidewalk in front of the red-brick
+      house: the four cousins in their travel clothes rush at Davi together
+      and wrap him in a tight group hug, the little girl with the teddy bear
+      clinging to his leg, the boys laughing; Davi in his old grey t-shirt
+      smiles, hugging them all.
+    motion: pull_out
+    transition: cut
+    lines:
+      - {who: primos, text: "[Brazilian accent] [excited] Tchau, Davi! [laughing] Valeu por tudo, primo! A gente volta, hein!", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [warmly] Tchau, pessoal! Juízo, hein... [softly] e voltem logo.", pause: 0.2}
+
+  - id: s14
+    day: sabado
+    location: casa_davi
+    cast: [davi, camila]
+    look: real
+    visual: >-
+      Shallow depth of field shot over Davi's blurred shoulder and the back of
+      his head in the foreground (old grey t-shirt, short dark-brown hair, seen
+      from behind, face not visible): further down the sidewalk, in sharp focus,
+      the blonde girl in her light-blue denim jacket stands alone beside the
+      suitcases, hands together, watching in silence with a sad soft smile.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A slow melancholic solo cello note, sad and tender", line: 0, dur: 14, db: -5}
+    lines:
+      - {who: narrador, text: "[softly] E lá na calçada, do lado das malas... [sadly] ela me olhava em silêncio.", pause: 0.3}
+
+  - id: s15
+    day: sabado
+    location: casa_davi
+    cast: [camila]
+    look: real
+    visual: >-
+      Extreme close-up of the blonde girl's face in soft morning light, her
+      emerald-green eyes glossy with held-back tears, looking straight ahead
+      at someone far away, a long silent look; the street softly blurred.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] Naquela troca de olhares à distância... nós dois já sabíamos a verdade.", pause: 0.2}
+
+  - id: s16
+    day: sabado
+    location: casa_davi
+    cast: [davi]
+    look: real
+    visual: >-
+      Extreme close-up of Davi's face (16 years old, chubby round young face,
+      exactly as in the reference), his brown eyes glossy and fixed on
+      someone far away, a long silent heartbroken look, jaw tight; the street
+      softly blurred behind.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [sadly] Aquela seria a última vez que a gente ia se ver.", pause: 0.3}
+
+  - id: s17
+    day: sabado
+    location: casa_davi
+    cast: [davi, camila, tia, primos]
+    look: real
+    visual: >-
+      Wide melancholic shot down the steep periphery street: in the
+      background the aunt, the four cousins and the blonde girl walk away
+      pulling their suitcases toward the avenue; the blonde girl turns her
+      head to look back one last time; in the foreground, at the grey metal
+      gate, Davi stands still with one hand on the bars, watching them go.
+    motion: pull_out
+    transition: dissolve
+    sfx:
+      - {gen: "Suitcase wheels fading away down a street, distant bus engine", at: 0.0, dur: 5, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [sadly] Abracei cada um dos meus primos... mas o horário do ônibus apertou. [softly] E o último abraço com a Camila nunca aconteceu.", pause: 0.4}
+
+  # ---------------------------------------------------------------- OS CORACOES NO CADERNO
+  - id: s18
+    day: fimdesemana
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    ambience: "Silent empty bedroom on a Sunday, a clock ticking, distant neighborhood sounds, a faint radio far away"
+    visual: >-
+      Melancholic top-down close-up, camera looking straight down at the small
+      wooden desk in grey Sunday light: a spiral school notebook lies FLAT and
+      open on the desk; in the margin of the page, dozens of small hand-drawn
+      hearts in blue ballpoint pen fill the paper among faint blurred scribbles
+      (no readable words); Davi's chubby hand with the black digital wristwatch
+      rests on the page drawing one more heart. Only the desk, the notebook and
+      the hand in the frame; no books with text, no face.
+    motion: push_in
+    transition: fadeblack
+    sfx:
+      - {gen: "A metal gate closing with a heavy echoing clang, then silence", at: 0.0, dur: 3, db: -4}
+      - {gen: "A ballpoint pen scribbling slowly on paper", line: 0, dur: 4, db: -10}
+      - {gen: "Slow sad solo piano, lonely and tender", line: 0, dur: 14, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [sadly] A tristeza tomou conta de mim de um jeito que eu nunca tinha sentido. [softly] Fingia estudar pra prova de segunda... mas no caderno, só tinha corações. E o nome dela.", pause: 0.3}
+
+  - id: s19
+    day: semanas
+    location: entreposto
+    cast: [davi, pai]
+    look: real
+    time: "early morning, harsh mixed light"
+    visual: >-
+      Medium shot in the busy produce market at early morning: Davi in his
+      grey hoodie, focused and serious again, carries a heavy wooden crate of
+      oranges next to his father, who pats his back; workers and carts in
+      the background, life moving on.
+    motion: pan_right
+    transition: dissolve
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Foram dias difíceis. Mas o tempo não espera ninguém... [warmly] e a rotina foi devolvendo o chão debaixo dos meus pés.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] Voltei pros caixotes, pra escola, pras madrugadas com o meu pai... [sadly] mas um pedaço de mim ainda olhava pro portão.", pause: 0.2}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s20
+    day: semanas
+    location: banca_jornal
+    cast: [davi]
+    look: real
+    visual: >-
+      Medium close shot on a busy downtown São Paulo corner in bright morning
+      sun, Davi seen in three-quarter profile: in his grey hoodie, carrying a
+      plain closed brown cardboard box under one arm, he has stopped dead and
+      turned toward the glass display window of the open green newsstand at
+      the left edge of the frame, his eyes wide with wonder and a genuine smile returning to his face, his face lit
+      by a colorful magical glow reflected from the newsstand's glass display
+      window (the object itself out of frame); hurried people blurred behind.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A magical curious hopeful chord with twinkling chimes, like a discovery", line: 0, dur: 8, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Semanas depois, a saudade ainda apertava... [mysterious] quando um brilho na vitrine de uma banca de jornal me fez parar no meio da calçada.", pause: 0.2}
+      - {who: narrador, text: "[suspenseful] O que será que chamou tanto a atenção daquele garoto?", pause: 0.45}
+
+  - id: s21
+    card: question
+    bg: s17
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já teve uma despedida sem o último abraço? [softly] Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 9"
+    title: "O Adeus na Calçada"
+    subtitle: "o Sonho das Dez Horas e os Corações no Caderno"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Já teve um adeus sem o último abraço?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 10"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 9 — O Adeus Sem o Último Abraço 💔 #dorama #novela"
+  description: |
+    Um sonho dourado, um despertador que não tocou... e uma despedida na calçada sem o último abraço.
+
+    Episódio 9 da vídeo-novela: depois do primeiro beijo, chega o sábado da despedida. E o garoto da periferia descobre como dói o silêncio de um quarto vazio.
+
+    💬 E você? Já teve uma despedida sem o último abraço? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 10.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroamor #despedida #saudade #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro amor,
+         despedida, saudade, coracao partido, olhos verdes, periferia de sao paulo, romance, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 9 — O Sonho das Dez Horas, o Adeus na Calçada e os Corações no Caderno 💔
+
+    No sonho, ela ficava.
+    Na vida real, eram nove da manhã... e as malas já estavam prontas.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já teve uma despedida sem o último abraço?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 10.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroamor #despedida #historianarrada
+  tiktok_caption: |
+    No sonho ela ficava... na vida real, eu perdi a hora. 💔
+
+    Ep. 9 — O Adeus na Calçada
+
+    💬 Já teve uma despedida sem o último abraço? Conta aqui 👇
+    Segue pra não perder o Ep. 10 🍿
+
+    #dorama #kdrama #primeiroamor #despedida #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s05
+    kicker: "CAPÍTULO 9"
+    title: "O Adeus na Calçada"
+    hook: "No sonho, ela ficava."
+
+  - bg: s04
+    text: |
+      Acordei com o sol dourado entrando pela janela e o relógio marcando quase dez horas.
+
+      Corri pelo corredor com o coração na boca. A cozinha estava em silêncio... até que uma mão macia tocou o meu ombro.
+
+      **— Bom dia, dorminhoco... vem comigo, eu quero te contar uma coisa.**
+
+  - bg: s05
+    text: |
+      Ela me levou pela mão até o quintal florido, me abraçou apertado e olhou nos meus olhos.
+
+      **— Eu conversei com a minha mãe, Davi... eu vou ficar mais tempo aqui. Com você.**
+
+      _Ela ia ficar. E o mundo inteiro cabia naquele quintal._
+
+  - bg: s08
+    text: |
+      **— Davi! Acorda, menino! Já são nove horas! Sua tia chegou pra buscar seus primos, e eles já tão com as malas prontas!**
+
+      Era só um sonho.
+
+      Eu tinha perdido a hora, acordado até tarde lembrando do beijo da noite anterior.
+
+  - bg: s10
+    text: |
+      Água fria no rosto, cabelo ajeitado com as mãos, e corri para a sala.
+
+      **— Nossa, Davi! Que menino lindo você ficou! Cresceu bastante, hein!**
+
+      **— Obrigado, tia...**
+
+      Mas meus olhos só procuravam uma pessoa. E ela não estava ali.
+
+  - bg: s13
+    text: |
+      **— Muito obrigada por tudo, viu? Mas a gente tem que correr, senão perde o ônibus na rodoviária!**
+
+      No portão, os primos me cercaram num abraço apertado e barulhento.
+
+      **— Tchau, Davi! Valeu por tudo, primo!**
+
+  - bg: s15
+    text: |
+      E lá na calçada, ao lado das malas, ela me olhava em silêncio.
+
+      _Naquela troca de olhares à distância, nós dois já sabíamos a verdade: aquela seria a última vez que a gente ia se ver._
+
+  - bg: s17
+    text: |
+      O horário do ônibus apertou.
+
+      Ela olhou para trás uma última vez... e o último abraço com a Camila nunca aconteceu.
+
+  - bg: s18
+    text: |
+      A tristeza tomou conta de mim de um jeito que eu nunca tinha sentido.
+
+      Passei o fim de semana trancado no quarto, fingindo estudar para a prova de segunda. Mas no caderno, em vez de fórmulas, só tinha corações. E o nome dela.
+
+  - bg: s19
+    text: |
+      Foram dias difíceis.
+
+      Mas o tempo não espera ninguém. A tristeza foi dando espaço para a rotina, para as entregas com o meu pai... e eu fui voltando ao normal.
+
+  - type: end
+    bg: s20
+    big: "Um brilho na esquina."
+    text: |
+      Semanas depois, no meio do centro de São Paulo, alguma coisa colorida brilhou na vitrine de uma banca de jornal.
+
+      O que será que chamou tanto a atenção daquele garoto?
+    cta: "CONTINUA NO CAPÍTULO 10 · Salve e siga para não perder"
+
+  - type: question
+    bg: s17
+    kicker: "E VOCÊ?"
+    title: "Já teve um adeus sem o último abraço?"
+    text: |
+      Ela foi embora e o último abraço nunca aconteceu.
+
+      _E você? Já viveu uma despedida assim?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep09`
+teaser:
+  - id: t1
+    from: s16
+    zoom: 1.0
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "Por que será que o Davi está com **esse olhar?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Esse olhar diz tudo... ou não diz nada? 🥺
+      O que será que o Davi está vendo lá longe?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova: as malas prontas no portao
+    shot:
+      day: sabado
+      location: casa_davi
+      cast: []
+      look: real
+      visual: >-
+        Melancholic close shot in soft morning light, nobody in the frame:
+        a few packed travel suitcases and a worn brown teddy bear sitting on
+        top of them, lined up on the cracked sidewalk next to the grey metal
+        gate of the red-brick house, waiting. The suitcases in the upper
+        half of the frame.
+    zoom: 1.25
+    focus: [0.5, 0.66]
+    badge: "ALERTA DE SPOILER"
+    title: "Malas prontas no portão... **e agora, Davi?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Malas prontas no portão... 🧳💔
+      E agora, Davi?
+
+      Deixa seu palpite aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s05
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 9"
+    title: "O Sonho das Dez Horas, o Adeus na Calçada e os Corações no Caderno"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 9: O Sonho das Dez Horas, o Adeus na Calçada e os Corações no Caderno
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

@@ -1,0 +1,10 @@
+{
+  "fp": "d0fd37dcaf2d459f",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "The reference image(s) are scenes already shown to the audience: recreate EXACTLY the same place (same architecture, materials, colors, objects, wear), now empty. Establishing shot of an empty location, no people. Front of Davi's family house in the São Paulo periphery: a small one-story house of unplastered red bricks with grey mortar, a tall grey metal gate with vertical bars next to the front door, a window with metal security bars, a corrugated fiber-cement roof edge, a cracked narrow concrete sidewalk, on a steep street of stacked red-brick houses with tangled electric wires and poles. Gritty realistic Brazilian urban periphery look: harsh flat afternoon light, slightly desaturated colors with warm-green tint, worn surfaces, documentary realism, honest and a bit heavy. Photorealistic cinematic film still, shot on 35mm anamorphic lens, natural skin texture, subtle film grain, shallow depth of field, professional color grading, emotionally expressive faces, vertical 9:16 composition with the main subject in the upper two thirds of the frame. Absolutely no text, no letters, no captions, no subtitles, no logos, no watermarks.",
+  "refs": [
+    "s18.png",
+    "s16.png"
+  ],
+  "locked": true
+}

@@ -1,0 +1,674 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 8 — adaptado de scenes/scene8.txt  (sexta a noite, mesmo dia do Ep. 7)
+#
+#  Estrutura:
+#    0-7s   COLD OPEN MAGICO: um olho verde com uma galaxia girando dentro
+#    titulo
+#    REAL      a Kombi volta da oficina -> o pai da o dinheiro das 3 pizzas
+#    NOSTALGIA o video cassete + a locadora / internet discada (quebra bem-humorada)
+#    O PORTAO  os primos levam as pizzas -> ela fica no fundo do quintal, sob o poste
+#    O DORAMA  "amanha a gente vai embora" -> o universo nos olhos verdes (piano)
+#    CHOQUE    card: shock -> os primos gritando da janela
+#    O BEIJO   "Ja estamos indo!" -> ela beija o Davi -> estatua -> corresponde -> o BV
+#    A NOITE   a mesa (a mae desconfia) -> o filme no video cassete -> sorriso no travesseiro
+#    GANCHO    o sabado chegando pela janela: a despedida
+#
+#  Voz: pensamento grave (override do Ep. 7, thought_mid). Davi fala em voz alta = voices.davi.
+#  Continuidade: mesmo dia do Ep. 7 -> Davi ainda de uniforme, Camila de vestido floral,
+#  pai de regata. Os primos dormem no quarto do Davi (colchoes) -> s18 so close no Davi.
+#  Davi NAO usa oculos (o txt fala em "lentes dos oculos": ignorado de proposito).
+#  Novos: quintal_casa, locadora (lugares); pizzas, videocassete (objetos); davi.dormir (roupa).
+# ============================================================================
+
+id: ep08
+number: 8
+title: "O Vídeo Cassete, as Três Pizzas e o Universo nos Olhos Verdes"
+source: scenes/scene8.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  noite:
+    time: "Friday night around 8 PM, warm yellow-orange street lamp light, deep blue night sky"
+    wardrobe:
+      davi: escola_uniforme
+      pai: casa
+      mae: casa
+      camila: vestido_floral
+      primos: brincando
+  madrugada:
+    time: "late at night, dark bedroom, faint bluish moonlight through the curtain"
+    wardrobe:
+      davi: dormir
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN (magico)
+  - id: s01
+    day: noite
+    location: quintal_casa
+    cast: [camila]
+    look: dream
+    visual: >-
+      Enchanted extreme macro photograph that is ONLY one human eye filling
+      the whole frame edge to edge (no background, no street, no gate, no
+      face shape visible): the iris is a vivid bright EMERALD-GREEN, and
+      inside that green iris a whole glowing spiral galaxy swirls, green and
+      gold nebulas,
+      tiny stars twinkling, a shooting star crossing the pupil; a soft warm
+      street-lamp glint on the eye, sparkling golden particles floating in
+      front of it, strong dreamy bloom. Magical, cosmic, not realistic.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Magical cosmic shimmer, soft celestial choir pad with twinkling chimes, like stars glittering", line: 0, dur: 7, db: -4}
+      - {gen: "A single soft deep heartbeat thump", at: 0.3, dur: 1.5, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Dizem que o universo inteiro cabe num par de olhos... [dreamy] eu descobri que é verdade numa sexta à noite, no portão de casa.", pause: 0.3}
+
+  - id: s02
+    card: title
+    bg: s15
+    duration: 2.2
+    transition: fadeblack
+    music: real
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- A TRADICAO DE SEXTA
+  - id: s03
+    day: noite
+    location: casa_davi
+    cast: [davi, pai]
+    props: [kombi]
+    look: real
+    time: "Friday night, warm yellow street lamp light"
+    ambience: "Quiet periphery street on a Friday night, crickets, distant dog barking, a motorcycle far away"
+    visual: >-
+      Medium shot at night on the steep street in front of the red-brick house,
+      under a warm yellow street lamp: the old white Kombi just parked at the
+      curb behind them; the father, standing next to Davi on the sidewalk,
+      puts a few folded banknotes in Davi's hand with one hand and pats his
+      shoulder with the other, smiling, pointing down the street with his
+      chin; Davi in his school uniform smiles back.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Old Volkswagen van engine arriving and parking, engine switching off, door slamming", at: 0.0, dur: 4, db: -4}
+    lines:
+      - {who: pai, text: "[Brazilian accent] [warmly] Toma, filho. Passa na pizzaria e traz três pizzas. [playfully] Sexta-feira é sexta-feira!", pause: 0.2}
+      - {who: narrador, text: "[Brazilian accent] [warmly] Lá em casa, sexta tinha tradição: pizza... [nostalgic] e filme no nosso vídeo cassete velho.", pause: 0.2}
+
+  # ---------------------------------------------------------------- NOSTALGIA (o video cassete)
+  - id: s04
+    day: noite
+    location: sala_casa
+    cast: []
+    props: [videocassete]
+    look: real
+    time: "night, the bluish glow of a TV screen in a dark room"
+    ambience: "Quiet living room at night, a ceiling fan humming, a VHS tape mechanism clicking"
+    visual: >-
+      Nostalgic retro close-up, no people and no hands in the frame, only the
+      object: a black VHS tape halfway pushed into the front slot of an old
+      VCR that sits under a small CRT tube television glowing with bluish
+      static snow; warm lamp light on one side, cozy 1990s Brazilian living
+      room blurred behind.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A VHS tape being inserted into a VCR, mechanical clunk and motor whirring, then tape rewinding", at: 0.0, dur: 4, db: -3}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amused] Aliás... você sabe o que é um vídeo cassete?", pause: 0.2}
+
+  - id: s05
+    day: noite
+    location: locadora
+    cast: []
+    look: real
+    time: "evening, fluorescent light"
+    visual: >-
+      Nostalgic 1990s photograph, nobody in the frame: inside a small
+      neighborhood video rental store, tall wooden shelves packed with rows
+      of VHS tape boxes with colorful blurred covers; on the counter in the
+      foreground, an old beige desktop computer with a bulky CRT monitor and
+      a small external dial-up modem with blinking green lights. No readable
+      text anywhere.
+    motion: pan_right
+    transition: cut
+    sfx:
+      - {gen: "Classic 1990s dial-up internet modem connection sound, screeching and beeping", at: 0.2, dur: 4, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [playfully] Não tinha Netflix, nem streaming. Internet? Era discada, de madrugada... [laughs softly] e computador custava o preço de um carro!", pause: 0.15}
+      - {who: narrador, text: "[warmly] A diversão era a fita da locadora... e a família reunida na sala.", pause: 0.2}
+
+  # ---------------------------------------------------------------- AS PIZZAS NO PORTAO
+  - id: s06
+    day: noite
+    location: quintal_casa
+    cast: [davi, primos]
+    props: [pizzas]
+    look: real
+    time: "Friday night, warm yellow street lamp light"
+    ambience: "Front yard at night, crickets, kids shouting and laughing excitedly, running footsteps"
+    visual: >-
+      Lively medium wide shot at night just inside the grey metal gate: Davi
+      in his school uniform has just come in carrying three stacked white
+      pizza boxes; the four cousins run up euphoric, the two boys already
+      grabbing the boxes from his hands, the two little girls jumping and
+      laughing, warm light from the open front door of the house.
+    motion: pull_out
+    transition: dissolve
+    sfx:
+      - {gen: "An old metal gate creaking open and clanging shut", at: 0.0, dur: 2, db: -4}
+    lines:
+      - {who: primos, text: "[Brazilian accent] [excited] Chegou a pizza, gente! [laughing] Corre, corre, a de calabresa é minha!", pause: 0.2}
+      - {who: narrador, text: "[chuckles] Eu mal tinha aberto o portão, e a criançada me atropelou: levaram as três caixas pra dentro, gritando.", pause: 0.2}
+
+  - id: s07
+    day: noite
+    location: quintal_casa
+    cast: [camila]
+    look: real
+    time: "night, a single warm yellow street lamp"
+    ambience: "Quiet night yard, crickets, the kids' voices fading away inside the house, a street lamp buzzing softly"
+    visual: >-
+      Wide shot at night, ONLY one person: at the back of the small concrete
+      front yard, standing still next to the clothesline under the warm
+      yellow-orange light of the street lamp, the blonde girl in her
+      mint-green floral dress quietly watches the camera with a soft
+      melancholic smile, hands together in front of her; warm light from the
+      house window, deep blue night sky.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Slow soft emotional solo piano melody, tender and melancholic, starting gently", line: 0, dur: 14, db: -5}
+    lines:
+      - {who: narrador, text: "[softly] Mas lá no fundo do quintal, debaixo da luz do poste... [tenderly] ela ficou parada. Me olhando.", pause: 0.25}
+
+  # ---------------------------------------------------------------- O DORAMA (os olhos dela)
+  - id: s08
+    day: noite
+    location: quintal_casa
+    cast: [davi, camila]
+    look: dream
+    visual: >-
+      Romantic slow-motion medium two-shot at night, ONLY these two people,
+      standing very close face to face near the grey metal gate: the blonde
+      girl in her mint-green floral dress looks deep into Davi's eyes with a
+      sweet smile touched by melancholy; Davi in his school uniform looks back
+      at her, frozen, lips slightly parted; golden street-lamp backlight in
+      her hair, floating glowing particles, dreamy bloom.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Soft romantic harp glissando, tender", line: 0, dur: 3, db: -6}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [tenderly] Amanhã a gente vai embora... [softly] mas eu fiquei muito feliz de ter passado esses dias aqui. Com vocês. [shyly] Com você, Davi.", pause: 0.3}
+
+  - id: s09
+    day: noite
+    location: quintal_casa
+    cast: [camila]
+    look: dream
+    visual: >-
+      Dreamy magical extreme close-up of the blonde 17-year-old girl's face at
+      night, framed from the nose up, her two eyes in sharp focus: vivid
+      bright EMERALD-GREEN irises looking straight into the camera, and
+      reflected inside them a sky full of tiny stars and a glowing galaxy;
+      soft starlight sparkles drift across the frame, dreamy bloom; golden street-lamp light,
+      tiny sparkling particles frozen in the air, everything else melting
+      into warm bokeh. Magical.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Twinkling celestial chimes and a soft shimmering cosmic pad", line: 0, dur: 6, db: -7}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [calmly] Eu olhei no fundo daqueles olhos verdes... e vi o universo inteiro brilhando lá dentro. [softly] Tudo o que eu lia nos meus livros de ciências ficou pequeno perto daquele olhar.", pause: 0.3}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s10
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Kids yelling loudly from a window all at once", at: 0.3, dur: 2, db: -2}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- OS GRITOS DA JANELA
+  - id: s11
+    day: noite
+    location: sala_casa
+    cast: [primos]
+    look: real
+    time: "night, warm light from inside the house"
+    ambience: "Night, kids shouting from a window, a TV and plates clattering inside"
+    visual: >-
+      Lively interior medium shot inside the small lit living room at night,
+      ONLY the four cousins and nobody else: the two boys and the two little
+      girls kneel together on the old brown sofa pushed under the window,
+      turned toward the open window with metal bars, shouting out to the
+      yard with mouths wide open, hands cupped around their mouths, the
+      older boy holding a slice of pizza; the barred window and the dark
+      night outside behind them; nobody passes through the bars. Physically
+      realistic.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: primos, text: "[Brazilian accent] [shouting] Davi! Camila! Vem logo, [laughing] senão não vai sobrar nada pra vocês!", pause: 0.2}
+
+  - id: s12
+    day: noite
+    location: quintal_casa
+    cast: [davi, camila]
+    look: real
+    time: "night, warm yellow street lamp"
+    visual: >-
+      Medium two-shot at night, ONLY these two people, standing close by the
+      gate: Davi in his school uniform has turned his head toward the house
+      and calls back calmly with a happy glow in his eyes; the blonde girl
+      beside him is looking only at him, about to step forward.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: davi, text: "[Brazilian accent] [calmly] Já estamos indo, pessoal!", pause: 0.15}
+
+  # ---------------------------------------------------------------- O PRIMEIRO BEIJO
+  - id: s13
+    day: noite
+    location: quintal_casa
+    cast: [davi, camila]
+    look: dream
+    visual: >-
+      Super slow-motion romantic close two-shot at night, ONLY these two
+      people, in three-quarter profile under the warm street lamp, Davi's
+      face clearly visible (16 years old, chubby with a soft round face and
+      full cheeks, short dark-brown spiky hair, exactly the same boy as in
+      the reference, not a slimmer or different boy): the blonde girl has
+      stepped forward, both her hands gently holding Davi's cheeks, and gives
+      him a tender innocent first kiss on the lips with her eyes closed;
+      Davi, facing her (not looking at the camera), stands frozen like a
+      statue, his brown eyes wide open in pure shock, eyebrows raised, arms
+      stiff at his sides; golden backlight, glowing particles,
+      soft bloom.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Epic soft cinematic swell of violins and piano, romantic K-drama climax, the world going silent", line: 0, dur: 16, db: -4}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amazed] Ela me pegou completamente de surpresa! [firmly] Fiquei estátua, olhos arregalados, vendo ela ali de pertinho... e meus lábios nem mexiam.", pause: 0.25}
+
+  - id: s14
+    day: noite
+    location: quintal_casa
+    cast: [davi, camila]
+    look: dream
+    visual: >-
+      Extreme close-up, ONLY these two people: Davi's face (16 years old,
+      chubby round young teenage face, exactly as in the reference) in sharp
+      focus, his brown eyes wide open and stunned, eyebrows raised, frozen; very
+      near him, the soft blurred profile of the blonde girl with her eyes
+      gently closed; warm golden light, tiny sparkles floating.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [chuckles] Olha que eu até tinha treinado beijando a própria mão... [laughs softly] mas naquele segundo eu esqueci até quem eu era!", pause: 0.25}
+
+  - id: s15
+    day: noite
+    location: quintal_casa
+    cast: [davi, camila]
+    look: dream
+    visual: >-
+      Magical wide circling shot at night, ONLY these two people, in the
+      front yard by the grey gate under the warm street lamp: Davi has closed
+      his eyes, relaxed, his arms wrapped gently around the blonde girl's
+      waist in a tender embrace, and they share a sweet innocent kiss; her
+      hands rest on his shoulders; a halo of golden light around them,
+      glowing particles swirling like fireflies, the deep blue night sky full
+      of stars. Like the climax of a K-drama.
+    motion: pull_out
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [tenderly] Aos poucos... envolvi meus braços nela, fechei os olhos... e beijei de volta.", pause: 0.25}
+      - {who: narrador, text: "[dreamy] Foi mágico. [proudly] Finalmente... eu deixava de ser BV. [laughs softly] Boca virgem, nunca mais!", pause: 0.35}
+
+  # ---------------------------------------------------------------- A NOITE INESQUECIVEL
+  - id: s16
+    day: noite
+    location: cozinha_casa
+    cast: [davi, camila, primos, mae]
+    props: [pizzas]
+    look: real
+    time: "night, warm yellow kitchen ceiling light"
+    ambience: "Family pizza night in a small kitchen, kids laughing and chatting, plates and cutlery clinking"
+    visual: >-
+      Warm medium shot at night in the small kitchen: EXACTLY THREE open white
+      pizza boxes (three, not four) on the table with the floral tablecloth, the four cousins eating slices
+      happily; Davi and the blonde girl sit down side by side, hiding
+      complicit shy smiles, not looking at each other; the mother, holding a
+      plate, raises an eyebrow at them with a knowing teasing smile.
+    motion: push_in
+    transition: fadewhite
+    music: real
+    lines:
+      - {who: narrador, text: "[softly] Cinco minutos lá fora... que pareceram horas. Entramos disfarçando e sentamos com todo mundo.", pause: 0.15}
+      - {who: mae, text: "[Brazilian accent] [teasing] Ué... demoraram, hein? [laughs softly] A pizza quase esfriou!", pause: 0.25}
+
+  - id: s17
+    day: noite
+    location: sala_casa
+    cast: [davi, camila, primos, mae, pai]
+    props: [videocassete]
+    look: real
+    time: "night, lights off, only the bluish glow of the TV"
+    ambience: "Living room at night, a VHS tape hissing softly in the VCR, a movie playing on an old TV, family laughing softly"
+    visual: >-
+      Cozy wide shot of the dark living room lit only by the bluish glow of
+      the small CRT television: the whole family together watching a movie on
+      the VCR, the father and the mother on the old brown sofa, the four
+      cousins lying on mattresses and blankets on the floor, Davi and the
+      blonde girl sitting side by side on a mattress, their hands almost
+      touching; the TV seen from behind, no picture visible.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "VHS tape playing in an old VCR, soft tape hiss and whirring, a family laughing softly", line: 0, dur: 6, db: -6}
+    lines:
+      - {who: narrador, text: "[warmly] Comemos pizza, assistimos ao filme no vídeo cassete... [softly] foi uma noite incrível.", pause: 0.2}
+
+  - id: s18
+    day: madrugada
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    visual: >-
+      Tight close-up seen from directly above at night, framing only Davi's
+      head and shoulders resting on a white pillow: his whole face and neck
+      naturally connected to his body under the faded blue blanket pulled
+      up to his chest, wearing an old grey t-shirt, wide awake, staring up
+      at the ceiling with a huge goofy blissful smile, eyes shining; dark
+      bedroom lit by faint bluish moonlight through the curtain. Only Davi in
+      the frame.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    ambience: "Silent bedroom late at night, kids breathing softly asleep nearby, crickets outside, a distant dog"
+    sfx:
+      - {gen: "Gentle soft piano lullaby melody, warm and dreamy", line: 0, dur: 12, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] E quem disse que eu consegui pregar o olho? [softly] A única coisa que existia na minha cabeça... era o sabor daquele beijo.", pause: 0.3}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s19
+    day: madrugada
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    time: "Saturday dawn, first cold grey light through the window"
+    visual: >-
+      Slow shot at dawn: in the soft-focus foreground Davi sleeps on his back
+      with a peaceful smile; the camera has drifted to the small barred
+      bedroom window with a floral curtain, where the first cold grey rays of
+      Saturday rise over the red-brick rooftops and tangled wires. Only Davi
+      in the frame.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "A soft farewell piano note, melancholic and tender", line: 0, dur: 10, db: -6}
+      - {gen: "A car pulling up and parking on a street in the distance, door closing", at: 1.0, dur: 4, db: -12}
+      - {gen: "A suitcase zipper being closed in another room, muffled", line: 1, dur: 2, db: -12}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Eu dormi sorrindo feito bobo... [sadly] mas o sábado chegou rápido demais.", pause: 0.2}
+      - {who: narrador, text: "[suspenseful] A despedida batia na porta... [slowly] e como seria o adeus no portão?", pause: 0.45}
+
+  - id: s20
+    card: question
+    bg: s15
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Seu primeiro beijo foi de surpresa, como o meu... [playfully] ou foi você que tomou a iniciativa? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 8"
+    title: "O Universo nos Olhos Verdes"
+    subtitle: "o Vídeo Cassete e as Três Pizzas"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Seu primeiro beijo foi de surpresa?"
+    subtitle: "Ou foi você que tomou a iniciativa? Conta nos comentários."
+    footer: "Continua no Episódio 9"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 8 — O Primeiro Beijo no Portão 💚 #dorama #novela"
+  description: |
+    Sexta-feira à noite, três pizzas na mão, filme no vídeo cassete... e uma despedida marcada para o dia seguinte.
+
+    Episódio 8 da vídeo-novela: no portão de casa, debaixo da luz do poste, o garoto tímido descobre o universo inteiro dentro de um par de olhos verdes.
+
+    💬 E você? Seu primeiro beijo foi de surpresa ou foi você que tomou a iniciativa? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 9.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeirobeijo #primeiroamor #anos90 #videocassete #olhosverdes #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro beijo,
+         primeiro amor, BV, video cassete, anos 90, nostalgia, olhos verdes, periferia de sao paulo, romance, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 8 — O Vídeo Cassete, as Três Pizzas e o Universo nos Olhos Verdes 💚
+
+    Sexta à noite. Três pizzas. Uma despedida marcada para amanhã.
+    E, no portão de casa, ela me pegou completamente de surpresa.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Seu primeiro beijo foi de surpresa ou foi você que tomou a iniciativa?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 9.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeirobeijo #anos90 #historianarrada
+  tiktok_caption: |
+    Fui buscar três pizzas... e voltei sem o BV. 💚
+
+    Ep. 8 — O Universo nos Olhos Verdes
+
+    💬 Seu primeiro beijo foi de surpresa ou você tomou a iniciativa? Conta aqui 👇
+    Segue pra não perder o Ep. 9 🍿
+
+    #dorama #kdrama #primeirobeijo #anos90 #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 8"
+    title: "O Universo nos Olhos Verdes"
+    hook: "Dizem que o universo inteiro cabe num par de olhos verdes."
+
+  - bg: s03
+    text: |
+      Na volta da oficina, meu pai me deu dinheiro e um tapinha no ombro.
+
+      **— Toma, filho. Passa na pizzaria e traz três pizzas. Sexta-feira é sexta-feira!**
+
+      Lá em casa, sexta tinha tradição: pizza e filme no nosso vídeo cassete velho.
+
+  - bg: s05
+    text: |
+      Aliás... você sabe o que é um vídeo cassete?
+
+      Não tinha Netflix, não tinha streaming. Quase nem tinha internet: era conexão discada, de madrugada, e computador custava o preço de um carro.
+
+      A diversão era a fita alugada na locadora e a família reunida na sala.
+
+  - bg: s06
+    text: |
+      Mal abri o portão e a criançada veio correndo.
+
+      **— Chegou a pizza, gente! Corre, a de calabresa é minha!**
+
+      Levaram as três caixas para dentro, gritando. E o quintal ficou em silêncio.
+
+  - bg: s07
+    text: |
+      Lá no fundo, debaixo da luz amarela do poste, ela ficou parada. Me olhando.
+
+      Devagar, veio até mim e parou bem na minha frente.
+
+      **— Amanhã a gente vai embora... mas eu fiquei muito feliz de ter passado esses dias aqui. Com você, Davi.**
+
+  - bg: s09
+    text: |
+      _Eu olhei no fundo daqueles olhos verdes... e vi o universo inteiro brilhando lá dentro._
+
+      _Tudo o que eu lia nos meus livros de ciências ficou pequeno perto daquele olhar._
+
+  - bg: s11
+    text: |
+      Até que os gritos vieram da janela da sala:
+
+      **— Davi! Camila! Vem logo, senão não vai sobrar nada pra vocês!**
+
+      **— Já estamos indo, pessoal!**
+
+  - bg: s13
+    text: |
+      Assim que virei o rosto de volta, ela deu um passo à frente, segurou meu rosto... e me beijou.
+
+      Fiquei estátua. Olhos arregalados, vendo ela ali de pertinho. Meus lábios nem mexiam.
+
+      Olha que eu até tinha treinado beijando a própria mão no quarto... mas naquele segundo eu esqueci até quem eu era.
+
+  - bg: s15
+    text: |
+      Aos poucos fui entendendo o que aquilo significava.
+
+      Envolvi meus braços nela, fechei os olhos e beijei de volta.
+
+      Foi mágico. Finalmente... eu deixava de ser BV. Boca virgem, nunca mais!
+
+  - bg: s16
+    text: |
+      Cinco minutos lá fora que pareceram horas. Entramos disfarçando e sentamos com todo mundo.
+
+      **— Ué... demoraram, hein? A pizza quase esfriou!**
+
+      Comemos pizza, assistimos ao filme no vídeo cassete. Foi uma noite incrível.
+
+  - bg: s18
+    text: |
+      Mas quem disse que eu consegui pregar o olho?
+
+      _A única coisa que existia na minha cabeça era o sabor daquele beijo._
+
+  - type: end
+    bg: s19
+    big: "O sábado chegou rápido demais."
+    text: |
+      Dormi sorrindo feito bobo. Mas a despedida estava batendo na porta.
+
+      Como seria o adeus no portão... e o que ia sobrar quando a casa voltasse ao silêncio?
+    cta: "CONTINUA NO CAPÍTULO 9 · Salve e siga para não perder"
+
+  - type: question
+    bg: s15
+    kicker: "E VOCÊ?"
+    title: "Seu primeiro beijo foi de surpresa?"
+    text: |
+      Ela me pegou completamente de surpresa. Eu virei estátua.
+
+      _E o seu: foi de surpresa... ou foi você que tomou a iniciativa?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASER "alerta de spoiler" (divulgacao no meio da semana, ANTES do ep08 sair)
+# o autor escolhe o momento; aqui so o texto/recorte. `python main.py teaser ep08`
+teaser:
+  - id: t1
+    from: s18                       # o Davi sorrindo feito bobo no travesseiro
+    zoom: 1.45                      # close no rosto
+    focus: [0.5, 0.40]              # onde esta o rosto no frame (x, y)
+    badge: "ALERTA DE SPOILER"
+    title: "O que será que aconteceu pra deixar o Davi **ASSIM?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      O que será que aconteceu pra deixar o Davi ASSIM? 😳😂
+      Uma sexta à noite, três pizzas... e um sorriso que não sai do rosto.
+
+      Chuta aí nos comentários 👇 o que você acha que rolou?
+      O Episódio 8 chega essa semana. Ative o sininho e não perca! 🔔
+
+      #dorama #kdrama #novela #spoiler #primeiroamor #historianarrada
+
+  - id: t2                          # imagem NOVA (nao esta no video): os dois frente a frente
+    shot:
+      day: noite
+      location: quintal_casa
+      cast: [davi, camila]
+      look: dream
+      visual: >-
+        Romantic tension close two-shot at night, ONLY these two people,
+        standing face to face very close by the grey metal gate under the
+        warm street lamp, seen in profile from the side: the blonde girl
+        looks up into Davi's eyes with a soft mysterious smile, Davi looks
+        back at her nervous and hopeful, a few centimeters between their
+        faces, not touching; golden backlight, glowing particles, deep blue
+        night sky. Their faces in the upper half of the frame.
+    zoom: 1.0
+    focus: [0.5, 0.30]
+    badge: "ALERTA DE SPOILER"
+    title: "Uma sexta à noite, um portão... e **ela chegou mais perto.**"
+    footer: "O que você acha que acontece? Ep. 8 em breve"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Sexta à noite. O portão de casa. Ela chegou mais perto... 💚
+      E o Davi? Ficou sem reação nenhuma 😳
+
+      O que você acha que acontece agora? Chuta aqui nos comentários 👇
+      Episódio 8 essa semana. Ative o sininho pra não perder! 🔔
+
+      #dorama #kdrama #novela #spoiler #primeiroamor #historianarrada
+
+  - id: t3                          # CARTAZ do episodio (tema, sem historia) — diferente da capa do carrossel
+    style: poster
+    from: s01                       # o olho com a galaxia, em outro recorte
+    zoom: 1.2
+    focus: [0.5, 0.42]
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 8"
+    title: "O Vídeo Cassete, as Três Pizzas e o Universo nos Olhos Verdes"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 8: O Vídeo Cassete, as Três Pizzas e o Universo nos Olhos Verdes 💚📼🍕
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #anos90 #historianarrada

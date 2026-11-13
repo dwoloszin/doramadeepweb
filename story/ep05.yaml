@@ -1,0 +1,625 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 5 — adaptado de scenes/scene5.txt
+#
+#  O romance com a Camila comeca a ser contado (pedido do autor no Ep. 4).
+#
+#  Estrutura:
+#    0-6s   COLD OPEN MAGICO: varanda no alto do morro, aurora com estrelas e galaxia
+#    titulo
+#    O DORAMA  ensaio no espelho (luz dourada) -> a conversa sobre o universo na varanda
+#    CHOQUE    card: shock
+#    REAL      cafe da manha: "bom dia" travado -> com os primos ele e outro (pipa, bola)
+#    O QUASE BEIJO  corredor, camera lenta, coracao, "ela fez de proposito", BV aos 16
+#    CABECA NAS NUVENS  rua debaixo d'agua -> sala de aula, o Bruno cutuca
+#    A CASA VAZIA  portao, sala em silencio, o bilhete na mesa
+#    GANCHO    a mao pega o bilhete, tela escurece
+#
+#  Personagem novo: Bruno (amigo_escola, voz Charlie). Lugares novos: banheiro_casa,
+#  corredor_casa, varanda_sonho. Objeto novo: bilhete (volta no Ep. 6).
+#  Continuidade: Davi SEM oculos (foto-modelo), apesar da scene5 citar oculos. Davi tem 16
+#  (a Camila, 17, e "um ano mais velha" — Ep. 4).
+# ============================================================================
+
+id: ep05
+number: 5
+title: "Ensaios no Espelho, o Quase Beijo e a Casa Vazia"
+source: scenes/scene5.txt
+
+days:
+  sonho:
+    time: "magical dawn, pink-and-gold sunrise with fading stars"
+    wardrobe:
+      davi_sonho: verao_linho
+      camila: vestido_sonho
+  manha1:
+    time: "early summer morning"
+    wardrobe:
+      davi: escola_uniforme
+      camila: casa_verao
+      mae: casa
+  tarde_rua:
+    time: "late sunny afternoon"
+    wardrobe:
+      davi: pedalada
+      primos: brincando
+  beijo:
+    time: "early weekday morning, soft golden light"
+    wardrobe:
+      davi: escola_uniforme
+      camila: pijama_manha
+      amigo_escola: escola_uniforme
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN (magico)
+  - id: s01
+    day: sonho
+    location: varanda_sonho
+    cast: [davi_sonho, camila]
+    look: dream
+    visual: >-
+      Magical wide shot at dawn on a white wooden hillside veranda wrapped in
+      tiny warm fairy lights and jasmine flowers: TWO people clearly visible as
+      two separate figures, the idealized boy in a cream linen shirt on the
+      left and the blonde girl in a white sundress on the right, sitting side
+      by side on the cushioned bench with a little space between them, seen in
+      three-quarter view from behind, both looking up at a breathtaking sky where a
+      glowing galaxy and thousands of stars slowly fade into a pink-and-gold
+      sunrise; a shooting star crosses the sky, glowing petals and light
+      particles float around them.
+    motion: pan_up
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Magical twinkling celestial chimes and a soft shimmering harp glissando, dreamy", line: 0, dur: 5, db: -4}
+      - {gen: "A soft whooshing shooting star with a delicate sparkle, magical", word: "estrelas", dur: 2, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Tem semanas que a gente vive... [dreamy] e tem semanas que parecem escritas nas estrelas.", pause: 0.3}
+      - {who: narrador, text: "[Brazilian accent] [tenderly] A semana em que a Camila morou lá em casa... foi a mais bonita da minha vida.", pause: 0.2}
+
+  - id: s02
+    card: title
+    bg: s01
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- O DORAMA
+  - id: s03
+    day: manha1
+    location: banheiro_casa
+    cast: [davi]
+    look: dream
+    time: "early morning, warm golden sunlight through the small window"
+    ambience: "Early morning bathroom, birds singing at sunrise outside, a dripping tap, soft echo"
+    visual: >-
+      Medium shot in the tiny bathroom bathed in warm golden morning light:
+      Davi in his school uniform stands in front of the oval mirror, carefully
+      fixing the collar of his t-shirt and smoothing his hair, then gestures
+      elegantly with one hand as if talking to someone, a confident charming
+      smile at his own reflection; golden dust particles float in the light.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Birds singing softly at sunrise, gentle and sweet", at: 0.0, dur: 4, db: -6}
+      - {gen: "Light romantic acoustic guitar melody, sweet summer morning", line: 0, dur: 10, db: -7}
+    lines:
+      - {who: narrador, text: "[dreamy] Antes mesmo do café, a minha cabeça já estava nela. [softly] Na frente do espelho, eu ensaiava tudo.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [excited] Bom dia, Camila! Sabia que a luz das estrelas que a gente vê... [confidently] viajou milhões de anos só pra chegar aqui?!", pause: 0.25}
+
+  - id: s04
+    day: sonho
+    location: varanda_sonho
+    cast: [davi_sonho, camila]
+    look: dream
+    visual: >-
+      Romantic medium two-shot on the magical veranda at sunrise: the idealized
+      boy talks with poetic confidence, one hand drawing shapes in the air,
+      while the blonde girl in the white sundress listens fascinated, chin
+      resting on her hands, smiling with bright emerald-green eyes; above them
+      tiny glowing constellations seem to form in the pink sky, fairy lights
+      and floating petals, everything soft and golden.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Romantic K-drama piano and strings theme, warm and tender", line: 0, dur: 14, db: -6}
+      - {gen: "A delicate music box twinkle, magical", word: "universo", dur: 2, db: -6}
+    lines:
+      - {who: narrador, text: "[dreamy] Na minha imaginação, a gente conversava por horas... [in awe] sobre o universo, as estrelas... [softly] e como o nosso mundo era pequeno.", pause: 0.25}
+      - {who: camila, text: "[Brazilian accent] [dreamy] Fala mais, Davi... [tenderly] eu podia ficar te ouvindo a manhã inteira.", pause: 0.3}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s05
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Glass window shattering loudly, shards falling and tinkling", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A REALIDADE
+  - id: s06
+    day: manha1
+    location: cozinha_casa
+    cast: [davi, camila, mae]
+    look: real
+    time: "morning, flat ordinary light"
+    ambience: "Busy family kitchen at breakfast, cups clinking on the table, a coffee pot gurgling, kids laughing loudly in the next room, a radio on"
+    visual: >-
+      Medium shot in the small busy kitchen in ordinary morning light: the
+      blonde girl sits at the small table with a cup of coffee and smiles
+      sweetly at Davi; Davi in his school uniform, head down, clumsily grabs a
+      bread roll from the basket without looking at her, cheeks red; the
+      mother in the background pours coffee at the stove.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "Coffee cups clinking and a spoon stirring, breakfast table", at: 0.0, dur: 3, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [cheerfully] Bom dia, Davi! Dormiu bem? [playfully] Senta aqui com a gente!", pause: 0.25}
+      - {who: narrador, text: "[Brazilian accent] [deadpan] Na vida real? Saiu um bom dia tão baixinho... que nem eu ouvi.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [frustrated] Cadê as estrelas, Davi?! Cadê o universo?! [desperate] Fala alguma coisa que não seja um grunhido!", pause: 0.25}
+
+  - id: s07
+    day: tarde_rua
+    location: rua_periferia
+    cast: [davi, primos]
+    look: real
+    time: "late sunny afternoon, warm orange light"
+    ambience: "Periphery street in the late afternoon, kids shouting and laughing, a soccer ball bouncing on asphalt, wind, a kite string whirring, distant funk music"
+    visual: >-
+      Wide joyful shot on the steep periphery street: Davi, laughing freely,
+      holds a kite line high while a colorful paper kite flies in the orange
+      sky over the red-brick houses and tangled wires; the cousins run around
+      him, the two boys kicking a worn soccer ball barefoot, the little girls
+      cheering on the sidewalk.
+    motion: pan_up
+    transition: dissolve
+    sfx:
+      - {gen: "Kids playing soccer in the street, ball kicked and bouncing, cheering", line: 0, dur: 6, db: -4}
+      - {gen: "A paper kite flapping in strong wind and a kite string whirring", word: "pipa", dur: 3, db: -5}
+    lines:
+      - {who: narrador, text: "[warmly] Com os primos eu era outra pessoa. Bola na rua, pipa no céu, gargalhada até escurecer.", pause: 0.15}
+      - {who: primos, text: "[Brazilian accent] [excited] Dá linha, Davi! Dá linha que ela tá subindo! [laughs] Segura, segura!", pause: 0.2}
+
+  # ---------------------------------------------------------------- O QUASE BEIJO
+  - id: s08
+    day: beijo
+    location: corredor_casa
+    cast: [davi, camila]
+    props: [mochila]
+    look: real
+    time: "early morning, soft warm golden light from the small window at the end of the hallway"
+    ambience: "Muffled quiet house in the early morning, distant birds, everything sounding far away and underwater"
+    visual: >-
+      Slow-motion cinematic shot in the narrow pale-yellow hallway, ONLY these
+      two people: Davi, ready for school in his uniform with his olive-green
+      backpack on his shoulders, walks one way; the blonde girl in soft
+      pajamas walks toward him from the other end, backlit by warm morning
+      light from the small window; they are about to cross in the tight space.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Slow heartbeat thumping, tum-tum, deep and muffled", line: 0, dur: 10, db: -3}
+      - {gen: "A single long sustained romantic violin note slowly swelling", line: 0, dur: 10, db: -6}
+    lines:
+      - {who: narrador, text: "[softly] Os dias foram passando... e a gente foi ficando cada vez mais perto. [slowly] Até aquela manhã.", pause: 0.2}
+      - {who: narrador, text: "[breathless] Eu já ia saindo pra escola quando a gente se cruzou no corredor. Bem perto.", pause: 0.2}
+
+  - id: s09
+    day: beijo
+    location: corredor_casa
+    cast: [davi, camila]
+    look: real
+    time: "early morning, soft warm golden light from the small window"
+    visual: >-
+      Extreme close-up in slow motion, ONLY these two people: the blonde girl
+      leans forward as if losing her balance and Davi instinctively holds her
+      by the arms; their faces stop just a few centimeters apart in profile,
+      her long blonde hair falling forward, his eyes wide and cheeks burning
+      red, the warm light glowing between their faces. Tender and innocent.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Heartbeat racing faster and louder, intense", line: 0, dur: 8, db: -2}
+      - {gen: "Soft dreamy romantic swell of strings with a gentle harp, time stopping", word: "rosto", dur: 6, db: -5}
+    lines:
+      - {who: narrador, text: "[breathless] De repente, ela se desequilibrou... [softly] e parou a centímetros do meu rosto. O perfume doce dela tomou conta de tudo.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [panicking] Meu Deus, ela tá perto demais... perto demais! [desperate] O que eu faço?! O que eu faço?!", pause: 0.25}
+
+  - id: s10
+    day: beijo
+    location: corredor_casa
+    cast: [camila]
+    look: real
+    time: "early morning, soft warm golden light"
+    visual: >-
+      Intimate close-up on the blonde girl's face in soft golden light: her
+      deep emerald-green eyes glance down for a split second as if at
+      someone's lips just in front of her, then look back up with a shy,
+      knowing, playful little smile; a few strands of blonde hair across her
+      cheek. Romantic and innocent.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A single soft delicate piano note with long reverb, intimate", word: "proposital", dur: 4, db: -4}
+    lines:
+      - {who: narrador, text: "[slowly] Só que... não foi desequilíbrio nenhum. [mysterious] Foi proposital. Ela queria aquilo.", pause: 0.2}
+      - {who: camila, text: "[Brazilian accent] [softly] Ops... [playfully] desculpa, Davi. Tropecei.", pause: 0.3}
+
+  - id: s11
+    day: beijo
+    location: corredor_casa
+    cast: [davi]
+    props: [mochila]
+    look: real
+    time: "early morning, soft warm golden light"
+    visual: >-
+      Medium shot: Davi stands alone and completely frozen in the narrow
+      hallway with his backpack on, staring at the empty space in front of
+      him, cheeks bright red, mouth slightly open, one hand still lifted in
+      the air where he had held her arm. Comic and sweet.
+    motion: pull_out
+    transition: cut
+    sfx:
+      - {gen: "Short comedic awkward pluck, two descending notes", word: "BV!", dur: 1.5, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [breathless] Quase aconteceu um selinho... o meu primeiro! [laughs] É, pessoal... aos dezesseis anos, eu ainda era BV!", pause: 0.25}
+
+  # ---------------------------------------------------------------- CABECA NAS NUVENS
+  - id: s12
+    day: beijo
+    location: rua_periferia
+    cast: [davi]
+    props: [mochila]
+    look: real
+    time: "morning, hazy soft light"
+    ambience: "Morning street heard as if underwater, muffled distant motorcycles and voices, a far muffled school bell"
+    visual: >-
+      Dreamy medium shot: Davi walks slowly up the periphery street to
+      school with his backpack, a lost dazed smile, eyes far away on the
+      horizon, the street and people around him slightly blurred as if the
+      world had faded away; morning haze over the red-brick houses.
+    motion: pan_left
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Muffled distant school bell ringing heard as if underwater", line: 0, dur: 4, db: -6}
+    lines:
+      - {who: narrador, text: "[dreamy] Eu nem lembro como cheguei na escola. [chuckles] Passei a manhã inteira com a cabeça nas nuvens.", pause: 0.2}
+
+  - id: s13
+    day: beijo
+    location: sala_real
+    cast: [davi, amigo_escola]
+    look: real
+    time: "morning"
+    visual: >-
+      Medium two-shot in the crowded public-school classroom: Davi sits at his
+      worn desk, an open spiral paper notebook lying flat on the desk with a
+      completely blank page, pen idle in his hand, staring at it with a silly lost
+      smile; at the next desk his school friend, a lanky dark-skinned boy with
+      curly hair and braces, pokes Davi's arm with a pen, grinning and
+      frowning at the same time. In the blurred background, an older bald
+      physics professor with a grey beard writes on the old green chalkboard (only faint
+      unreadable chalk marks), seen from behind.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "Chalk tapping and scratching on a chalkboard, classroom murmur", at: 0.0, dur: 3, db: -6}
+    lines:
+      - {who: amigo_escola, text: "[Brazilian accent] [laughing] Ô Davi, acorda! Tu nem fez as contas de física, que você sempre mata de primeira! [teasing] Tá estranho, hein, cara!", pause: 0.25}
+      - {who: pensamento, text: "[Brazilian accent] [excited] Ela queria me beijar, Bruno... ela queria me beijar! [panicking] E agora? O que eu faço?!", pause: 0.25}
+
+  # ---------------------------------------------------------------- A CASA VAZIA
+  - id: s14
+    day: beijo
+    location: casa_davi
+    cast: [davi]
+    props: [mochila]
+    look: real
+    time: "midday, bright sun"
+    visual: >-
+      Wide shot in front of Davi's small red-brick house: Davi, in his school
+      uniform with his backpack, pushes the tall grey metal gate open in a
+      hurry, a shy hopeful smile on his face, the steep street behind him.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Iron house gate creaking open and quick footsteps on concrete", line: 0, dur: 2.5, db: -3}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [hopeful] Voltei pra casa ensaiando a coragem que eu não tive de manhã. [determined] Dessa vez eu ia falar com ela.", pause: 0.2}
+
+  - id: s15
+    day: beijo
+    location: sala_casa
+    cast: []
+    props: [bilhete]
+    look: night
+    time: "midday, but dim and grey inside with the curtains closed"
+    ambience: "Completely silent empty house, only a faint wall clock ticking and a distant dog far away"
+    visual: >-
+      Slow camera glide across the empty silent living room in dim grey light:
+      no suitcases, no backpacks, no people, the sofa empty; the camera ends
+      on the small wooden table where a single small folded sheet of notebook
+      paper lies FLAT on the tablecloth, seen from a high angle, small in the
+      frame. Melancholic and lonely.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A single deep melancholic grand piano note echoing in an empty room", word: "silêncio", dur: 5, db: -3}
+    lines:
+      - {who: narrador, text: "[softly] Mas quando abri a porta... não tinha mais ninguém. [sad] Nenhuma mala no canto. Nenhuma voz no corredor.", pause: 0.3}
+      - {who: narrador, text: "[slowly] Só o silêncio... [whispers] e um bilhete em cima da mesa.", pause: 0.3}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s16
+    day: beijo
+    location: sala_casa
+    cast: [davi]
+    props: [bilhete]
+    look: night
+    time: "dim grey light inside"
+    visual: >-
+      Close-up: Davi's slightly trembling hand slowly reaches down and picks
+      up the folded sheet of notebook paper from the tablecloth, his worried
+      face out of focus behind it; the light fades to darkness before the
+      paper is opened.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Paper being picked up and rustling softly", line: 0, dur: 1.5, db: -4}
+      - {gen: "Deep soft suspense hit with a long dark reverb tail", word: "começar?", dur: 4, db: -3}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [desperate] Não, não, não... ela não pode ter ido embora! [pleading] Não agora, Camila!", pause: 0.25}
+      - {who: narrador, text: "[suspenseful] O que estava escrito ali? [slowly] Será que a minha história com a Camila... tinha acabado antes mesmo de começar?", pause: 0.45}
+
+  - id: s17
+    card: question
+    bg: s09
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Quem deve dar o primeiro passo... [playfully] quem tá apaixonado, ou quem provocou? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 5"
+    title: "Ensaios no Espelho"
+    subtitle: "o Quase Beijo e a Casa Vazia"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Quem deve dar o primeiro passo?"
+    subtitle: "Quem está apaixonado... ou quem provocou? Conta nos comentários."
+    footer: "Continua no Episódio 6"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 5 — O Quase Beijo no Corredor 💚 #dorama #novela"
+  description: |
+    Conversas ensaiadas no espelho, um bom dia que não saiu... e um corredor apertado demais para dois.
+
+    Episódio 5 da vídeo-novela: a Camila mora lá em casa, e o meu primeiro beijo ficou a centímetros de acontecer. Mas, na volta da escola, a casa estava vazia, com um bilhete em cima da mesa.
+
+    💬 E você? Quem deve dar o primeiro passo: quem está apaixonado ou quem provocou? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 6.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeirobeijo #primeiroamor #crush #olhosverdes #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro beijo,
+         primeiro amor, quase beijo, BV, crush, olhos verdes, timidez, periferia de sao paulo, romance, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 5 — Ensaios no Espelho, o Quase Beijo e a Casa Vazia 💚
+
+    Na frente do espelho, eu falava sobre as estrelas.
+    Na frente dela, não saía nem um bom dia.
+    Até aquela manhã no corredor...
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Quem deve dar o primeiro passo: quem está apaixonado ou quem provocou?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 6.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeirobeijo #primeiroamor #historianarrada
+  tiktok_caption: |
+    Ela tropeçou no corredor... de propósito. 💚 E aos 16 eu ainda era BV.
+
+    Ep. 5 — O Quase Beijo
+
+    💬 Quem deve dar o primeiro passo: quem tá apaixonado ou quem provocou? Conta aqui 👇
+    Segue pra não perder o Ep. 6 🍿
+
+    #dorama #kdrama #primeirobeijo #primeiroamor #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 5"
+    title: "Ensaios no Espelho, o Quase Beijo e a Casa Vazia"
+    hook: "Tem semanas que parecem escritas nas estrelas."
+
+  - bg: s03
+    text: |
+      As manhãs daquela semana eram as mais lindas da minha vida. O canto dos pássaros, a luz dourada entrando pela janelinha do banheiro.
+
+      Antes mesmo de pisar na cozinha, a minha mente já estava nela.
+
+      _Bom dia, Camila. Sabia que a luz das estrelas que a gente vê viajou milhões de anos só pra chegar aqui?_
+
+  - bg: s04
+    text: |
+      Na minha cabeça, a gente conversava por horas numa varanda iluminada. Eu falava do universo, das estrelas, da ciência, e de como o nosso mundo parecia pequeno diante de tanta grandeza.
+
+      E ela me ouvia, fascinada, com o queixo apoiado nas mãos.
+
+      **— Fala mais, Davi... eu podia ficar te ouvindo a manhã inteira.**
+
+  - bg: s06
+    text: |
+      Mas na vida real?
+
+      **— Bom dia, Davi! Dormiu bem?**
+
+      Eu abaixava a cabeça, pegava um pão sem jeito e murmurava um bom dia que nem eu ouvia. Todos os assuntos sobre o universo evaporavam no ar.
+
+  - bg: s07
+    text: |
+      Com os primos, eu era outra pessoa. Bola na rua, pipa no céu alaranjado, gargalhada até escurecer.
+
+      **— Dá linha, Davi! Dá linha que ela tá subindo!**
+
+      Mas cada esbarrão com a Camila pelos corredores era uma experiência única, que nunca saía como eu planejava.
+
+  - bg: s08
+    text: |
+      Os dias foram passando, e a convivência foi ficando cada vez mais próxima.
+
+      Até aquela manhã.
+
+      Eu já estava de uniforme, mochila nas costas, quando a gente se cruzou no corredor estreito. O som da casa sumiu. Só o coração: tum-tum... tum-tum...
+
+  - bg: s09
+    text: |
+      De repente, ela se desequilibrou. Eu a segurei pelos braços, por instinto.
+
+      E ela parou a centímetros do meu rosto. O perfume doce dela tomou conta do ar.
+
+      _Ela tá perto demais, Davi. O que eu faço?_
+
+  - bg: s10
+    text: |
+      Por uma fração de segundo, os olhos verdes dela desceram até os meus lábios.
+
+      Não foi desequilíbrio nenhum. Foi proposital. Ela queria aquilo.
+
+      **— Ops... desculpa, Davi. Tropecei.**
+
+  - bg: s11
+    text: |
+      Quase aconteceu um selinho. O meu primeiro.
+
+      O meu primeiro beijo!
+
+      É, pessoal... aos dezesseis anos, eu ainda era BV.
+
+  - bg: s13
+    text: |
+      Nem lembro como cheguei na escola. O sinal tocava longe, como se eu estivesse debaixo d'água.
+
+      **— Ô Davi, acorda! Tu nem fez as contas de física, que você sempre mata de primeira! Tá estranho, hein, cara!**
+
+      _Ela queria me beijar, Bruno. E agora?_
+
+  - bg: s15
+    text: |
+      Voltei pra casa ensaiando a coragem que eu não tive de manhã.
+
+      Mas quando abri a porta, não tinha mais ninguém. Nenhuma mala no canto, nenhuma voz no corredor.
+
+      Só o silêncio, um vazio enorme... e um bilhete dobrado em cima da mesa.
+
+  - type: end
+    bg: s16
+    big: "Um bilhete na mesa."
+    text: |
+      O que estava escrito ali?
+
+      Será que a minha história com a Camila tinha acabado antes mesmo de começar?
+    cta: "CONTINUA NO CAPÍTULO 6 · Salve e siga para não perder"
+
+  - type: question
+    bg: s09
+    kicker: "E VOCÊ?"
+    title: "Quem deve dar o primeiro passo?"
+    text: |
+      Ela tropeçou de propósito. Ele congelou.
+
+      _Quem deve dar o próximo passo: quem está apaixonado... ou quem provocou?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" (divulgacao no meio da semana, antes do episodio sair)
+# `python main.py teaser ep05` -> output/ep05/teaser/ (formato em src/teaser.py)
+teaser:
+  - id: t1
+    from: s11
+    zoom: 1.7
+    focus: [0.55, 0.24]
+    badge: "ALERTA DE SPOILER"
+    title: "O que será que aconteceu **nesse corredor?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Paralisado. No meio do corredor 😳
+      O que será que acabou de acontecer aqui?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova, intrigante e sem contar a historia
+    shot:
+      day: manha1
+      location: banheiro_casa
+      cast: [davi]
+      look: real
+      visual: >-
+        Medium close shot in the tiny bathroom in warm morning light: Davi in his
+        school uniform points confidently at his own reflection in the oval mirror
+        with a chipped white frame, raising one eyebrow with a charming rehearsed
+        smile, like a movie star practicing a line; his reflection clearly visible.
+        His face in the upper half of the frame.
+    zoom: 1.0
+    focus: [0.5, 0.32]
+    badge: "ALERTA DE SPOILER"
+    title: "Ensaiou no espelho... **mas vai ter coragem?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Ensaiou a frase perfeita na frente do espelho 😎🪞
+      Mas será que na hora H o Davi vai ter coragem?
+
+      Você também ensaia no espelho? Confessa aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3                          # cartaz do episodio (tema, sem historia)
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 5"
+    title: "Ensaios no Espelho, o Quase Beijo e a Casa Vazia"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 5: Ensaios no Espelho, o Quase Beijo e a Casa Vazia
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

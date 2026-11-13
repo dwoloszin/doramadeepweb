@@ -1,0 +1,11 @@
+{
+  "fp": "f93aaa541394b4d3",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "The reference image(s) are scenes already shown to the audience: copy EXACTLY this object from them (same model, shape, colors, wear, dents, details). OBJECT REFERENCE SHEET on a plain light-grey studio background: the same single object shown in three views side by side (front, side, three-quarter), no people. Object: The father's old beat-up white Volkswagen Kombi van (Brazilian late model, boxy front with a single flat windshield): faded white paint with rust spots and patches, dented sliding side door and back doors, old chrome bumpers, worn tires, no logos and no lettering. Photorealistic, even soft studio light. No text, no letters, no logos, no watermark.",
+  "refs": [
+    "s16.png",
+    "s13.png",
+    "s10.png"
+  ],
+  "locked": true
+}

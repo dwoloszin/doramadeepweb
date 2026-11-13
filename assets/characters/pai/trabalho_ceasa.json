@@ -1,0 +1,9 @@
+{
+  "fp": "911cd605e11f2fc9",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Davi's father, a 48-year-old Brazilian man from the São Paulo periphery. Fair skin with an olive undertone, tanned and weathered by the sun, same family features as Davi (same brown eyes, same thick straight dark eyebrows, round face). Stocky strong build with a round belly, broad shoulders, thick forearms, rough calloused hands. Short dark-brown hair greying at the temples, a thick greying mustache, deep tired lines around the eyes, a quiet, serious and kind expression. Outfit (must be shown clearly, every detail): Worn faded red-and-black plaid flannel shirt with sleeves rolled up over a grey t-shirt, old dark jeans, black rubber work boots, faded navy-blue baseball cap with no logo. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

@@ -1,0 +1,603 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): pergunta final ao publico,
+# som ambiente + efeitos + instrumentos em toda cena, transicao nao e fala,
+# sonho->real = card: shock, personagem em cena FALA, referencia p/ todo objeto/lugar.
+# ============================================================================
+#  EPISODIO 3 — adaptado de scenes/scene3.txt
+#
+#  Estrutura (retencao):
+#    0-6s   COLD OPEN: "cada folha custava mais que o meu almoco. E eu tinha vinte."
+#    titulo
+#    SONHO  bicicleta vintage, avenida dourada, predio de vidro, seguranca abre a porta
+#    CHOQUE card: shock -> sol do meio-dia no asfalto
+#    REAL   sem internet: classificados, folhas caras, a bicicleta velha, o pai (ESTREIA DA VOZ),
+#           a pedalada (suor, buracos, zona industrial), a portaria (porteiro FALA)
+#    NOITE  maos vazias, o telefone fixo que nao toca, o pai pergunta
+#    GANCHO "nao era uma ligacao de emprego": a visita do interior chegando (scene4) -> PERGUNTA
+#
+#  Dia d1 = um dia de folga do hortifruti, sol forte (roupa: pedalada / pai em casa).
+# ============================================================================
+
+id: ep03
+number: 3
+title: "Vinte Folhas de Sulfite e Uma Bicicleta"
+source: scenes/scene3.txt
+
+days:
+  d1:
+    time: "a scorching hot weekday, harsh sun"
+    wardrobe:
+      davi: pedalada
+      pai: casa
+      porteiro: uniforme_portaria
+  sonho:
+    time: "golden late afternoon"
+    wardrobe:
+      davi_sonho: camisa_social
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN
+  - id: s01
+    day: d1
+    location: sala_casa
+    cast: [davi]
+    look: real
+    time: "early morning, soft window light"
+    visual: >-
+      Extreme close-up on a small wooden table: Davi's chubby hands with the
+      black digital wristwatch carefully counting a small neat stack of
+      printed white paper sheets (the print is tiny and unreadable), next to
+      an old yellowed folded newspaper classifieds page with a few ads circled
+      in blue pen (no readable text), soft morning window light.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx: [{gen: "Paper sheets being counted one by one, soft paper flicks, close", line: 0, dur: 4, db: -3}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Cada folha daquela custava mais do que o meu almoço.", pause: 0.3}
+      - {who: narrador, text: "[Brazilian accent] [mysterious] E eu tinha vinte. [dramatic] Vinte chances de mudar de vida.", pause: 0.15}
+
+  - id: s02
+    card: title
+    bg: s03
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- O SONHO
+  - id: s03
+    day: sonho
+    location: avenida_sonho
+    cast: [davi_sonho]
+    props: [bicicleta_sonho]
+    look: dream
+    visual: >-
+      Low medium shot in slow motion: the young man glides smoothly down the
+      tree-lined avenue on the impeccable cream vintage bicycle, one hand on
+      the handlebar, the other elegantly holding his brown leather portfolio,
+      golden sunbeams cutting through the leaves, warm lens flare.
+    motion: pan_right
+    transition: dissolve
+    sfx: [{gen: "Romantic inspiring solo acoustic guitar with soft violins rising, cinematic", line: 0, dur: 9, db: -5}]
+    lines:
+      - {who: narrador, text: "[dreamy] Na minha cabeça, eu deslizava pela cidade numa bicicleta impecável.", pause: 0.25}
+      - {who: narrador, text: "[in awe] O sol da tarde atravessando as árvores... e uma pasta de couro na mão.", pause: 0.2}
+
+  - id: s04
+    day: sonho
+    location: avenida_sonho
+    cast: [davi_sonho]
+    props: [bicicleta_sonho]
+    look: dream
+    visual: >-
+      Close-up, profile in slow motion: the wind tousles the young man's
+      styled hair in a charming way as he rides, confident dreamy smile,
+      golden backlight, leaves and light particles floating.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Soft warm wind whoosh with a gentle shimmering chime", word: "vento", dur: 3, db: -5}]
+    lines:
+      - {who: narrador, text: "[playfully] O vento penteava meu cabelo... [chuckles] melhor que qualquer pente.", pause: 0.2}
+
+  - id: s05
+    day: sonho
+    location: avenida_sonho
+    cast: [davi_sonho]
+    props: [bicicleta_sonho]
+    look: dream
+    visual: >-
+      Medium shot: the young man has stepped off the cream bicycle in front of
+      the modern mirrored-glass office tower, adjusting the collar of his white
+      shirt, looking up at the top of the building with a confident smile and
+      a dreamy gaze, the glass facade reflecting golden sky.
+    motion: pan_up
+    transition: dissolve
+    sfx: [{gen: "A soft harp glissando, hopeful and magical", word: "pertencia", dur: 3, db: -4}]
+    lines:
+      - {who: narrador, text: "[confident] Parava em frente a um prédio de vidro, ajeitava o colarinho... e olhava lá pra cima, como quem sabe que o mundo lhe pertencia.", pause: 0.25}
+
+  - id: s06
+    day: sonho
+    location: avenida_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Medium shot at the grand glass entrance: a smiling middle-aged security
+      guard (an older Black man with short grey hair, a different person) in a
+      neat dark suit gives a respectful nod and holds the tall glass door open
+      for the young man, who walks in holding his leather portfolio, golden
+      light, elegant lobby glowing inside.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Soft romantic grand piano melody, dreamy and magical, a few notes", line: 0, dur: 6, db: -5}]
+    lines:
+      - {who: narrador, text: "[in awe] O segurança me cumprimentava com respeito... e abria a porta pra mim.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [playfully] Bom dia, senhor! Vim entregar o meu futuro, pode abrir a porta!", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s07
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Glass window shattering loudly, shards falling and tinkling", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A REALIDADE
+  - id: s08
+    day: d1
+    location: zona_industrial
+    cast: [davi]
+    props: [bicicleta, mochila]
+    look: real
+    time: "noon, scorching overhead sun"
+    visual: >-
+      Medium wide shot from the front: Davi pedals hard on his old rusty
+      dark-red bicycle with the olive-green backpack on his back, down the
+      shimmering hot asphalt of the industrial avenue, face red and squinting
+      in the harsh noon sun, heat haze, a truck passing behind.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx: [{gen: "Old bicycle chain rattling and creaking while pedaling hard", line: 0, dur: 5, db: -4}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [bitterly] Só que não tinha prédio de vidro. [sighs] Tinha o sol do meio-dia derretendo o asfalto.", pause: 0.3}
+
+  - id: s09
+    day: d1
+    location: sala_casa
+    cast: [davi]
+    look: real
+    time: "morning"
+    visual: >-
+      Over-the-shoulder close shot: Davi sits on the old sofa leaning over the
+      yellowed newspaper classifieds spread on the small table, circling an ad
+      with a blue pen, focused, the old beige landline telephone beside it (no
+      readable text on the paper).
+    motion: pan_down
+    transition: dissolve
+    sfx: [{gen: "Newspaper pages rustling and turning, then a pen circling on paper", line: 0, dur: 4, db: -4}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [serious] Naquela época, não tinha internet. Nada de LinkedIn, nada de currículo por e-mail.", pause: 0.2}
+      - {who: narrador, text: "[softly] A minha bússola era o jornal de classificados.", pause: 0.25}
+
+  - id: s10
+    day: d1
+    location: sala_casa
+    cast: [davi]
+    props: [mochila]
+    look: real
+    time: "morning"
+    visual: >-
+      Close-up: Davi's hands carefully slide a small stack of white printed
+      sheets into a clear plastic folder and put it inside the worn
+      olive-green backpack, gently, like something precious.
+    motion: push_in
+    transition: cut
+    sfx: [{gen: "Plastic folder sliding into a canvas backpack, zipper closing", word: "toa", dur: 2.5, db: -4}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [serious] E imprimir currículo custava caro. [softly] Eu não podia gastar uma única folha à toa.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [determined] Vinte folhas, Davi. Vinte chances. Não pode desperdiçar nenhuma!", pause: 0.25}
+
+  - id: s11
+    day: d1
+    location: casa_davi
+    cast: [davi, pai]
+    props: [bicicleta, mochila]
+    look: real
+    time: "late morning, strong sun"
+    visual: >-
+      Medium shot in front of the red-brick house with the grey barred gate:
+      Davi, backpack on, holds his old rusty dark-red bicycle ready to leave;
+      his father stands at the gate in his white sleeveless undershirt and
+      flip-flops, handing him a reused plastic water bottle, a caring worried
+      look, strong sun.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Metal house gate creaking open, then a bicycle bell ring", line: 0, dur: 3, db: -4}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] As empresas ficavam longe, a condução era cara... e o meu bolso, vazio. O meu único transporte era essa bicicleta velha.", pause: 0.25}
+      - {who: pai, text: "[Brazilian accent] [warmly] Leva água, filho. E volta antes de escurecer, viu? [sighs] Esse sol hoje tá de rachar.", pause: 0.25}
+
+  - id: s12
+    day: d1
+    location: zona_industrial
+    cast: [davi]
+    look: real
+    time: "noon, scorching overhead sun"
+    visual: >-
+      Extreme close-up of Davi's face while pedaling: sweat running down his
+      forehead and temples, cheeks red from the sun, his light-grey t-shirt
+      soaked and sticking to his shoulders, harsh sunlight, determined eyes.
+    motion: push_in
+    transition: cut
+    sfx: [{gen: "Heavy breathing of a tired cyclist, effort, close", line: 0, dur: 4, db: -6}]
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [urgently] Vai, Davi... só mais um pouco! [determined] Não para agora, não para!", pause: 0.25}
+
+  - id: s13
+    day: d1
+    location: zona_industrial
+    cast: [davi]
+    props: [bicicleta]
+    look: real
+    time: "noon, scorching overhead sun"
+    visual: >-
+      Detail shot: Davi's chubby hands with the black digital wristwatch
+      gripping the rusty handlebars of the old dark-red bicycle, swerving
+      around a deep pothole in the cracked hot asphalt, the front wheel close
+      to the hole, dust flying.
+    motion: pan_left
+    transition: cut
+    sfx: [{gen: "Loud truck horn blaring as it passes close, then whoosh of air", word: "buracos", dur: 3, db: -3}]
+    lines:
+      - {who: narrador, text: "[tense] Desviando dos buracos... e dos caminhões.", pause: 0.2}
+
+  - id: s14
+    day: d1
+    location: zona_industrial
+    cast: [davi]
+    props: [bicicleta, mochila]
+    look: real
+    time: "early afternoon, harsh sun"
+    visual: >-
+      Wide shot: the small silhouette of the chubby boy on his old bicycle
+      with the backpack, pedaling alone along an endless concrete factory wall
+      under a white-hot sky, closed metal gates one after another, power lines
+      overhead, heat haze, a sense of a very long road.
+    motion: pan_right
+    transition: dissolve
+    sfx: [{gen: "Short determined cello and strings phrase, cinematic, rising", word: "Contrata-se", dur: 4, db: -6}]
+    lines:
+      - {who: narrador, text: "[determined] Quilômetros e quilômetros pelas zonas industriais... de olho em cada portão. [Brazilian accent] Precisa-se. Contrata-se.", pause: 0.25}
+
+  - id: s15
+    day: d1
+    location: portaria_fabrica
+    cast: [davi, porteiro]
+    props: [bicicleta]
+    look: real
+    time: "early afternoon, harsh sun"
+    visual: >-
+      Medium two-shot at the factory gatehouse, both faces clearly visible and
+      well lit: on the right, the bored bald porter in the navy uniform leans
+      on the open sliding window counter in the foreground light, toothpick in
+      his mouth, looking at the paper with indifference; on the left, Davi,
+      sweaty and catching his breath, hands him a single white printed sheet;
+      the old dark-red bicycle leans against the concrete wall behind Davi.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Small electric fan buzzing and a radio playing quietly in a booth, sliding window opening", line: 0, dur: 4, db: -5}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Em cada portaria, o mesmo ritual. Bicicleta no muro... recuperar o fôlego... e entregar aquela folha.", pause: 0.2}
+      - {who: porteiro, text: "[Brazilian accent] [bored] Deixa aí em cima, garoto. Se tiver vaga, eles ligam.", pause: 0.3}
+
+  - id: s16
+    day: d1
+    location: portaria_fabrica
+    cast: []
+    look: real
+    time: "early afternoon"
+    visual: >-
+      Close-up on the gatehouse counter: a single fresh white printed sheet
+      placed on top of a tall messy pile of other résumés, slightly crumpled,
+      a coffee cup ring stain nearby, a fan blowing the edges of the papers
+      (all print tiny and unreadable).
+    motion: push_in
+    transition: cut
+    sfx: [{gen: "A single sad soft piano note with reverb", word: "esperança", dur: 3, db: -5}]
+    lines:
+      - {who: narrador, text: "[tenderly] Um currículo sem grandes títulos... [softly] mas carregado de uma esperança gigante.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [pleading] Por favor, por favor... me chama pra uma entrevista. Só uma!", pause: 0.25}
+
+  - id: s17
+    day: d1
+    location: zona_industrial
+    cast: [davi]
+    props: [bicicleta, mochila]
+    look: real
+    time: "sunset, orange dusty light"
+    visual: >-
+      Medium wide shot at sunset: Davi pushes his old bicycle up a steep road
+      on foot, exhausted, sunburned, dust on his face, the backpack hanging
+      loose and empty, the orange sun low behind the factories.
+    motion: pull_out
+    transition: dissolve
+    sfx: [{gen: "Short hopeful rising string swell, cinematic", word: "nenhum", dur: 3, db: -5}]
+    lines:
+      - {who: narrador, text: "[determined] Minha regra era clara: eu saía com vinte currículos... e só voltava quando não restasse nenhum.", pause: 0.2}
+      - {who: narrador, text: "[tired] Pedalava até as pernas queimarem.", pause: 0.25}
+
+  - id: s18
+    day: d1
+    location: sala_casa
+    cast: [davi, pai]
+    look: night
+    time: "evening, warm lamp light and blue TV glow"
+    visual: >-
+      Medium shot in the small living room at night: Davi, sunburned and
+      exhausted, sits on the old sofa staring at the old beige landline
+      telephone on the side table; his father in the doorway, in the white
+      sleeveless undershirt, looks at him with a hopeful question in his eyes;
+      warm lamp light and blue TV glow.
+    motion: push_in
+    transition: fadeblack
+    music: night
+    sfx: [{gen: "Old landline telephone ringing twice in a quiet room, distant", word: "toque", dur: 3, db: -6}]
+    lines:
+      - {who: narrador, text: "[softly] Eu voltava de mãos vazias... mas com o coração disparado a cada toque do telefone da sala.", pause: 0.25}
+      - {who: pai, text: "[Brazilian accent] [hopeful] E aí, filho? [gently] Alguém ligou?", pause: 0.5}
+      - {who: narrador, text: "[sad] Ninguém tinha ligado.", pause: 0.3}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s19
+    day: d1
+    location: casa_davi
+    cast: []
+    look: real
+    time: "late afternoon, warm orange light"
+    visual: >-
+      Wide shot of the front of the red-brick house with the grey barred gate
+      in warm late-afternoon light: at the far end of the steep street, an old
+      dusty station wagon from the countryside approaches slowly with suitcases
+      tied on the roof rack, its headlights on, dust in the golden air.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Old car engine approaching slowly on a quiet street, tires on gravel", line: 0, dur: 6, db: -5}
+      - {gen: "Deep cinematic suspense boom hit with long reverb tail", word: "nunca.", dur: 4, db: -2}
+    lines:
+      - {who: narrador, text: "[mysterious] Mas naquela tarde, o que estava prestes a cruzar a porta da minha casa... [softly] não era uma ligação de emprego.", pause: 0.25}
+      - {who: narrador, text: "[suspenseful] Era uma visita do interior... [whispers] que ia fazer o meu coração bater como nunca.", pause: 0.45}
+
+  - id: s20
+    card: question
+    bg: s17
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já entregou currículo de porta em porta? [playfully] Ou acha que hoje, com internet, ficou mais fácil? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 3"
+    title: "Vinte Folhas de Sulfite"
+    subtitle: "e Uma Bicicleta"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Já entregou currículo de porta em porta?"
+    subtitle: "Ou hoje, com internet, ficou mais fácil? Conta nos comentários."
+    footer: "Continua no Episódio 4"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 3 — Vinte Folhas de Sulfite e Uma Bicicleta 🚲 #dorama #novela"
+  description: |
+    Sem internet, sem LinkedIn, sem dinheiro pra condução: só vinte currículos impressos, uma bicicleta velha e o sol do meio-dia.
+
+    Episódio 3 da vídeo-novela: a maratona de porta em porta atrás do primeiro emprego — e o telefone da sala que não toca.
+
+    💬 E você? Já entregou currículo de porta em porta... ou acha que hoje, com internet, ficou mais fácil? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 4.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroemprego #curriculo #periferia #historianarrada #doramasbrasil #audiobook #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro emprego,
+         curriculo, procurando emprego, bicicleta, anos 2000, periferia de sao paulo, superação, motivação, drama,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 3 — Vinte Folhas de Sulfite e Uma Bicicleta 🚲
+
+    Sem internet. Sem LinkedIn. Sem dinheiro pra condução.
+    Só vinte currículos, uma bicicleta velha e o sol do meio-dia.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já entregou currículo de porta em porta... ou hoje ficou mais fácil?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 4.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroemprego #curriculo #historianarrada
+  tiktok_caption: |
+    Sem internet, sem LinkedIn, sem dinheiro pra condução: vinte currículos e uma bicicleta velha. 🚲
+
+    Ep. 3 — Vinte Folhas de Sulfite e Uma Bicicleta
+
+    💬 E você, já entregou currículo de porta em porta? Conta aqui 👇
+    Segue pra não perder o Ep. 4 🍿
+
+    #dorama #kdrama #primeiroemprego #curriculo #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s05
+    kicker: "CAPÍTULO 3"
+    title: "Vinte Folhas de Sulfite e Uma Bicicleta"
+    hook: "Cada folha custava mais do que o meu almoço. E eu tinha vinte."
+
+  - bg: s03
+    text: |
+      Na minha cabeça, eu deslizava pela cidade numa bicicleta vintage impecável.
+
+      A luz da tarde atravessava as folhas das árvores da avenida em feixes dourados. Uma mão no guidão. Na outra, com gestos elegantes, uma pasta de couro.
+
+  - bg: s05
+    text: |
+      Parava em frente a um prédio de vidro espelhado, descia da bicicleta e ajeitava o colarinho da camisa.
+
+      Olhava lá para o alto com o sorriso de quem sabe que o mundo lhe pertence. O segurança acenava com respeito e abria a porta.
+
+      _Bom dia. Vim entregar o meu futuro._
+
+  - bg: s08
+    text: |
+      **Só que não tinha prédio de vidro.**
+
+      Tinha o sol cru do meio-dia derretendo o asfalto.
+
+      Naqueles dias de folga do hortifrúti, quando não estava estudando ou descansando o corpo moído, eu tinha outra missão: encontrar um emprego de verdade.
+
+  - bg: s09
+    text: |
+      Naquela época não existia internet fácil, LinkedIn ou currículo por e-mail. A única bússola eram as páginas amareladas dos classificados.
+
+      E tinha um detalhe cru: imprimir custava caro. Cada folha de sulfite era um investimento para quem não tinha renda.
+
+      _Vinte folhas. Vinte chances._
+
+  - bg: s11
+    text: |
+      As empresas ficavam longe, a condução era cara demais para o meu bolso vazio. O meu único transporte era a minha bicicleta velha.
+
+      **— Leva água, filho. E volta antes de escurecer, viu? Esse sol hoje tá de rachar.**
+
+  - bg: s12
+    text: |
+      Suor escorrendo pela testa. A camiseta colada nas costas.
+
+      As mãos firmes no guidão, desviando dos buracos do asfalto quente e dos caminhões. Quilômetros e quilômetros pelas zonas industriais, de olho em cada portão: _Precisa-se. Contrata-se._
+
+  - bg: s15
+    text: |
+      Em cada portaria, o mesmo ritual: a bicicleta encostada no muro, o fôlego recuperado antes de falar com o porteiro, e a entrega daquela simples folha.
+
+      **— Deixa aí em cima, garoto. Se tiver vaga, eles ligam.**
+
+  - bg: s16
+    text: |
+      Um currículo com pouca experiência, sem grandes títulos para ostentar, mas carregado de uma esperança gigantesca de ouvir:
+
+      _"Vamos te chamar para uma entrevista."_
+
+  - bg: s17
+    text: |
+      Minha regra era clara: eu só saía de casa com vinte currículos na mochila, e só voltava quando não restasse nenhum.
+
+      Pedalava até as pernas queimarem, queimado de sol, com a poeira da rua no rosto.
+
+  - bg: s18
+    text: |
+      Voltava de mãos vazias, mas com o coração disparado a cada toque do telefone fixo da sala.
+
+      **— E aí, filho? Alguém ligou?**
+
+      Ninguém tinha ligado.
+
+  - type: end
+    bg: s19
+    big: "Uma visita do interior."
+    text: |
+      Mas naquela tarde, o que estava prestes a cruzar a porta da minha casa não era uma ligação de emprego...
+
+      Era uma visita inesperada que faria o meu coração bater como nunca.
+    cta: "CONTINUA NO CAPÍTULO 4 · Salve e siga para não perder"
+
+  - type: question
+    bg: s17
+    kicker: "E VOCÊ?"
+    title: "Já entregou currículo de porta em porta?"
+    text: |
+      Vinte folhas, uma bicicleta e quilômetros de sol. Sem internet.
+
+      _Você já viveu isso... ou acha que hoje ficou mais fácil?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" (divulgacao no meio da semana, antes do episodio sair)
+# `python main.py teaser ep03` -> output/ep03/teaser/ (formato em src/teaser.py)
+teaser:
+  - id: t1
+    from: s12
+    zoom: 1.0
+    focus: [0.5, 0.30]
+    badge: "ALERTA DE SPOILER"
+    title: "O que será que deixou o Davi **ASSIM?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Suor, sol e uma cara de quem não vai desistir 😤☀️
+      O que será que deixou o Davi assim?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova, intrigante e sem contar a historia
+    shot:
+      day: d1
+      location: portaria_fabrica
+      cast: [davi]
+      look: real
+      props: [bicicleta]
+      visual: >-
+        Medium shot at noon in front of a closed factory gate: Davi, sweaty and
+        sunburned in his grey t-shirt, holds a clear plastic folder with white
+        sheets against his chest with both hands, staring at the closed gate with a
+        nervous hopeful look, his old rusty dark-red bicycle leaning beside him;
+        nobody else in the frame. His face in the upper half of the frame.
+    zoom: 1.0
+    focus: [0.5, 0.32]
+    badge: "ALERTA DE SPOILER"
+    title: "Vinte folhas na mochila... **quantas portas vão se abrir?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Vinte folhas na mochila, uma bicicleta velha... 🚲📄
+      Quantas portas você acha que vão se abrir pro Davi?
+
+      Deixa seu palpite aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3                          # cartaz do episodio (tema, sem historia)
+    style: poster
+    from: s05
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 3"
+    title: "Vinte Folhas de Sulfite e Uma Bicicleta"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 3: Vinte Folhas de Sulfite e Uma Bicicleta
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

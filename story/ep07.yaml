@@ -1,0 +1,656 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 7 — adaptado de scenes/scene7.txt  (manha seguinte ao Ep. 6)
+#
+#  Estrutura:
+#    0-6s   COLD OPEN MAGICO: muro de flores brilhando, uma mao colhe uma flor, petalas de luz
+#    titulo
+#    REAL      6h: o telefone (gancho do Ep. 6) -> cafe: "no fim de semana vem buscar" -> "Mas ja?!"
+#    O DORAMA  eco "ama... ama...", a mao dela sobre a dele, camera lenta
+#    CHOQUE    card: shock -> o cafe derramado, os primos morrendo de rir
+#    O GESTO   flores do muro -> escondidas na mochila -> na mesinha do quarto
+#    A KOMBI   a mae flagra -> empurrando a Kombi com o pai -> ela acha as flores (a mae ve)
+#    O BEIJO   no portao, as flores na mao: "como voce e forte!" -> beijo no rosto -> buzina
+#    GANCHO    da janela da Kombi, olhando pra tras: "antes da despedida?"
+#
+#  VOZ (pedido do autor 12/11): a partir daqui o pensamento do Davi fica mais GRAVE e firme
+#  ("mais HOMEM") — override abaixo, so neste episodio em diante. Falas de pensamento com
+#  [deep voice] + emocao firme ([confident] [determined] [calmly] [amused] [proudly]);
+#  evitar [panicking] [pleading] [desperate] [breathless], que afinam a voz.
+#  Davi fala em VOZ ALTA pela 1a vez (voices.davi: mesmo Liam, grave e seco).
+#
+#  Continuidade: os primos dormem no quarto do Davi desde o Ep. 4 -> "a mesinha ao lado
+#  da cama" e a escrivaninha do quarto_davi. Objeto novo: flores. Lugar novo: rua_flores.
+# ============================================================================
+
+id: ep07
+number: 7
+title: "O Café Derramado, as Flores na Mochila e a Kombi Enguiçada"
+source: scenes/scene7.txt
+
+# pensamento mais grave a partir do Ep. 7 (amostra "C" em output/amostras_voz/escolha_pensamento_masculino/)
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"           # usuario: C ficou "grossa demais" -> meio-termo natural
+
+days:
+  manha:
+    time: "6 AM, soft early dawn light"
+    wardrobe:
+      davi: escola_uniforme
+      mae: casa
+      camila: vestido_floral
+      primos: brincando
+  tarde:
+    time: "early afternoon, strong sun"
+    wardrobe:
+      davi: escola_uniforme
+      mae: casa
+      pai: casa
+      camila: vestido_floral
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN (magico)
+  - id: s01
+    day: tarde
+    location: rua_flores
+    cast: [davi]
+    look: dream
+    visual: >-
+      Enchanted fairy-tale macro close-up at golden hour, NO face and NO body
+      in the frame, only one hand: a young man's hand (black digital
+      wristwatch on the wrist, white t-shirt sleeve at the edge) gently picks a
+      single glowing red hibiscus flower from a wall of luminous flowers that
+      shine softly from within; a swirl of tiny sparkling golden petals and
+      fireflies rises from the flower into the warm air; strong dreamy bloom,
+      sun flare, pastel haze, the wall of flowers soft and blurred behind.
+      Magical, not realistic.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Magical shimmering sparkles with a soft harp glissando and gentle wind chimes", line: 0, dur: 5, db: -4}
+      - {gen: "Bees softly buzzing among flowers on a warm afternoon", at: 0.0, dur: 5, db: -12}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Tem coisa que a gente não consegue dizer... [dreamy] e cabe inteirinha num punhado de flores.", pause: 0.3}
+
+  - id: s02
+    card: title
+    bg: s16
+    duration: 2.2
+    transition: fadeblack
+    music: real
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- A NOTICIA DAS 6 DA MANHA
+  - id: s03
+    day: manha
+    location: sala_casa
+    cast: [mae]
+    look: real
+    time: "6 AM, cold blue dawn light with a first golden sunbeam"
+    ambience: "Silent house at dawn, first birds outside, a distant rooster"
+    visual: >-
+      Medium shot in the living room at dawn: the mother, in her apron, holds
+      the receiver of the old beige corded landline telephone to her ear by
+      the small side table, listening with a warm surprised smile, the first
+      golden sunbeam through the barred window.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "An old landline telephone ringing loudly in a silent house at dawn, then picked up", at: 0.0, dur: 3, db: -3}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [mysterious] Seis da manhã. O telefone tocou... [softly] e aquela ligação colocou um prazo de validade no meu sonho.", pause: 0.25}
+
+  - id: s04
+    day: manha
+    location: cozinha_casa
+    cast: [mae, primos, camila, davi]
+    look: real
+    time: "early morning, soft dawn light through the window"
+    ambience: "Family breakfast in a small kitchen, cups and spoons clinking, coffee pot gurgling, kids chatting"
+    visual: >-
+      Medium wide shot of the small kitchen at breakfast: Davi in his school
+      uniform and the blonde girl sit side by side at the small table with the
+      four cousins around it, cups of coffee and bread; the mother has just
+      come in and leans with her hands on the back of a chair, smiling warmly
+      at the kids, about to give news.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: mae, text: "[Brazilian accent] [warmly] Gente, era a mãe de vocês! Ela vem buscar todo mundo no fim de semana. [playfully] Eu até falei que podiam ficar mais, viu?", pause: 0.25}
+
+  - id: s05
+    day: manha
+    location: cozinha_casa
+    cast: [davi, primos]
+    look: real
+    time: "early morning"
+    visual: >-
+      Medium shot at the breakfast table: Davi in his school uniform blurts
+      out with wide surprised eyes, a bread roll frozen halfway to his mouth;
+      the two older boy cousins burst out laughing and poke his shoulder from
+      both sides.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: davi, text: "[Brazilian accent] [surprised] Mas já?! Já no fim de semana?!", pause: 0.2}
+      - {who: primos, text: "[Brazilian accent] [laughing] Aê, Davi! Eu sei que você ama a gente, cara... [teasing] mas a gente tem que voltar pra casa!", pause: 0.25}
+
+  # ---------------------------------------------------------------- O DORAMA (a mao dela)
+  - id: s06
+    day: manha
+    location: cozinha_casa
+    cast: [davi]
+    look: dream
+    visual: >-
+      Dreamy close-up of Davi's face (16 years old, chubby round young face,
+      exactly as in the reference) at the table, eyes unfocused and lost
+      far away, lips slightly parted, the whole kitchen behind him melting into
+      a glowing golden bokeh blur, warm sunbeam across his face, many floating
+      sparkling light particles frozen in the air, time stopped.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A boy's voice saying the word 'ama' fading away in a long echo, dreamy reverb", at: 0.0, dur: 3, db: -6}
+      - {gen: "Delicate tender piano melody, slow and romantic", line: 0, dur: 12, db: -5}
+    lines:
+      - {who: narrador, text: "[slowly] Aquela palavra ficou ecoando na minha cabeça... [softly] ela tinha data pra ir embora. E de repente, todo o barulho da mesa sumiu.", pause: 0.25}
+
+  - id: s07
+    day: manha
+    location: cozinha_casa
+    cast: [camila, davi]
+    look: dream
+    visual: >-
+      Extreme close-up in golden slow motion on the breakfast table: the
+      blonde girl's soft delicate hand slides gently over Davi's hand resting
+      next to a coffee cup, fingers touching; her face softly visible above,
+      looking at him with tender emerald-green eyes; glowing particles and
+      warm bloom light.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A soft romantic harp glissando, tender and magical", line: 0, dur: 3, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [tenderly] Davi... você tá bem? [softly] Ficou tão quietinho de repente.", pause: 0.3}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [calmly] O mundo inteiro parou... [firmly] o calor da mão dela apagou todo o barulho da mesa.", pause: 0.25}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s08
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "A ceramic coffee mug knocked over on a table, clattering, liquid splashing", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- O CAFE DERRAMADO
+  - id: s09
+    day: manha
+    location: cozinha_casa
+    cast: [davi, primos, camila]
+    look: real
+    time: "morning, flat ordinary light"
+    ambience: "Kitchen chaos, kids laughing loudly, chairs scraping, a dish towel wiping a table"
+    visual: >-
+      Medium shot in flat ordinary light: a tipped-over coffee mug, coffee
+      spreading across the plastic floral tablecloth; Davi, red as a tomato,
+      laughs awkwardly while wiping the mess with a dish towel; the cousins
+      around the table explode in laughter, one boy pointing at him; the
+      blonde girl covers her mouth, smiling.
+    motion: pull_out
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "A group of kids bursting into loud laughter at the table", line: 0, dur: 4, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [laughs] Levei um susto tão grande que puxei a mão... e derrubei o café inteiro na mesa!", pause: 0.15}
+      - {who: primos, text: "[Brazilian accent] [laughing] Ih, o Davi! Ficou vermelho igual um tomate, cara!", pause: 0.2}
+      - {who: narrador, text: "[chuckles] Ri junto, sem graça, engoli o resto do café e corri pra escola. Era dia de prova.", pause: 0.2}
+
+  # ---------------------------------------------------------------- AS FLORES
+  - id: s10
+    day: tarde
+    location: rua_flores
+    cast: [davi]
+    props: [mochila]
+    look: real
+    time: "early afternoon, bright sun"
+    visual: >-
+      Medium shot on the quiet side street: Davi in his school uniform with
+      his olive-green backpack stops at a low white wall overflowing with
+      colorful flowers, glances left and right with a mischievous look, and
+      carefully picks the most beautiful ones, a few already in his hand.
+    motion: pan_right
+    transition: fadeblack
+    sfx:
+      - {gen: "Distant school bell ringing, then calm footsteps on a quiet sidewalk", at: 0.0, dur: 3, db: -6}
+      - {gen: "Flower stems snapping softly, leaves rustling", word: "flores", dur: 2, db: -5}
+    lines:
+      - {who: narrador, text: "[warmly] Na volta da escola, passei por um muro cheio de flores. Pensei nela na hora.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [confident] Se eu não sei falar... [determined] então as flores vão falar por mim.", pause: 0.25}
+
+  - id: s11
+    day: tarde
+    location: quarto_davi
+    cast: [davi]
+    props: [flores, mochila]
+    look: real
+    time: "early afternoon, warm light through the curtain"
+    ambience: "Quiet bedroom, muffled kids playing soccer and laughing in the backyard outside, birds"
+    visual: >-
+      Medium shot in Davi's small bedroom, now with two extra mattresses and
+      folded blankets on the floor for the guests, nobody else in the room: Davi tiptoes and gently
+      places a small hand-picked bouquet of flowers on the small wooden desk
+      next to the bed, his open backpack on his shoulder, glancing at the
+      door, a secret smile.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Soft tiptoe footsteps on a ceramic floor and a gentle mischievous pizzicato", line: 0, dur: 4, db: -6}
+    lines:
+      - {who: narrador, text: "[softly] Escondi na mochila como se fosse um tesouro. Lá fora, a criançada no quintal... [playfully] e eu, na ponta dos pés, deixei as flores na mesinha.", pause: 0.2}
+
+  - id: s12
+    day: tarde
+    location: corredor_casa
+    cast: [davi, mae]
+    look: real
+    time: "early afternoon"
+    visual: >-
+      Medium two-shot in the narrow pale-yellow hallway: Davi steps out of the
+      bedroom door, startled, guilty eyes wide; his mother catches him right
+      there, hands on her hips, in a hurry.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Short comedic busted sting, a quick orchestral hit", at: 0.0, dur: 1.5, db: -6}
+    lines:
+      - {who: mae, text: "[Brazilian accent] [urgently] Davi! Tava te procurando! A Kombi do seu pai enguiçou de novo, [playfully] vai lá ajudar a empurrar!", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [hurriedly] Sim, mãe! Tô indo, tô indo!", pause: 0.2}
+
+  # ---------------------------------------------------------------- A KOMBI
+  - id: s13
+    day: tarde
+    location: casa_davi
+    cast: [davi, pai]
+    props: [kombi]
+    look: real
+    time: "early afternoon, harsh sun"
+    ambience: "Steep periphery street at midday, a failing old engine sputtering, neighbors watching, a dog barking"
+    visual: >-
+      Wide SIDE VIEW of the whole old white Kombi parked on the steep street
+      in front of the house, the full length of the van visible from front to
+      back: at the FRONT, the father sits inside in the driver's seat behind
+      the big steering wheel, visible through the open driver's door window,
+      looking back; at the far BACK end of the van, Davi, sweaty in his school
+      uniform, pushes the rear of the van with both hands and his shoulder,
+      legs braced, straining with all his strength. Nobody sits in the back.
+    motion: pan_left
+    transition: dissolve
+    sfx:
+      - {gen: "An old Volkswagen engine cranking and failing to start, sputtering repeatedly", line: 0, dur: 5, db: -3}
+      - {gen: "Old van engine finally starting with a loud roar and revving", after_line: 0, dur: 3, db: -2}
+    lines:
+      - {who: pai, text: "[Brazilian accent] [strained] Força, Davi! Empurra que ela pega! [shouting] Vai, vai, vai!", pause: 0.3}
+
+  - id: s14
+    day: tarde
+    location: quarto_davi
+    cast: [camila, mae]
+    props: [flores]
+    look: real
+    time: "early afternoon, warm light"
+    visual: >-
+      ONE single continuous photograph (not a split image, no panels), shot
+      from inside Davi's small bedroom toward the door: in the foreground the
+      blonde girl holds the small bouquet of flowers in both hands with a
+      radiant surprised smile, smelling them; in the background, at the
+      half-open bedroom door, the mother stands OUTSIDE in the hallway, only
+      her head and shoulder peeking in from behind the door frame, spying with
+      a tender amused smile; the girl doesn't notice her.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Soft romantic music box melody, sweet and tender", line: 0, dur: 6, db: -6}
+    lines:
+      - {who: narrador, text: "[softly] Enquanto isso, lá dentro... ela achou as flores.", pause: 0.2}
+      - {who: mae, text: "[Brazilian accent] [amused] Ai, ai, ai... esse menino puxou o pai. [laughs softly] Romântico que só!", pause: 0.25}
+
+  # ---------------------------------------------------------------- O BEIJO NO ROSTO
+  - id: s15
+    day: tarde
+    location: casa_davi
+    cast: [davi, camila]
+    props: [flores]
+    look: dream
+    time: "early afternoon, warm golden backlight"
+    visual: >-
+      Slow-motion medium two-shot, ONLY these two people: Davi, sweaty and
+      out of breath in his school uniform, wipes his forehead with his
+      forearm and turns; at the grey metal gate of the red-brick house stands
+      the blonde girl holding the small bouquet against her chest, walking
+      toward him with an admiring smile, warm backlight in her hair.
+    motion: push_in
+    transition: dissolve
+    music: dream
+    sfx:
+      - {gen: "Soft warm acoustic guitar melody, romantic, the street sounds fading away", line: 0, dur: 12, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [admiring] Nossa, Davi... [playfully] como você é forte!", pause: 0.25}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] Forte? Eu? [proudly] Ela disse que eu sou forte!", pause: 0.25}
+
+  - id: s16
+    day: tarde
+    location: casa_davi
+    cast: [davi, camila]
+    props: [flores]
+    look: dream
+    time: "early afternoon, warm golden backlight"
+    visual: >-
+      Romantic close-up, ONLY these two people: the blonde girl, holding the
+      bouquet, rises on her toes and gives Davi a gentle innocent kiss on the
+      cheek; Davi closes his eyes, a blissful shy smile, cheeks glowing red;
+      golden light, floating petals.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A tender romantic swell of strings with a sparkling harp, heart melting", line: 0, dur: 6, db: -5}
+    lines:
+      - {who: camila, text: "[Brazilian accent] [tenderly] Obrigada pelas flores, Davi... foram as mais lindas que eu já ganhei.", pause: 0.25}
+      - {who: narrador, text: "[softly] E ela me deu um beijo... bem no rosto. [dreamy] Meu coração explodiu.", pause: 0.15}
+
+  - id: s17
+    day: tarde
+    location: casa_davi
+    cast: [pai]
+    props: [kombi]
+    look: real
+    time: "early afternoon, harsh sun"
+    visual: >-
+      Medium shot through the windshield of the old white Kombi with the engine
+      running and smoke from the exhaust: the father sits INSIDE in the
+      driver's seat, both hands on the big steering wheel, one hand pressing
+      the horn, looking out to the side and shouting with a teasing impatient
+      grin. He stays inside the cab, not leaning out of the window.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "An old van horn honking twice, loud and abrupt", at: 0.0, dur: 1.5, db: 0}
+      - {gen: "Old van engine idling roughly", at: 0.0, dur: 6, db: -8}
+    lines:
+      - {who: pai, text: "[Brazilian accent] [shouting] Bora, Davi! Entra logo! [laughing] Vai que essa Kombi morre de novo no caminho da oficina!", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s18
+    day: tarde
+    location: casa_davi
+    cast: [davi, pai]
+    props: [kombi]
+    look: real
+    time: "afternoon, golden light"
+    visual: >-
+      Interior shot inside the cab of the old Kombi driving down the steep
+      periphery street: the father drives in the driver's seat, both hands on
+      the steering wheel, eyes on the road; Davi sits in the FRONT PASSENGER
+      SEAT next to him, turned around looking back through the passenger
+      window with a dreamy smile; golden afternoon light, red-brick houses
+      passing outside.
+    motion: pull_out
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Romantic piano melody mixed with a rising suspenseful string pulse", line: 0, dur: 14, db: -5}
+      - {gen: "Old van driving away down a street, engine fading", at: 0.0, dur: 5, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] O prazo estava correndo: no fim de semana, ela voltaria pro interior. [warmly] Mas o gelo... finalmente tinha sido quebrado.", pause: 0.2}
+      - {who: narrador, text: "[suspenseful] Será que o garoto tímido e BV... [slowly] vai conseguir ficar com a garota dos olhos verdes antes da despedida?", pause: 0.45}
+
+  - id: s19
+    card: question
+    bg: s16
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? O que conquista mais: um gesto como as flores... [playfully] ou a coragem de falar na cara? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 7"
+    title: "O Café Derramado"
+    subtitle: "as Flores na Mochila e a Kombi Enguiçada"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Flores ou coragem de falar?"
+    subtitle: "O que conquista mais? Conta nos comentários."
+    footer: "Continua no Episódio 8"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 7 — As Flores e o Beijo no Rosto 🌸 #dorama #novela"
+  description: |
+    Uma ligação às 6 da manhã, um café derramado, flores escondidas na mochila... e uma Kombi que só pega no tranco.
+
+    Episódio 7 da vídeo-novela: a Camila tem data para ir embora, e o garoto tímido que não sabe falar descobre outro jeito de dizer o que sente.
+
+    💬 E você? O que conquista mais: um gesto como as flores ou a coragem de falar na cara? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 8.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroamor #flores #crush #olhosverdes #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro amor,
+         flores, beijo no rosto, kombi, crush, olhos verdes, timidez, periferia de sao paulo, romance, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 7 — O Café Derramado, as Flores na Mochila e a Kombi Enguiçada 🌸
+
+    Ela tinha data para ir embora.
+    Eu não sabia falar... então deixei as flores falarem por mim.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? O que conquista mais: um gesto como as flores ou a coragem de falar na cara?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 8.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroamor #flores #historianarrada
+  tiktok_caption: |
+    Derrubei o café, empurrei a Kombi... e ganhei um beijo no rosto. 🌸
+
+    Ep. 7 — As Flores na Mochila
+
+    💬 O que conquista mais: flores ou coragem de falar na cara? Conta aqui 👇
+    Segue pra não perder o Ep. 8 🍿
+
+    #dorama #kdrama #primeiroamor #flores #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 7"
+    title: "O Café Derramado, as Flores na Mochila e a Kombi Enguiçada"
+    hook: "Tem coisa que a gente não consegue dizer... e cabe num punhado de flores."
+
+  - bg: s03
+    text: |
+      Seis da manhã. O toque estridente do telefone fixo cortou o silêncio da casa.
+
+      Passos até a sala. Uma conversa baixinha. E eu nem imaginava que aquela ligação ia colocar um prazo de validade no meu sonho.
+
+  - bg: s04
+    text: |
+      **— Gente, era a mãe de vocês! Ela vem buscar todo mundo no fim de semana. Eu até falei que podiam ficar mais, viu?**
+
+      **— Mas já?! Já no fim de semana?!**
+
+      Saiu antes que eu pudesse segurar.
+
+  - bg: s05
+    text: |
+      **— Aê, Davi! Eu sei que você ama a gente, cara... mas a gente tem que voltar pra casa!**
+
+      _Ama... ama... ama..._
+
+      A palavra ficou ecoando. Ela tinha data pra ir embora.
+
+  - bg: s07
+    text: |
+      E então, em câmera lenta, a mão macia e quentinha dela deslizou e repousou sobre a minha.
+
+      **— Davi... você tá bem?**
+
+      _O mundo inteiro parou. O calor da mão dela apagou todo o barulho da mesa._
+
+  - bg: s09
+    text: |
+      Levei um susto tão grande que puxei a mão de uma vez e derrubei o café inteiro na mesa!
+
+      Os primos morreram de rir. Eu ri junto, vermelho igual a um tomate, limpando a bagunça com o pano de prato. Engoli o resto do café e corri para a escola. Era dia de prova.
+
+  - bg: s10
+    text: |
+      Na volta, passei por um muro cheio de flores lindas e coloridas. Pensei nela na hora.
+
+      Olhei para os dois lados, colhi as mais bonitas e escondi na mochila como se fossem um tesouro.
+
+      _Se eu não sei falar, as flores vão falar por mim._
+
+  - bg: s11
+    text: |
+      Lá fora, a criançada no quintal: os meninos jogando bola, as meninas brincando de casinha.
+
+      Na ponta dos pés, entrei no quarto onde eles dormiam e deixei o pequeno buquê na mesinha ao lado da cama.
+
+  - bg: s13
+    text: |
+      **— Davi! A Kombi do seu pai enguiçou de novo, vai lá ajudar a empurrar!**
+
+      Suando, com o ombro colado na lataria, empurrei com toda a força enquanto meu pai tentava dar o tranco.
+
+      **— Força, Davi! Empurra que ela pega!**
+
+      E o motor finalmente pegou, num ronco alto.
+
+  - bg: s14
+    text: |
+      Enquanto isso, lá dentro, ela entrou no quarto para pegar uma presilha... e achou as flores.
+
+      Da porta, sem ela perceber, minha mãe balançou a cabeça, sorrindo.
+
+      **— Ai, ai, ai... esse menino puxou o pai. Romântico que só!**
+
+  - bg: s16
+    text: |
+      Quando me virei, ela estava no portão, com as flores nas mãos.
+
+      **— Nossa, Davi... como você é forte!**
+
+      E, todo suado, morrendo de vergonha, ganhei um beijo bem no rosto.
+
+      **— Obrigada pelas flores, Davi... foram as mais lindas que eu já ganhei.**
+
+  - type: end
+    bg: s18
+    big: "O gelo foi quebrado."
+    text: |
+      O prazo estava correndo: no fim de semana, ela voltaria para o interior.
+
+      Será que o garoto tímido e BV vai conseguir ficar com a garota dos olhos verdes antes da despedida?
+    cta: "CONTINUA NO CAPÍTULO 8 · Salve e siga para não perder"
+
+  - type: question
+    bg: s16
+    kicker: "E VOCÊ?"
+    title: "Flores ou coragem de falar?"
+    text: |
+      Ele não conseguia falar. Então deixou as flores na mesinha.
+
+      _O que conquista mais: um gesto assim... ou a coragem de falar na cara?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" (divulgacao no meio da semana, antes do episodio sair)
+# `python main.py teaser ep07` -> output/ep07/teaser/ (formato em src/teaser.py)
+teaser:
+  - id: t1
+    from: s09
+    zoom: 1.4
+    focus: [0.6, 0.42]
+    badge: "ALERTA DE SPOILER"
+    title: "O que deixou o Davi **vermelho igual um tomate?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Café na mesa, primos rindo e o Davi vermelho igual um tomate 🍅😂
+      O que será que aconteceu nesse café da manhã?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova, intrigante e sem contar a historia
+    shot:
+      day: tarde
+      location: corredor_casa
+      cast: [davi]
+      look: real
+      props: [flores]
+      visual: >-
+        Medium close shot in the narrow pale-yellow hallway: Davi in his school
+        uniform hides a small hand-picked bouquet of flowers behind his back, the
+        colorful flowers peeking out on one side, with a guilty mischievous grin,
+        glancing sideways to check that nobody is watching. Only Davi in the frame.
+        His face in the upper half of the frame.
+    zoom: 1.0
+    focus: [0.5, 0.32]
+    badge: "ALERTA DE SPOILER"
+    title: "Pra quem são **essas flores?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Flores escondidas nas costas e essa cara de culpado 🌸😏
+      Pra quem será que são?
+
+      Deixa seu palpite aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3                          # cartaz do episodio (tema, sem historia)
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 7"
+    title: "O Café Derramado, as Flores na Mochila e a Kombi Enguiçada"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 7: O Café Derramado, as Flores na Mochila e a Kombi Enguiçada
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

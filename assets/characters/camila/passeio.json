@@ -1,0 +1,9 @@
+{
+  "fp": "84066a174c186165",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Camila, a 17-year-old Brazilian girl from the countryside of São Paulo state. Long silky straight blonde hair falling to the middle of her back, fair luminous skin, deep bright emerald-green eyes, a sweet radiant smile, delicate soft features, a few faint freckles on the nose, slim build, gentle curious body language. Outfit (must be shown clearly, every detail): Going out shopping downtown: a mustard-yellow short-sleeve cotton blouse, high-waisted light-wash jeans, white canvas sneakers, a small brown crossbody bag, hair in a loose low ponytail. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

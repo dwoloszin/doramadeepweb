@@ -1,0 +1,9 @@
+{
+  "fp": "035c19e451950ba2",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "The reference image(s) are scenes already shown to the audience: copy EXACTLY this object from them (same model, shape, colors, wear, dents, details). OBJECT REFERENCE SHEET on a plain light-grey studio background: the same single object shown in three views side by side (front, side, three-quarter), no people. Object: Davi's worn dark olive-green canvas backpack with two shoulder straps, faded fabric, frayed edges, a front pocket, no logos. Photorealistic, even soft studio light. No text, no letters, no logos, no watermark.",
+  "refs": [
+    "s18.png"
+  ],
+  "locked": true
+}

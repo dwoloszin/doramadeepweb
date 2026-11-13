@@ -1,0 +1,10 @@
+{
+  "fp": "eeff4b07bbb751e8",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Davi, a 17-year-old Brazilian boy (the exact person in the model photos). Fair skin with a light olive undertone, chubby with a soft round face, full cheeks and a soft double chin, overweight soft body with a round belly, medium height. Short dark-brown straight hair, spiky and a little messy on top, shorter on the sides. Brown eyes, thick straight dark eyebrows, small straight nose, faint stubble shadow on the upper lip. No glasses. Shy body language: slightly hunched shoulders, eyes often looking down. Outfit (must be shown clearly, every detail): Sleeping clothes: an old oversized faded grey cotton t-shirt with a small hole near the collar (no prints, no letters), old dark-blue cotton shorts; no wristwatch. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png",
+    "1_corpo_17anos.jpg"
+  ],
+  "locked": true
+}

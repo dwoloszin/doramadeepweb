@@ -1,0 +1,9 @@
+{
+  "fp": "607c269376911a17",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Bruno, a 16-year-old Brazilian boy from the São Paulo periphery: dark brown skin, short black tightly curled hair with a thin line shaved on one side, tall and lanky with long arms, a wide mischievous grin with metal dental braces, lively expressive eyebrows. Clearly a DIFFERENT person from Davi (not chubby, much darker skin, curly hair). Outfit (must be shown clearly, every detail): The same Brazilian public school uniform as Davi: plain white short-sleeve cotton t-shirt with a small plain navy-blue round crest patch on the left chest (no letters), dark navy-blue track pants with a thin white side stripe, worn white sneakers, a red string bracelet. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

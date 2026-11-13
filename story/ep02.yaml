@@ -1,0 +1,603 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): pergunta final ao publico,
+# som ambiente + efeitos + instrumentos em toda cena, transicao nao e fala.
+# ============================================================================
+#  EPISODIO 2 — adaptado de scenes/scene2.txt
+#
+#  Estrutura (retencao):
+#    0-6s   COLD OPEN: o alarme de 1h do Ep.1 ganha um segredo
+#    titulo
+#    SONHO  a madrugada de dorama: nevoa, postes retro, Kombi de colecao, pai e filho
+#    CHOQUE card: shock (congela, racha, estilhaca, chiado, a realidade bate na tela)
+#    REAL   1h da manha -> entreposto -> separacao na calcada -> entregas -> meio-dia
+#    DUVIDA "e assim que a minha vida vai ser pra sempre?"
+#    GANCHO 20 folhas, uma bicicleta (sem spoiler) -> PERGUNTA
+#
+#  Continuidade: e a MESMA madrugada do fim do Ep.1 (alarme 1h).
+#    dia "d1"    = vida real (roupa de trabalho)
+#    dia "sonho" = a versao dorama da mesma madrugada (roupas do sonho)
+# ============================================================================
+
+id: ep02
+number: 2
+title: "O Perfume das Frutas e a Madrugada Gelada"
+source: scenes/scene2.txt
+
+days:
+  d1:
+    time: "1 AM to noon, a cold winter weekday in São Paulo"
+    wardrobe:
+      davi: madrugada_trabalho
+      pai: trabalho_ceasa
+  sonho:
+    time: "misty blue dawn"
+    wardrobe:
+      davi_sonho: jaqueta_favorita
+      pai: sonho_madrugada
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN
+  - id: s01
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    time: "1 AM, deep night"
+    ambience: "Very quiet small bedroom at 1 AM, cold night wind against a small window, crickets, a dog barking very far away, deep silence"
+    visual: >-
+      Extreme close-up in a dark bedroom: a cheap digital alarm clock glowing
+      bright red showing 1:00 on a wooden desk, and Davi's bare chubby hand
+      with a black digital wristwatch reaching in to slap it off, cold blue
+      moonlight, red glow on his fingers.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx: [{name: alarm, line: 0}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [mysterious] Lembra daquele alarme de uma da manhã?", pause: 0.3}
+      - {who: narrador, text: "[Brazilian accent] [whispers] Ele tocava toda semana. [dramatic] E escondia um segredo que nenhum colega meu sabia.", pause: 0.15}
+
+  - id: s02
+    card: title
+    bg: s03
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- O SONHO
+  - id: s03
+    day: sonho
+    location: rua_sonho_madrugada
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Wide cinematic shot: the young man walks with firm purposeful steps down
+      the middle of the misty cobblestone street at dawn, toward the camera,
+      the retro street lamps glowing amber in the fog behind him, his breath
+      a soft cloud, determined and dreamy.
+    motion: pull_out
+    transition: dissolve
+    sfx: [{gen: "Soft dreamy music box melody, gentle and magical, a few notes", line: 0, dur: 5, db: -6}]
+    lines:
+      - {who: narrador, text: "[dreamy] Na minha cabeça, aquelas madrugadas eram cena de dorama.", pause: 0.25}
+      - {who: narrador, text: "[in awe] A névoa cobria a cidade como um véu... e os postes antigos acendiam tudo de dourado.", pause: 0.2}
+
+  - id: s04
+    day: sonho
+    location: rua_sonho_madrugada
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Close-up, three-quarter profile: the young man in his tan suede jacket
+      with the collar up, the cold wind gently tousling his styled hair in a
+      charming way, soft amber lamplight on his face, a confident hopeful
+      half-smile, mist and bokeh behind him.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Soft cold wind whoosh with a gentle shimmering chime", word: "vento", dur: 3, db: -4}]
+    lines:
+      - {who: narrador, text: "[warmly] O vento frio bagunçava o meu cabelo... do jeito certo. [playfully] E eu de jaqueta favorita, claro.", pause: 0.25}
+
+  - id: s05
+    day: sonho
+    location: rua_sonho_madrugada
+    cast: [davi_sonho, pai]
+    look: dream
+    visual: >-
+      Medium wide shot beside the gleaming cream and mint-green vintage
+      Volkswagen van: the father and his son work side by side in perfect
+      harmony, both smiling, lifting neat wooden crates of glossy red tomatoes
+      and shiny apples, warm amber lamplight and soft fog, like a classic film.
+    motion: pan_right
+    transition: dissolve
+    sfx: [{gen: "Gentle acoustic guitar strum, warm and nostalgic, short phrase", word: "sintonia", dur: 4, db: -5}]
+    lines:
+      - {who: narrador, text: "[dreamy] Ao lado de uma Kombi de colecionador, eu e meu pai trabalhávamos em perfeita sintonia.", pause: 0.25}
+
+  - id: s06
+    day: sonho
+    location: rua_sonho_madrugada
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Close-up of the young man's hands (tan suede jacket sleeves) gently
+      choosing one perfect glossy red tomato from a wooden crate, holding it
+      up to the warm lamplight like a jewel, sparkling dew drops on it, soft
+      bokeh.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "A soft harp glissando, romantic and magical", word: "perfeito", dur: 3, db: -4}]
+    lines:
+      - {who: narrador, text: "[softly] Mãos ágeis, olhar atento. Cada fruta escolhida com carinho... [in awe] cada detalhe, perfeito.", pause: 0.25}
+
+  - id: s07
+    day: sonho
+    location: rua_sonho_madrugada
+    cast: [davi_sonho]
+    look: dream
+    time: "first golden sunrise light breaking through the fog"
+    visual: >-
+      Medium shot: early passersby on the charming street at sunrise (a
+      young woman with a scarf, an elderly couple) turn their heads and look
+      with admiration at the young man carrying a crate of fruit; he gives a
+      humble shy smile; golden sunrise glow through the mist, K-drama moment.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Soft romantic grand piano melody, dreamy and magical, a few notes", line: 0, dur: 6, db: -4}]
+    lines:
+      - {who: narrador, text: "[playfully] E quem passava parava pra olhar. O rapaz trabalhador, humilde... [chuckles] com poesia guardada no peito.", pause: 0.25}
+      - {who: pensamento, text: "[Brazilian accent] [excited] Olha só pra mim: o protagonista perfeito! Só faltava a câmera!", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  # card: shock = transicao animada (o sonho congela, racha, estilhaca, chiado,
+  # a realidade bate na tela tremendo). Usa a ultima imagem da cena anterior e a
+  # primeira da proxima. Sem fala: o som conta a quebra.
+  - id: s08
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Glass window shattering loudly, shards falling and tinkling", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A REALIDADE
+  - id: s09
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    time: "1 AM, deep night"
+    ambience: "Very quiet small bedroom at 1 AM, cold night wind against a small window, crickets, a dog barking very far away, deep silence"
+    visual: >-
+      Dark tiny bedroom at 1 AM: Davi sits on the edge of his narrow bed,
+      half asleep, eyes puffy, pulling his old charcoal-grey zip-up hoodie over
+      his white t-shirt, hair messy, the red alarm clock glowing 1:00 on the
+      desk beside him, cold blue light from the small window.
+    motion: push_in
+    transition: cut
+    music: night
+    sfx: [{gen: "Sleepy heavy sigh and fabric rustle of putting on a hoodie", word: "piedade", dur: 2, db: -6}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [bitterly] Só que a vida real não tinha trilha sonora. [sighs] Nem nada de poético.", pause: 0.3}
+      - {who: narrador, text: "[Brazilian accent] [tired] Uma da manhã. O alarme tocava sem nenhuma piedade.", pause: 0.25}
+
+  - id: s10
+    day: d1
+    location: rua_kombi
+    cast: []
+    look: night
+    time: "2 AM, empty dark city"
+    ambience: "Old van engine running on an empty city avenue at night, road noise, light rain on the windshield, wipers squeaking"
+    visual: >-
+      Wide night shot: the old beat-up white Volkswagen Kombi van with rust
+      spots drives alone down an empty wide São Paulo avenue, its yellow
+      headlights cutting the cold mist, orange sodium street lights
+      reflecting on the wet asphalt, sleeping city around.
+    motion: pan_left
+    transition: dissolve
+    sfx: [{gen: "Old Volkswagen van engine sputtering and starting, then running rough", line: 0, dur: 4, db: -2}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [serious] Eu estava no finalzinho do ensino médio. Sem emprego. E o meu estágio... [chuckles] era ajudar o meu pai, entregador de hortifrúti.", pause: 0.25}
+      - {who: narrador, text: "[softly] Enquanto meus colegas dormiam, a gente já estava na estrada... [Brazilian accent] rumo ao entreposto, no centro de São Paulo.", pause: 0.25}
+
+  - id: s11
+    day: d1
+    location: entreposto
+    cast: [davi, pai]
+    look: night
+    visual: >-
+      Medium wide shot in the huge produce market warehouse at night: the
+      father pulls and Davi pushes a heavy old wooden hand cart loaded with
+      closed crates through an aisle of stacked boxes, both straining,
+      breath visible in the cold air, harsh sodium light, wet concrete floor.
+    motion: pan_right
+    transition: dissolve
+    sfx: [{gen: "Heavy old wooden hand cart with creaking squeaky wheels rolling on concrete", word: "rangendo", dur: 4, db: -1}]
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [tense] Meu pai alugava um carrinho de madeira. Pesado... rangendo a cada metro.", pause: 0.25}
+      - {who: narrador, text: "[tired] Duas horas cruzando os galpões, de um lado pro outro, no frio cortante da madrugada.", pause: 0.25}
+
+  - id: s12
+    day: d1
+    location: entreposto
+    cast: [davi]
+    look: night
+    visual: >-
+      Close medium shot: Davi in his grey hoodie lifts a heavy closed wooden
+      crate of potatoes onto the stacked cart, face strained, cheeks red from
+      the cold, sweat on his forehead, breath steaming, stacked crates and
+      blurred warehouse lights behind him.
+    motion: push_in
+    transition: cut
+    sfx: [{gen: "Heavy wooden crate dropped onto a wooden cart, thud", word: "fogo", dur: 1.5, db: -2}]
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [frustrated] O nariz congelando de frio... [urgently] e as costas pegando fogo!", pause: 0.3}
+
+  - id: s13
+    day: d1
+    location: rua_kombi
+    cast: [davi, pai]
+    look: night
+    time: "4 AM, before dawn"
+    visual: >-
+      Medium shot on the dark wet sidewalk beside the old open Kombi van:
+      Davi and his father stand bent over opened wooden crates, sorting by
+      hand, tomatoes split into piles of ripe red and still-green, big potatoes
+      in one crate and small ones in another, sodium street light, cold mist.
+    motion: pan_down
+    transition: dissolve
+    sfx: [{gen: "Potatoes tumbling and rolling into a wooden crate", word: "batatas", dur: 2, db: -2}]
+    lines:
+      - {who: narrador, text: "[serious] E o trabalho pesado começava depois. De pé, na calçada, caixa por caixa.", pause: 0.2}
+      - {who: narrador, text: "[Brazilian accent] Tomate separado pelo tempo de maturação. As batatas grandes, pra quem fazia fritas... [chuckles] as pequenas, pro outro grupo.", pause: 0.2}
+
+  - id: s14
+    day: d1
+    location: rua_kombi
+    cast: [davi]
+    look: night
+    time: "4 AM, before dawn"
+    visual: >-
+      Close-up of Davi's chubby hands with the black digital wristwatch and
+      dirty grey hoodie cuffs, carefully sorting red and green tomatoes into
+      two wooden crates, dirt under the fingernails, a dented old white van
+      door blurred in the background.
+    motion: push_in
+    transition: cut
+    sfx: [{gen: "A single warm determined cello phrase, short", word: "tudo", dur: 3, db: -6}]
+    lines:
+      - {who: narrador, text: "[proudly] E eu participava de absolutamente tudo.", pause: 0.3}
+
+  - id: s15
+    day: d1
+    location: centro_sp
+    cast: [davi, pai]
+    look: real
+    time: "8 AM, low morning sun"
+    visual: >-
+      Medium wide shot on the crowded downtown sidewalk in the morning:
+      Davi carries a heavy crate of tomatoes against his chest and his
+      father carries a sack of potatoes on his shoulder, dodging hurried
+      office workers, toward a small bar with a half-open metal roll-up door,
+      morning sun flaring between buildings.
+    motion: pan_left
+    transition: flash
+    music: real
+    sfx: [{gen: "Metal roll-up shop door being pulled open with a loud rattle", word: "bar", dur: 2.5, db: -3}]
+    lines:
+      - {who: narrador, text: "[energetic] Às sete, com o sol raiando, devolvíamos o carrinho... e começava a maratona de entregas.", pause: 0.2}
+      - {who: narrador, text: "[Brazilian accent] Bar por bar, restaurante por restaurante... desviando da multidão apressada do centro.", pause: 0.25}
+
+  - id: s16
+    day: d1
+    location: rua_periferia
+    cast: [davi, pai]
+    look: real
+    time: "noon, harsh overhead sun"
+    visual: >-
+      Medium shot at noon in the periphery street: the old white Kombi van
+      parked in front of a red-brick house, the father closing the van door,
+      Davi stepping out exhausted, dirty hoodie tied around his waist, white
+      t-shirt stained with dirt and sweat, shoulders dropped, harsh sun.
+    motion: push_in
+    transition: dissolve
+    sfx: [{gen: "Old van sliding door slamming shut, then engine ticking as it cools", word: "toneladas", dur: 3, db: -3}]
+    lines:
+      - {who: narrador, text: "[tired] Ao meio-dia, a gente voltava pra casa. O corpo pesava toneladas.", pause: 0.25}
+      - {who: narrador, text: "[softly] Eu cheirava a terra e a caixote de madeira. [warmly] Cansado... mas com o dever cumprido.", pause: 0.3}
+
+  - id: s17
+    day: d1
+    location: rua_periferia
+    cast: [davi]
+    look: real
+    time: "noon, hazy hot light"
+    ambience: "Quiet periphery rooftop at noon, distant city hum, a kite string whistling in the wind, faint dog bark, a radio playing far away"
+    visual: >-
+      Davi sits alone on the back bumper of the old Kombi van, elbows on his
+      knees, seen in profile, staring with a lost gaze at the horizon of
+      endless red-brick houses stacked on the hills of the periphery, a kite
+      in the hazy sky, melancholic and thoughtful.
+    motion: pull_out
+    transition: dissolve
+    music: none
+    sfx: [{gen: "A single deep dramatic cello note, sad and heavy, cinematic", word: "sempre", dur: 4, db: -3}]
+    lines:
+      - {who: narrador, text: "[thoughtful] E ali, no meio daquela rotina pesada, eu olhava pro horizonte...", pause: 0.3}
+      - {who: pensamento, text: "[Brazilian accent] [sad] Meu Deus... é assim que a minha vida vai ser? [desperate] Pra sempre?", pause: 0.4}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s18
+    day: d1
+    location: rua_periferia
+    cast: [davi]
+    look: real
+    time: "early afternoon, hot blazing sun"
+    visual: >-
+      Davi stands at the gate of his red-brick house in the hot sun with a
+      worn backpack on his back, looking down the steep street with a
+      determined expression, sweat on his forehead, heat shimmer, an old
+      bicycle leaning on the wall beside him.
+    motion: push_in
+    transition: fadeblack
+    sfx: [{gen: "Short hopeful rising string swell, cinematic", word: "sonhos", dur: 3, db: -5}]
+    lines:
+      - {who: narrador, text: "[determined] Mas eu sabia que não podia parar ali. O hortifrúti sustentava o corpo... não os meus sonhos.", pause: 0.25}
+      - {who: narrador, text: "[mysterious] Nos dias de folga, eu colocava a mochila nas costas... e saía pra uma nova maratona.", pause: 0.25}
+
+  - id: s19
+    day: d1
+    location: rua_periferia
+    cast: []
+    look: real
+    time: "early afternoon, hot blazing sun"
+    ambience: "Hot quiet street in the afternoon, cicadas buzzing, a distant motorcycle, wind"
+    visual: >-
+      Close-up: an old bicycle front basket holding a neat stack of blank
+      white sheets of paper (completely blank, no writing visible) held down by
+      a small stone, the bicycle wheel and a long hot sunny road behind,
+      heat shimmer, dramatic low angle.
+    motion: push_in
+    transition: cut
+    music: night
+    sfx:
+      - {gen: "Bicycle chain clicking and spokes spinning", line: 0, dur: 3, db: -4}
+      - {gen: "Deep cinematic suspense boom hit with long reverb tail", word: "perder?", dur: 4, db: -2}
+    lines:
+      - {who: narrador, text: "[dramatic] Vinte folhas de papel. Uma bicicleta. E quilômetros de estrada.", pause: 0.3}
+      - {who: narrador, text: "[suspenseful] Até onde um sonho pode te levar... [whispers] quando você não tem nada a perder?", pause: 0.45}
+
+  - id: s20
+    # PERGUNTA FINAL (regra da serie)
+    card: question
+    bg: s17
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Encararia essa madrugada com o seu pai... [playfully] ou acha que adolescente devia só estudar? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+# Textos de tela
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 2"
+    title: "O Perfume das Frutas"
+    subtitle: "e a Madrugada Gelada"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Encararia essa madrugada?"
+    subtitle: "Ou adolescente devia só estudar? Conta nos comentários."
+    footer: "Continua no Episódio 3"
+
+# ----------------------------------------------------------------------------
+# Publicacao (so sai depois do approve)
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 2 — O Perfume das Frutas e a Madrugada Gelada 🍅 #dorama #novela"
+  description: |
+    Na cabeça dele, era cena de dorama. Na vida real, era 1h da manhã, frio cortante e um carrinho de madeira rangendo.
+
+    Episódio 2 da vídeo-novela: o segredo por trás do alarme da madrugada — o garoto que trabalhava com o pai no entreposto antes de todo mundo acordar.
+
+    💬 E você? Encararia essa madrugada com o seu pai... ou acha que adolescente devia só estudar? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 3.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #paiefilho #madrugada #periferia #historianarrada #doramasbrasil #audiobook #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, pai e filho,
+         trabalho na madrugada, ceagesp, hortifruti, periferia de sao paulo, superação, historia real, romance, drama,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 2 — O Perfume das Frutas e a Madrugada Gelada 🍅
+
+    Na minha cabeça, era cena de dorama.
+    Na vida real... 1h da manhã, frio cortante e um carrinho de madeira rangendo.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Encararia essa madrugada com o seu pai... ou adolescente devia só estudar?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 3.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #paiefilho #madrugada #historianarrada
+  tiktok_caption: |
+    Na minha cabeça era dorama. Na vida real era 1h da manhã, frio e um carrinho de madeira rangendo. 🍅
+
+    Ep. 2 — O Perfume das Frutas e a Madrugada Gelada
+
+    💬 E você, encararia essa madrugada com seu pai? Conta aqui 👇
+    Segue pra não perder o Ep. 3 🍿
+
+    #dorama #kdrama #paiefilho #madrugada #historianarrada
+
+# ----------------------------------------------------------------------------
+# CARROSSEL — o capitulo escrito (Instagram 4:5). 1 item = 1 slide.
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s05
+    kicker: "CAPÍTULO 2"
+    title: "O Perfume das Frutas e a Madrugada Gelada"
+    hook: "O alarme de 1h da manhã escondia um segredo."
+
+  - bg: s03
+    text: |
+      A névoa da madrugada cobria a cidade como um véu poético.
+
+      Sob a luz amarelada e charmosa dos postes retrô, eu caminhava a passos firmes, compenetrado, cheio de propósito. O vento frio bagunçava meu cabelo do jeito certo. E eu vestia a minha jaqueta favorita.
+
+  - bg: s05
+    text: |
+      Ao lado de uma imponente perua Volkswagen de colecionador, que parecia ter saído de um filme clássico, eu e meu pai trabalhávamos em perfeita sintonia.
+
+      Mãos ágeis. Olhar atento. Cada fruta escolhida com carinho, buscando a perfeição em cada detalhe.
+
+  - bg: s07
+    text: |
+      Quem passava pelas ruas ao amanhecer parava para olhar: um rapaz dedicado, que carregava no olhar a promessa de um futuro brilhante e a sensibilidade de quem guarda poesias no peito.
+
+      _O protagonista perfeito. Só faltava a câmera._
+
+  - bg: s09
+    text: |
+      **Só que a vida real não tinha trilha sonora.**
+
+      Não tinha nada de vintage, charmoso ou poético naquelas madrugadas. O alarme tocava sem nenhuma piedade à 1h da manhã.
+
+  - bg: s10
+    text: |
+      Eu estava no finalzinho do ensino médio, sem trabalho formal. O meu "estágio" era ajudar meu pai na vida dura de entregador de hortifrúti.
+
+      Enquanto meus colegas dormiam o sono dos justos, nós já estávamos na estrada, rumo ao entreposto no centro de São Paulo.
+
+  - bg: s11
+    text: |
+      Meu pai estacionava a velha Kombi na rua e alugava um carrinho de madeira, pesado e rangente.
+
+      Eram duas horas cruzando os galpões de um lado para o outro, sob o frio cortante da madrugada.
+
+      _O nariz congelando... e as costas pegando fogo._
+
+  - bg: s13
+    text: |
+      Comprávamos tudo em caixas fechadas, mas o trabalho pesado começava depois.
+
+      Ali, de pé na calçada, abríamos caixa por caixa. Os tomates eram separados pelo tempo de maturação. As batatas maiores iam para quem fazia fritas; as menores, para outro grupo.
+
+      **Eu participava de absolutamente tudo.**
+
+  - bg: s15
+    text: |
+      Por volta das 7h, com o sol raiando, devolvíamos o carrinho e saíamos para a maratona de entregas.
+
+      Bar por bar, restaurante por restaurante, desviando da multidão apressada nas calçadas do centro.
+
+  - bg: s16
+    text: |
+      Quando finalmente voltávamos para casa, perto do meio-dia, o corpo pesava toneladas.
+
+      Eu cheirava a terra e a caixote de madeira. Exausto, mas com o senso de dever cumprido.
+
+  - bg: s17
+    text: |
+      E ali, no meio daquela rotina pesada, eu olhava para o horizonte com o olhar perdido e me perguntava:
+
+      _É assim que a minha vida vai ser... para sempre?_
+
+  - type: end
+    bg: s19
+    big: "Vinte folhas de papel."
+    text: |
+      Uma bicicleta. Quilômetros de estrada.
+
+      Até onde um sonho pode te levar quando você não tem nada a perder?
+    cta: "CONTINUA NO CAPÍTULO 3 · Salve e siga para não perder"
+
+  - type: question
+    bg: s16
+    kicker: "E VOCÊ?"
+    title: "Encararia essa madrugada?"
+    text: |
+      1h da manhã, frio cortante, carrinho de madeira e entrega até o meio-dia, ainda no ensino médio.
+
+      _Você encararia com o seu pai... ou acha que adolescente devia só estudar?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" (divulgacao no meio da semana, antes do episodio sair)
+# `python main.py teaser ep02` -> output/ep02/teaser/ (formato em src/teaser.py)
+teaser:
+  - id: t1
+    from: s09
+    zoom: 1.6
+    focus: [0.5, 0.45]
+    badge: "ALERTA DE SPOILER"
+    title: "1 da manhã... por que será que o Davi acordou **ASSIM?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      1 da manhã. Despertador tocando. E o Davi... ASSIM 😩
+      Pra onde será que ele vai a essa hora?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2                          # imagem nova, intrigante e sem contar a historia
+    shot:
+      day: d1
+      location: rua_kombi
+      cast: [davi]
+      look: night
+      props: [kombi]
+      visual: >-
+        Cinematic night shot under an orange sodium street light: Davi in his grey
+        hoodie gives a huge sleepy yawn, eyes half closed, leaning against the old
+        white Kombi van with wooden crates of tomatoes at his feet, his breath
+        visible as vapor in the cold air, the empty wet street shining behind him.
+        His face in the upper half of the frame.
+    zoom: 1.0
+    focus: [0.5, 0.32]
+    badge: "ALERTA DE SPOILER"
+    title: "Enquanto a cidade dorme... **o Davi já está de pé.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Enquanto a cidade dorme... o Davi já está de pé 🌙🍅
+      Frio, caixote pesado e um sonho guardado no peito.
+
+      Você já trabalhou de madrugada? Conta aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t3                          # cartaz do episodio (tema, sem historia)
+    style: poster
+    from: s05
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 2"
+    title: "O Perfume das Frutas e a Madrugada Gelada"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 2: O Perfume das Frutas e a Madrugada Gelada
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

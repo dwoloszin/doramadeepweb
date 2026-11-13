@@ -1,0 +1,273 @@
+# ============================================================================
+#  TEMPLATE DE EPISODIO — copie para story/epNN.yaml e preencha.
+#  Exemplo completo e aprovado: story/ep01.yaml.   Enredo/canone: story/ENREDO.md
+#
+#  CHECKLIST DO ROTEIRISTA (antes de renderizar)
+#   [ ] Li o ENREDO.md: canone respeitado, fios soltos considerados
+#   [ ] ABERTURA MAGICA: comeca no sonho/dorama, algo LINDO E MAGICO (luz dourada, particulas,
+#       estrelas, camera lenta, harpa/piano); a realidade so depois do card: shock
+#   [ ] COLD OPEN nos primeiros 6s: uma frase que obriga a ficar
+#   [ ] Alterna emocao (sonho/real, calmo/tenso); nenhuma cena "morna"
+#   [ ] Transicao NAO e fala ("Corta." nao); a narracao conta o SENTIMENTO da virada
+#   [ ] Sonho -> realidade = card: shock (choque bem definido p/ a audiencia)
+#   [ ] Personagem novo (ou que ainda nao falou) TEM FALAS + voz propria (config.yaml -> voices)
+#   [ ] Personagem/LUGAR/OBJETO novo que pode voltar -> referencia salva na bible.yaml
+#       (characters | locations | props, com from_frames se ja apareceu) + python main.py refs
+#   [ ] ELENCO: personagem recorrente citado no visual (pai, porteiro...) ESTA no cast
+#       (o frames para se nao estiver); figurante descrito bem diferente do Davi
+#       (idade, pele, cabelo); quem fala esta no cast ou em offscreen: [id]
+#   [ ] PENSAMENTO: frase completa e com ENERGIA, falando consigo ("Fala alguma coisa, Davi...
+#       qualquer coisa!"); 1 emocao forte; nada de [whispers]/[gasps]/[nervous laugh] nem fala curtinha
+#   [ ] Ep. 7+: copiar o bloco `voices: pensamento` do ep07 (pensamento GRAVE, "mais homem");
+#       pensamento com [deep voice] + [confident]/[determined]/[calmly]; sem [panicking]/[pleading]
+#   [ ] Toda fala com marcacao de atuacao; "[Brazilian accent]" onde puxar sotaque;
+#       nada de fala muito curta (< ~30 caracteres) sozinha
+#   [ ] Toda cena com SOM: ambiente (do lugar ou `ambience:`) + efeitos/instrumentos
+#       sincronizados com `word:` nos momentos de emocao
+#   [ ] GANCHO no fim + PERGUNTA ao publico (card: question) sobre a decisao/dilema
+#   [ ] Mesmo dia = mesma roupa (days.dN.wardrobe); personagem/roupa/lugar novo
+#       ja criado na bible.yaml (+ python main.py refs)
+#   [ ] Imagem sem texto legivel (quadro, caderno, placas): pedir "blank / no writing"
+#   [ ] Ate 179.5s (o render avisa). Passou? divida em partes num gancho
+#   [ ] Carrossel = o capitulo escrito (mais literario que a narracao) + slide question
+#   [ ] publish: titulo, descricao e legenda com a pergunta + "conta nos comentarios"
+#   [ ] Depois de aprovado: atualizar story/ENREDO.md
+#
+#  ESTRUTURA DE RETENCAO (ep01)
+#    0-6s   COLD OPEN  -> titulo -> ATO A (mundo/desejo) -> VIRADA (transicao)
+#    -> ATO B (realidade/conflito) -> GANCHO -> PERGUNTA (card question)
+#
+#  CAMPOS DE CADA CENA (shot)
+#    id          s01, s02... (a imagem fica em output/epNN/frames/<id>.png)
+#    day         dN de `days` (define a ROUPA de cada personagem)
+#    location    id de bible.locations (referencia visual + som ambiente)
+#    cast        [ids da bible] que aparecem (referencias de rosto/roupa)
+#    props       [ids de bible.props] objetos recorrentes em cena (bicicleta, kombi, mochila...)
+#    offscreen   [ids] personagens que falam FORA do quadro nesta cena (sem imagem)
+#    look        dream | real | night   (cor/grade da imagem)
+#    time        opcional: hora/luz desta cena (senao vale days.dN.time)
+#    visual      EM INGLES: enquadramento + acao + emocao (vai para o Gemini)
+#    motion      push_in | pull_out | pan_up | pan_down | pan_left | pan_right
+#    transition  como ENTRA: dissolve | fadeblack | fadewhite | flash | cut
+#    music       troca a trilha daqui pra frente: dream | real | night | none
+#    ambience    opcional: troca o som de fundo ("..." em ingles) ou none
+#    ambience_db opcional: +/- dB do ambiente nesta cena
+#    sfx         lista de efeitos:
+#                  sintetizados: heartbeat | heels | whoosh | alarm | glitch
+#                  gerados:  {gen: "descricao em ingles", word: "palavra", dur: 3, db: -3}
+#                  ancora:   word: "x" (quando a voz diz x) | line: 0 (inicio da fala)
+#                            | after_line: 0 (depois da fala) | at: 1.5 (soma segundos)
+#    lines       falas, na ordem:
+#                  {who: narrador|pensamento|clara|..., text: "[tag] fala", pause: 0.25}
+#                  clara (ingles) leva tr: "traducao" (aparece embaixo da legenda)
+#    lead        opcional: respiro antes da 1a fala (s)
+#    min_duration opcional: tempo minimo da cena (s)
+#
+#  MARCACOES DE ATUACAO (eleven_v3; ficam fora da legenda)
+#    [whispers] [softly] [sad] [sighs] [excited] [dreamy] [in awe] [nervous]
+#    [tense] [urgently] [mysterious] [dramatic] [sarcastic] [bitterly] [laughs]
+#    [chuckles] [laughs softly] [determined] [tenderly] [curious] [playfully]
+#    [breathless] [slowly] [suspenseful] [tired] [deadpan] [Brazilian accent]
+# ============================================================================
+
+id: epNN
+number: NN
+title: "Titulo do Capitulo"
+source: scenes/sceneN.txt
+
+# Cada dia da historia: hora e roupa de cada personagem (mesmo dia = mesma roupa)
+days:
+  d1:
+    time: "a weekday afternoon"
+    wardrobe:
+      davi: escola_uniforme
+      # clara: aula_dia1          # roupa nova? crie em bible.yaml -> wardrobe
+
+shots:
+  # ---------------------------------------------------------------- COLD OPEN
+  - id: s01
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    visual: >-
+      (EM INGLES) Close-up ... the single most intriguing image of the episode.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "(som que prende de cara)", line: 0, dur: 3}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [whispers] (a frase que obriga a ficar)", pause: 0.3}
+
+  # ---------------------------------------------------------------- TITULO
+  - id: s02
+    card: title
+    bg: s01                      # imagem de fundo (desfocada)
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  # ---------------------------------------------------------------- ATO A
+  - id: s03
+    day: d1
+    location: sala_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      (EM INGLES) Wide shot ...
+    motion: pan_right
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[dreamy] ...", pause: 0.25}
+      - {who: pensamento, text: "[nervous] ...", pause: 0.25}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  # card: shock = transicao animada (congela -> racha -> estilhaca -> chiado ->
+  # a realidade bate na tela tremendo). Usa a ultima imagem da cena anterior e a
+  # primeira da proxima. SEM fala; os sons abaixo contam a quebra.
+  - id: s03b
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "Glass window shattering loudly, shards falling and tinkling", at: 0.3, dur: 2, db: 1}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  - id: s04
+    day: d1
+    location: sala_real
+    cast: [davi]
+    look: real
+    visual: >-
+      (EM INGLES) ...
+    motion: pan_right
+    transition: cut              # entra seco depois do card: shock
+    music: real
+    lines:
+      - {who: narrador, text: "[sad] (o SENTIMENTO da virada, p/ quem so ouve)", pause: 0.35}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s05
+    day: d1
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    ambience: "Very quiet small bedroom at night, ..."
+    visual: >-
+      (EM INGLES) ...
+    motion: push_in
+    transition: fadeblack
+    music: night
+    sfx:
+      - {gen: "Deep cinematic suspense boom hit with long reverb tail", word: "(ultima palavra)", dur: 4, db: -2}
+    lines:
+      - {who: narrador, text: "[mysterious] (a pergunta que fica no ar)...", pause: 0.3}
+      - {who: narrador, text: "[dramatic] (a promessa do proximo capitulo)", pause: 0.45}
+
+  # ---------------------------------------------------------------- PERGUNTA (obrigatoria)
+  - id: s06
+    card: question
+    bg: s05
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? (decisao/dilema do episodio)... [playfully] ou faria igual a mim? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+# Textos de tela
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO NN"
+    title: "Titulo do Capitulo"
+    subtitle: "(complemento)"
+  question:
+    kicker: "E VOCÊ?"
+    title: "(a pergunta curta)?"
+    subtitle: "Ou faria igual a ele? Conta nos comentários."
+    footer: "Continua no Episódio NN+1"
+
+# ----------------------------------------------------------------------------
+# Publicacao (so sai depois do approve)
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. NN — Titulo do Capitulo 💚 #dorama #novela"
+  description: |
+    (frase-gancho)
+
+    (resumo sem spoiler do gancho)
+
+    💬 E você? (a pergunta)? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio NN+1.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #(tema1) #(tema2) #historianarrada #doramasbrasil #audiobook #shorts
+  tags: [dorama, novela, web novela, historia narrada, audiobook, shorts]
+  instagram_caption: |
+    Episódio NN — Titulo do Capitulo 💚
+
+    (frase-gancho)
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? (a pergunta)?
+    Conta aqui nos comentários 👇
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #kdrama #primeiroamor #amorplatonico #historianarrada   # Instagram: no maximo 5
+  # TikTok e MANUAL: o publish grava output/epNN/tiktok.txt para colar
+  tiktok_caption: |
+    (gancho em 1-2 frases) 💚
+
+    Ep. NN — Titulo do Capitulo
+
+    💬 E você, (a pergunta)? Conta aqui 👇
+    Segue pra não perder o Ep. NN+1 🍿
+
+    #dorama #kdrama #(tema1) #(tema2) #historianarrada
+
+# ----------------------------------------------------------------------------
+# CARROSSEL — o capitulo ESCRITO (mais literario que a narracao). 1 item = 1 slide.
+# **negrito**, _italico_ (italico lilas = pensamento). Max 20 slides.
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO NN"
+    title: "Titulo do Capitulo"
+    hook: "(a frase do cold open)"
+
+  - bg: s03
+    text: |
+      (paragrafo 1)
+
+      (paragrafo 2)
+
+  - type: end
+    bg: s05
+    big: "(frase curta de impacto)"
+    text: |
+      (o gancho)
+    cta: "CONTINUA NO CAPÍTULO NN+1 · Salve e siga para não perder"
+
+  - type: question
+    bg: s05
+    kicker: "E VOCÊ?"
+    title: "(a pergunta curta)?"
+    text: |
+      (contexto do dilema em 1-2 linhas)
+
+      _(a pergunta provocando o leitor)_
+    cta: "RESPONDA NOS COMENTÁRIOS"
