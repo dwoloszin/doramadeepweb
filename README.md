@@ -239,23 +239,34 @@ geradas na hora, porque uma depende da outra (rosto → roupa).
 Estimativa por episódio: ~R$ 7 a 9 em imagens. Voz e efeitos usam o pool
 gratuito do ElevenLabs (ver `python main.py voices`).
 
-## Automação futura (GitHub Actions, repositório público)
+## Automação (GitHub Actions — repositório público `dwoloszin/doramadeepweb`)
 
-**Ainda não ativada.** Hoje tudo roda local, porque faltam as chaves dos canais.
-O plano:
+**Calendário** em [`schedule.yaml`](schedule.yaml) (editável à mão):
 
-1. Um workflow agendado (cron) detecta um `scenes/sceneN.txt` novo sem `story/epNN.yaml`.
-2. A adaptação para `epNN.yaml` usa a API do Claude (`ANTHROPIC_API_KEY`), seguindo
-   `story/_TEMPLATE_ep.yaml` e `story/ENREDO.md`.
-3. Roda `refs` → `frames` (batch; o cron seguinte retoma se o lote não terminou)
-   → `video` → `carousel`.
-4. O resultado sobe como *artifact* para revisão, e **só publica depois da aprovação**
-   (`approve`, ou um `workflow_dispatch` manual), mantendo a trava de 3 condições.
+| Quando (12h, Brasília) | O quê | Onde |
+|---|---|---|
+| Domingo | episódio da semana | YouTube (já enviado antes, **agendado**) + Instagram Reel + carrossel |
+| Terça · Quinta · Sábado antes | teasers t1 · t2 · t3 (cartaz) | Instagram: post no feed + Story |
+| — | TikTok | manual (`output/epNN/tiktok.txt`) |
 
-Cuidados por ser público: chaves só em **GitHub Secrets** (`GEMINI_API_KEY_IMG`,
-`ELEVENLABS_API_KEYS`, `ANTHROPIC_API_KEY`, `INSTAGRAM_ACCESS_TOKEN`,
-`DB_ARCHIVE_GITHUB_TOKEN`, e o OAuth do YouTube serializado num secret).
-`.env`, `token.json` e `client_secret.json` nunca vão para o git. Os caches
-(`assets/characters`, `assets/locations`, `assets/sfx/gen`) devem ser
-versionados, senão cada execução paga de novo. As fotos-modelo em
-`assets/characters/*/modelo/` ficariam **públicas** no repositório.
+- Só entra no calendário episódio **aprovado** (`python main.py approve epNN`, ou no GitHub:
+  Actions → autopilot → Run workflow → `approve: epNN`). Aprovado sem data ganha o próximo domingo livre.
+- O workflow [`.github/workflows/autopilot.yml`](.github/workflows/autopilot.yml) roda todo dia às
+  11h40, espera até 12h e publica o que é do dia. O YouTube é enviado até 14 dias antes já com
+  `publishAt` (no máx. 2 por dia, por causa da cota da API). O Instagram só publica no próprio dia.
+- Tudo que sai fica em `output/epNN/status.json` → `published` (nunca publica duas vezes); o
+  workflow faz commit desse estado.
+- **Episódio novo**: a cena é adaptada aqui com o Claude (roteiro revisado pelo autor) e o
+  `story/epNN.yaml` vai pro git. Se o vídeo ainda não foi renderizado em lugar nenhum, o Actions
+  renderiza (refs → frames em lote → vídeo → carrossel → teasers) e sobe a mídia para a release
+  `media-epNN`. **Não publica** até a aprovação. Episódio que já tem `metadata.json` nunca é
+  re-renderizado sozinho.
+- **Mídia pesada** (vídeo ~230 MB, frames, carrossel, teasers) fica nas **GitHub Releases**
+  (`media-epNN`), não no git: `python main.py media-push epNN` sobe; o Actions baixa quando precisa.
+  Depois de refazer um episódio local, rode `media-push` de novo.
+- Simular sem publicar: `python main.py autopilot --dry` (ou Run workflow com `dry`).
+
+**Segredos** (GitHub → Settings → Secrets, nunca no git): `GEMINI_API_KEY_IMG`,
+`ELEVENLABS_API_KEYS`, `INSTAGRAM_ACCESS_TOKEN`, `INSTAGRAM_USER_ID`, `DB_ARCHIVE_GITHUB_TOKEN`,
+`YOUTUBE_TOKEN_JSON` (conteúdo do token.json) e `YOUTUBE_CLIENT_SECRET_JSON`. As fotos-modelo
+(`assets/characters/*/modelo/`) ficam fora do repositório.

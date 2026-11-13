@@ -1,12 +1,12 @@
 {
   "episode": "ep10",
-  "duration": 174.35,
+  "duration": 171.18,
   "video": "ep10.mp4",
   "srt": "ep10.srt",
   "audiobook": "ep10_audiobook.mp3",
   "publish": {
-    "title": "Ep. 10 — O Universo num Pingo d'Água 🔬 #dorama #novela",
-    "description": "Jornais encalhados, selinhos colados um por um... e um microscópio de plástico que virou um portal para outro mundo.\n\nEpisódio 10 da vídeo-novela: quando as portas do mundo adulto pareciam fechadas, o garoto da periferia descobriu um universo inteiro dentro de um pingo d'água.\n\n💬 E você? Já teve um hobby que segurou a sua esperança num tempo difícil? Conta nos comentários!\n\n▶ Ouça como audiobook: a história inteira é narrada.\n▶ Ative as legendas e siga para não perder o Episódio 11.\n\n📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/\n🎵 TikTok: https://www.tiktok.com/@doramamagico\n\n#dorama #kdrama #novela #ciencia #microscopio #curiosidade #historianarrada #doramasbrasil #shorts\n",
+    "title": "Ep. 10 — O Universo num Pingo d'Água 🔬 #dorama #ciencia",
+    "description": "Jornais encalhados, selinhos colados um por um... e um microscópio de plástico que virou um portal para outro mundo.\n\nEpisódio 10 da vídeo-novela: quando as portas do mundo adulto pareciam fechadas, o garoto da periferia descobriu um universo inteiro dentro de um pingo d'água — paramécios, amebas, as células de Robert Hooke, o olho da mosca, a asa da borboleta, formigas que cultivam fungo e a seda da aranha, mais forte que o aço.\n\n💬 E você? Qual foi a coisa mais incrível que você já viu num microscópio? Conta nos comentários!\n\n▶ Ouça como audiobook: a história inteira é narrada.\n▶ Ative as legendas e siga para não perder o Episódio 11.\n\n📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/\n🎵 TikTok: https://www.tiktok.com/@doramamagico\n\n#dorama #kdrama #novela #ciencia #microscopio #biologia #curiosidades #historianarrada #doramasbrasil #shorts\n",
     "tags": [
       "dorama",
       "doramas",
@@ -19,15 +19,20 @@
       "ciencia",
       "microscopio",
       "biologia",
-      "curiosidade",
-      "banca de jornal",
-      "esperanca",
+      "curiosidades",
+      "paramecio",
+      "ameba",
+      "celulas",
+      "robert hooke",
+      "formigas",
+      "aranha",
+      "abelhas",
       "periferia de sao paulo",
       "dorama da deep web",
       "shorts"
     ],
-    "instagram_caption": "Episódio 10 — O Universo num Pingo d'Água 🔬\n\nO mundo lá fora não me dava uma oportunidade.\nEntão eu criei o meu, da porta pra dentro.\n\n🎧 Ouça com som — é uma história narrada.\n📖 Prefere ler? O capítulo completo está no carrossel.\n\n💬 E você? Já teve um hobby que segurou a sua esperança num tempo difícil?\nConta aqui nos comentários 👇\nSiga para o Episódio 11.\n\n▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico\n\n#dorama #kdrama #ciencia #microscopio #historianarrada\n",
-    "tiktok_caption": "Um microscópio de plástico e um universo inteiro num pingo d'água 🔬✨\n\nEp. 10 — O Universo num Pingo d'Água\n\n💬 Que hobby segurou a sua esperança num tempo difícil? Conta aqui 👇\nSegue pra não perder o Ep. 11 🍿\n\n#dorama #kdrama #ciencia #curiosidade #historianarrada\n"
+    "instagram_caption": "Episódio 10 — O Universo num Pingo d'Água 🔬\n\nO mundo lá fora não me dava uma oportunidade.\nEntão eu criei o meu, da porta pra dentro.\n\n🧪 Paramécios, amebas, as \"células\" de Robert Hooke, o olho da mosca, a asa da borboleta...\n🎧 Ouça com som — é uma história narrada.\n📖 Prefere ler? O capítulo completo está no carrossel.\n\n💬 E você? Qual foi a coisa mais incrível que você já viu num microscópio?\nConta aqui nos comentários 👇\nSiga para o Episódio 11.\n\n▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico\n\n#dorama #kdrama #ciencia #microscopio #historianarrada\n",
+    "tiktok_caption": "Um microscópio de plástico e um universo inteiro num pingo d'água 🔬✨\n\nEp. 10 — O Universo num Pingo d'Água\n\n💬 O que você já viu num microscópio? Conta aqui 👇\nSegue pra não perder o Ep. 11 🍿\n\n#dorama #ciencia #curiosidades #biologia #historianarrada\n"
   },
   "shots": [
     {
@@ -53,87 +58,72 @@
     {
       "id": "s05",
       "start": 21.15,
-      "dur": 13.84
+      "dur": 8.13
     },
     {
       "id": "s06",
-      "start": 34.99,
+      "start": 29.28,
       "dur": 8.06
     },
     {
       "id": "s07",
-      "start": 43.05,
+      "start": 37.34,
       "dur": 5.72
     },
     {
       "id": "s08",
-      "start": 48.76,
+      "start": 43.05,
       "dur": 6.33
     },
     {
       "id": "s09",
-      "start": 55.1,
+      "start": 49.39,
       "dur": 15.41
     },
     {
       "id": "s10",
-      "start": 70.5,
+      "start": 64.79,
       "dur": 16.67
     },
     {
       "id": "s11",
-      "start": 87.17,
-      "dur": 6.4
+      "start": 81.46,
+      "dur": 13.21
     },
     {
       "id": "s12",
-      "start": 93.58,
-      "dur": 7.63
+      "start": 94.68,
+      "dur": 9.0
     },
     {
       "id": "s13",
-      "start": 101.2,
-      "dur": 5.2
+      "start": 103.68,
+      "dur": 14.36
     },
     {
       "id": "s14",
-      "start": 106.4,
-      "dur": 4.53
+      "start": 118.04,
+      "dur": 8.92
     },
     {
       "id": "s15",
-      "start": 110.93,
-      "dur": 4.63
-    },
-    {
-      "id": "s16",
-      "start": 115.56,
-      "dur": 6.82
-    },
-    {
-      "id": "s17",
-      "start": 122.38,
-      "dur": 18.59
-    },
-    {
-      "id": "s18",
-      "start": 140.97,
-      "dur": 8.07
+      "start": 126.96,
+      "dur": 8.45
     },
     {
       "id": "s19",
-      "start": 149.04,
-      "dur": 6.03
+      "start": 135.41,
+      "dur": 10.66
     },
     {
       "id": "s20",
-      "start": 155.07,
-      "dur": 12.68
+      "start": 146.07,
+      "dur": 16.4
     },
     {
       "id": "s21",
-      "start": 167.75,
-      "dur": 6.6
+      "start": 162.46,
+      "dur": 8.72
     }
   ]
 }

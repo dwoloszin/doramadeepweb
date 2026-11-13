@@ -1,0 +1,550 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 11 — 2a metade de scenes/scene10.txt (o ep10 original foi DIVIDIDO a pedido do autor)
+#
+#  PEDIDO DO AUTOR: a parte do esperma NADA de nojento ou vulgar — curiosa e explicativa.
+#  Tratamento: aula de biologia com historia da ciencia e humor leve (a mae batendo na porta).
+#  Dados checados: Leeuwenhoek (1677, comerciante de tecidos holandes, "animalculos", microscopio
+#  caseiro); unica celula humana com cauda (flagelo); cabeca = DNA, peca intermediaria =
+#  mitocondrias, cauda = motor; milhares por segundo (~1.500/s); ovulo = maior celula do corpo
+#  humano, visivel a olho nu (~0,1 mm).
+#
+#  Estrutura:
+#    ABERTURA  magica e abstrata: a "maior corrida do universo" (cometas de luz rumo a um sol)
+#    titulo
+#    HISTORIA  (sonho) Leeuwenhoek, 1677, a luz de vela
+#    CHOQUE    card: shock -> de dia, a natureza: formigas, aranha, abelhas (veio do Ep. 10)
+#    A NOITE   o quarto do Davi: porta trancada, luminaria acesa
+#    A LAMINA  a micrografia -> a ilustracao do livro (partes da celula) -> o ovulo
+#    HUMOR     a mae bate na porta: "ta fazendo o que trancado?" -> "Estudando, mae! Biologia!"
+#    GANCHO    os meses passam, a carteira de trabalho em branco -> o telefone da sala toca
+#
+#  Frames reaproveitados do ep10 original (mesmo visual = mesma imagem): s05, s06, s09, s13, s14.
+# ============================================================================
+
+id: ep11
+number: 11
+title: "A Lâmina Secreta e o Telefone que Tocou"
+source: scenes/scene10.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "night, a single warm golden light"
+    wardrobe: {}
+  entregas:
+    time: "weekday morning, harsh bright sun between the buildings"
+    wardrobe:
+      davi: madrugada_trabalho
+      pai: trabalho_ceasa
+      jornaleiro: banca
+  noite:
+    time: "night, a small desk lamp in a dark bedroom"
+    wardrobe:
+      davi: pos_banho
+      mae: casa
+  natureza:
+    time: "early morning, soft first sunlight, dew"
+    wardrobe: {}
+
+shots:
+  # ---------------------------------------------------------------- ABERTURA MAGICA (abstrata)
+  - id: s01
+    day: sonho
+    location: lamina
+    cast: []
+    look: dream
+    visual: >-
+      Enchanted abstract cosmic micro-universe filling the whole frame: in a deep
+      blue-violet space full of glowing dust, a swarm of tiny shining comet-like
+      lights with long luminous wavy tails races toward a huge radiant golden
+      sphere glowing like a rising sun with a soft halo; sparkles, nebula
+      clouds, dreamy bloom. Poetic and magical, like a galaxy; no anatomy, no
+      text.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Magical cosmic shimmer, soft celestial choir pad with twinkling chimes and a slow heartbeat", line: 0, dur: 9, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Toda vida começa com uma corrida... [softly] a maior corrida que já existiu, num universo do tamanho de uma gota.", pause: 0.3}
+
+  - id: s02
+    card: title
+    bg: s01
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+  # ---------------------------------------------------------------- HISTORIA DA CIENCIA (sonho)
+  - id: s03
+    day: sonho
+    location: laboratorio_sonho
+    cast: []
+    look: dream
+    visual: >-
+      Dreamy candlelit scene in 1677 Holland: a middle-aged Dutch cloth merchant
+      with long curly brown hair, a dark 17th-century coat and a white collar
+      holds a tiny handmade brass microscope (a small flat brass plate with a
+      single bead lens and a little screw) up to his eye toward the candle
+      flame, amazed; an old wooden table with rolls of fabric and a quill,
+      warm golden light, floating sparkling dust. Magical, like an old
+      painting come to life.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A candle flickering, an old clock ticking, a soft harpsichord melody, mysterious and warm", line: 0, dur: 12, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] Em 1677, na Holanda, um comerciante de tecidos chamado Antonie van Leeuwenhoek fazia microscópios em casa... [amazed] e foi o primeiro ser humano a ver o que eu estava prestes a ver.", pause: 0.25}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s04
+    card: shock
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Vinyl record scratch, music abruptly stopping", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "A door lock clicking shut", at: 0.3, dur: 1.0, db: -2}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+  # ---------------------------------------------------------------- A NATUREZA EM VOLTA DE CASA
+  - id: s05
+    day: natureza
+    location: rua_flores
+    cast: []
+    look: real
+    visual: >-
+      Extreme macro close-up (insect photography, very close, ants big and
+      sharp in the center of the frame): a long organized line of reddish-brown
+      leaf-cutter ANTS marching across a cracked concrete wall, each ant
+      clearly visible with legs and antennae, each one carrying a big green
+      leaf piece held up over its head, much larger than itself; dew drops
+      sparkling, soft golden first light, background softly blurred.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "Early morning birds and a very soft rustle of leaves, intimate nature sound", line: 0, dur: 5, db: -10}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] De dia, o microscópio saía do quarto: eu estudava a natureza em volta de casa.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [calmly] As formigas me ensinavam determinação e trabalho em equipe.", pause: 0.1}
+      - {who: narrador, text: "[curious] E a cortadeira nem come a folha: leva pro formigueiro pra cultivar um fungo. [amazed] Uma fazenda debaixo da terra!", pause: 0.2}
+  - id: s06
+    day: natureza
+    location: rua_flores
+    cast: []
+    look: real
+    visual: >-
+      Macro nature shot before sunrise: a garden spider carefully weaving its
+      round web between two flower stems, the silk threads covered in tiny
+      dew drops shining like pearls against the soft blue dawn sky.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] As aranhas, paciência e precisão na madrugada.", pause: 0.1}
+      - {who: narrador, text: "[amazed] E fio por fio, a seda da aranha é mais forte que o aço do mesmo peso.", pause: 0.2}
+  - id: s07
+    day: natureza
+    location: rua_flores
+    cast: []
+    look: real
+    visual: >-
+      Macro nature shot in the first morning sun: a honeybee covered in
+      golden pollen working hard inside a red hibiscus flower, tiny pollen
+      grains glowing in the light.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A single honeybee buzzing close in a flower, warm morning", line: 0, dur: 4, db: -8}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [firmly] E as abelhas, disciplina toda santa manhã.", pause: 0.1}
+      - {who: narrador, text: "[warmly] Pra fazer meio quilo de mel, elas visitam uns dois milhões de flores.", pause: 0.2}
+  # ---------------------------------------------------------------- A LAMINA
+  - id: s08
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Comic medium close shot at night in the small bedroom lit by the desk
+      lamp: Davi in his navy t-shirt sits at the desk with the toy
+      microscope, glancing sideways at the closed bedroom door with a
+      suspicious, mischievous look, one finger raised as if to say "shh",
+      about to place a new glass slide under the lens.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A short comic boing sound and a sudden musical stop", at: 0.0, dur: 1.2, db: -6}
+      - {gen: "Playful curious pizzicato strings, light comedy", line: 0, dur: 8, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [chuckles] Lembra daquela noite? Porta trancada, luminária acesa... [playfully] e a curiosidade máxima de qualquer adolescente com um microscópio: conhecer as células do próprio corpo.", pause: 0.2}
+  - id: s09
+    day: noite
+    location: lamina
+    cast: []
+    look: real
+    visual: >-
+      Clean scientific microscope view like a biology textbook micrograph:
+      inside the round circle of light on a soft blue-violet background,
+      several tiny human sperm cells swimming, each with a small smooth oval
+      head and a long thin wavy tail, drawn with elegant clarity; educational,
+      tasteful and beautiful, like a science museum illustration. No text,
+      no labels.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Gentle wondrous science documentary music, a soft magical shimmer", line: 0, dur: 14, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] Os espermatozoides! Aqueles girininhos dos livros de biologia... ali, vivos, nadando na minha frente!", pause: 0.15}
+      - {who: narrador, text: "[curious] O Leeuwenhoek chamou de animálculos: bichinhos. E é a única célula do corpo humano que tem cauda e nada sozinha.", pause: 0.2}
+  - id: s10
+    day: noite
+    location: lamina
+    cast: []
+    look: real
+    visual: >-
+      Clean educational biology textbook illustration of ONE single human sperm
+      cell, large and centered on a soft cream background: the smooth oval head
+      with a softly glowing core, a short thicker midpiece with a subtle spiral
+      texture, and a long thin wavy tail; elegant scientific drawing style,
+      gentle colors, tasteful. No text, no labels, no arrows.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "Gentle wondrous science documentary music, a soft magical shimmer", line: 0, dur: 14, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] A cabeça guarda o DNA: metade da receita de uma pessoa. [curious] O pescoço é cheio de mitocôndrias, as usinas de energia... [playfully] e a cauda é o motor.", pause: 0.2}
+      - {who: narrador, text: "[amazed] E o corpo de um homem fabrica milhares deles... por segundo!", pause: 0.2}
+  - id: s11
+    day: noite
+    location: lamina
+    cast: []
+    look: real
+    visual: >-
+      Beautiful scientific micrograph inside the round circle of light: a
+      single human egg cell (ovum), a large luminous round cell with a clear
+      glowing outer layer and a soft halo of small surrounding cells, glowing
+      gently like a small sun on a dark blue background; educational and
+      tasteful, like a science museum image. No text, no labels.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] E o óvulo, que eles procuram, é a maior célula do corpo humano: [amazed] dá pra ver a olho nu, um pontinho. [dreamy] Dos milhões que largam na corrida... só um chega.", pause: 0.25}
+  - id: s12
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Close-up at night: Davi in his navy t-shirt lifts his eye from the toy
+      microscope with a half-embarrassed, half-impressed smile, cheeks a
+      little red, eyebrows raised in amazement, lit by the warm desk lamp.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] Eu, um garoto da periferia, vendo o começo da vida... [warmly] com um microscópio de plástico ganhado com selinho de jornal.", pause: 0.25}
+  # ---------------------------------------------------------------- HUMOR: A MAE NA PORTA
+  - id: s13
+    day: noite
+    location: corredor_casa
+    cast: [mae]
+    look: real
+    visual: >-
+      Medium shot at night in the narrow pale-yellow hallway lit by a dim
+      ceiling bulb: Davi's mother, in her apron, stands outside the CLOSED
+      wooden bedroom door, knocking on it with one hand, ear close to the door,
+      one eyebrow raised with a suspicious funny look. Only the mother in the
+      frame.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Three knocks on a wooden bedroom door at night", line: 0, dur: 2, db: -3}
+      - {gen: "A short comic suspense sting", line: 0, dur: 2, db: -8}
+    lines:
+      - {who: mae, text: "[Brazilian accent] [suspicious] Davi? Que silêncio é esse aí dentro, menino? [playfully] Tá fazendo o quê trancado?", pause: 0.2}
+  - id: s14
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: real
+    visual: >-
+      Comic medium close shot at night in the small bedroom: Davi in his navy
+      t-shirt, startled, eyes wide, quickly covers the white-and-blue toy
+      microscope with an open biology textbook (blank cover, no text), forcing
+      an innocent smile toward the door, the desk lamp glowing.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Playful comic pizzicato and a quick shuffle of a book", line: 0, dur: 4, db: -8}
+    lines:
+      - {who: davi, text: "[Brazilian accent] [nervously] Estudando, mãe! [hurriedly] É... biologia!", pause: 0.25}
+      - {who: narrador, text: "[laughs] E não era mentira nenhuma.", pause: 0.3}
+  - id: s15
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    props: [microscopio]
+    look: night
+    visual: >-
+      Tender shot from above at night: Davi asleep on his narrow bed in his navy
+      t-shirt with an open biology textbook (blank pages facing down, no text)
+      resting on his chest and a peaceful satisfied smile; the toy microscope on
+      the desk under the soft moonlight from the window.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Gentle soft piano lullaby, warm and hopeful", line: 0, dur: 10, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [warmly] Biologia nunca mais foi a mesma pra mim. [firmly] E aquele universo escondido mantinha a minha esperança acesa.", pause: 0.25}
+  # ---------------------------------------------------------------- GANCHO
+  - id: s16
+    day: noite
+    location: quarto_davi
+    cast: []
+    props: [microscopio, carteira_trabalho]
+    look: real
+    visual: >-
+      Quiet close shot at night, nobody in the frame: on the small wooden
+      desk, the white-and-blue toy microscope carefully put away next to a
+      neat stack of blank white printer paper; below it, the drawer half
+      open, and at the bottom of the drawer a closed dark-blue work-card
+      booklet, untouched. Warm lamp light.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A slow low suspenseful pulse rising, a clock ticking", line: 0, dur: 10, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Os meses foram passando... [mysterious] e a carteira de trabalho seguia em branco, no fundo da gaveta.", pause: 0.2}
+  - id: s17
+    day: entregas
+    location: sala_casa
+    cast: []
+    look: real
+    time: "morning, a beam of sunlight in the empty living room"
+    visual: >-
+      Close-up in the empty silent living room: the old beige corded landline
+      telephone on its crochet doily on the small side table, a beam of
+      morning sunlight on it, dust floating; the receiver slightly vibrating
+      as it starts to ring. Nobody in the frame.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "An old landline telephone ringing loudly in a silent house", line: 0, dur: 4, db: -3}
+    lines:
+      - {who: narrador, text: "[suspenseful] Até que, quando eu menos esperava... o telefone fixo da sala finalmente tocou.", pause: 0.15}
+      - {who: narrador, text: "[slowly] E o garoto da bicicleta ia vestir a sua melhor roupa... [suspenseful] pra encarar a maior escolha da juventude dele.", pause: 0.45}
+
+  - id: s18
+    card: question
+    bg: s11
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Qual foi a aula de biologia que mais te deixou de boca aberta? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 11"
+    title: "A Lâmina Secreta"
+    subtitle: "e o Telefone que Tocou"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Que aula de biologia te deixou de boca aberta?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 12"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 11 — A Lâmina Secreta 🔬 #dorama #biologia"
+  description: |
+    Porta trancada, luminária acesa e a maior curiosidade de qualquer adolescente com um microscópio: conhecer as células do próprio corpo.
+
+    Episódio 11 da vídeo-novela: uma aula de biologia de verdade — Antonie van Leeuwenhoek e os "animálculos" de 1677, a única célula do corpo humano que nada sozinha, o DNA, as mitocôndrias e o óvulo, a maior célula do corpo. E, no fim, o telefone que mudaria tudo.
+
+    💬 E você? Qual foi a aula de biologia que mais te deixou de boca aberta? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 12.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #biologia #ciencia #curiosidades #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, biologia,
+         ciencia, curiosidades, microscopio, leeuwenhoek, celulas, dna, mitocondrias, periferia de sao paulo,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 11 — A Lâmina Secreta e o Telefone que Tocou 🔬
+
+    Porta trancada, luminária acesa...
+    e a maior curiosidade de qualquer adolescente com um microscópio.
+
+    🧬 Leeuwenhoek, 1677: o primeiro a ver os "animálculos".
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Qual foi a aula de biologia que mais te deixou de boca aberta?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 12.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #biologia #ciencia #curiosidades #historianarrada
+  tiktok_caption: |
+    "Estudando, mãe! É... biologia!" 🔬😅
+
+    Ep. 11 — A Lâmina Secreta
+
+    💬 Que aula de biologia te deixou de boca aberta? Conta aqui 👇
+    Segue pra não perder o Ep. 12 🍿
+
+    #dorama #biologia #ciencia #curiosidades #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 11"
+    title: "A Lâmina Secreta"
+    hook: "Toda vida começa com uma corrida."
+
+  - bg: s03
+    text: |
+      Em **1677**, na Holanda, um comerciante de tecidos chamado **Antonie van Leeuwenhoek** fazia microscópios em casa.
+
+      E foi o primeiro ser humano a ver aquilo que eu estava prestes a ver.
+
+  - bg: s05
+    text: |
+      De dia, o microscópio saía do quarto: eu estudava a natureza em volta de casa.
+
+      _As formigas me ensinavam determinação e trabalho em equipe._ E a cortadeira nem come a folha: leva pro formigueiro para cultivar um **fungo**. Uma fazenda debaixo da terra.
+
+      _As aranhas, paciência._ Fio por fio, a seda é **mais forte que o aço** do mesmo peso.
+
+      _As abelhas, disciplina._ Meio quilo de mel: uns **dois milhões de flores**.
+
+  - bg: s08
+    text: |
+      Porta trancada, luminária acesa... e a curiosidade máxima de qualquer adolescente com um microscópio no quarto: conhecer as células do próprio corpo.
+
+  - bg: s09
+    text: |
+      Os **espermatozoides**: aqueles girininhos dos livros de biologia, ali, vivos, nadando na minha frente.
+
+      Leeuwenhoek chamou de **animálculos** — bichinhos. É a única célula do corpo humano que tem **cauda** e nada sozinha.
+
+  - bg: s10
+    text: |
+      A **cabeça** guarda o DNA: metade da receita de uma pessoa.
+
+      O **pescoço** é cheio de mitocôndrias, as usinas de energia. E a **cauda** é o motor.
+
+      O corpo de um homem fabrica **milhares por segundo**.
+
+  - bg: s11
+    text: |
+      E o **óvulo**, que eles procuram, é a maior célula do corpo humano: dá para ver a olho nu, um pontinho.
+
+      Dos milhões que largam na corrida... só um chega.
+
+  - bg: s13
+    text: |
+      **— Davi? Que silêncio é esse aí dentro, menino? Tá fazendo o quê trancado?**
+
+      **— Estudando, mãe! É... biologia!**
+
+      E não era mentira nenhuma.
+
+  - bg: s15
+    text: |
+      _Biologia nunca mais foi a mesma pra mim. E aquele universo escondido mantinha a minha esperança acesa._
+
+  - type: end
+    bg: s17
+    big: "O telefone tocou."
+    text: |
+      Os meses foram passando, e a carteira de trabalho seguia em branco, no fundo da gaveta.
+
+      Até que, quando eu menos esperava, o telefone fixo da sala finalmente tocou.
+    cta: "CONTINUA NO CAPÍTULO 12 · Salve e siga para não perder"
+
+  - type: question
+    bg: s11
+    kicker: "E VOCÊ?"
+    title: "Que aula de biologia te deixou de boca aberta?"
+    text: |
+      Pra mim, foi uma lâmina de vidro numa noite de porta trancada.
+
+      _E pra você?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep11`
+teaser:
+  - id: t1
+    from: s14
+    zoom: 1.2
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "Por que o Davi está **tão nervoso?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Porta trancada, mãe batendo... e essa cara 😅🔬
+      O que será que o Davi está escondendo?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s03
+    zoom: 1.0
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "1677: o que esse homem viu **mudou a biologia.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Holanda, 1677. Um comerciante de tecidos, um microscópio feito em casa... 🕯️🔬
+      E uma descoberta que mudou a biologia para sempre.
+
+      Sabe quem foi? Conta aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #ciencia #historia #biologia #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 11"
+    title: "A Lâmina Secreta e o Telefone que Tocou"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 11: A Lâmina Secreta e o Telefone que Tocou 🔬📞
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada
