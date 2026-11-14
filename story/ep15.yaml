@@ -25,6 +25,7 @@
 # ============================================================================
 
 id: ep15
+hold: true                       # ESPERA: creditos do ElevenLabs renovam em 24/11 — render local
 number: 15
 title: "O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos"
 source: scenes/scene15.txt
@@ -51,12 +52,13 @@ shots:
     cast: []
     look: dream
     visual: >-
-      Enchanted wide shot at night: an immense palace of glass floating above a
-      glowing airport runway, its whole wall made of crystal-clear glass; outside,
-      giant airplanes glide slowly past like luminous whales of light with glowing
-      wing lights, trails of golden sparkles, a sky full of stars and soft blue
-      mist; inside, spotless tables shine under warm lights. Magical, poetic, not
-      realistic. No people.
+      Enchanted fairy-tale wide shot at night, NOT a real restaurant: a gigantic
+      palace made entirely of glowing crystal glass floats in the air above a
+      shining airport runway, its walls transparent and sparkling like ice;
+      around it, enormous airplanes made of soft light swim slowly through the
+      sky like glowing whales, leaving trails of golden stardust; a sky full of
+      stars, blue and gold nebula mist, strong dreamy bloom. Magical, poetic,
+      like a K-drama dream. No people.
     motion: push_in
     transition: fadeblack
     music: none
@@ -378,13 +380,12 @@ publish:
 
     #dorama #primeiroemprego #aeroporto #historiareal #historianarrada
   tiktok_caption: |
-    A chave do cadeado ia dentro da meia... ninguém sabia dessa história 😂🔑✈️
+    Episódio 15: O gigante de vidro
 
     📖 Baseado em fatos reais.
 
-    Ep. 15 — O Gigante de Vidro
-
     💬 Qual lugar marcou o seu primeiro emprego? Conta aqui 👇
+
     Segue pra não perder o Ep. 16 🍿
 
     #dorama #primeiroemprego #aeroporto #historiareal #historianarrada
