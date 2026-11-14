@@ -192,8 +192,106 @@ def _still(src: Path, motion: str, p: float, look: str, out: Path, cfg: Config) 
     return Image.open(out).convert("RGB")
 
 
+SHOCK_STYLES = ("shatter", "wake", "rewind", "burn", "glitch")
+
+
+def _shock_alt(style: str, a: Image.Image, b: Image.Image, t: float, dur: float, f: int,
+               W: int, H: int, rng: random.Random, zoom, chroma) -> Image.Image:
+    """Estilos extras de choque de realidade (o padrao 'shatter' = espelho estilhacado).
+      wake   — piscar/acordar: palpebras fecham sobre o sonho borrado e abrem na realidade
+      rewind — fita VHS embolando: faixas de tracking, cor vazando, tela azul, realidade
+      burn   — queima de filme: superexposicao, buracos queimando, flash branco, realidade
+      glitch — o sonho se desfaz em pixels/blocos e se remonta como realidade"""
+    import numpy as np
+    from PIL import ImageDraw, ImageEnhance, ImageFilter
+    q = t / max(dur, 1e-3)
+    if style == "wake":
+        # abertura das palpebras ao longo do tempo (1 = aberto, 0 = fechado)
+        keys = [(0.0, 1.0), (0.30, 0.0), (0.42, 0.0), (0.58, 0.55), (0.68, 0.08), (0.80, 0.0), (1.0, 1.0)]
+        for (t0, v0), (t1, v1) in zip(keys, keys[1:]):
+            if t0 <= q <= t1:
+                k = (q - t0) / max(t1 - t0, 1e-6)
+                k = k * k * (3 - 2 * k)
+                o = v0 + (v1 - v0) * k
+                break
+        src = a if q < 0.42 else b
+        blur = 18 * min(1, q / 0.3) if q < 0.42 else 22 * max(0.0, 1 - (q - 0.42) / 0.5)
+        fr = src.filter(ImageFilter.GaussianBlur(blur)) if blur > 0.5 else src
+        if q < 0.42:
+            fr = ImageEnhance.Brightness(fr).enhance(1 - 0.4 * min(1, q / 0.3))
+        m = Image.new("L", (W, H), 0)
+        eh = H * 0.62 * o
+        if eh > 2:
+            ImageDraw.Draw(m).ellipse((-W * 0.35, H * 0.45 - eh, W * 1.35, H * 0.45 + eh), fill=255)
+            m = m.filter(ImageFilter.GaussianBlur(60))
+        return Image.composite(fr, Image.new("RGB", (W, H), (0, 0, 0)), m)
+    if style == "rewind":
+        if q < 0.62:
+            e = q / 0.62
+            arr = np.asarray(zoom(a, 1.0 + 0.1 * e)).copy()
+            for _ in range(int(4 + 14 * e)):                     # faixas que escorregam
+                y0 = rng.randrange(0, H - 40)
+                hgt = rng.randrange(8, 40)
+                arr[y0:y0 + hgt] = np.roll(arr[y0:y0 + hgt], rng.randint(-int(160 * e) - 10, int(160 * e) + 10), axis=1)
+            band = int((q * 3.3 % 1.0) * H)                        # faixa de tracking rolando
+            noise = (np.random.default_rng(f).random((60, W)) * 255).astype(np.uint8)
+            arr[band:band + 60] = np.maximum(arr[band:band + 60] // 3, noise[: max(0, min(60, H - band)), :, None])
+            arr[::3] = (arr[::3] * 0.7).astype(np.uint8)             # linhas de varredura
+            fr = chroma(Image.fromarray(arr), int(6 + 26 * e))
+            return ImageEnhance.Color(fr).enhance(1 + 0.8 * e)
+        if q < 0.74:                                               # a tela azul do video cassete
+            return Image.new("RGB", (W, H), (18, 40, 190))
+        u = (q - 0.74) / 0.26
+        k = math.exp(-4 * u)
+        arr = np.asarray(b).copy()
+        for _ in range(int(8 * k)):
+            y0 = rng.randrange(0, H - 20)
+            arr[y0:y0 + 14] = np.roll(arr[y0:y0 + 14], rng.randint(-40, 40), axis=1)
+        return chroma(ImageEnhance.Brightness(Image.fromarray(arr)).enhance(1 + 0.5 * k), int(14 * k))
+    if style == "burn":
+        if q < 0.56:
+            e = q / 0.56
+            fr = ImageEnhance.Brightness(zoom(a, 1.0 + 0.05 * e)).enhance(1 + 1.1 * e)
+            warm = Image.new("RGB", (W, H), (255, 140, 40))
+            fr = Image.blend(fr, warm, 0.25 * e)
+            m = Image.new("L", (W, H), 0)
+            d = ImageDraw.Draw(m)
+            r2 = random.Random(7)
+            for _ in range(7):                                     # buracos queimando
+                cx, cy = r2.uniform(0, W), r2.uniform(0, H)
+                r = (e ** 1.6) * r2.uniform(250, 900)
+                d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=255)
+            glow = m.filter(ImageFilter.GaussianBlur(45))
+            fr = Image.composite(Image.new("RGB", (W, H), (255, 190, 90)), fr, glow)
+            return Image.composite(Image.new("RGB", (W, H), (255, 252, 240)), fr, m.filter(ImageFilter.GaussianBlur(12)))
+        if q < 0.66:
+            return Image.new("RGB", (W, H), (255, 252, 240))
+        u = (q - 0.66) / 0.34
+        k = math.exp(-4.5 * u)
+        fr = zoom(b, 1.0 + 0.08 * k)
+        return Image.blend(fr, Image.new("RGB", (W, H), (255, 252, 240)), 0.85 * k)
+    if style == "glitch":
+        src, e = (a, q / 0.55) if q < 0.55 else (b, 1 - (q - 0.55) / 0.45)
+        e = max(0.0, min(1.0, e))
+        blk = max(1, int(2 + 110 * e ** 1.5))
+        small = src.resize((max(1, W // blk), max(1, H // blk)), Image.BILINEAR)
+        fr = small.resize((W, H), Image.NEAREST)
+        arr = np.asarray(fr).copy()
+        for _ in range(int(12 * e)):                               # blocos deslocados
+            bw, bh = rng.randrange(80, 400), rng.randrange(20, 160)
+            x0, y0 = rng.randrange(0, W - bw), rng.randrange(0, H - bh)
+            dx = rng.randint(-120, 120)
+            arr[y0:y0 + bh, x0:x0 + bw] = np.roll(arr[y0:y0 + bh, x0:x0 + bw], dx, axis=1)
+        fr = chroma(Image.fromarray(arr), int(30 * e))
+        if 0.52 < q < 0.58:
+            fr = Image.blend(fr, Image.new("RGB", (W, H), (255, 255, 255)), 0.5)
+        return fr
+    raise ValueError(f"estilo de choque desconhecido: {style} (use {', '.join(SHOCK_STYLES)})")
+
+
 def render_shock(src_from: Path, src_to: Path, dur: float, out: Path, cfg: Config, *,
-                 motion_from: str, motion_to: str, look_from: str, look_to: str) -> Path:
+                 motion_from: str, motion_to: str, look_from: str, look_to: str,
+                 style: str = "shatter") -> Path:
     import numpy as np
     from PIL import ImageDraw, ImageEnhance
     W, H, fps = int(cfg.get("video.width")), int(cfg.get("video.height")), int(cfg.get("video.fps"))
@@ -273,7 +371,9 @@ def render_shock(src_from: Path, src_to: Path, dur: float, out: Path, cfg: Confi
     try:
         for f in range(n):
             t = f / fps
-            if t < tA:                                   # congela + racha
+            if style != "shatter":
+                fr = _shock_alt(style, a, b, t, dur, f, W, H, rng, zoom, chroma)
+            elif t < tA:                                 # congela + racha
                 q = t / tA
                 e = 1 - (1 - q) ** 3
                 fr = ImageEnhance.Color(zoom(a, 1.0 + 0.08 * e, rng.uniform(-6, 6) * q, rng.uniform(-6, 6) * q)).enhance(1 - 0.75 * e)
@@ -586,7 +686,7 @@ def build(ep_id: str, *, only_audio: bool = False, retake: set | None = None) ->
             lk = lambda s: s.get("look") or b["locations"][s["location"]]["look"]  # noqa: E731
             render_shock(frames / f"{pa['id']}.png", frames / f"{pb['id']}.png", L, out, cfg,
                          motion_from=pa.get("motion", "push_in"), motion_to=pb.get("motion", "push_in"),
-                         look_from=lk(pa), look_to=lk(pb))
+                         look_from=lk(pa), look_to=lk(pb), style=sh.get("style", "shatter"))
         elif sh.get("card"):
             texts = dict(ep.get("cards", {}).get(sh["card"], {}))
             img = cards.card(frames / f"{sh['bg']}.png", sh["card"], texts, W, H,

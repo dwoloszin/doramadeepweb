@@ -119,6 +119,9 @@ THOUGHT_FX = {
     # fala em VOZ ALTA do Davi (Ep. 7+): mesmo grave do thought_deep, sem ambiencia de pensamento
     "deep_dry": ("aresample=44100,asetrate=44100*0.944,aresample=44100,atempo=1.0593,"
                  "highpass=f=60,equalizer=f=140:t=q:w=1:g=3,equalizer=f=4500:t=q:w=1.5:g=-2"),
+    # voz do outro lado da LINHA TELEFONICA (Ep. 12): banda estreita de telefone fixo + leve saturacao
+    "phone": ("highpass=f=320,lowpass=f=3300,equalizer=f=1800:t=q:w=1:g=4,"
+              "acompressor=threshold=0.1:ratio=4:attack=5:release=60,volume=1.4"),
     "thought_deep2": ("aresample=44100,asetrate=44100*0.91,aresample=44100,atempo=1.0989,"
                       "highpass=f=55,equalizer=f=130:t=q:w=1:g=4,equalizer=f=4500:t=q:w=1.5:g=-3,"
                       "aecho=0.8:0.25:15|30:0.08|0.04,apad=pad_dur=0.15"),

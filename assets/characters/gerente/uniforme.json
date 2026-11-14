@@ -1,0 +1,9 @@
+{
+  "fp": "5cd654c39e5fa47f",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: A 38-year-old Brazilian man: light-brown skin, short black hair with a neat side part and grey at the temples, a trimmed black goatee, rectangular thin black-framed glasses, medium build, a serious but fair look that softens into a kind smile. Clearly a DIFFERENT person from Davi and his father. Outfit (must be shown clearly, every detail): A dark-grey short-sleeve polo shirt with no logo and no letters, black trousers, black shoes, a small blank name badge on the chest (no readable text), a ballpoint pen in the shirt pocket. Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}

@@ -81,6 +81,12 @@ characters:
         Sleeping clothes: an old oversized faded grey cotton t-shirt with a
         small hole near the collar (no prints, no letters), old dark-blue
         cotton shorts; no wristwatch.
+      entrevista: >-
+        His best clothes for a job interview (19 years old): a crisp ironed
+        light-blue long-sleeve button-down shirt tucked in, the sleeves
+        buttoned, dark-blue jeans with a black belt, carefully cleaned white
+        sneakers, black digital wristwatch on the left wrist; hair neatly
+        combed back and shiny with hair gel.
 
   pai:
     name: "Pai do Davi"
@@ -259,6 +265,22 @@ characters:
         A short-sleeve light-blue button shirt, an old beige vest with many
         pockets full of pens and coins, dark grey trousers, worn black shoes.
 
+  gerente:
+    name: "Seu Roberto, o gerente"
+    aliases: [manager]   # citou no visual -> gerente no cast
+    role: "gerente que entrevista o Davi no restaurante do aeroporto (Ep. 12/13, voz Callum)"
+    identity: >-
+      A 38-year-old Brazilian man: light-brown skin, short black hair with
+      a neat side part and grey at the temples, a trimmed black goatee,
+      rectangular thin black-framed glasses, medium build, a serious but
+      fair look that softens into a kind smile. Clearly a DIFFERENT person
+      from Davi and his father.
+    wardrobe:
+      uniforme: >-
+        A dark-grey short-sleeve polo shirt with no logo and no letters,
+        black trousers, black shoes, a small blank name badge on the chest
+        (no readable text), a ballpoint pen in the shirt pocket.
+
   davi_sonho:
     name: "Davi (versao do sonho)"
     role: "como Davi se imaginava: o protagonista perfeito de um dorama"
@@ -288,6 +310,10 @@ characters:
         collar open and sleeves rolled to the elbows, light beige linen
         trousers, simple brown leather sandals, a thin braided leather bracelet.
 
+      executivo: >-
+        Impeccable tailored charcoal-grey three-piece business suit, crisp
+        white shirt, a slim dark-burgundy silk tie, a silver tie bar, polished
+        black oxford shoes, a slim sleek brown leather document folder.
       cientista: >-
         Elegant vintage inventor outfit: a crisp white shirt with sleeves
         rolled to the elbows, a fitted dark-brown waistcoat with a brass pocket
@@ -463,6 +489,50 @@ locations:
       The view through a microscope eyepiece: a single bright perfectly round
       circle of light filling the center of a black frame, like a scientific
       micrograph, no text, no scale bars, no labels.
+    look: real
+  # ---------------------------------------------------------------- Ep. 12/13
+  aeroporto_sonho:
+    ambience: "Elegant quiet international airport terminal, soft distant boarding announcements, jet engines far away, a luxurious calm hum"
+    description: >-
+      A dreamlike luxurious international airport terminal: soaring ceilings of
+      brushed steel beams and huge mirrored glass walls, sunlight reflecting
+      everywhere, polished white marble floors, a glass-walled executive
+      boardroom with a long dark wood table, jets visible on the runway
+      outside. All signs blurred, no readable text.
+    look: dream
+  onibus:
+    ambience: "Crowded city bus in São Paulo in the early morning, diesel engine rumbling, brakes hissing, passengers murmuring, a bell ringing for the stop"
+    description: >-
+      Inside a crowded old São Paulo city bus in the early morning: worn blue
+      plastic seats, metal grab bars and hanging straps, tired workers
+      standing and sitting, windows showing a highway and grey buildings
+      passing by. No readable signs or text.
+    look: real
+  aeroporto_gru:
+    ambience: "Huge busy international airport terminal, crowd footsteps, rolling suitcases, boarding announcements echoing, a jet taking off outside"
+    description: >-
+      The huge real terminal of São Paulo's international airport in
+      Guarulhos in the morning: a long hall with a high white ceiling, rows of
+      check-in counters, crowds of travelers with suitcases, big glass windows
+      with airplanes on the runway outside, a food court with a fast-food
+      counter decorated in red and yellow (no logos). All signs and boards
+      blurred, no readable text.
+    look: real
+  sala_espera:
+    ambience: "Small cramped waiting room, a wall clock ticking loudly, nervous breathing, a fluorescent lamp buzzing, distant airport announcements"
+    description: >-
+      A small cramped staff waiting room behind a fast-food restaurant in
+      the airport: plain white walls, a row of hard plastic chairs, a
+      fluorescent ceiling light, a closed office door, a simple round wall
+      clock. No posters with readable text, no logos.
+    look: real
+  sala_entrevista:
+    ambience: "Small quiet office, an air conditioner humming, papers rustling, a clock ticking, muffled kitchen noise behind the wall"
+    description: >-
+      A small simple office for job interviews: a plain desk with papers, a
+      pen holder and a desk phone, two chairs facing each other, a small
+      window with a view of airplanes on the runway, a wall clock. No
+      readable text, no logos.
     look: real
   # ---------------------------------------------------------------- Ep. 3
   sala_casa:

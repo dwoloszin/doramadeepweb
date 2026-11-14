@@ -152,6 +152,33 @@ voices:
     rate: "+0%"
     pitch: "-4Hz"
     volume: "+0%"
+  gerente:                      # Seu Roberto, gerente da entrevista (Ep. 12/13). Callum: 10/10 "paulistano"
+    eleven: {voice_id: "N2lVS1w4EtoT3dr4eOWO", name: "Callum", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.03
+    fx: ""
+    voice: "pt-BR-JulioNeural"
+    rate: "+0%"
+    pitch: "-2Hz"
+    volume: "+0%"
+  recrutadora:                  # moca do RH ao TELEFONE (Ep. 12): River (aprovada) com filtro de linha
+    eleven: {voice_id: "SAz9YHcvj6GT2YYXdXww", name: "River", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -19
+    tempo: 1.06
+    fx: "phone"
+    voice: "pt-BR-FranciscaNeural"
+    rate: "+4%"
+    pitch: "+0Hz"
+    volume: "+0%"
+  diretor_sonho:                # diretor da multinacional no SONHO (Ep. 12). Chris: 9/10
+    eleven: {voice_id: "iP95p4xoKVk53GoZ742B", name: "Chris", lang: "pt", stability: 0.5, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.0
+    fx: ""
+    voice: "pt-BR-FabioNeural"
+    rate: "+0%"
+    pitch: "-4Hz"
+    volume: "+0%"
   clara:                        # Teacher Clara (fala em ingles)
     eleven: {voice_id: "pFZP5JQG7iQjIQuC4Bku", name: "Lily", lang: "en", stability: 0.5, similarity: 0.8, style: 0.0}
     level_lufs: -18

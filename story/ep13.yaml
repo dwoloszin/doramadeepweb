@@ -1,0 +1,545 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 13 — 2a metade de scenes/scene12.txt (a cena foi DIVIDIDA em Ep. 12 e Ep. 13)
+#
+#  Estrutura:
+#    ABERTURA  MAGICA: o tempo congelado na sala de entrevista (relogio parado, aviao suspenso no ceu)
+#    titulo
+#    CHOQUE    card: shock -> o tique-taque volta: a sala de entrevista, minutos antes
+#    A ENTREVISTA o gerente (fala) le o curriculo e a carteira em branco -> "Primeiro emprego?"
+#    A PERGUNTA "Quantos onibus?" "Dois." "A empresa so paga um. Tudo bem pra voce?"
+#    O FILME   flashback com FRAMES REAIS dos episodios anteriores (reuse): a bicicleta (Ep. 3),
+#              a madrugada no entreposto (Ep. 2), o telefone mudo (Ep. 11)
+#    O SIM     "Sim!" -> boas-vindas -> o 1o registro na carteira (ferias, 13o, FGTS)
+#    A VITORIA saindo do aeroporto aos 19 -> a comemoracao em casa (mae e pai falam)
+#    GANCHO    as moedas na mesa: como chegar as 23h sem um tostao?
+#
+#  ENRIQUECIMENTO: fatos checados — 13o salario (lei de 1962), FGTS (1966), ferias remuneradas
+#  na CLT (1943). Humor e emocao: a perna tremendo debaixo da mesa; o "Esse e o meu garoto".
+# ============================================================================
+
+id: ep13
+number: 13
+title: "A Pergunta dos Dois Ônibus e a Primeira Grande Escolha"
+source: scenes/scene12.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  entrevista:
+    time: "late morning, bright daylight through the small office window"
+    wardrobe:
+      davi: entrevista
+      gerente: uniforme
+  casa:
+    time: "late afternoon, warm golden light"
+    wardrobe:
+      davi: entrevista
+      mae: casa
+      pai: casa
+  noite:
+    time: "night, a single warm kitchen light"
+    wardrobe:
+      davi: pos_banho
+
+shots:
+  # ---------------------------------------------------------------- ABERTURA MAGICA (o tempo parou)
+  - id: s01
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi]
+    look: dream
+    visual: >-
+      Magical frozen-time shot in the small office: Davi in his ironed light-blue
+      shirt sits perfectly still in front of a desk, eyes wide, while time has
+      stopped around him: the wall clock hands frozen, a pen floating in mid-air
+      above the desk, golden dust particles suspended like stars, and through
+      the window an airplane frozen in the sky mid-takeoff; dreamy golden bloom.
+      Nobody else visible.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Time freezing: a clock tick stretching into a long magical shimmer, soft celestial pad", line: 0, dur: 10, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Dizem que as decisões que mudam uma vida duram menos de um segundo... [softly] a minha durou uma eternidade.", pause: 0.3}
+
+  - id: s02
+    card: title
+    bg: s01
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi]
+    look: dream
+    visual: >-
+      Dreamy extreme close-up of Davi's brown eyes, wide open, and in their
+      reflection a glowing film strip of memories passing (a bicycle, a van at
+      night, a telephone), golden particles floating, everything else frozen.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "An old film projector whirring softly, magical and nostalgic", line: 0, dur: 6, db: -7}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] Era só uma pergunta simples... [firmly] mas a resposta ia decidir quem eu ia ser.", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s04
+    card: shock
+    style: rewind               # transicao variada (shatter | wake | rewind | burn | glitch)
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A loud clock tick resuming abruptly in a silent room", at: 0.0, dur: 1.2, db: 2}
+      - {gen: "A VHS tape rewinding fast with a high-pitched squeal and mechanical clunk", at: 0.1, dur: 1.4, db: 0}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A ENTREVISTA
+  - id: s05
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi, gerente]
+    props: [carteira_trabalho]
+    look: real
+    ambience: "Small quiet office, an air conditioner humming, papers rustling, a clock ticking, muffled kitchen noise"
+    visual: >-
+      Medium two-shot in the small office in flat daylight: the manager with
+      thin black-framed glasses and a grey polo sits behind the desk, reading
+      Davi's single printed white resume sheet and holding the open dark-blue
+      work card with blank pages, one eyebrow raised; Davi in his light-blue
+      shirt sits across from him, back straight, hands on his knees.
+    motion: push_in
+    transition: cut
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Minutos antes, eu tinha entrado naquela sala com o coração na boca.", pause: 0.15}
+      - {who: gerente, text: "[Brazilian accent] [curious] Carteira em branco, hein? [calmly] Primeiro emprego?", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [firmly] Primeiro registrado, sim senhor. [confident] Mas eu trabalho desde os dezesseis com o meu pai, nas entregas.", pause: 0.2}
+
+  - id: s06
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi]
+    look: real
+    visual: >-
+      Funny full-body side shot in the small office: Davi in his light-blue shirt
+      sits upright on the chair facing the desk with a calm, serious, polite face
+      and steady eye contact toward the other side, while below the desk his right
+      knee bounces nervously, the leg and sneaker slightly motion-blurred from the
+      shaking. Only Davi in the frame; the desk edge in the foreground.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A sneaker tapping nervously on a floor, a light comic pizzicato", line: 0, dur: 4, db: -9}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] Olho no olho, como o meu pai mandou. [laughs softly] Voz firme... e a perna tremendo debaixo da mesa.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A PERGUNTA
+  - id: s07
+    day: entrevista
+    location: sala_entrevista
+    cast: [gerente]
+    offscreen: [davi]
+    look: real
+    visual: >-
+      Medium close shot: the manager with thin black-framed glasses and grey polo
+      puts the papers down, leans back in his chair, taps a pen on the desk and
+      asks a direct question, looking straight ahead, serious; airplanes on the
+      runway in the window behind him.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [calmly] Você pega quantos ônibus pra chegar até aqui?", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [firmly] Pego dois.", pause: 0.3}
+
+  - id: s08
+    day: entrevista
+    location: sala_entrevista
+    cast: [gerente]
+    look: real
+    visual: >-
+      Close-up of the manager with thin black-framed glasses, frank and serious,
+      slightly apologetic, holding up one finger as he speaks.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A tense held string note, suspense", line: 0, dur: 6, db: -6}
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [seriously] Olha... a empresa só pode pagar um transporte. [calmly] Tudo bem pra você?", pause: 0.3}
+
+  - id: s09
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi]
+    look: dream
+    visual: >-
+      Frozen-time close-up of Davi's face in his light-blue shirt, perfectly
+      still, eyes wide, the background drained of color and slightly blurred,
+      tiny golden particles suspended in the air around his head, the moment
+      stretched like a held breath.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A heartbeat slowing down, everything going silent, a long magical shimmer", line: 0, dur: 6, db: -5}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [slowly] Aquele segundo de silêncio pareceu uma eternidade. [firmly] A minha primeira grande decisão sozinho, como adulto.", pause: 0.2}
+
+  # ---------------------------------------------------------------- O FILME NA CABECA (frames reais)
+  - id: s10
+    reuse: ep03/frames/s08
+    day: entrevista
+    location: zona_industrial
+    cast: [davi]
+    look: dream
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A nostalgic emotional piano melody with a soft film projector whirr", line: 0, dur: 16, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Passou um filme na minha cabeça: cada folha de sulfite entregue de bicicleta, debaixo de sol e chuva...", pause: 0.1}
+
+  - id: s11
+    reuse: ep02/frames/s11
+    day: entrevista
+    location: entreposto
+    cast: [davi, pai]
+    look: dream
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[softly] as madrugadas na perua com o meu pai, à uma da manhã...", pause: 0.1}
+
+  - id: s12
+    reuse: ep11/frames/s17
+    day: entrevista
+    location: sala_casa
+    cast: []
+    look: dream
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[softly] e os meses olhando pro telefone mudo da sala.", pause: 0.25}
+
+  # ---------------------------------------------------------------- O SIM
+  - id: s13
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi]
+    look: real
+    visual: >-
+      Powerful close-up in flat daylight: Davi in his light-blue shirt looks
+      straight into the eyes of the person in front of him (off-screen) with
+      total determination, chin up, a steady confident face. Only Davi.
+    motion: push_in
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A single powerful orchestral hit, then silence", after_line: 0, dur: 3, db: -3}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [firmly] Eu não tive dúvida nenhuma. Olhei nos olhos dele...", pause: 0.1}
+      - {who: davi, text: "[Brazilian accent] [determined] Sim! Tudo bem pra mim.", pause: 0.4}
+
+  - id: s14
+    day: entrevista
+    location: sala_entrevista
+    cast: [davi, gerente]
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Warm medium two-shot: the manager with thin black-framed glasses stands up
+      smiling and shakes Davi's hand firmly across the desk; Davi in his
+      light-blue shirt stands too, beaming with a disbelieving smile, the open
+      blue work card on the desk between them.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "A warm triumphant orchestral swell, hopeful", line: 0, dur: 8, db: -5}
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [warmly] Então seja bem-vindo à equipe, Davi. [playfully] Essa carteira vai deixar de ser branca.", pause: 0.25}
+
+  - id: s15
+    day: entrevista
+    location: sala_entrevista
+    cast: []
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Close-up from above: on the desk, the open dark-blue Brazilian work-card
+      booklet, and the first page now has a fresh round ink stamp and a
+      handwritten signature in blue pen (blurred, no readable words), a pen
+      resting beside it, warm light. A small moment of triumph.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A rubber stamp pressing on paper, then a pen signing", at: 0.2, dur: 2, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [proudly] Carteira assinada: férias, décimo terceiro, fundo de garantia... [warmly] coisa que muita empresa na época nem oferecia de cara.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [warmly] A primeira página da minha carteira... finalmente tinha uma história.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A VITORIA
+  - id: s16
+    day: entrevista
+    location: aeroporto_gru
+    cast: [davi]
+    props: [carteira_trabalho]
+    look: dream
+    time: "golden late-morning sunlight"
+    visual: >-
+      Triumphant slow-motion shot outside the airport terminal: Davi in his
+      light-blue shirt walks out through the big glass doors with the blue work
+      card held proudly under his arm, a huge smile, golden sunlight on his face,
+      a jet taking off in the sky behind him; travelers blurred around.
+    motion: pull_out
+    transition: dissolve
+    sfx:
+      - {gen: "A jet airplane taking off with a triumphant orchestral swell", line: 0, dur: 8, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [proudly] Aos dezenove anos, saí daquele aeroporto com a minha primeira grande vitória como homem... [warmly] debaixo do braço.", pause: 0.25}
+
+  - id: s17
+    day: casa
+    location: sala_casa
+    cast: [davi, mae, pai]
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Emotional medium shot in the small living room in warm late-afternoon
+      light: Davi's mother hugs him tightly with tears of joy, still holding a
+      dish towel; his father, in his sleeveless undershirt, holds the open blue
+      work card up to the light with one hand and puts the other on Davi's
+      shoulder, deeply proud, eyes shining.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: mae, text: "[Brazilian accent] [emotional] Meu filho! Carteira assinada! [crying softly] Eu sabia, eu sabia!", pause: 0.2}
+      - {who: pai, text: "[Brazilian accent] [proudly] Esse é o meu garoto. [warmly] Dois ônibus, é? Pois vai valer cada centavo.", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s18
+    day: noite
+    location: cozinha_casa
+    cast: [davi]
+    look: night
+    visual: >-
+      Quiet close shot at night at the small kitchen table under a single warm
+      light: Davi in his navy t-shirt counts a few coins and one crumpled
+      banknote spread on the floral tablecloth, then looks up, worried and
+      thoughtful; a bus schedule paper beside him with no readable text.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Coins sliding on a table one by one in a silent kitchen, a slow suspense pulse", line: 0, dur: 10, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Mas aceitar pagar a condução do próprio bolso... era só o primeiro obstáculo.", pause: 0.15}
+      - {who: narrador, text: "[suspenseful] Como chegar todo dia às onze da noite num aeroporto internacional... [slowly] sem um tostão no bolso?", pause: 0.45}
+
+  - id: s19
+    card: question
+    bg: s14
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Aceitaria pagar a condução do próprio bolso pelo primeiro emprego? [playfully] Ou acha que eu errei? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 13"
+    title: "A Pergunta dos Dois Ônibus"
+    subtitle: "e a Primeira Grande Escolha"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Pagaria a condução do próprio bolso?"
+    subtitle: "Ou acha que ele errou? Conta nos comentários."
+    footer: "Continua no Episódio 14"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 13 — A Pergunta dos Dois Ônibus 🚌 #dorama #novela"
+  description: |
+    "Você pega quantos ônibus pra chegar até aqui?" — uma pergunta simples que decidiu quem ele ia ser.
+
+    Episódio 13 da vídeo-novela: a primeira entrevista de emprego, a primeira grande decisão sozinho como adulto e a primeira página da carteira de trabalho, finalmente assinada.
+
+    💬 E você? Aceitaria pagar a condução do próprio bolso pelo primeiro emprego? Ou acha que ele errou? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 14.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroemprego #carteiraassinada #superacao #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro emprego,
+         carteira assinada, entrevista de emprego, decisao, superacao, aeroporto de guarulhos, periferia de sao paulo,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 13 — A Pergunta dos Dois Ônibus e a Primeira Grande Escolha 🚌
+
+    "A empresa só pode pagar um transporte. Tudo bem pra você?"
+    Aquele segundo durou uma eternidade.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Aceitaria pagar a condução do próprio bolso pelo primeiro emprego?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 14.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #primeiroemprego #carteiraassinada #superacao #historianarrada
+  tiktok_caption: |
+    "Você pega quantos ônibus?" — a pergunta que mudou a minha vida 🚌✈️
+
+    Ep. 13 — A Pergunta dos Dois Ônibus
+
+    💬 Você aceitaria pagar a condução do próprio bolso? Conta aqui 👇
+    Segue pra não perder o Ep. 14 🍿
+
+    #dorama #primeiroemprego #superacao #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 13"
+    title: "A Pergunta dos Dois Ônibus"
+    hook: "A minha decisão durou uma eternidade."
+
+  - bg: s05
+    text: |
+      Entrei naquela sala com o coração na boca.
+
+      **— Carteira em branco, hein? Primeiro emprego?**
+
+      **— Primeiro registrado, sim senhor. Mas eu trabalho desde os dezesseis com o meu pai, nas entregas.**
+
+  - bg: s06
+    text: |
+      _Olho no olho, como o meu pai mandou. Voz firme... e a perna tremendo debaixo da mesa._
+
+  - bg: s07
+    text: |
+      **— Você pega quantos ônibus pra chegar até aqui?**
+
+      **— Pego dois.**
+
+      **— Olha... a empresa só pode pagar um transporte. Tudo bem pra você?**
+
+  - bg: s09
+    text: |
+      Aquele segundo de silêncio pareceu uma eternidade. A minha primeira grande decisão sozinho, como adulto.
+
+      Passou um filme na minha cabeça: as folhas de sulfite de bicicleta, as madrugadas na perua com o meu pai, os meses olhando pro telefone mudo.
+
+  - bg: s13
+    text: |
+      Eu não tive dúvida nenhuma. Olhei nos olhos dele:
+
+      **— Sim! Tudo bem pra mim.**
+
+  - bg: s15
+    text: |
+      **— Então seja bem-vindo à equipe, Davi.**
+
+      Carteira assinada: férias, décimo terceiro, fundo de garantia. Coisa que muita empresa na época nem oferecia de cara.
+
+      _A primeira página da minha carteira finalmente tinha uma história._
+
+  - bg: s17
+    text: |
+      **— Meu filho! Carteira assinada! Eu sabia, eu sabia!**
+
+      **— Esse é o meu garoto. Dois ônibus, é? Pois vai valer cada centavo.**
+
+  - type: end
+    bg: s18
+    big: "Sem um tostão no bolso."
+    text: |
+      Aceitar pagar a condução do próprio bolso era só o primeiro obstáculo.
+
+      Como chegar todo dia às onze da noite num aeroporto internacional... sem um tostão no bolso?
+    cta: "CONTINUA NO CAPÍTULO 14 · Salve e siga para não perder"
+
+  - type: question
+    bg: s14
+    kicker: "E VOCÊ?"
+    title: "Pagaria a condução do próprio bolso?"
+    text: |
+      Eu disse sim sem pensar duas vezes.
+
+      _E você: aceitaria? Ou acha que eu errei?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep13`
+teaser:
+  - id: t1
+    from: s06
+    zoom: 1.0
+    focus: [0.6, 0.68]
+    badge: "ALERTA DE SPOILER"
+    title: "Cara de confiante... **e a perna tremendo!**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Olho no olho, voz firme... e a perna tremendo debaixo da mesa 😅
+      Quem nunca?
+
+      Conta sua experiência aqui 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #primeiroemprego #spoiler #historianarrada
+  - id: t2
+    from: s08
+    zoom: 1.0
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "\"Tudo bem pra você?\" **O que você responderia?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Uma pergunta simples... e uma decisão que pode mudar tudo 🚌
+      O que você responderia no lugar do Davi?
+
+      Deixa seu palpite aqui 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #primeiroemprego #decisao #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 13"
+    title: "A Pergunta dos Dois Ônibus e a Primeira Grande Escolha"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 13: A Pergunta dos Dois Ônibus e a Primeira Grande Escolha 🚌
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

@@ -1,0 +1,594 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock, personagem em cena FALA, referencia p/ todo
+# personagem/lugar/objeto, elenco consistente (figurante diferente; recorrente sempre no cast).
+# ============================================================================
+#  EPISODIO 12 — 1a metade de scenes/scene12.txt (a cena foi DIVIDIDA em Ep. 12 e Ep. 13)
+#  Davi com 19 anos (ainda o mesmo Davi da bibliia; a fase "gala" davi_adulto e de 20+).
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: o jovem executivo no terminal de vidro e aco -> "Estavamos esperando por voce"
+#    titulo
+#    CHOQUE    card: shock (turbina de aviao) -> meses de silencio... o telefone toca
+#    A LIGACAO a moca do RH (voz de telefone): "traga a carteira de trabalho em maos"
+#    A CARTEIRA o fundo da gaveta: novinha e EM BRANCO -> a mae zoando -> fatos: carteira (1932), CLT (1943)
+#    A VESPERA noite em claro -> ritual de gala (banho, gel, perfume) -> a bencao dos pais no portao
+#    O CAMINHO dois onibus -> Guarulhos ("Cumbica", o mais movimentado da America do Sul)
+#    A EMPRESA Arcos Dourados = McDonald's (maior franqueada do mundo; 1o do Brasil: Copacabana, 1979)
+#    GANCHO    a sala de espera, a porta abre: "Proximo! ... Davi?"
+#
+#  ENRIQUECIMENTO (pedido do autor: "sempre enriqueca"): fatos checados — Carteira Profissional
+#  criada em 1932; CLT em 1943 (Getulio Vargas); Aeroporto de Guarulhos = Cumbica, inaugurado em
+#  1985, o mais movimentado da America do Sul (dezenas de milhoes de passageiros/ano); Arcos
+#  Dourados = maior franqueada McDonald's do mundo; 1o McDonald's do Brasil em 1979 em Copacabana.
+#  Imagens SEM logos de marca (restaurante em vermelho e amarelo, sem o "M").
+#  Novos: gerente (personagem, voz Callum), recrutadora (so voz, fx phone, River), diretor_sonho
+#  (so no sonho, voz Chris); lugares aeroporto_sonho, onibus, aeroporto_gru, sala_espera;
+#  roupas davi.entrevista e davi_sonho.executivo.
+# ============================================================================
+
+id: ep12
+number: 12
+title: "A Carteira em Branco e o Caminho até Cumbica"
+source: scenes/scene12.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "bright golden morning sunlight reflecting on glass and steel"
+    wardrobe:
+      davi_sonho: executivo
+  ligacao:
+    time: "late afternoon, warm light through the barred window"
+    wardrobe:
+      davi: pos_banho
+      mae: casa
+  noite:
+    time: "late at night, dark bedroom, faint bluish moonlight"
+    wardrobe:
+      davi: dormir
+  manha:
+    time: "6 AM, soft early dawn light"
+    wardrobe:
+      davi: entrevista
+      mae: casa
+      pai: casa
+  aeroporto:
+    time: "morning, bright daylight through big windows"
+    wardrobe:
+      davi: entrevista
+      gerente: uniforme
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (abertura magica)
+  - id: s01
+    day: sonho
+    location: aeroporto_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Epic slow-motion tracking shot in a dreamlike luxurious airport terminal of
+      mirrored glass and brushed steel flooded with golden sunlight: the
+      idealized young man in an impeccable charcoal three-piece suit walks with
+      firm steps and perfect posture, adjusting his jacket with one hand and
+      holding a sleek leather document folder in the other, the wind from the
+      jets outside lightly tousling his perfect hair; sun flares, floating
+      golden dust, travelers blurred behind. Magical, like a K-drama.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Elegant epic orchestral theme slowly rising, triumph and sophistication", line: 0, dur: 12, db: -4}
+      - {gen: "A distant jet engine whoosh and soft airport ambience", at: 0.2, dur: 4, db: -12}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Na minha cabeça, o meu primeiro emprego ia começar assim... [softly] em câmera lenta, com trilha sonora e tudo.", pause: 0.25}
+
+  - id: s02
+    card: title
+    bg: s03
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: sonho
+    location: aeroporto_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Dreamy close medium shot INSIDE a glass-walled executive boardroom in
+      golden light, the camera close to the two men: a distinguished grey-haired
+      director in a navy suit, standing at the head of a long dark wood table,
+      shakes hands warmly with the idealized young man in the charcoal
+      three-piece suit, both smiling; seated executives in elegant suits look on
+      with respect; the runway with jets glowing behind the glass wall. The two
+      faces large and clear in the frame.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A swelling orchestral chord of triumph, soft and elegant", line: 0, dur: 5, db: -5}
+    lines:
+      - {who: diretor_sonho, text: "[Brazilian accent] [warmly] Estávamos esperando por você.", pause: 0.2}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [confident] Olhar calmo, magnético... [proudly] pronto pra assumir um império internacional.", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s04
+    card: shock
+    style: burn               # transicao variada (shatter | wake | rewind | burn | glitch)
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A loud jet turbine roaring and cutting abruptly", at: 0.0, dur: 1.5, db: 2}
+      - {gen: "An old film reel burning and crackling, projector flapping", at: 0.2, dur: 1.5, db: 0}
+      - {gen: "Short burst of harsh analog TV static noise", at: 0.8, dur: 0.6, db: -4}
+      - {gen: "Deep cinematic sub bass impact boom hit, heavy", at: 1.0, dur: 3, db: 0}
+
+  # ---------------------------------------------------------------- A LIGACAO
+  - id: s05
+    day: ligacao
+    location: sala_casa
+    cast: [davi]
+    look: real
+    ambience: "Small living room in the late afternoon, a ceiling fan humming, distant neighborhood sounds"
+    visual: >-
+      Medium shot in the small living room in warm late-afternoon light: Davi in
+      his navy t-shirt rushes from the hallway and grabs the receiver of the old
+      beige corded landline telephone ringing on the crochet doily, eyes wide
+      with hope.
+    motion: push_in
+    transition: cut
+    music: real
+    sfx:
+      - {gen: "An old landline telephone ringing loudly, then picked up", at: 0.0, dur: 3, db: -3}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [sighs] Na vida real, foram meses de silêncio. [softly] Quando a esperança já estava quase no fim... o telefone da sala tocou.", pause: 0.2}
+
+  - id: s06
+    day: ligacao
+    location: sala_casa
+    cast: [davi]
+    offscreen: [recrutadora]
+    look: real
+    visual: >-
+      Close-up of Davi in his navy t-shirt holding the beige landline receiver
+      to his ear with both hands, listening, his face lighting up with an
+      enormous incredulous smile, eyes shining.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: recrutadora, text: "[Brazilian accent] [professional] Alô, o Davi? Aqui é do RH. Você pode vir fazer uma entrevista amanhã de manhã? [firmly] Ah, e traga a sua carteira de trabalho em mãos, tá?", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [excited] Posso! Claro que posso! [laughs] Amanhã cedo eu tô aí!", pause: 0.2}
+
+  # ---------------------------------------------------------------- A CARTEIRA EM BRANCO
+  - id: s07
+    day: ligacao
+    location: quarto_davi
+    cast: [davi]
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Medium close shot in the small bedroom: Davi in his navy t-shirt kneels by
+      the open desk drawer and lifts the dark-blue work-card booklet from the
+      very bottom like a treasure, opening it to show perfectly clean, empty
+      pages with no stamps and no writing at all.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A wooden drawer sliding open and a small booklet being opened", at: 0.0, dur: 2, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] Fui direto ao fundo da gaveta. A carteira estava limpinha, sem uma dobra, sem poeira... [laughs] e absolutamente em branco.", pause: 0.2}
+
+  - id: s08
+    day: ligacao
+    location: quarto_davi
+    cast: [davi, mae]
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Funny medium two-shot at the bedroom door: Davi's mother, in her apron,
+      holds the open dark-blue work-card booklet with completely empty pages and
+      laughs teasingly; Davi in his navy t-shirt snatches it back, embarrassed
+      but smiling.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A short playful comic pizzicato", at: 0.0, dur: 2, db: -8}
+    lines:
+      - {who: mae, text: "[Brazilian accent] [teasing] Novinha em folha, hein, filho? [laughs] Nem um carimbo! Parece que saiu da gráfica hoje!", pause: 0.2}
+
+  - id: s09
+    day: ligacao
+    location: quarto_davi
+    cast: []
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Close-up from above on the small wooden desk in a warm beam of
+      late-afternoon light: a small DARK-BLUE passport-size Brazilian work-card
+      booklet lies open, its two inner pages completely blank and clean, dust
+      floating in the light. Only the booklet and the desk, nothing else, no other
+      books. No readable text.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A soft nostalgic piano note, warm and hopeful", line: 0, dur: 8, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] Sabia que a carteira de trabalho existe no Brasil desde 1932? [warmly] E em 1943 veio a CLT: férias, salário em dia, os direitos no papel.", pause: 0.15}
+      - {who: narrador, text: "[softly] Na periferia, carteira assinada era quase um troféu.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A VESPERA
+  - id: s10
+    day: noite
+    location: quarto_davi
+    cast: [davi]
+    look: night
+    visual: >-
+      Close shot at night: Davi lies wide awake on his narrow bed in his old grey
+      t-shirt, eyes open, staring at the ceiling, anxious, lips moving as if
+      rehearsing answers; the cheap digital alarm clock glowing on the desk;
+      bluish moonlight. Only Davi in the frame.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    ambience: "Silent bedroom late at night, a clock ticking, crickets, a dog barking far away"
+    sfx:
+      - {gen: "A slow anxious ticking clock and a soft tense piano", line: 0, dur: 8, db: -7}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [tense] Aquela noite foi péssima. Eu virava de um lado pro outro... [softly] ensaiando cada resposta pro teto.", pause: 0.2}
+
+  - id: s11
+    day: manha
+    location: banheiro_casa
+    cast: [davi]
+    look: real
+    time: "6 AM, warm golden morning light"
+    visual: >-
+      Energetic medium close shot in the tiny bathroom in golden morning light:
+      Davi, freshly showered in his ironed light-blue button-down shirt, combs
+      his hair back with shiny gel in front of the oval mirror with a chipped
+      white frame, then sprays a little perfume on his neck, a confident smile
+      to his reflection.
+    motion: push_in
+    transition: dissolve
+    music: real
+    sfx:
+      - {gen: "A shower turning off, a comb through hair, a perfume spray, upbeat morning", at: 0.0, dur: 5, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [playfully] Mas de manhã, o ritual foi de gala: banho caprichado, a melhor roupa, perfume... [laughs] e o cabelo alinhado no gel!", pause: 0.2}
+
+  - id: s12
+    day: manha
+    location: casa_davi
+    cast: [davi, mae, pai]
+    look: real
+    time: "early morning, soft golden light"
+    visual: >-
+      Warm medium shot at the grey metal gate of the red-brick house in early
+      morning light: Davi in his ironed light-blue shirt and cleaned white
+      sneakers, gelled hair, is about to leave; his mother proudly straightens
+      his collar with both hands while his father, in his sleeveless
+      undershirt, rests a hand on his shoulder with a quiet proud look.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: mae, text: "[Brazilian accent] [proudly] Olha só! Tá cheiroso, hein? [laughs softly] Parece até artista de novela!", pause: 0.15}
+      - {who: pai, text: "[Brazilian accent] [warmly] Vai com Deus, filho. [firmly] E olha nos olhos do homem, hein!", pause: 0.2}
+
+  # ---------------------------------------------------------------- O CAMINHO
+  - id: s13
+    day: manha
+    location: onibus
+    cast: [davi]
+    look: real
+    time: "early morning, grey light"
+    visual: >-
+      Medium shot inside a crowded city bus in the early morning: Davi in his
+      ironed light-blue shirt stands holding the metal grab bar, carefully
+      protecting a clear plastic folder with a white sheet and the blue work
+      card against his chest, looking out the window at the highway, nervous
+      and hopeful among tired workers.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "A bus braking with an air hiss, a stop bell ringing", at: 0.5, dur: 2, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Dois ônibus até o endereço: Aeroporto Internacional de Guarulhos. [warmly] Pra um garoto da periferia, aquilo soava chique... e distante demais.", pause: 0.2}
+
+  - id: s14
+    day: aeroporto
+    location: aeroporto_gru
+    cast: [davi]
+    look: real
+    visual: >-
+      Wide shot in the huge airport terminal in bright morning light: Davi, small
+      in the frame in his light-blue shirt, stops in the middle of the busy hall
+      and looks up in awe at the high white ceiling, the crowds with suitcases
+      and the airplanes taking off behind the big glass windows.
+    motion: pull_out
+    transition: dissolve
+    sfx:
+      - {gen: "A jet airplane taking off outside a terminal, rising roar", line: 0, dur: 5, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] O povo chama de Cumbica, por causa do bairro. [curious] É o aeroporto mais movimentado da América do Sul: dezenas de milhões de passageiros por ano.", pause: 0.2}
+
+  - id: s15
+    day: aeroporto
+    location: aeroporto_gru
+    cast: [davi]
+    look: real
+    visual: >-
+      Medium shot in the airport food court: Davi in his light-blue shirt, holding
+      a small piece of paper with an address, looks up at a bright fast-food
+      restaurant counter decorated in red and yellow with golden arch-shaped
+      lights (no logos, no letters), a surprised half-smile of recognition.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A cash register beeping, a fryer sizzling, food court chatter", line: 0, dur: 6, db: -10}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [proudly] A empresa tinha um nome imponente: Arcos Dourados. [playfully] Não reconheceu? O nome popular é outro... McDonald's! Agora sim, né?", pause: 0.2}
+      - {who: narrador, text: "[curious] A Arcos Dourados é a maior franqueada do McDonald's no mundo. E o primeiro do Brasil abriu em 1979, em Copacabana.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A SALA DE ESPERA
+  - id: s16
+    day: aeroporto
+    location: sala_espera
+    cast: [davi]
+    look: real
+    visual: >-
+      Wide shot of the small cramped waiting room: a row of young anxious job
+      candidates on hard plastic chairs, legs bouncing, eyes on the floor, one
+      biting her nails; Davi in his light-blue shirt sits among them, very
+      still, holding his folder; a wall clock above.
+    motion: push_in
+    transition: dissolve
+    music: none
+    ambience: "Small cramped waiting room, a loud wall clock ticking, nervous breathing, a fluorescent lamp buzzing"
+    sfx:
+      - {gen: "Tense low suspense music, a slow heartbeat", line: 0, dur: 10, db: -7}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Na sala de espera, apertadinha, uma fila de jovens iguais a mim. [tense] Pernas balançando, olhos no chão.", pause: 0.2}
+
+  - id: s17
+    day: aeroporto
+    location: sala_espera
+    cast: [davi]
+    props: [carteira_trabalho]
+    look: real
+    visual: >-
+      Extreme close-up: a drop of cold sweat on the back of Davi's neck above the
+      collar of his light-blue shirt, then his hand tightly gripping the
+      dark-blue work card on his knee, knuckles white.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [tense] Suor frio na nuca. [firmly] E a carteira em branco apertada no joelho, como se fosse fugir.", pause: 0.2}
+
+  - id: s18
+    day: aeroporto
+    location: sala_espera
+    cast: [davi, gerente]
+    look: real
+    visual: >-
+      Low-angle medium shot (contra-plongee): the office door swings open and the
+      manager with thin black-framed glasses and a grey polo stands in the
+      doorway holding a clipboard, looking at the candidates; in the foreground,
+      Davi in his light-blue shirt looks up, holding his breath.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A door handle turning and a door opening in a silent room", at: 0.0, dur: 2, db: -4}
+      - {gen: "A suspenseful rising string drone", line: 0, dur: 8, db: -6}
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [firmly] Próximo! [curious] ... Davi?", pause: 0.3}
+      - {who: narrador, text: "[suspenseful] Cada vez que aquela porta abria, meu coração ia junto. [slowly] E agora... era a minha vez.", pause: 0.45}
+
+  - id: s19
+    card: question
+    bg: s18
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Lembra da sua primeira entrevista de emprego? [playfully] Conta aqui nos comentários!", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 12"
+    title: "A Carteira em Branco"
+    subtitle: "e o Caminho até Cumbica"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Lembra da sua primeira entrevista?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 13"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 12 — A Carteira em Branco ✈️ #dorama #novela"
+  description: |
+    Meses de silêncio, um telefone que finalmente toca... e uma carteira de trabalho novinha — e totalmente em branco.
+
+    Episódio 12 da vídeo-novela: aos 19 anos, o garoto da periferia pega dois ônibus até o Aeroporto Internacional de Guarulhos para a primeira entrevista de emprego da vida dele.
+
+    🧾 Você sabia? A carteira de trabalho existe desde 1932, a CLT veio em 1943, e o primeiro McDonald's do Brasil abriu em 1979, em Copacabana.
+
+    💬 E você? Lembra da sua primeira entrevista de emprego? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 13.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroemprego #carteiraassinada #entrevistadeemprego #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro emprego,
+         carteira de trabalho, carteira assinada, entrevista de emprego, aeroporto de guarulhos, cumbica, clt,
+         periferia de sao paulo, superacao, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 12 — A Carteira em Branco e o Caminho até Cumbica ✈️
+
+    "Traga a sua carteira de trabalho em mãos."
+    A minha estava novinha... e totalmente em branco.
+
+    🧾 Carteira de trabalho desde 1932 · CLT desde 1943
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Lembra da sua primeira entrevista de emprego?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 13.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #primeiroemprego #carteiraassinada #historianarrada #superacao
+  tiktok_caption: |
+    Minha carteira de trabalho estava novinha... e em branco 😅✈️
+
+    Ep. 12 — A Carteira em Branco
+
+    💬 Lembra da sua primeira entrevista de emprego? Conta aqui 👇
+    Segue pra não perder o Ep. 13 🍿
+
+    #dorama #primeiroemprego #carteiraassinada #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 12"
+    title: "A Carteira em Branco"
+    hook: "Na minha cabeça, o primeiro emprego ia ser em câmera lenta."
+
+  - bg: s03
+    text: |
+      No sonho, eu atravessava um terminal de vidro e aço com um terno sob medida. Executivos do mundo inteiro me olhavam com respeito.
+
+      **— Estávamos esperando por você.**
+
+      _Olhar calmo, magnético... pronto pra assumir um império internacional._
+
+  - bg: s06
+    text: |
+      Na vida real, foram meses de silêncio. Até que o telefone da sala tocou.
+
+      **— Você pode vir fazer uma entrevista amanhã de manhã? E traga a sua carteira de trabalho em mãos, tá?**
+
+      **— Posso! Claro que posso!**
+
+  - bg: s08
+    text: |
+      Fui direto ao fundo da gaveta. A carteira estava limpinha, sem uma dobra... e absolutamente em branco.
+
+      **— Novinha em folha, hein, filho? Nem um carimbo!**
+
+  - bg: s09
+    text: |
+      A carteira de trabalho existe no Brasil desde **1932**. Em **1943** veio a **CLT**: férias, salário em dia, os direitos no papel.
+
+      Na periferia, carteira assinada era quase um troféu.
+
+  - bg: s11
+    text: |
+      A noite foi péssima: eu ensaiava cada resposta pro teto.
+
+      Mas de manhã, o ritual foi de gala: banho caprichado, a melhor roupa, perfume e cabelo alinhado no gel.
+
+  - bg: s12
+    text: |
+      **— Olha só! Tá cheiroso, hein? Parece até artista de novela!**
+
+      **— Vai com Deus, filho. E olha nos olhos do homem, hein!**
+
+  - bg: s14
+    text: |
+      Dois ônibus até o endereço: **Aeroporto Internacional de Guarulhos**.
+
+      O povo chama de **Cumbica**, por causa do bairro. É o aeroporto mais movimentado da América do Sul. Pra um garoto da periferia, soava chique e distante demais.
+
+  - bg: s15
+    text: |
+      A empresa tinha um nome imponente: **Arcos Dourados**. Não reconheceu? O nome popular é outro... **McDonald's**!
+
+      A Arcos Dourados é a maior franqueada do McDonald's no mundo. E o primeiro do Brasil abriu em **1979, em Copacabana**.
+
+  - type: end
+    bg: s18
+    big: "— Próximo!"
+    text: |
+      Na sala de espera, uma fila de jovens iguais a mim. Suor frio na nuca, a carteira em branco apertada no joelho.
+
+      Cada vez que aquela porta abria, meu coração ia junto. E agora... era a minha vez.
+    cta: "CONTINUA NO CAPÍTULO 13 · Salve e siga para não perder"
+
+  - type: question
+    bg: s18
+    kicker: "E VOCÊ?"
+    title: "Lembra da sua primeira entrevista?"
+    text: |
+      A minha começou com uma carteira em branco e dois ônibus.
+
+      _E a sua: como foi?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep12`
+teaser:
+  - id: t1
+    from: s06
+    zoom: 1.1
+    focus: [0.5, 0.36]
+    badge: "ALERTA DE SPOILER"
+    title: "Quem será que ligou pro Davi **pra ele ficar ASSIM?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Meses de silêncio... e de repente, ESSE sorriso ao telefone 📞😁
+      Quem será que ligou?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s09
+    zoom: 1.0
+    focus: [0.5, 0.40]
+    badge: "ALERTA DE SPOILER"
+    title: "Novinha em folha... **e totalmente em branco.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Uma carteira de trabalho novinha em folha... e sem um único carimbo 🧾😅
+      Você lembra do primeiro registro na sua?
+
+      Conta aqui nos comentários 👇
+      Próximo episódio essa semana! 🔔
+
+      #dorama #primeiroemprego #carteiraassinada #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 12"
+    title: "A Carteira em Branco e o Caminho até Cumbica"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 12: A Carteira em Branco e o Caminho até Cumbica ✈️
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

@@ -104,6 +104,20 @@ Nada é publicado sem aprovação (ver "Publicação").
      (brasileira) foi desativada pela dona.
 6. **Mais de 3 min?** Divida o episódio em partes, cortando num gancho.
 
+### Choque de realidade: VARIAR o estilo (pedido do autor, 13/11)
+
+`card: shock` aceita `style:` — não repetir o mesmo em episódios seguidos:
+
+| style | efeito | combina com |
+|---|---|---|
+| `shatter` (padrão) | o sonho racha e estilhaça como espelho | quebra brusca |
+| `wake` | pálpebras fecham sobre o sonho e abrem na realidade (piscar) | acordar de um sonho |
+| `rewind` | fita VHS embolando, tela azul, realidade | tempo, lembrança, anos 90 |
+| `burn` | queima de filme, flash branco | calor, sol, avião, projeção |
+| `glitch` | o sonho vira pixels/blocos e se remonta | tecnologia, confusão |
+
+Troque também o 2º efeito sonoro (disco arranhando → fita rebobinando, filme queimando...).
+
 ## Continuidade dos personagens (`story/bible.yaml`)
 
 - **identity**: o que nunca muda (rosto, corpo, cabelo, óculos…).

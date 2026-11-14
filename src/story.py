@@ -240,6 +240,15 @@ def build_shot_images(ep_id: str, *, only: list[str] | None = None, force: bool 
         force = False  # o que o lote entregou ja e a versao nova
     jobs = []
     for shot in ep["shots"]:
+        if shot.get("reuse"):  # frame de outro episodio (flashback): copia, sem gerar nada
+            src = ROOT / "output" / f"{shot['reuse']}.png"
+            dst = out_dir / f"{shot['id']}.png"
+            if src.exists() and (force or not dst.exists()):
+                out_dir.mkdir(parents=True, exist_ok=True)
+                import shutil as _sh
+                _sh.copyfile(src, dst)
+                print(f"  [cena] {shot['id']} <- {shot['reuse']} (reaproveitada)")
+            continue
         if not shot.get("visual"):
             continue
         if only and shot["id"] not in only:
