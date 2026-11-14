@@ -34,18 +34,24 @@ def exists(ep_id: str) -> bool:
     return _gh("release", "view", tag(ep_id), check=False).returncode == 0
 
 
+def has_video(ep_id: str) -> bool:
+    """A release ja tem o video (e nao so frames)?"""
+    r = _gh("release", "view", tag(ep_id), "--json", "assets", "-q", ".assets[].name", check=False)
+    return r.returncode == 0 and f"{ep_id}.mp4" in r.stdout.split()
+
+
 def rendered(ep_id: str) -> bool:
     """Ja foi renderizado (metadata.json no git, video local ou release)? Nunca re-renderiza
     sozinho um episodio que ja existe: refazer e sempre decisao manual."""
     out = ROOT / "output" / ep_id
-    return (out / "metadata.json").exists() or (out / f"{ep_id}.mp4").exists() or exists(ep_id)
+    return (out / "metadata.json").exists() or (out / f"{ep_id}.mp4").exists() or has_video(ep_id)
 
 
 def push(ep_id: str, light: bool = False) -> None:
     """Sobe (ou atualiza) a midia do episodio na release. light=True: so frames/carrossel/teasers (sem video)."""
     out = ROOT / "output" / ep_id
     video = out / f"{ep_id}.mp4"
-    if not video.exists():
+    if not video.exists() and not light:
         raise FileNotFoundError(f"{video} nao existe (renderize antes)")
     tmp = Path(tempfile.mkdtemp(prefix="media_"))
     try:

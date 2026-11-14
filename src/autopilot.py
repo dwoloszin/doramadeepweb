@@ -100,6 +100,7 @@ def render_missing(dry: bool) -> None:
         print(f"== render {ep} (novo roteiro, ainda sem video)")
         if dry:
             continue
+        media.pull(ep, ("frames",))      # imagens ja geradas localmente: reaproveita (custo zero)
         story.build_refs(story.bible())
         ok = story.build_shot_images(ep, batch=bool(cfg.get("images.batch", True)),
                                      wait=float(cfg.get("images.batch_wait_minutes", 30)) * 60)
@@ -111,8 +112,28 @@ def render_missing(dry: bool) -> None:
         if (story.episode(ep).get("teaser")):
             teaser.build(ep)
         media.push(ep)
+        _avisar_pronto(ep)
         print(f"  {ep}: PRONTO para revisao (baixe da release {media.tag(ep)}); "
               f"publica so depois de: python main.py approve {ep}")
+
+
+def _avisar_pronto(ep: str) -> None:
+    """Abre uma issue no repositorio -> o GitHub manda e-mail ao autor: episodio pronto p/ revisar."""
+    import subprocess
+    body = "\n".join([
+        f"O **{ep}** foi renderizado pelo GitHub Actions e esta pronto para a sua revisao.",
+        "",
+        f"- Midia (video, carrossel, teasers): release `{media.tag(ep)}` em Releases",
+        f"- Para aprovar: Actions > autopilot > Run workflow > approve: `{ep}` "
+        f"(ou `python main.py approve {ep}` local + push)",
+        "",
+        "Depois de aprovado ele entra no proximo domingo livre do calendario."])
+    try:
+        subprocess.run(["gh", "issue", "create", "--title", f"🎬 {ep} pronto para revisão", "--body", body],
+                       cwd=ROOT, capture_output=True, text=True, timeout=60, check=True)
+        print(f"  {ep}: aviso enviado (issue no GitHub)")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  {ep}: nao consegui abrir a issue de aviso: {exc}")
 
 
 def _teaser_item(ep: str, tid: str) -> dict | None:

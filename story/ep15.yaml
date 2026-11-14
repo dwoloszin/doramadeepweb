@@ -25,7 +25,6 @@
 # ============================================================================
 
 id: ep15
-hold: true                       # ESPERA: creditos do ElevenLabs renovam em 24/11 — render local
 number: 15
 title: "O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos"
 source: scenes/scene15.txt

@@ -27,6 +27,7 @@ concurrency:
 
 permissions:
   contents: write                  # salvar status.json/schedule.yaml e criar releases de midia
+  issues: write                    # aviso 'epNN pronto para revisao' (e-mail do GitHub)
 
 jobs:
   run:
