@@ -599,6 +599,35 @@ locations:
       heat lamps glowing orange, stacked trays, bright white light. No
       readable text, no logos.
     look: real
+  # ---------------------------------------------------------------- Ep. 15
+  doca_recebimento:
+    ambience: "Airport service corridor at night, a heavy door buzzing, hand trucks rolling, distant jet engines, fluorescent hum"
+    description: >-
+      The side service access of the airport terminal at night, where staff
+      enter and goods are received: a wide grey service corridor with a heavy
+      metal door, stacked cardboard boxes and plastic crates of perishable
+      food on a hand truck, yellow safety lines on the concrete floor,
+      fluorescent lights. No readable text, no logos.
+    look: real
+  salao_loja:
+    ambience: "Big fast-food restaurant hall inside an airport at night, soft chatter, trays, a jet roaring on the runway beyond the glass"
+    description: >-
+      A huge fast-food restaurant hall on the upper floor of the airport,
+      about 8 meters wide and 20 meters long: rows of spotless tables and
+      chairs, a tray-return and trash station, restroom doors at the back
+      (men, women, wheelchair-accessible, only simple pictograms), and along
+      the whole side an enormous floor-to-ceiling GLASS WALL looking out onto
+      the runway with giant airplanes; a service counter with red and yellow
+      accents (no logos) at the other end. No readable text.
+    look: real
+  camara_fria:
+    ambience: "Walk-in cold room, a compressor humming loudly, icy air hissing, a heavy insulated door"
+    description: >-
+      A walk-in cold room behind the restaurant kitchen: a heavy white
+      insulated door with a big chrome handle, inside steel shelves of
+      boxes covered in frost, icy fog pouring out at the floor, cold blue
+      light. No readable text.
+    look: real
   # ---------------------------------------------------------------- Ep. 3
   sala_casa:
     ambience: "Small Brazilian living room in the evening, quiet room tone, a TV murmuring softly, a ceiling fan humming, distant neighborhood sounds through the window"

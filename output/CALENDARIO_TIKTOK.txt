@@ -3,7 +3,7 @@ Gerado em 14/11/2026. Horario: 12h (Brasilia). Ja passou = marcado com (passou).
 
 ======================================================================
 TERÇA 10/11/2026 12h (passou) — ep02 — TEASER t1
-ARQUIVO: output/ep02/teaser/t1_story.png
+ARQUIVO: output/ep02/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -19,7 +19,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 12/11/2026 12h (passou) — ep02 — TEASER t2
-ARQUIVO: output/ep02/teaser/t2_story.png
+ARQUIVO: output/ep02/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -35,7 +35,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 14/11/2026 12h — ep02 — CARTAZ t3
-ARQUIVO: output/ep02/teaser/t3_story.png
+ARQUIVO: output/ep02/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -65,7 +65,7 @@ Segue pra não perder o Ep. 3 🍿
 
 ======================================================================
 TERÇA 17/11/2026 12h — ep03 — TEASER t1
-ARQUIVO: output/ep03/teaser/t1_story.png
+ARQUIVO: output/ep03/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -81,7 +81,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 19/11/2026 12h — ep03 — TEASER t2
-ARQUIVO: output/ep03/teaser/t2_story.png
+ARQUIVO: output/ep03/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -97,7 +97,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 21/11/2026 12h — ep03 — CARTAZ t3
-ARQUIVO: output/ep03/teaser/t3_story.png
+ARQUIVO: output/ep03/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -127,7 +127,7 @@ Segue pra não perder o Ep. 4 🍿
 
 ======================================================================
 TERÇA 24/11/2026 12h — ep04 — TEASER t1
-ARQUIVO: output/ep04/teaser/t1_story.png
+ARQUIVO: output/ep04/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -143,7 +143,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 26/11/2026 12h — ep04 — TEASER t2
-ARQUIVO: output/ep04/teaser/t2_story.png
+ARQUIVO: output/ep04/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -159,7 +159,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 28/11/2026 12h — ep04 — CARTAZ t3
-ARQUIVO: output/ep04/teaser/t3_story.png
+ARQUIVO: output/ep04/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -189,7 +189,7 @@ Segue pra não perder o Ep. 5 🍿
 
 ======================================================================
 TERÇA 01/12/2026 12h — ep05 — TEASER t1
-ARQUIVO: output/ep05/teaser/t1_story.png
+ARQUIVO: output/ep05/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -205,7 +205,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 03/12/2026 12h — ep05 — TEASER t2
-ARQUIVO: output/ep05/teaser/t2_story.png
+ARQUIVO: output/ep05/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -221,7 +221,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 05/12/2026 12h — ep05 — CARTAZ t3
-ARQUIVO: output/ep05/teaser/t3_story.png
+ARQUIVO: output/ep05/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -251,7 +251,7 @@ Segue pra não perder o Ep. 6 🍿
 
 ======================================================================
 TERÇA 08/12/2026 12h — ep06 — TEASER t1
-ARQUIVO: output/ep06/teaser/t1_story.png
+ARQUIVO: output/ep06/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -267,7 +267,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 10/12/2026 12h — ep06 — TEASER t2
-ARQUIVO: output/ep06/teaser/t2_story.png
+ARQUIVO: output/ep06/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -283,7 +283,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 12/12/2026 12h — ep06 — CARTAZ t3
-ARQUIVO: output/ep06/teaser/t3_story.png
+ARQUIVO: output/ep06/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -313,7 +313,7 @@ Segue pra não perder o Ep. 7 🍿
 
 ======================================================================
 TERÇA 15/12/2026 12h — ep07 — TEASER t1
-ARQUIVO: output/ep07/teaser/t1_story.png
+ARQUIVO: output/ep07/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -329,7 +329,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 17/12/2026 12h — ep07 — TEASER t2
-ARQUIVO: output/ep07/teaser/t2_story.png
+ARQUIVO: output/ep07/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -345,7 +345,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 19/12/2026 12h — ep07 — CARTAZ t3
-ARQUIVO: output/ep07/teaser/t3_story.png
+ARQUIVO: output/ep07/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -375,7 +375,7 @@ Segue pra não perder o Ep. 8 🍿
 
 ======================================================================
 TERÇA 22/12/2026 12h — ep08 — TEASER t1
-ARQUIVO: output/ep08/teaser/t1_story.png
+ARQUIVO: output/ep08/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -391,7 +391,7 @@ O Episódio 8 chega essa semana. Ative o sininho e não perca! 🔔
 
 ======================================================================
 QUINTA 24/12/2026 12h — ep08 — TEASER t2
-ARQUIVO: output/ep08/teaser/t2_story.png
+ARQUIVO: output/ep08/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -407,7 +407,7 @@ Episódio 8 essa semana. Ative o sininho pra não perder! 🔔
 
 ======================================================================
 SÁBADO 26/12/2026 12h — ep08 — CARTAZ t3
-ARQUIVO: output/ep08/teaser/t3_story.png
+ARQUIVO: output/ep08/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -437,7 +437,7 @@ Segue pra não perder o Ep. 9 🍿
 
 ======================================================================
 TERÇA 29/12/2026 12h — ep09 — TEASER t1
-ARQUIVO: output/ep09/teaser/t1_story.png
+ARQUIVO: output/ep09/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -453,7 +453,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 31/12/2026 12h — ep09 — TEASER t2
-ARQUIVO: output/ep09/teaser/t2_story.png
+ARQUIVO: output/ep09/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -469,7 +469,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 02/01/2027 12h — ep09 — CARTAZ t3
-ARQUIVO: output/ep09/teaser/t3_story.png
+ARQUIVO: output/ep09/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -499,7 +499,7 @@ Segue pra não perder o Ep. 10 🍿
 
 ======================================================================
 TERÇA 05/01/2027 12h — ep10 — TEASER t1
-ARQUIVO: output/ep10/teaser/t1_story.png
+ARQUIVO: output/ep10/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -515,7 +515,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 07/01/2027 12h — ep10 — TEASER t2
-ARQUIVO: output/ep10/teaser/t2_story.png
+ARQUIVO: output/ep10/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 DESAFIO 🚨
 
@@ -530,7 +530,7 @@ A resposta sai no próximo episódio. Ative o sininho! 🔔
 
 ======================================================================
 SÁBADO 09/01/2027 12h — ep10 — CARTAZ t3
-ARQUIVO: output/ep10/teaser/t3_story.png
+ARQUIVO: output/ep10/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -560,7 +560,7 @@ Segue pra não perder o Ep. 11 🍿
 
 ======================================================================
 TERÇA 12/01/2027 12h — ep11 — TEASER t1
-ARQUIVO: output/ep11/teaser/t1_story.png
+ARQUIVO: output/ep11/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -576,7 +576,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 14/01/2027 12h — ep11 — TEASER t2
-ARQUIVO: output/ep11/teaser/t2_story.png
+ARQUIVO: output/ep11/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -592,7 +592,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 16/01/2027 12h — ep11 — CARTAZ t3
-ARQUIVO: output/ep11/teaser/t3_story.png
+ARQUIVO: output/ep11/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -622,7 +622,7 @@ Segue pra não perder o Ep. 12 🍿
 
 ======================================================================
 TERÇA 19/01/2027 12h — ep12 — TEASER t1
-ARQUIVO: output/ep12/teaser/t1_story.png
+ARQUIVO: output/ep12/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -638,7 +638,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 21/01/2027 12h — ep12 — TEASER t2
-ARQUIVO: output/ep12/teaser/t2_story.png
+ARQUIVO: output/ep12/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -654,7 +654,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 23/01/2027 12h — ep12 — CARTAZ t3
-ARQUIVO: output/ep12/teaser/t3_story.png
+ARQUIVO: output/ep12/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -684,7 +684,7 @@ Segue pra não perder o Ep. 13 🍿
 
 ======================================================================
 TERÇA 26/01/2027 12h — ep13 — TEASER t1
-ARQUIVO: output/ep13/teaser/t1_story.png
+ARQUIVO: output/ep13/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -700,7 +700,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 28/01/2027 12h — ep13 — TEASER t2
-ARQUIVO: output/ep13/teaser/t2_story.png
+ARQUIVO: output/ep13/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -716,7 +716,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 30/01/2027 12h — ep13 — CARTAZ t3
-ARQUIVO: output/ep13/teaser/t3_story.png
+ARQUIVO: output/ep13/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 
@@ -746,7 +746,7 @@ Segue pra não perder o Ep. 14 🍿
 
 ======================================================================
 TERÇA 02/02/2027 12h — ep14 — TEASER t1
-ARQUIVO: output/ep14/teaser/t1_story.png
+ARQUIVO: output/ep14/teaser/t1_short.mp4  (video com voz; ou a foto t1_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -762,7 +762,7 @@ O próximo episódio chega essa semana. Ative o sininho! 🔔
 
 ======================================================================
 QUINTA 04/02/2027 12h — ep14 — TEASER t2
-ARQUIVO: output/ep14/teaser/t2_story.png
+ARQUIVO: output/ep14/teaser/t2_short.mp4  (video com voz; ou a foto t2_story.png)
 ----------------------------------------------------------------------
 🚨 ALERTA DE SPOILER 🚨
 
@@ -778,7 +778,7 @@ Próximo episódio essa semana! 🔔
 
 ======================================================================
 SÁBADO 06/02/2027 12h — ep14 — CARTAZ t3
-ARQUIVO: output/ep14/teaser/t3_story.png
+ARQUIVO: output/ep14/teaser/t3_short.mp4  (video com voz; ou a foto t3_story.png)
 ----------------------------------------------------------------------
 🎬 PRÓXIMO EPISÓDIO 🎬
 

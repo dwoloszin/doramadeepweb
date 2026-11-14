@@ -1,0 +1,526 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock (VARIAR o style), personagem em cena FALA,
+# referencia p/ todo personagem/lugar/objeto, SEMPRE enriquecer (fatos checados), "baseado em fatos reais".
+# ============================================================================
+#  EPISODIO 15 — adaptado de scenes/scene15.txt (escrita livre do autor, em 1a pessoa; a noite
+#  seguinte ao Ep. 14: o primeiro dia foi "mais pra conhecer" — o tour com o gerente)
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: o "Gigante de Vidro" — um salao de vidro sobre a pista, avioes como baleias de luz
+#    titulo
+#    CHOQUE    card: shock style WAKE (o deslumbramento "pisca" — o gerente estala os dedos: "Davi?")
+#    O TOUR    a doca de recebimento (logo seria funcao dele) -> o armario e o cadeado
+#              -> celular? coisa de adulto com dinheiro (1o celular do Brasil: 1990, no Rio)
+#              -> A CHAVE NA MEIA (o segredo que ninguem sabia)
+#    O SALAO   8 x 20 m, banheiros (inclusive p/ cadeirante), mesas impecaveis, a PAREDE DE VIDRO
+#              -> gente que ia so pra ver avioes (o menino colado no vidro) -> o 747, "Rainha dos Ceus"
+#              -> "hoje o restaurante diminuiu: essa vista ficou so na minha memoria"
+#    O BALCAO  "o paraiso" (cadeira!) — o Thiago -> o medo do Davi: o CAIXA
+#    AS CAMARAS uma resfriada, outra a -18 graus (o gerente brinca)
+#    GANCHO    a cozinha: o lugar que ninguem queria no turno da noite... "depois voces vao entender"
+#
+#  ENRIQUECIMENTO: fatos checados — 1o celular do Brasil ativado em 1990 no Rio de Janeiro; Boeing 747
+#  ("Rainha dos Ceus", 1o voo em 1969) tem ~70 m de comprimento; congelados a -18 graus C.
+#  Novos: doca_recebimento, salao_loja, camara_fria (lugares); menino (so 1 fala, voz Harry).
+# ============================================================================
+
+id: ep15
+number: 15
+title: "O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos"
+source: scenes/scene15.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  noite:
+    time: "night, 11 PM, airport lights"
+    wardrobe:
+      davi: uniforme_trabalho
+      gerente: uniforme
+      colega: uniforme_trabalho
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (abertura magica)
+  - id: s01
+    day: noite
+    location: salao_loja
+    cast: []
+    look: dream
+    visual: >-
+      Enchanted wide shot at night: an immense palace of glass floating above a
+      glowing airport runway, its whole wall made of crystal-clear glass; outside,
+      giant airplanes glide slowly past like luminous whales of light with glowing
+      wing lights, trails of golden sparkles, a sky full of stars and soft blue
+      mist; inside, spotless tables shine under warm lights. Magical, poetic, not
+      realistic. No people.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Magical airy shimmer with a slow majestic orchestral swell and a distant jet passing like a whale song", line: 0, dur: 10, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Tem lugar que a gente nunca esquece... [softly] o meu era um salão de vidro, com o céu inteiro do lado de fora.", pause: 0.25}
+
+  - id: s02
+    card: title
+    bg: s01
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: noite
+    location: salao_loja
+    cast: [davi]
+    look: dream
+    visual: >-
+      Dreamy slow-motion shot at night: Davi in his brand-new red polo and black
+      visor stands with one hand touching the giant glass wall, face lit by the
+      blue and gold runway lights, mouth slightly open in wonder, as an enormous
+      jumbo jet glides past right outside the glass like a ship of light, golden
+      sparkles floating around him.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] Na primeira noite, eu achei que tinha entrado dentro de um filme...", pause: 0.3}
+
+  # ---------------------------------------------------------------- CHOQUE (wake: ele "acorda")
+  - id: s04
+    card: shock
+    style: wake                    # ep12 burn, ep13 rewind, ep14 glitch -> variar
+    duration: 1.6
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A sharp finger snap close to the ear", at: 0.25, dur: 1.0, db: 0}
+      - {gen: "A man's voice calling a name once, firm and friendly, airport background", at: 0.6, dur: 1.2, db: -6}
+      - {gen: "Deep soft cinematic boom", at: 1.0, dur: 2.5, db: -4}
+
+  # ---------------------------------------------------------------- O TOUR
+  - id: s05
+    day: noite
+    location: doca_recebimento
+    cast: [davi, gerente]
+    look: real
+    ambience: "Airport service corridor at night, a heavy door buzzing, hand trucks rolling, distant jet engines"
+    visual: >-
+      Medium two-shot in the airport side service corridor at night: the manager
+      with thin black-framed glasses and grey polo, friendly and welcoming, shows
+      Davi (red polo, black visor) a hand truck loaded with boxes and crates of
+      perishable food next to a heavy metal service door, gesturing like a tour
+      guide.
+    motion: pan_right
+    transition: cut
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] O primeiro dia foi mais pra conhecer. O gerente, super hospitaleiro, me levou num tour por tudo.", pause: 0.15}
+      - {who: gerente, text: "[Brazilian accent] [friendly] É por essa porta que chega a mercadoria, Davi. [playfully] E logo, logo... quem vai carregar tudo isso pras câmaras é você.", pause: 0.2}
+
+  - id: s06
+    day: noite
+    location: vestiario
+    cast: [davi, gerente]
+    look: real
+    visual: >-
+      Medium two-shot in the staff locker room: the manager with thin black-framed
+      glasses opens an empty grey metal locker and points inside; Davi in his red
+      polo nods, attentive.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A metal locker door opening with a squeak", at: 0.2, dur: 1.5, db: -6}
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [friendly] Esse armário é seu. [calmly] Traz um cadeado amanhã pra guardar as suas coisas, tá?", pause: 0.2}
+      - {who: narrador, text: "[Brazilian accent] [laughs softly] Coisas? Celular, naquela época, era coisa de adulto com dinheiro! [playfully] Hoje as crianças já nascem assistindo vídeo no celular...", pause: 0.15}
+
+  - id: s07
+    day: noite
+    location: vestiario
+    cast: []
+    look: real
+    visual: >-
+      Nostalgic close-up: an old chunky early mobile phone with a pull-out
+      antenna and a tiny green monochrome screen (no readable text) lying on a
+      wooden bench next to a small brass padlock, warm light, like a museum
+      piece.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "An old monophonic cell phone ringtone beeping briefly, nostalgic", at: 0.2, dur: 2, db: -10}
+    lines:
+      - {who: narrador, text: "[curious] Sabia que o primeiro celular do Brasil foi ligado em 1990, no Rio de Janeiro? [amused] Era um tijolão... e custava uma fortuna.", pause: 0.2}
+
+  - id: s08
+    day: noite
+    location: vestiario
+    cast: [davi]
+    look: real
+    visual: >-
+      Comic close-up at the locker room bench: Davi in his red polo, glancing
+      around to check nobody is watching, slips a tiny padlock key inside his
+      sock, then pushes his foot back into his black work shoe, with a sly
+      secret smile.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Playful sneaky pizzicato, a tiny key jingle", line: 0, dur: 5, db: -8}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] O meu único bem precioso era a bicicleta. Então a chave do cadeado ia dentro da meia... e dentro do tênis!", pause: 0.15}
+      - {who: narrador, text: "[laughs] Lugar mais seguro não existia. Ninguém sabia dessa história... [playfully] agora vocês sabem!", pause: 0.25}
+
+  # ---------------------------------------------------------------- O SALAO
+  - id: s09
+    day: noite
+    location: salao_loja
+    cast: [davi, gerente]
+    look: real
+    visual: >-
+      Wide shot at night of the huge restaurant hall: long rows of spotless
+      tables, the tray-return station, restroom doors at the back with simple
+      pictograms, and the enormous floor-to-ceiling glass wall along the whole
+      side showing the lit runway and giant airplanes; the manager walks Davi
+      (red polo) through it, both small in the frame.
+    motion: pull_out
+    transition: dissolve
+    ambience: "Big restaurant hall inside an airport at night, soft chatter, trays, jets on the runway beyond the glass"
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] E então, o salão. Enorme: uns oito metros de largura por quase vinte de comprimento! [warmly] Banheiros no fundo, inclusive pra cadeirante... e mesas impecáveis.", pause: 0.2}
+
+  - id: s10
+    day: noite
+    location: salao_loja
+    cast: []
+    look: real
+    visual: >-
+      Medium shot at night at the giant glass wall of the restaurant: a little
+      boy of about 7 presses his nose and both hands against the glass, eyes
+      huge, pointing at a giant airplane taxiing outside, while a smiling young man who brought him (a stranger)
+      kneels beside him; other customers at tables also look out at the runway.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A huge jet engine spooling up on a runway outside a glass wall, muffled", line: 0, dur: 6, db: -8}
+    lines:
+      - {who: menino, text: "[Brazilian accent] [excited] Pai, pai! Olha o tamanho daquele avião!", pause: 0.15}
+      - {who: narrador, text: "[softly] Era a sensação do aeroporto: tinha gente que ia lá sem viajar... [warmly] só pra ver os aviões de pertinho.", pause: 0.2}
+
+  - id: s11
+    day: noite
+    location: salao_loja
+    cast: []
+    look: real
+    visual: >-
+      Majestic shot through the glass wall at night: a giant four-engine jumbo
+      jet with its distinctive hump on the upper deck rolls slowly past, filling
+      the window, lights blinking, its reflection on the wet runway. No logos,
+      no readable text on the plane.
+    motion: pan_right
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] O Boeing 747, a Rainha dos Céus, tem uns setenta metros. [playfully] Quase quatro salões daquele, um atrás do outro!", pause: 0.2}
+
+  - id: s12
+    day: noite
+    location: salao_loja
+    cast: []
+    look: dream
+    time: "first light of dawn, soft melancholic glow"
+    visual: >-
+      Nostalgic dreamy shot at dawn: the empty restaurant hall with the chairs up
+      on the tables and the giant glass wall glowing in the first soft light, the
+      runway beyond fading in a gentle mist, warm sepia tones, like a memory
+      slowly fading.
+    motion: pull_out
+    transition: dissolve
+    sfx:
+      - {gen: "A soft nostalgic piano phrase, bittersweet", line: 0, dur: 8, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Ficou com vontade de conhecer? [sadly] Sinto muito... hoje o restaurante diminuiu. Aquela vista ficou só na minha memória.", pause: 0.25}
+
+  # ---------------------------------------------------------------- O BALCAO
+  - id: s13
+    day: noite
+    location: salao_loja
+    cast: [davi, colega]
+    look: real
+    visual: >-
+      Funny medium shot at the service counter: the lean young coworker with a
+      fade haircut, thin mustache and silver earring sits relaxed on a tall stool
+      behind the counter in his red polo, spreading his arms like a king on a
+      throne; Davi in his red polo laughs, standing beside the register.
+    motion: push_in
+    transition: cut
+    music: real
+    lines:
+      - {who: colega, text: "[Brazilian accent] [laughing] Bem-vindo ao paraíso, novato! [proudly] Aqui no balcão a gente trabalha sentado!", pause: 0.15}
+      - {who: narrador, text: "[warmly] Era o sonho de todo mundo: era só virar, pegar, montar o pedido e cobrar.", pause: 0.15}
+
+  - id: s14
+    day: noite
+    location: salao_loja
+    cast: [davi]
+    look: real
+    visual: >-
+      Tense close-up at the counter: Davi in his red polo looks down at an open
+      cash register drawer full of banknotes and coins, swallowing hard, a drop
+      of sweat on his temple.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A cash register drawer springing open with a bell, coins rattling, a tense low note", at: 0.0, dur: 3, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [tense] Pra mim, era o lugar mais assustador. [firmly] Não pelos clientes... mas pelo caixa: muito dinheiro passando pelas minhas mãos.", pause: 0.2}
+
+  # ---------------------------------------------------------------- AS CAMARAS
+  - id: s15
+    day: noite
+    location: camara_fria
+    cast: [davi, gerente]
+    look: real
+    visual: >-
+      Medium two-shot: the manager with thin black-framed glasses pulls open the
+      heavy white insulated door of a walk-in freezer and a thick wave of icy fog
+      pours out over the floor; Davi in his red polo instinctively hugs his own
+      arms, eyebrows up; frosted boxes on steel shelves inside.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A heavy insulated freezer door unlatching and opening, icy air hissing, compressor humming", at: 0.0, dur: 4, db: -4}
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [calmly] Aqui são as câmaras: uma resfriada... e essa, a dezoito graus abaixo de zero. [laughs] Não fica muito tempo aí dentro, hein!", pause: 0.2}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s16
+    day: noite
+    location: cozinha_industrial
+    cast: [davi, gerente]
+    look: real
+    visual: >-
+      Suspenseful medium shot: the manager with thin black-framed glasses stops
+      in front of the stainless-steel swinging doors of the industrial kitchen
+      and looks back at Davi with a mysterious half-smile; Davi in his red polo
+      stares at the doors, steam and orange light leaking through the gap.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A suspenseful rising string pulse, a grill sizzling behind closed doors", line: 0, dur: 12, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [mysterious] E por fim... a cozinha. [slowly] O lugar que ninguém queria na escala da noite.", pause: 0.15}
+      - {who: narrador, text: "[suspenseful] Logo, logo vocês vão entender por quê.", pause: 0.45}
+
+  - id: s17
+    card: question
+    bg: s09
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Qual foi o lugar mais marcante do seu primeiro emprego? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 15"
+    title: "O Gigante de Vidro"
+    subtitle: "a Chave na Meia e a Pista dos Sonhos"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Qual lugar marcou o seu primeiro emprego?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 16"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 15 — O Gigante de Vidro ✈️ #dorama #novela"
+  description: |
+    Uma parede de vidro com a pista inteira do lado de fora, uma chave escondida na meia... e uma cozinha que ninguém queria no turno da noite.
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Episódio 15 da vídeo-novela: o primeiro dia no restaurante do aeroporto de Guarulhos — o tour com o gerente, o segredo do cadeado e o salão onde muita gente ia só para ver os aviões de pertinho.
+
+    ✈️ Você sabia? O Boeing 747, a "Rainha dos Céus", tem cerca de 70 metros. E o primeiro celular do Brasil foi ligado em 1990, no Rio.
+
+    💬 E você? Qual foi o lugar mais marcante do seu primeiro emprego? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 16.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroemprego #aeroporto #avioes #historiareal #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro emprego,
+         aeroporto de guarulhos, avioes, boeing 747, historia real, baseado em fatos reais, periferia de sao paulo,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 15 — O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos ✈️
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Uma parede de vidro com a pista inteira do lado de fora.
+    E um segredo que ninguém sabia: a chave do cadeado... dentro da meia.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Qual foi o lugar mais marcante do seu primeiro emprego?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 16.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #primeiroemprego #aeroporto #historiareal #historianarrada
+  tiktok_caption: |
+    A chave do cadeado ia dentro da meia... ninguém sabia dessa história 😂🔑✈️
+
+    📖 Baseado em fatos reais.
+
+    Ep. 15 — O Gigante de Vidro
+
+    💬 Qual lugar marcou o seu primeiro emprego? Conta aqui 👇
+    Segue pra não perder o Ep. 16 🍿
+
+    #dorama #primeiroemprego #aeroporto #historiareal #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 15"
+    title: "O Gigante de Vidro"
+    hook: "Um salão de vidro, com o céu inteiro do lado de fora."
+
+  - bg: s05
+    text: |
+      O primeiro dia foi mais pra conhecer. O gerente, super hospitaleiro, me levou num tour por tudo.
+
+      **— É por essa porta que chega a mercadoria, Davi. E logo, logo... quem vai carregar tudo isso pras câmaras é você.**
+
+  - bg: s07
+    text: |
+      **— Esse armário é seu. Traz um cadeado amanhã pra guardar as suas coisas, tá?**
+
+      Coisas? Celular, naquela época, era coisa de adulto com dinheiro. O primeiro celular do Brasil foi ligado em **1990, no Rio** — um tijolão que custava uma fortuna.
+
+  - bg: s08
+    text: |
+      _O meu único bem precioso era a bicicleta. Então a chave do cadeado ia dentro da meia... e dentro do tênis!_
+
+      Lugar mais seguro não existia. Ninguém sabia dessa história. Agora vocês sabem.
+
+  - bg: s09
+    text: |
+      E então, o salão. Enorme: uns **8 metros** de largura por quase **20** de comprimento. Banheiros no fundo, inclusive pra cadeirante, e mesas impecáveis.
+
+      E na lateral inteira, uma **parede de vidro** com a pista e os aviões gigantes.
+
+  - bg: s10
+    text: |
+      **— Pai, pai! Olha o tamanho daquele avião!**
+
+      Era a sensação do aeroporto: tinha gente que ia lá sem viajar, só pra ver os aviões de pertinho.
+
+      O **Boeing 747**, a "Rainha dos Céus", tem uns **70 metros** — quase quatro salões daquele.
+
+  - bg: s12
+    text: |
+      Ficou com vontade de conhecer?
+
+      Sinto muito. Hoje o restaurante diminuiu. Aquela vista ficou só na minha memória.
+
+  - bg: s13
+    text: |
+      **— Bem-vindo ao paraíso, novato! Aqui no balcão a gente trabalha sentado!**
+
+      _Pra mim, era o lugar mais assustador. Não pelos clientes... mas pelo caixa: muito dinheiro passando pelas minhas mãos._
+
+  - bg: s15
+    text: |
+      **— Aqui são as câmaras: uma resfriada... e essa, a dezoito graus abaixo de zero. Não fica muito tempo aí dentro, hein!**
+
+  - type: end
+    bg: s16
+    big: "A cozinha."
+    text: |
+      E por fim... a cozinha. O lugar que ninguém queria na escala da noite.
+
+      Logo, logo vocês vão entender por quê.
+    cta: "CONTINUA NO CAPÍTULO 16 · Salve e siga para não perder"
+
+  - type: question
+    bg: s09
+    kicker: "E VOCÊ?"
+    title: "Qual lugar marcou o seu primeiro emprego?"
+    text: |
+      Pra mim, foi um salão de vidro com a pista inteira do lado de fora.
+
+      _E pra você?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep15`
+teaser:
+  - id: t1
+    from: s08
+    zoom: 1.1
+    focus: [0.5, 0.40]
+    badge: "ALERTA DE SPOILER"
+    title: "O que o Davi está escondendo **dentro da meia?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Olhou pros lados, ninguém vendo... e escondeu dentro da meia 🧦🤫
+      O que será?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s10
+    zoom: 1.0
+    focus: [0.5, 0.38]
+    badge: "ALERTA DE SPOILER"
+    title: "Tinha gente que ia lá **só pra ver isso.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Uma parede de vidro e a pista inteira do lado de fora ✈️
+      Você também ia ao aeroporto só pra ver os aviões?
+
+      Conta aqui nos comentários 👇
+      Próximo episódio essa semana! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #aeroporto #avioes #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 15"
+    title: "O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 15: O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos ✈️
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

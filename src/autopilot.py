@@ -180,16 +180,18 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
         st = publish.load_status(ep)
         pubs = st.setdefault("published", {})
         out = ROOT / "output" / ep
-        if tid:
-            from . import teaser_short
-            from .story import episode
-            media.pull(ep, ("teaser",))
-            video = teaser_short.build(ep, tid)
-            ep_d = episode(ep)
-            item = _teaser_item(ep, tid)
-            meta = {"publish": teaser_short.yt_publish(ep_d, item)}
-            pubs[f"youtube_{tid}"] = publish.youtube_upload(cfg, video, meta, None, when=when)
-            pubs[f"youtube_{tid}_publish_at"] = when.isoformat()
+        if tid:  # Short de teaser: erro aqui NUNCA trava o resto da publicacao do dia
+            try:
+                from . import teaser_short
+                from .story import episode
+                media.pull(ep, ("teaser",))
+                video = teaser_short.build(ep, tid)
+                meta = {"publish": teaser_short.yt_publish(episode(ep), _teaser_item(ep, tid))}
+                pubs[f"youtube_{tid}"] = publish.youtube_upload(cfg, video, meta, None, when=when)
+                pubs[f"youtube_{tid}_publish_at"] = when.isoformat()
+            except Exception as exc:  # noqa: BLE001
+                print(f"    Short do teaser {ep} {tid} falhou: {exc}")
+                continue
         else:
             media.pull(ep, ("video",))
             meta = json.loads((out / "metadata.json").read_text(encoding="utf-8"))

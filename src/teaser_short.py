@@ -70,32 +70,64 @@ def build(ep_id: str, tid: str, *, force: bool = False) -> Path:
     if out.exists() and not force and stamp.exists() and stamp.read_text().strip() == key:
         return out
 
+    # VOZ (opcional): sem credito no ElevenLabs o Short sai so com trilha + efeito (nunca trava o agendador)
     v = dict(cfg.get("voices")["narrador"])
     cache = tdir / "_voz"
     cache.mkdir(parents=True, exist_ok=True)
     raw = cache / f"{tid}_{key}.mp3"
-    if not raw.exists():
-        elevenlabs.synthesize(text, raw, v, str(cfg.get("tts.model", "eleven_v3")))
-    voice = tts._apply_fx(raw, v.get("fx", ""), tempo=float(v.get("tempo", 1.0)),
-                          level=float(v.get("level_lufs", -18)))
-    vdur = ffmpeg.probe_duration(voice)
-    dur = max(7.0, vdur + 1.8)
+    voice = None
+    try:
+        if not raw.exists():
+            elevenlabs.synthesize(text, raw, v, str(cfg.get("tts.model", "eleven_v3")))
+        voice = tts._apply_fx(raw, v.get("fx", ""), tempo=float(v.get("tempo", 1.0)),
+                              level=float(v.get("level_lufs", -18)))
+    except Exception as exc:  # noqa: BLE001
+        raw.unlink(missing_ok=True)
+        print(f"  [teaser-short] {ep_id} {tid}: SEM VOZ ({exc}) — sai so com trilha")
+    dur = max(7.0, ffmpeg.probe_duration(voice) + 1.8) if voice else 7.5
+    sting, bed = _cached(STING, 3), _cached(BED, 12)
     tmp = Path(tempfile.mkdtemp(prefix="tshort_"))
     try:
         clip = render.render_clip(img, dur, "push_in", "", tmp / "v.mp4", cfg)
-        sting = elevenlabs.sound(STING, duration=3)
-        bed = elevenlabs.sound(BED, duration=min(22.0, dur + 1))
-        fc = ("[1:a]adelay=700|700,volume=1.0[vo];"
-              "[2:a]volume=0.55[st];"
-              f"[3:a]volume=0.22,atrim=0:{dur:.2f},afade=t=out:st={dur - 1.2:.2f}:d=1.2[bd];"
-              "[vo][st][bd]amix=inputs=3:normalize=0:duration=longest,"
-              f"atrim=0:{dur:.2f},loudnorm=I=-14:TP=-1.5:LRA=11[a]")
-        subprocess.run([ffmpeg.ffmpeg_exe(), "-y", "-loglevel", "error", "-i", str(clip), "-i", str(voice),
-                        "-i", str(sting), "-i", str(bed), "-filter_complex", fc, "-map", "0:v", "-map", "[a]",
-                        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest",
+        args, parts, n = [], [], 1
+        if voice:
+            args += ["-i", str(voice)]
+            parts.append(f"[{n}:a]adelay=700|700,volume=1.0[a{n}]")
+            n += 1
+        if sting:
+            args += ["-i", str(sting)]
+            parts.append(f"[{n}:a]volume=0.55[a{n}]")
+            n += 1
+        if bed:
+            args += ["-stream_loop", "-1", "-i", str(bed)]
+            parts.append(f"[{n}:a]volume={0.22 if voice else 0.45},atrim=0:{dur:.2f},"
+                         f"afade=t=out:st={dur - 1.2:.2f}:d=1.2[a{n}]")
+            n += 1
+        if n == 1:  # nada de som disponivel: silencio
+            args += ["-f", "lavfi", "-t", f"{dur:.2f}", "-i", "anullsrc=r=44100:cl=stereo"]
+            parts.append("[1:a]anull[a1]")
+            n = 2
+        mix = "".join(f"[a{i}]" for i in range(1, n))
+        fc = ";".join(parts) + f";{mix}amix=inputs={n - 1}:normalize=0:duration=longest," \
+                               f"atrim=0:{dur:.2f},loudnorm=I=-14:TP=-1.5:LRA=11[a]"
+        subprocess.run([ffmpeg.ffmpeg_exe(), "-y", "-loglevel", "error", "-i", str(clip), *args,
+                        "-filter_complex", fc, "-map", "0:v", "-map", "[a]",
+                        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-t", f"{dur:.2f}",
                         "-movflags", "+faststart", str(out)], check=True)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
-    stamp.write_text(key)
-    print(f"  [teaser-short] {ep_id} {tid} -> {out.name} ({dur:.1f}s)")
+    stamp.write_text(key if voice else key + "-semvoz")   # sem voz: tenta de novo quando houver credito
+    print(f"  [teaser-short] {ep_id} {tid} -> {out.name} ({dur:.1f}s{'' if voice else ', sem voz'})")
     return out
+
+
+def _cached(prompt: str, duration: float) -> Path | None:
+    """Efeito/trilha: reaproveita QUALQUER versao ja gerada (custo zero); senao tenta gerar."""
+    slug = re.sub(r"[^a-z0-9]+", "_", prompt.lower())[:40].strip("_")
+    found = sorted((ROOT / "assets" / "sfx" / "gen").glob(f"{slug}_*.mp3"))
+    if found:
+        return found[-1]
+    try:
+        return elevenlabs.sound(prompt, duration=duration)
+    except Exception:  # noqa: BLE001
+        return None

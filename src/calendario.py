@@ -58,7 +58,8 @@ def calendario() -> Path:
         for t in data.get("teaser") or []:
             if t["id"] in ds:
                 kind = "CARTAZ" if t.get("style") == "poster" else "TEASER"
-                items.append((ds[t["id"]], 0, ep, f"{kind} {t['id']}", f"output/{ep}/teaser/{t['id']}_story.png",
+                items.append((ds[t["id"]], 0, ep, f"{kind} {t['id']}",
+                              f"output/{ep}/teaser/{t['id']}_short.mp4  (video com voz; ou a foto {t['id']}_story.png)",
                               t.get("caption", "")))
     hoje = dt.date.today()
     hora = str(s.get("time", "12:00")).replace(":00", "h")

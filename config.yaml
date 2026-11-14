@@ -188,6 +188,15 @@ voices:
     rate: "+6%"
     pitch: "+2Hz"
     volume: "+0%"
+  menino:                       # menino que vai ao aeroporto so para ver os avioes (Ep. 15). Harry (jovem)
+    eleven: {voice_id: "SOYHLrjzK2X1ezoPC6cr", name: "Harry", lang: "pt", stability: 0.4, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.1
+    fx: ""
+    voice: "pt-BR-NicolauNeural"
+    rate: "+8%"
+    pitch: "+12Hz"
+    volume: "+0%"
   clara:                        # Teacher Clara (fala em ingles)
     eleven: {voice_id: "pFZP5JQG7iQjIQuC4Bku", name: "Lily", lang: "en", stability: 0.5, similarity: 0.8, style: 0.0}
     level_lufs: -18
