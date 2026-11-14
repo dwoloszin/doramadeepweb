@@ -35,7 +35,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
 from . import gemini_image
-from .cards import font
+from .cards import font, seal
 from .config import ROOT
 from .story import bible, episode, shot_prompt
 
@@ -147,7 +147,8 @@ def _compose(src: Path, t: dict, w: int, h: int, out: Path, *, safe_top: int, sa
     cx = w // 2
 
     # selo no topo
-    _badge(base, cx, safe_top, t.get("badge", "ALERTA DE SPOILER"), int(w * 0.042))
+    yb = _badge(base, cx, safe_top, t.get("badge", "ALERTA DE SPOILER"), int(w * 0.042))
+    seal(base, cx, yb + int(w * 0.022), int(w * 0.022))
 
     # titulo (Poppins Black, palavra em destaque amarela), de baixo para cima
     max_w = int(w * 0.84)
@@ -219,6 +220,8 @@ def _poster(src: Path, t: dict, ep: dict, w: int, h: int, out: Path, *, safe_top
     x0, y0 = cx - bw // 2, safe_top
     d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), bh // 2, fill=(20, 16, 22), outline=GOLD, width=3)
     spaced(d, (cx, y0 + (bh - fb.size * 1.25) / 2), label, fb, GOLD, trk)
+    seal(base, cx, y0 + bh + int(w * 0.02), int(w * 0.022))
+    d = ImageDraw.Draw(base)
 
     # bloco de baixo: EPISODIO N / ornamento / titulo / estreia / serie
     fk = font("Poppins-SemiBold.ttf", int(w * 0.034))

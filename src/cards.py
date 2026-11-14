@@ -53,6 +53,32 @@ def ornament(draw, cx, y, half=170, color=GOLD):
     draw.regular_polygon((cx, y, 7), 4, rotation=45, fill=color)
 
 
+SEAL_TEXT = "BASEADO EM FATOS REAIS"
+
+
+def seal(img: Image.Image, cx: int, y: int, size: int, text: str = SEAL_TEXT) -> int:
+    """Selo 'BASEADO EM FATOS REAIS' (pedido do autor, 14/11): pilula escura translucida com borda
+    dourada, losangos nas pontas e letras espacadas. Devolve o y logo abaixo do selo."""
+    f = font("Poppins-SemiBold.ttf", size)
+    d = ImageDraw.Draw(img)
+    trk = max(2, size // 5)
+    tw = sum(d.textlength(c, font=f) for c in text) + trk * (len(text) - 1)
+    padx, bh = int(size * 2.2), int(size * 2.2)
+    bw = int(tw + 2 * padx)
+    x0, y0 = int(cx - bw / 2), int(y)
+    over = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    od = ImageDraw.Draw(over)
+    od.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), bh // 2, fill=(12, 9, 16, 185), outline=GOLD + (255,), width=2)
+    base = img.convert("RGBA")
+    base.alpha_composite(over)
+    img.paste(base.convert("RGB"))
+    d = ImageDraw.Draw(img)
+    spaced(d, (cx, y0 + (bh - size * 1.3) / 2), text, f, GOLD, trk)
+    for sx in (x0 + padx * 0.45, x0 + bw - padx * 0.45):  # losangos
+        d.regular_polygon((sx, y0 + bh / 2, size * 0.32), 4, rotation=45, fill=GOLD)
+    return y0 + bh
+
+
 def card(bg: Path, kind: str, texts: dict, w: int, h: int, out: Path, series: str = "") -> Path:
     base = cover(Image.open(bg).convert("RGB"), w, h)
     base = base.filter(ImageFilter.GaussianBlur(14))
@@ -87,6 +113,8 @@ def card(bg: Path, kind: str, texts: dict, w: int, h: int, out: Path, series: st
             y += 84 if kind == "title" else 60
     y += 40
     ornament(d, cx, y)
+    if kind == "title":  # selo nos videos novos (Ep. 14+)
+        seal(base, cx, y + 60, 30)
     if series:
         fser = font("Poppins-Regular.ttf", 30)
         spaced(d, (cx, int(h * 0.80)), series.upper(), fser, (200, 190, 175), 8)
