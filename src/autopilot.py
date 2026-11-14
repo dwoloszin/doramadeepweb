@@ -144,7 +144,7 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
 
     yt_on, ig_on = bool(cfg.get("youtube.enabled")), bool(cfg.get("instagram.enabled"))
     checked = {"yt": False, "ig": False}
-    yt_budget = 2   # cota da API: ~1600 unidades por envio (10 mil/dia) -> no maximo 2 por execucao
+    yt_budget = 3   # cota da API: ~1600 unidades por envio (10 mil/dia) -> no maximo 3 por execucao
 
     def guard(yt: bool = False, ig: bool = False) -> None:
         if dry:
@@ -156,6 +156,50 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
             publish.guard_accounts(cfg, youtube=False, instagram=True)
             checked["ig"] = True
 
+    # --- YouTube: tudo sobe ANTES, ja agendado (publishAt). Episodios + Shorts de teaser
+    #     (ter/qui/sab), em ordem de data, ate `yt_budget` envios por execucao (cota da API).
+    jobs = []
+    for ep, day in dates.items():
+        st = publish.load_status(ep)
+        if not st.get("approved"):
+            continue
+        pubs = st.get("published", {})
+        if "youtube" not in pubs and day <= today + dt.timedelta(days=14):
+            jobs.append((_slot(sched, day, tz), ep, None))           # atrasado tambem sobe (sai na hora)
+        for tid, before in (sched.get("teasers") or {}).items():
+            tday = day - dt.timedelta(days=int(before))
+            if (f"youtube_{tid}" not in pubs and today <= tday <= today + dt.timedelta(days=14)
+                    and _teaser_item(ep, tid)):
+                jobs.append((_slot(sched, tday, tz), ep, tid))
+    for slot_j, ep, tid in sorted(jobs, key=lambda j: j[0])[:yt_budget if yt_on else 0]:
+        when = max(slot_j, now + dt.timedelta(minutes=20))
+        print(f"  {ep}: YouTube {'Short teaser ' + tid if tid else 'episodio'} -> agendar para {when:%d/%m %H:%M}")
+        if dry:
+            continue
+        guard(yt=True)
+        st = publish.load_status(ep)
+        pubs = st.setdefault("published", {})
+        out = ROOT / "output" / ep
+        if tid:
+            from . import teaser_short
+            from .story import episode
+            media.pull(ep, ("teaser",))
+            video = teaser_short.build(ep, tid)
+            ep_d = episode(ep)
+            item = _teaser_item(ep, tid)
+            meta = {"publish": teaser_short.yt_publish(ep_d, item)}
+            pubs[f"youtube_{tid}"] = publish.youtube_upload(cfg, video, meta, None, when=when)
+            pubs[f"youtube_{tid}_publish_at"] = when.isoformat()
+        else:
+            media.pull(ep, ("video",))
+            meta = json.loads((out / "metadata.json").read_text(encoding="utf-8"))
+            pub = (yaml.safe_load((ROOT / "story" / f"{ep}.yaml").read_text(encoding="utf-8")) or {}).get("publish")
+            if pub:
+                meta["publish"] = pub
+            pubs["youtube"] = publish.youtube_upload(cfg, out / meta["video"], meta, out / meta["srt"], when=when)
+            pubs["youtube_publish_at"] = when.isoformat()
+        publish.save_status(ep, st)
+
     for ep, day in sorted(dates.items(), key=lambda kv: kv[1]):
         st = publish.load_status(ep)
         pubs = st.setdefault("published", {})
@@ -163,25 +207,6 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
             if day >= today:
                 print(f"  {ep} ({day}): NAO aprovado — nada sai (python main.py approve {ep})")
             continue
-        slot = _slot(sched, day, tz)
-        meta_p = ROOT / "output" / ep / "metadata.json"
-
-        # --- YouTube: sobe antes, ja agendado
-        if yt_on and "youtube" not in pubs and day <= today + dt.timedelta(days=14) and yt_budget > 0:
-            yt_budget -= 1
-            when = max(slot, now + dt.timedelta(minutes=20))
-            print(f"  {ep}: YouTube -> agendar para {when:%d/%m %H:%M}")
-            if not dry:
-                guard(yt=True)
-                media.pull(ep, ("video",))
-                meta = json.loads(meta_p.read_text(encoding="utf-8"))
-                pub = (yaml.safe_load((ROOT / "story" / f"{ep}.yaml").read_text(encoding="utf-8")) or {}).get("publish")
-                if pub:
-                    meta["publish"] = pub
-                out = ROOT / "output" / ep
-                pubs["youtube"] = publish.youtube_upload(cfg, out / meta["video"], meta, out / meta["srt"], when=when)
-                pubs["youtube_publish_at"] = when.isoformat()
-                publish.save_status(ep, st)
 
         # --- Instagram: o episodio no domingo (ou atrasado, se a execucao do dia falhou)
         if ig_on and (today > day or (today == day and after_slot)):

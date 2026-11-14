@@ -260,8 +260,8 @@ gratuito do ElevenLabs (ver `python main.py voices`).
 | Quando (12h, Brasília) | O quê | Onde |
 |---|---|---|
 | Domingo | episódio da semana | YouTube (já enviado antes, **agendado**) + Instagram Reel + carrossel |
-| Terça · Quinta · Sábado antes | teasers t1 · t2 · t3 (cartaz) | Instagram: post no feed + Story |
-| — | TikTok | manual (`output/epNN/tiktok.txt`) |
+| Terça · Quinta · Sábado antes | teasers t1 · t2 · t3 (cartaz) | Instagram: post no feed + Story · YouTube: **Short** do teaser (imagem com zoom + voz do narrador + suspense, `src/teaser_short.py`), agendado |
+| — | TikTok | manual: `output/CALENDARIO_TIKTOK.txt` (dia a dia, com arquivo e texto) + `tiktok.txt`/`teaser.txt` com a data |
 
 - Só entra no calendário episódio **aprovado** (`python main.py approve epNN`, ou no GitHub:
   Actions → autopilot → Run workflow → `approve: epNN`). Aprovado sem data ganha o próximo domingo livre.
