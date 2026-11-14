@@ -205,5 +205,9 @@ def build(ep_id: str) -> list[Path]:
         paths.append(p)
     cap = ep.get("publish", {}).get("instagram_caption", "")
     (out_dir / "caption.txt").write_text(cap, encoding="utf-8")
+    tt = ep.get("publish", {}).get("tiktok_caption", "")
+    if tt:  # TikTok e manual: legenda do VIDEO pronta para colar (output/epNN/tiktok.txt)
+        (out_dir.parent / "tiktok.txt").write_text(tt.strip() + "
+", encoding="utf-8")
     print(f"carrossel: {len(paths)} slides em {out_dir}")
     return paths
