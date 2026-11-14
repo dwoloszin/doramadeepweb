@@ -179,6 +179,15 @@ voices:
     rate: "+0%"
     pitch: "-4Hz"
     volume: "+0%"
+  colega:                       # Thiago, colega da madrugada (Ep. 14). Chris: 9/10 (o diretor do sonho do Ep. 12 so falou 1 frase)
+    eleven: {voice_id: "iP95p4xoKVk53GoZ742B", name: "Chris", lang: "pt", stability: 0.4, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.08
+    fx: ""
+    voice: "pt-BR-JulioNeural"
+    rate: "+6%"
+    pitch: "+2Hz"
+    volume: "+0%"
   clara:                        # Teacher Clara (fala em ingles)
     eleven: {voice_id: "pFZP5JQG7iQjIQuC4Bku", name: "Lily", lang: "en", stability: 0.5, similarity: 0.8, style: 0.0}
     level_lufs: -18

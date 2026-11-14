@@ -41,17 +41,17 @@ def rendered(ep_id: str) -> bool:
     return (out / "metadata.json").exists() or (out / f"{ep_id}.mp4").exists() or exists(ep_id)
 
 
-def push(ep_id: str) -> None:
-    """Sobe (ou atualiza) a midia do episodio na release."""
+def push(ep_id: str, light: bool = False) -> None:
+    """Sobe (ou atualiza) a midia do episodio na release. light=True: so frames/carrossel/teasers (sem video)."""
     out = ROOT / "output" / ep_id
     video = out / f"{ep_id}.mp4"
     if not video.exists():
         raise FileNotFoundError(f"{video} nao existe (renderize antes)")
     tmp = Path(tempfile.mkdtemp(prefix="media_"))
     try:
-        files = [video]
+        files = [] if light else [video]
         audio = out / f"{ep_id}_audiobook.mp3"
-        if audio.exists():
+        if audio.exists() and not light:
             files.append(audio)
         for d in DIRS:
             src = out / d

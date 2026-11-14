@@ -43,6 +43,7 @@ def main() -> None:
                     help="frames: gera na hora (preco cheio) em vez do lote batch (metade do preco)")
     ap.add_argument("--dry", action="store_true", help="autopilot: so mostra o que faria")
     ap.add_argument("--no-render", action="store_true", help="autopilot: nao renderiza episodios novos")
+    ap.add_argument("--light", action="store_true", help="media-push: so imagens (sem o video)")
     ap.add_argument("--render-only", action="store_true", help="autopilot: so renderiza (nao publica)")
     ap.add_argument("--retake", nargs="+", default=[], metavar="CENA",
                     help="video: regrava a voz dessas cenas (nova 'tomada' do ElevenLabs)")
@@ -69,7 +70,7 @@ def main() -> None:
     if a.cmd in ("media-push", "media-pull"):
         from src import media
         for ep in [x for x in [a.ep, *a.ids] if x]:
-            media.push(ep) if a.cmd == "media-push" else media.pull(ep)
+            media.push(ep, light=a.light) if a.cmd == "media-push" else media.pull(ep)
         return
     if not a.ep:
         sys.exit("informe o episodio, ex.: ep01")

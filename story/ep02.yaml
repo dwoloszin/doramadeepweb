@@ -402,6 +402,8 @@ publish:
   description: |
     Na cabeça dele, era cena de dorama. Na vida real, era 1h da manhã, frio cortante e um carrinho de madeira rangendo.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 2 da vídeo-novela: o segredo por trás do alarme da madrugada — o garoto que trabalhava com o pai no entreposto antes de todo mundo acordar.
 
     💬 E você? Encararia essa madrugada com o seu pai... ou acha que adolescente devia só estudar? Conta nos comentários!
@@ -419,6 +421,8 @@ publish:
   instagram_caption: |
     Episódio 2 — O Perfume das Frutas e a Madrugada Gelada 🍅
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Na minha cabeça, era cena de dorama.
     Na vida real... 1h da manhã, frio cortante e um carrinho de madeira rangendo.
 
@@ -434,6 +438,8 @@ publish:
     #dorama #kdrama #paiefilho #madrugada #historianarrada
   tiktok_caption: |
     Na minha cabeça era dorama. Na vida real era 1h da manhã, frio e um carrinho de madeira rangendo. 🍅
+
+    📖 Baseado em fatos reais.
 
     Ep. 2 — O Perfume das Frutas e a Madrugada Gelada
 
@@ -555,6 +561,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova, intrigante e sem contar a historia
     shot:
@@ -583,6 +591,8 @@ teaser:
       Você já trabalhou de madrugada? Conta aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3                          # cartaz do episodio (tema, sem historia)
     style: poster
@@ -599,5 +609,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada

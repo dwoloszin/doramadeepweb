@@ -460,6 +460,8 @@ publish:
   description: |
     Sexta-feira à noite, três pizzas na mão, filme no vídeo cassete... e uma despedida marcada para o dia seguinte.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 8 da vídeo-novela: no portão de casa, debaixo da luz do poste, o garoto tímido descobre o universo inteiro dentro de um par de olhos verdes.
 
     💬 E você? Seu primeiro beijo foi de surpresa ou foi você que tomou a iniciativa? Conta nos comentários!
@@ -476,6 +478,8 @@ publish:
   instagram_caption: |
     Episódio 8 — O Vídeo Cassete, as Três Pizzas e o Universo nos Olhos Verdes 💚
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Sexta à noite. Três pizzas. Uma despedida marcada para amanhã.
     E, no portão de casa, ela me pegou completamente de surpresa.
 
@@ -491,6 +495,8 @@ publish:
     #dorama #kdrama #primeirobeijo #anos90 #historianarrada
   tiktok_caption: |
     Fui buscar três pizzas... e voltei sem o BV. 💚
+
+    📖 Baseado em fatos reais.
 
     Ep. 8 — O Universo nos Olhos Verdes
 
@@ -622,6 +628,8 @@ teaser:
       Chuta aí nos comentários 👇 o que você acha que rolou?
       O Episódio 8 chega essa semana. Ative o sininho e não perca! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #primeiroamor #historianarrada
 
   - id: t2                          # imagem NOVA (nao esta no video): os dois frente a frente
@@ -652,6 +660,8 @@ teaser:
       O que você acha que acontece agora? Chuta aqui nos comentários 👇
       Episódio 8 essa semana. Ative o sininho pra não perder! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #primeiroamor #historianarrada
 
   - id: t3                          # CARTAZ do episodio (tema, sem historia) — diferente da capa do carrossel
@@ -670,5 +680,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #anos90 #historianarrada

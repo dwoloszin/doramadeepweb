@@ -148,7 +148,7 @@ def _compose(src: Path, t: dict, w: int, h: int, out: Path, *, safe_top: int, sa
 
     # selo no topo
     yb = _badge(base, cx, safe_top, t.get("badge", "ALERTA DE SPOILER"), int(w * 0.042))
-    seal(base, cx, yb + int(w * 0.022), int(w * 0.022))
+    seal(base, cx, yb + int(w * 0.022), int(w * 0.029))
 
     # titulo (Poppins Black, palavra em destaque amarela), de baixo para cima
     max_w = int(w * 0.84)
@@ -220,7 +220,7 @@ def _poster(src: Path, t: dict, ep: dict, w: int, h: int, out: Path, *, safe_top
     x0, y0 = cx - bw // 2, safe_top
     d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), bh // 2, fill=(20, 16, 22), outline=GOLD, width=3)
     spaced(d, (cx, y0 + (bh - fb.size * 1.25) / 2), label, fb, GOLD, trk)
-    seal(base, cx, y0 + bh + int(w * 0.02), int(w * 0.022))
+    seal(base, cx, y0 + bh + int(w * 0.02), int(w * 0.029))
     d = ImageDraw.Draw(base)
 
     # bloco de baixo: EPISODIO N / ornamento / titulo / estreia / serie

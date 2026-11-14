@@ -404,6 +404,8 @@ publish:
   description: |
     Uma casa vazia, um bilhete dobrado e um coração que já tinha imaginado a pior despedida do mundo.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 6 da vídeo-novela: o que estava escrito no bilhete, a tortura do relógio da sala e a decisão de não deixar mais o medo travar.
 
     💬 E você? No lugar do Davi, se declarava amanhã de qualquer jeito ou esperava o momento certo? Conta nos comentários!
@@ -420,6 +422,8 @@ publish:
   instagram_caption: |
     Episódio 6 — O Bilhete na Mesa, o Tique-Taque e a Decisão 💌
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Na minha cabeça, era uma carta de despedida.
     Na vida real... era a letra da minha mãe.
 
@@ -435,6 +439,8 @@ publish:
     #dorama #kdrama #primeiroamor #declaracao #historianarrada
   tiktok_caption: |
     Eu achei que era uma carta de despedida dela... 💌 era a lista de compras da minha mãe.
+
+    📖 Baseado em fatos reais.
 
     Ep. 6 — O Bilhete na Mesa
 
@@ -550,6 +556,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova, intrigante e sem contar a historia
     shot:
@@ -580,6 +588,8 @@ teaser:
       Deixa seu palpite aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3                          # cartaz do episodio (tema, sem historia)
     style: poster
@@ -597,5 +607,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada

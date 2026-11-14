@@ -81,6 +81,16 @@ characters:
         Sleeping clothes: an old oversized faded grey cotton t-shirt with a
         small hole near the collar (no prints, no letters), old dark-blue
         cotton shorts; no wristwatch.
+      casual_noite: >-
+        Plain clothes to change into after the bike ride: a clean plain navy-blue
+        cotton t-shirt, dark-blue jeans, clean white sneakers, black digital
+        wristwatch on the left wrist; hair wet and neatly combed.
+      uniforme_trabalho: >-
+        Fast-food crew uniform for the night shift: a brand-new bright red
+        short-sleeve polo shirt with no logo and no letters, a black visor cap
+        with no logo, black work trousers, black non-slip work shoes, a small
+        blank name badge on the chest (no readable text), black digital
+        wristwatch on the left wrist.
       entrevista: >-
         His best clothes for a job interview (19 years old): a crisp ironed
         light-blue long-sleeve button-down shirt tucked in, the sleeves
@@ -281,6 +291,21 @@ characters:
         black trousers, black shoes, a small blank name badge on the chest
         (no readable text), a ballpoint pen in the shirt pocket.
 
+  colega:
+    name: "Thiago, o colega da madrugada"
+    aliases: [coworker]   # citou no visual -> colega no cast
+    role: "colega de turno no restaurante do aeroporto; brincalhao (estreia no Ep. 14, voz Chris)"
+    identity: >-
+      Thiago, a 23-year-old Brazilian young man: medium-brown skin, short
+      black hair with a fade, a thin mustache, a wide easy grin, lean and
+      tall, a small silver earring in one ear. Clearly a DIFFERENT person
+      from Davi (thin, darker skin, earring).
+    wardrobe:
+      uniforme_trabalho: >-
+        The same night-shift crew uniform: bright red short-sleeve polo with no
+        logo, black visor cap with no logo, black trousers, black non-slip
+        shoes, a blank name badge (no readable text).
+
   davi_sonho:
     name: "Davi (versao do sonho)"
     role: "como Davi se imaginava: o protagonista perfeito de um dorama"
@@ -310,6 +335,11 @@ characters:
         collar open and sleeves rolled to the elbows, light beige linen
         trousers, simple brown leather sandals, a thin braided leather bracelet.
 
+      futurista: >-
+        A sleek futuristic airline-operations uniform: a perfectly fitted
+        midnight-navy jacket with thin glowing gold piping, a high collar, a
+        silver ID badge clipped to the chest, slim dark trousers, polished black
+        boots, holding a thin glowing digital tablet.
       executivo: >-
         Impeccable tailored charcoal-grey three-piece business suit, crisp
         white shirt, a slim dark-burgundy silk tie, a silver tie bar, polished
@@ -534,6 +564,41 @@ locations:
       window with a view of airplanes on the runway, a wall clock. No
       readable text, no logos.
     look: real
+  # ---------------------------------------------------------------- Ep. 14
+  rodovia_noite:
+    ambience: "Highway shoulder at night, heavy trucks roaring past very close, strong wind gusts, a bicycle chain clicking, distant horns"
+    description: >-
+      The narrow dark shoulder of a big highway near São Paulo at night:
+      worn asphalt with a faded white edge line, a metal guardrail, tall
+      orange sodium street lights far apart, heavy trucks and cars passing
+      fast with bright headlights and red taillights streaking, the glow of
+      the airport far away on the horizon. No readable signs.
+    look: night
+  vestiario:
+    ambience: "Staff locker room at night, a shower running, metal locker doors clanging, a ventilation fan humming, muffled airport announcements"
+    description: >-
+      The staff locker room of a fast-food restaurant inside the airport at
+      night: rows of grey metal lockers, a wooden bench, white tiled walls, a
+      mirror above a small sink, a shower area with a plastic curtain,
+      fluorescent lights. No readable text, no logos.
+    look: real
+  aeroporto_noite:
+    ambience: "Airport terminal at night, quieter crowd, rolling suitcases, soft boarding announcements echoing, a jet landing outside"
+    description: >-
+      The upper floor of the São Paulo international airport terminal at
+      night: a long food court balcony with a fast-food counter decorated in
+      red and yellow (no logos), huge glass windows showing giant airplanes
+      lit on the runway, elegant night travelers with rolling suitcases, warm
+      and cool lights reflecting on the polished floor. No readable signs.
+    look: real
+  cozinha_industrial:
+    ambience: "Fast-food industrial kitchen at night, a grill sizzling, fryers bubbling, timers beeping, steam hissing"
+    description: >-
+      A stainless-steel fast-food industrial kitchen behind automatic
+      swinging doors: a long flat grill with steam rising, deep fryers,
+      heat lamps glowing orange, stacked trays, bright white light. No
+      readable text, no logos.
+    look: real
   # ---------------------------------------------------------------- Ep. 3
   sala_casa:
     ambience: "Small Brazilian living room in the evening, quiet room tone, a TV murmuring softly, a ceiling fan humming, distant neighborhood sounds through the window"
@@ -713,3 +778,9 @@ props:
     description: >-
       A small Brazilian work-card booklet with a dark-blue plastic cover,
       slightly worn corners, closed, with no readable letters on the cover.
+  # ---------------------------------------------------------------- Ep. 14
+  colete_refletivo:
+    name: "O colete refletivo velho do pai"
+    description: >-
+      An old worn fluorescent orange reflective safety vest with two silver
+      reflective stripes, slightly faded and frayed, no logos, no letters.

@@ -359,6 +359,8 @@ publish:
   description: |
     Uma faxina de emergência, uma corrida até o mercadinho... e uma visita do interior que fez o coração dele bater como nunca.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 4 da vídeo-novela: os primos chegam para passar uns dias — e, com eles, a Camila.
 
     💬 E você? Já ficou sem palavras na frente de alguém... ou é do tipo que manda logo um oi? Conta nos comentários!
@@ -375,6 +377,8 @@ publish:
   instagram_caption: |
     Episódio 4 — O Caos Antes da Chegada e o Impacto dos Olhos Verdes 💚
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Uma faxina de emergência, uma corrida até o mercadinho...
     e uma visita do interior que fez meu coração disparar.
 
@@ -390,6 +394,8 @@ publish:
     #dorama #kdrama #primeiroamor #olhosverdes #historianarrada
   tiktok_caption: |
     Uma faxina de emergência, uma corrida ao mercadinho... e ela atravessou a porta. 💚
+
+    📖 Baseado em fatos reais.
 
     Ep. 4 — O Impacto dos Olhos Verdes
 
@@ -509,6 +515,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova, intrigante e sem contar a historia
     shot:
@@ -536,6 +544,8 @@ teaser:
       Deixa seu palpite aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3                          # cartaz do episodio (tema, sem historia)
     style: poster
@@ -552,5 +562,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada

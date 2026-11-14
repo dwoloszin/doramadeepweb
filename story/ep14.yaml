@@ -1,0 +1,600 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock (VARIAR o style), personagem em cena FALA,
+# referencia p/ todo personagem/lugar/objeto, elenco consistente, SEMPRE enriquecer (fatos checados).
+# ============================================================================
+#  EPISODIO 14 — adaptado de scenes/scene14.txt  (o mesmo dia da entrevista, Ep. 13)
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: o jovem prodigio de uniforme futurista no terminal de neon, Boeing decolando
+#    titulo
+#    CHOQUE    card: shock style glitch (o neon vira pixels) -> vento na cara, pedal estalando
+#    A SOLUCAO feliz em casa... mas e as 23h sem um tostao? -> a bicicleta, "a fiel companheira"
+#    A PARTIDA a mae assustada no portao -> o pai entrega o colete refletivo velho (enriquecimento)
+#    O TRAJETO 20 km no acostamento, caminhoes a um palmo -> frio, suor -> noites de chuva
+#    A ESCALA  6x1 (anos depois, pauta de debates no Congresso)
+#    A CHEGADA 22h no vestiario: banho, pontualidade -> o colega Thiago (NOVO, fala) -> o salao
+#              do 2o andar: Guarulhos nunca dorme (Congonhas fecha de madrugada) -> "meu passaporte"
+#    O UNIFORME o gerente entrega o uniforme vermelho -> o espelho
+#    GANCHO    as portas da cozinha industrial abrem: o primeiro teste de fogo
+#
+#  ENRIQUECIMENTO: fatos checados — escala 6x1 (6 dias de trabalho, 1 de folga) virou pauta de
+#  propostas e debates no Congresso nos anos 2020; Guarulhos opera 24h, Congonhas tem toque de
+#  recolher noturno (sem pousos/decolagens de madrugada). Cenas novas: mae, pai e o colete, a chuva.
+#  Novos: colega (voz Chris), rodovia_noite, vestiario, aeroporto_noite, cozinha_industrial,
+#  colete_refletivo, davi.uniforme_trabalho, davi_sonho.futurista.
+# ============================================================================
+
+id: ep14
+number: 14
+title: "O Uniforme Vermelho, as Luzes do Aeroporto e o Trajeto da Coragem"
+source: scenes/scene14.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "night, neon blue and gold lights reflecting on a wet runway, light mist"
+    wardrobe:
+      davi_sonho: futurista
+  tarde:
+    time: "late afternoon, warm golden light"
+    wardrobe:
+      davi: entrevista
+  partida:
+    time: "7:50 PM, dark blue dusk, a single street lamp"
+    wardrobe:
+      davi: madrugada_trabalho
+      mae: casa
+      pai: casa
+  estrada:
+    time: "8 PM, dark night"
+    wardrobe:
+      davi: madrugada_trabalho
+  chegada:
+    time: "10 PM, night"
+    wardrobe:
+      davi: casual_noite
+      colega: uniforme_trabalho
+      gerente: uniforme
+  aeroporto:
+    time: "10 PM, night"
+    wardrobe:
+      davi: uniforme_trabalho
+      colega: uniforme_trabalho
+      gerente: uniforme
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (abertura magica)
+  - id: s01
+    day: sonho
+    location: aeroporto_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Epic super slow-motion wide shot at night: neon blue and gold lights reflect
+      on the wet airport runway and the glass of a futuristic terminal, a soft
+      poetic mist; the idealized young man in a fitted midnight-navy uniform with
+      glowing gold piping walks through the grand hall holding a glowing digital
+      tablet, first-class travelers with designer suitcases stepping aside; a
+      huge jet takes off into the illuminated horizon behind the glass.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Elegant electro-pop beat with modern synthesizers, cosmopolitan night energy", line: 0, dur: 12, db: -4}
+      - {gen: "A distant jet taking off at night", at: 0.5, dur: 4, db: -12}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] No sonho, o meu primeiro dia de trabalho era em câmera lenta... [playfully] com trilha eletrônica e luzes de neon.", pause: 0.25}
+
+  - id: s02
+    card: title
+    bg: s03
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: sonho
+    location: aeroporto_sonho
+    cast: [davi_sonho]
+    look: dream
+    visual: >-
+      Dreamy close medium shot at night in the neon-lit futuristic terminal: the
+      idealized young man adjusts the silver badge on his chest with a confident
+      half-smile and exchanges a knowing look with an elegant flight crew walking
+      past him in a line, rolling their bags; blue and gold neon reflections,
+      mist, glowing bokeh.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [confident] Crachá no peito, prancheta digital na mão... [proudly] o jovem prodígio que comandava a operação de uma multinacional.", pause: 0.2}
+
+  # ---------------------------------------------------------------- CHOQUE DE REALIDADE
+  - id: s04
+    card: shock
+    style: glitch                  # neon -> pixels (ep12 burn, ep13 rewind: variar)
+    duration: 1.5
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "Digital glitch burst, electronic music breaking into distorted bits", at: 0.0, dur: 1.2, db: 0}
+      - {gen: "A strong gust of wind roaring past the ears", at: 0.6, dur: 1.5, db: -2}
+      - {gen: "A bicycle chain clicking hard and a pedal snapping on asphalt", at: 1.0, dur: 1.5, db: -2}
+      - {gen: "A heavy truck roaring past very close at night", at: 1.1, dur: 2.5, db: -3}
+
+  # ---------------------------------------------------------------- A SOLUCAO
+  - id: s05
+    day: tarde
+    location: casa_davi
+    cast: [davi]
+    props: [bicicleta]
+    look: real
+    visual: >-
+      Medium shot in warm late-afternoon light in front of the red-brick house:
+      Davi, still in his ironed light-blue interview shirt, stands at the grey
+      gate holding his nearly empty open wallet, worried; then his eyes land on
+      his old rusty dark-red bicycle leaning against the wall, and an idea
+      lights up his face.
+    motion: push_in
+    transition: cut
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] Voltei pra casa feliz da vida. [sighs] Mas a realidade não esperou nem um segundo: eu tinha que estar no trabalho às onze da noite daquele mesmo dia... [softly] e não tinha um tostão no bolso.", pause: 0.2}
+
+  - id: s06
+    day: tarde
+    location: casa_davi
+    cast: []
+    props: [bicicleta]
+    look: dream
+    visual: >-
+      Heroic close shot in golden sunset light: the old rusty dark-red bicycle
+      with its cracked brown saddle and empty wire basket leaning against the
+      red-brick wall, glowing like a legendary steed, warm sun flare on the
+      handlebars, floating dust. No people.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A short heroic hopeful brass and strings motif", line: 0, dur: 5, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [warmly] A solução veio na hora. Ela: a minha fiel companheira, [proudly] que nunca tinha me deixado na mão.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A PARTIDA
+  - id: s07
+    day: partida
+    location: casa_davi
+    cast: [davi, mae]
+    props: [bicicleta]
+    look: real
+    visual: >-
+      Medium two-shot at dusk at the grey gate under a street lamp: Davi in his
+      grey hoodie, a backpack on his shoulders, holds his old dark-red bicycle
+      ready to leave; his mother, in her apron, grabs his arm, shocked and
+      worried, eyes wide.
+    motion: push_in
+    transition: dissolve
+    ambience: "Periphery street at dusk, a dog barking, a motorcycle passing, a TV from a neighbor"
+    lines:
+      - {who: mae, text: "[Brazilian accent] [worried] Vai de bicicleta?! [shocked] Até Guarulhos, de noite, menino?!", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [firmly] Vou, mãe. [calmly] É o meu compromisso.", pause: 0.2}
+
+  - id: s08
+    day: partida
+    location: casa_davi
+    cast: [davi, pai]
+    props: [colete_refletivo, bicicleta]
+    look: real
+    visual: >-
+      Tender medium two-shot at dusk at the gate: the father, in his sleeveless
+      undershirt, helps Davi put on an old faded fluorescent orange reflective
+      vest over his grey hoodie and hands him a small flashlight, a serious
+      protective look; Davi nods, holding the bicycle.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pai, text: "[Brazilian accent] [seriously] Então leva o meu colete da entrega. [warmly] Caminhoneiro não enxerga ninguém à noite, filho.", pause: 0.25}
+
+  # ---------------------------------------------------------------- O TRAJETO
+  - id: s09
+    day: estrada
+    location: rodovia_noite
+    cast: [davi]
+    props: [bicicleta, colete_refletivo]
+    look: night
+    visual: >-
+      Wide cinematic shot at night: the small silhouette of Davi in the orange
+      reflective vest pedaling his old bicycle alone on the narrow dark shoulder
+      of a big highway, a huge truck roaring past very close with blinding
+      headlights, light streaks, the glow of the airport far on the horizon.
+    motion: pan_right
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Heavy trucks roaring past very close on a highway at night, strong wind", line: 0, dur: 8, db: -3}
+      - {gen: "A tense driving pulse with low strings, determination", line: 0, dur: 14, db: -7}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [tense] Vinte quilômetros. Mais de uma hora pedalando no acostamento... [softly] com caminhão passando a um palmo do guidão.", pause: 0.2}
+
+  - id: s10
+    day: estrada
+    location: rodovia_noite
+    cast: [davi]
+    props: [colete_refletivo]
+    look: night
+    visual: >-
+      Intense close-up at night: Davi's face in the orange reflective vest and
+      grey hoodie, sweat on his forehead, breath steaming in the cold air, jaw
+      tight with effort, car headlights streaking past in long blurred lines
+      behind him.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Heavy breathing of a cyclist in the cold, a heartbeat", line: 0, dur: 5, db: -8}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [firmly] Frio cortante, a perna queimando... [determined] mas a minha cabeça só pensava numa coisa: honrar o meu compromisso.", pause: 0.2}
+
+  - id: s11
+    day: estrada
+    location: rodovia_noite
+    cast: [davi]
+    props: [bicicleta, colete_refletivo]
+    look: night
+    time: "night, heavy pouring rain"
+    visual: >-
+      Medium shot at night in heavy pouring rain on the highway shoulder: Davi,
+      soaked, in the orange reflective vest, pedals hard with his head down,
+      his backpack wrapped in a clear plastic bag, rain streaks lit by passing
+      headlights, puddles splashing.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "Heavy rain pouring on a highway at night, tires splashing, thunder far away", line: 0, dur: 8, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] E nos dias de chuva? [warmly] A roupa do trabalho ia embrulhada num saco plástico dentro da mochila... e eu chegava encharcado, mas chegava.", pause: 0.2}
+
+  - id: s12
+    day: estrada
+    location: quarto_davi
+    cast: []
+    look: night
+    visual: >-
+      Close-up at night of a simple paper weekly work schedule taped to a brick
+      wall: ONE single horizontal row of SEVEN small boxes side by side (one
+      per day of the week), the first six boxes each crossed out with a red pen
+      X and only the seventh box circled in green, lit by a small lamp. No
+      readable words or numbers. Not a game, not a grid of nine.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [seriously] A escala era seis por um: seis dias de trabalho pra um só de folga. [softly] Décadas depois, isso virou pauta de debate acalorado no Congresso.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A CHEGADA
+  - id: s13
+    day: chegada
+    location: vestiario
+    cast: [davi, colega]
+    look: real
+    visual: >-
+      Medium two-shot in the staff locker room at night: Davi, freshly showered,
+      hair wet and combed, in a clean plain navy t-shirt and jeans, opens his grey metal locker;
+      a lean young coworker with a fade haircut, a thin mustache and a silver
+      earring, already in his red polo, leans on the next locker with a big
+      teasing grin, pointing at the wall clock.
+    motion: push_in
+    transition: dissolve
+    music: real
+    sfx:
+      - {gen: "A shower turning off, metal locker doors clanging, a ventilation fan", at: 0.0, dur: 3, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [proudly] Às dez da noite em ponto eu já estava no vestiário: banho rápido, cabelo no lugar. [warmly] Pontualidade que eu carrego até hoje.", pause: 0.15}
+      - {who: colega, text: "[Brazilian accent] [laughing] Primeiro dia, né? Chegou uma hora antes! [teasing] Aqui a gente chama isso de puxa-saco... [laughs] brincadeira, bem-vindo!", pause: 0.2}
+
+  - id: s14
+    day: chegada
+    location: aeroporto_noite
+    cast: [davi]
+    look: real
+    visual: >-
+      Wide awe-struck shot at night on the upper floor of the airport terminal:
+      Davi in a plain navy t-shirt and jeans with his backpack stops at the balcony railing,
+      jaw dropped, in front of huge glass windows showing giant airplanes lit
+      on the runway, elegant night travelers rolling suitcases around him,
+      reflections on the polished floor.
+    motion: pull_out
+    transition: dissolve
+    sfx:
+      - {gen: "A giant jet landing at night outside a terminal, soft boarding announcement echo", line: 0, dur: 6, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amazed] Ao pisar naquele salão, o meu queixo caiu. [curious] E sabia que Guarulhos nunca dorme? Congonhas fecha de madrugada... Cumbica funciona vinte e quatro horas.", pause: 0.2}
+
+  - id: s15
+    day: chegada
+    location: aeroporto_noite
+    cast: [davi]
+    look: real
+    visual: >-
+      Medium shot at night: Davi in a plain navy t-shirt and jeans looks with shining eyes at
+      the bright fast-food counter decorated in red and yellow (no logos, no
+      letters) on the airport upper floor, a few crew members in red polos
+      working behind it, airplanes glowing through the windows beside it.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [proudly] Pra mim, aquilo não era só uma lanchonete. [warmly] Era o meu passaporte pra dentro de uma gigante multinacional.", pause: 0.2}
+
+  # ---------------------------------------------------------------- O UNIFORME
+  - id: s16
+    day: chegada
+    location: vestiario
+    cast: [davi, gerente]
+    look: real
+    visual: >-
+      Warm medium two-shot in the staff locker room: the manager with thin
+      black-framed glasses and grey polo hands Davi a neatly folded brand-new
+      bright red polo shirt and a black visor cap (no logos); Davi receives them
+      with both hands like a treasure, beaming.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: gerente, text: "[Brazilian accent] [warmly] Seu uniforme, Davi. [playfully] Bem-vindo à madrugada de Cumbica.", pause: 0.2}
+
+  - id: s17
+    day: aeroporto
+    location: vestiario
+    cast: [davi]
+    look: real
+    visual: >-
+      Proud medium close shot: Davi now wearing the brand-new bright red polo
+      shirt and black visor cap looks at himself in the locker room mirror,
+      straightening the blank name badge on his chest, eyes shining, a quiet
+      proud smile.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A warm triumphant orchestral swell, emotional", line: 0, dur: 6, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [proudly] Uniforme vermelho novinho no corpo... [warmly] e um brilho nos olhos maior que o aeroporto inteiro.", pause: 0.25}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s18
+    day: aeroporto
+    location: cozinha_industrial
+    cast: [davi]
+    look: real
+    visual: >-
+      Suspenseful shot from inside the kitchen: the automatic stainless-steel
+      swinging doors of the industrial kitchen open toward the camera with a
+      burst of steam and orange heat-lamp light; Davi in his red polo and black
+      visor stands in the doorway, swallowing hard, the long sizzling grill in
+      the foreground.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "Automatic kitchen doors opening, a grill sizzling loudly, fryers bubbling, a timer beeping", line: 0, dur: 6, db: -4}
+      - {gen: "A suspenseful rising string pulse", line: 0, dur: 12, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [suspenseful] Mas o que me esperava atrás das portas daquela cozinha industrial, na madrugada?", pause: 0.15}
+      - {who: narrador, text: "[slowly] O ritmo da chapa, a equipe... [suspenseful] e o meu primeiro teste de fogo.", pause: 0.45}
+
+  - id: s19
+    card: question
+    bg: s09
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já fez um sacrifício enorme pra não perder uma oportunidade? Conta aqui nos comentários.", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 14"
+    title: "O Uniforme Vermelho"
+    subtitle: "as Luzes do Aeroporto e o Trajeto da Coragem"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Qual sacrifício você já fez?"
+    subtitle: "Pra não perder uma oportunidade. Conta nos comentários."
+    footer: "Continua no Episódio 15"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 14 — 20 km de Bicicleta Até o Aeroporto 🚲✈️ #dorama #novela"
+  description: |
+    Carteira assinada, vaga garantida... e nenhum tostão para a condução. A solução? A velha bicicleta.
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Episódio 14 da vídeo-novela: 20 km de bicicleta no acostamento da rodovia, à noite, até o aeroporto de Guarulhos, para não perder o primeiro emprego. A mãe assustada no portão, o colete refletivo do pai, as noites de chuva e o uniforme vermelho novinho.
+
+    🛫 Você sabia? Guarulhos funciona 24 horas, enquanto Congonhas fecha de madrugada.
+
+    💬 E você? Já fez um sacrifício enorme pra não perder uma oportunidade? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 15.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroemprego #bicicleta #superacao #escala6x1 #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro emprego,
+         bicicleta, superacao, escala 6x1, aeroporto de guarulhos, madrugada, pontualidade, periferia de sao paulo,
+         dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 14 — O Uniforme Vermelho, as Luzes do Aeroporto e o Trajeto da Coragem 🚲✈️
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Trabalho às 23h. Nenhum tostão no bolso.
+    20 km de bicicleta no acostamento, com caminhão passando a um palmo do guidão.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já fez um sacrifício enorme pra não perder uma oportunidade?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 15.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #primeiroemprego #superacao #bicicleta #historianarrada
+  tiktok_caption: |
+    20 km de bicicleta, de noite, até o aeroporto... pra não perder o primeiro emprego 🚲✈️
+
+    📖 Baseado em fatos reais.
+
+    Ep. 14 — O Trajeto da Coragem
+
+    💬 Qual sacrifício você já fez por uma oportunidade? Conta aqui 👇
+    Segue pra não perder o Ep. 15 🍿
+
+    #dorama #superacao #primeiroemprego #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s09
+    kicker: "CAPÍTULO 14"
+    title: "O Trajeto da Coragem"
+    hook: "20 km de bicicleta, de noite, até o primeiro emprego."
+
+  - bg: s03
+    text: |
+      No sonho, o meu primeiro dia era em câmera lenta, com trilha eletrônica e luzes de neon.
+
+      _Crachá no peito, prancheta digital na mão... o jovem prodígio que comandava a operação de uma multinacional._
+
+  - bg: s05
+    text: |
+      Voltei pra casa feliz da vida. Mas a realidade não esperou nem um segundo: eu tinha que estar no trabalho às **onze da noite** daquele mesmo dia... e não tinha um tostão no bolso.
+
+      _A solução veio na hora: a minha fiel companheira, que nunca tinha me deixado na mão._
+
+  - bg: s07
+    text: |
+      **— Vai de bicicleta?! Até Guarulhos, de noite, menino?!**
+
+      **— Vou, mãe. É o meu compromisso.**
+
+  - bg: s08
+    text: |
+      **— Então leva o meu colete da entrega. Caminhoneiro não enxerga ninguém à noite, filho.**
+
+  - bg: s09
+    text: |
+      **Vinte quilômetros.** Mais de uma hora pedalando no acostamento, com caminhão passando a um palmo do guidão.
+
+      _Frio cortante, a perna queimando... mas a minha cabeça só pensava numa coisa: honrar o meu compromisso._
+
+  - bg: s11
+    text: |
+      Nos dias de chuva, a roupa do trabalho ia embrulhada num saco plástico dentro da mochila. Eu chegava encharcado — mas chegava.
+
+      A escala era **6x1**: seis dias de trabalho para um só de folga. Décadas depois, isso virou pauta de debate no Congresso.
+
+  - bg: s13
+    text: |
+      Às dez da noite em ponto eu já estava no vestiário. Pontualidade que eu carrego até hoje.
+
+      **— Primeiro dia, né? Chegou uma hora antes! Aqui a gente chama isso de puxa-saco... brincadeira, bem-vindo!**
+
+  - bg: s14
+    text: |
+      Ao pisar naquele salão, o meu queixo caiu.
+
+      Guarulhos nunca dorme: Congonhas fecha de madrugada, mas **Cumbica funciona 24 horas**.
+
+      _Aquilo não era só uma lanchonete. Era o meu passaporte pra dentro de uma gigante multinacional._
+
+  - bg: s17
+    text: |
+      **— Seu uniforme, Davi. Bem-vindo à madrugada de Cumbica.**
+
+      _Uniforme vermelho novinho no corpo... e um brilho nos olhos maior que o aeroporto inteiro._
+
+  - type: end
+    bg: s18
+    big: "O teste de fogo."
+    text: |
+      Mas o que me esperava atrás das portas daquela cozinha industrial, na madrugada?
+
+      O ritmo da chapa, a equipe... e o meu primeiro teste de fogo.
+    cta: "CONTINUA NO CAPÍTULO 15 · Salve e siga para não perder"
+
+  - type: question
+    bg: s09
+    kicker: "E VOCÊ?"
+    title: "Qual sacrifício você já fez?"
+    text: |
+      Eu pedalei 20 km de noite pra não perder o primeiro emprego.
+
+      _E você: qual sacrifício já fez por uma oportunidade?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep14`
+teaser:
+  - id: t1
+    from: s07
+    zoom: 1.0
+    focus: [0.5, 0.34]
+    badge: "ALERTA DE SPOILER"
+    title: "Por que a mãe do Davi está **tão assustada?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Mochila nas costas, bicicleta na mão... e a mãe desse jeito 😳
+      Pra onde será que o Davi vai a essa hora?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s09
+    zoom: 1.0
+    focus: [0.5, 0.40]
+    badge: "ALERTA DE SPOILER"
+    title: "20 km, de noite, **de bicicleta.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Vinte quilômetros no acostamento, de noite, com caminhão passando do lado 🚲🚛
+      Você teria coragem?
+
+      Conta aqui nos comentários 👇
+      Próximo episódio essa semana! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #superacao #bicicleta #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 14"
+    title: "O Uniforme Vermelho, as Luzes do Aeroporto e o Trajeto da Coragem"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 14: O Uniforme Vermelho, as Luzes do Aeroporto e o Trajeto da Coragem 🚲✈️
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

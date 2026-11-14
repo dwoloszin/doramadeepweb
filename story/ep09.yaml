@@ -438,6 +438,8 @@ publish:
   description: |
     Um sonho dourado, um despertador que não tocou... e uma despedida na calçada sem o último abraço.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 9 da vídeo-novela: depois do primeiro beijo, chega o sábado da despedida. E o garoto da periferia descobre como dói o silêncio de um quarto vazio.
 
     💬 E você? Já teve uma despedida sem o último abraço? Conta nos comentários!
@@ -454,6 +456,8 @@ publish:
   instagram_caption: |
     Episódio 9 — O Sonho das Dez Horas, o Adeus na Calçada e os Corações no Caderno 💔
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     No sonho, ela ficava.
     Na vida real, eram nove da manhã... e as malas já estavam prontas.
 
@@ -469,6 +473,8 @@ publish:
     #dorama #kdrama #primeiroamor #despedida #historianarrada
   tiktok_caption: |
     No sonho ela ficava... na vida real, eu perdi a hora. 💔
+
+    📖 Baseado em fatos reais.
 
     Ep. 9 — O Adeus na Calçada
 
@@ -589,6 +595,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova: as malas prontas no portao
     shot:
@@ -616,6 +624,8 @@ teaser:
       Deixa seu palpite aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3
     style: poster
@@ -632,5 +642,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada

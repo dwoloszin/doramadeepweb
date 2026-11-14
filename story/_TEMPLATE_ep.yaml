@@ -10,6 +10,7 @@
 #   [ ] Alterna emocao (sonho/real, calmo/tenso); nenhuma cena "morna"
 #   [ ] Transicao NAO e fala ("Corta." nao); a narracao conta o SENTIMENTO da virada
 #   [ ] Sonho -> realidade = card: shock (choque bem definido p/ a audiencia)
+#   [ ] "Baseado em fatos reais": linha no description/instagram_caption (80%) e no tiktok/teasers (curta)
 #   [ ] VARIAR o style do shock (shatter | wake | rewind | burn | glitch) — nao repetir o do ep anterior
 #   [ ] Personagem novo (ou que ainda nao falou) TEM FALAS + voz propria (config.yaml -> voices)
 #   [ ] Personagem/LUGAR/OBJETO novo que pode voltar -> referencia salva na bible.yaml

@@ -444,6 +444,8 @@ publish:
   description: |
     Uma ligação às 6 da manhã, um café derramado, flores escondidas na mochila... e uma Kombi que só pega no tranco.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 7 da vídeo-novela: a Camila tem data para ir embora, e o garoto tímido que não sabe falar descobre outro jeito de dizer o que sente.
 
     💬 E você? O que conquista mais: um gesto como as flores ou a coragem de falar na cara? Conta nos comentários!
@@ -460,6 +462,8 @@ publish:
   instagram_caption: |
     Episódio 7 — O Café Derramado, as Flores na Mochila e a Kombi Enguiçada 🌸
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Ela tinha data para ir embora.
     Eu não sabia falar... então deixei as flores falarem por mim.
 
@@ -475,6 +479,8 @@ publish:
     #dorama #kdrama #primeiroamor #flores #historianarrada
   tiktok_caption: |
     Derrubei o café, empurrei a Kombi... e ganhei um beijo no rosto. 🌸
+
+    📖 Baseado em fatos reais.
 
     Ep. 7 — As Flores na Mochila
 
@@ -608,6 +614,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova, intrigante e sem contar a historia
     shot:
@@ -636,6 +644,8 @@ teaser:
       Deixa seu palpite aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3                          # cartaz do episodio (tema, sem historia)
     style: poster
@@ -652,5 +662,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada

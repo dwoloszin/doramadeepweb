@@ -411,6 +411,8 @@ publish:
   description: |
     Conversas ensaiadas no espelho, um bom dia que não saiu... e um corredor apertado demais para dois.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 5 da vídeo-novela: a Camila mora lá em casa, e o meu primeiro beijo ficou a centímetros de acontecer. Mas, na volta da escola, a casa estava vazia, com um bilhete em cima da mesa.
 
     💬 E você? Quem deve dar o primeiro passo: quem está apaixonado ou quem provocou? Conta nos comentários!
@@ -426,6 +428,8 @@ publish:
          primeiro amor, quase beijo, BV, crush, olhos verdes, timidez, periferia de sao paulo, romance, dorama da deep web, shorts]
   instagram_caption: |
     Episódio 5 — Ensaios no Espelho, o Quase Beijo e a Casa Vazia 💚
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
 
     Na frente do espelho, eu falava sobre as estrelas.
     Na frente dela, não saía nem um bom dia.
@@ -443,6 +447,8 @@ publish:
     #dorama #kdrama #primeirobeijo #primeiroamor #historianarrada
   tiktok_caption: |
     Ela tropeçou no corredor... de propósito. 💚 E aos 16 eu ainda era BV.
+
+    📖 Baseado em fatos reais.
 
     Ep. 5 — O Quase Beijo
 
@@ -578,6 +584,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova, intrigante e sem contar a historia
     shot:
@@ -605,6 +613,8 @@ teaser:
       Você também ensaia no espelho? Confessa aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3                          # cartaz do episodio (tema, sem historia)
     style: poster
@@ -621,5 +631,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada

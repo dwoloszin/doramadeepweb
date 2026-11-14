@@ -400,6 +400,8 @@ publish:
   description: |
     Sem internet, sem LinkedIn, sem dinheiro pra condução: só vinte currículos impressos, uma bicicleta velha e o sol do meio-dia.
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Episódio 3 da vídeo-novela: a maratona de porta em porta atrás do primeiro emprego — e o telefone da sala que não toca.
 
     💬 E você? Já entregou currículo de porta em porta... ou acha que hoje, com internet, ficou mais fácil? Conta nos comentários!
@@ -417,6 +419,8 @@ publish:
   instagram_caption: |
     Episódio 3 — Vinte Folhas de Sulfite e Uma Bicicleta 🚲
 
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
     Sem internet. Sem LinkedIn. Sem dinheiro pra condução.
     Só vinte currículos, uma bicicleta velha e o sol do meio-dia.
 
@@ -432,6 +436,8 @@ publish:
     #dorama #kdrama #primeiroemprego #curriculo #historianarrada
   tiktok_caption: |
     Sem internet, sem LinkedIn, sem dinheiro pra condução: vinte currículos e uma bicicleta velha. 🚲
+
+    📖 Baseado em fatos reais.
 
     Ep. 3 — Vinte Folhas de Sulfite e Uma Bicicleta
 
@@ -555,6 +561,8 @@ teaser:
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t2                          # imagem nova, intrigante e sem contar a historia
     shot:
@@ -583,6 +591,8 @@ teaser:
       Deixa seu palpite aqui 👇
       Próximo episódio essa semana! 🔔
 
+      📖 Baseado em fatos reais.
+
       #dorama #kdrama #novela #spoiler #historianarrada
   - id: t3                          # cartaz do episodio (tema, sem historia)
     style: poster
@@ -599,5 +609,7 @@ teaser:
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
 
       #dorama #kdrama #novela #proximoepisodio #historianarrada
