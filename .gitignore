@@ -6,10 +6,10 @@ client_secret.json
 # --- fotos-modelo do rosto real (privadas) ---
 assets/characters/*/modelo/
 assets/characters/*/modelo_fonte/
-
 # --- saidas: o pesado vai para as GitHub Releases (python main.py media-push epNN) ---
 # no git ficam so o estado e os textos de cada episodio
 output/*
+!output/CALENDARIO_TIKTOK.txt
 !output/ep*/
 output/ep*/*
 !output/ep*/status.json
@@ -19,6 +19,5 @@ output/ep*/*
 !output/ep*/_work/
 output/ep*/_work/*
 !output/ep*/_work/batch.json
-
 __pycache__/
 *.pyc

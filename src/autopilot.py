@@ -124,6 +124,11 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
     sched = load()
     tz = ZoneInfo(sched.get("timezone", "America/Sao_Paulo"))
     dates = plan(sched)
+    try:  # calendario do TikTok sempre em dia com o schedule
+        from .calendario import calendario
+        calendario()
+    except Exception as exc:  # noqa: BLE001
+        print(f"  calendario do TikTok falhou: {exc}")
 
     now = now or dt.datetime.now(tz)
     today = now.date()

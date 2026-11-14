@@ -209,6 +209,8 @@ def build(ep_id: str) -> list[Path]:
     (out_dir / "caption.txt").write_text(cap, encoding="utf-8")
     tt = ep.get("publish", {}).get("tiktok_caption", "")
     if tt:  # TikTok e manual: legenda do VIDEO pronta para colar (output/epNN/tiktok.txt)
-        (out_dir.parent / "tiktok.txt").write_text(tt.strip() + "\n", encoding="utf-8")
+        from .calendario import quando  # mesma data do YouTube/Instagram (schedule.yaml)
+        head = f"===== POSTAR: {quando(ep_id, 'episode')} — arquivo: {ep_id}.mp4 =====\n"
+        (out_dir.parent / "tiktok.txt").write_text(head + tt.strip() + "\n", encoding="utf-8")
     print(f"carrossel: {len(paths)} slides em {out_dir}")
     return paths

@@ -272,7 +272,9 @@ def build(ep_id: str, only: list[str] | None = None, force: bool = False) -> lis
     out_dir = ROOT / "output" / ep_id / "teaser"
     made = []
     # legendas de TODOS os teasers (mesmo quando so um foi refeito)
-    txt = [f"===== {t['id']} ({t.get('from') or 'imagem nova'}) =====\n{(t.get('caption') or '').strip()}\n"
+    from .calendario import quando  # mesmas datas do YouTube/Instagram (schedule.yaml)
+    txt = [f"===== {t['id']} — POSTAR: {quando(ep_id, t['id'])} — arquivo: {t['id']}_story.png =====\n"
+           f"{(t.get('caption') or '').strip()}\n"
            for t in items]
     for t in items:
         if only and t["id"] not in only:
