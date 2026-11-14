@@ -10,6 +10,7 @@ assets/characters/*/modelo_fonte/
 # no git ficam so o estado e os textos de cada episodio
 output/*
 !output/CALENDARIO_TIKTOK.txt
+!output/voz_uso.json
 !output/ep*/
 output/ep*/*
 !output/ep*/status.json

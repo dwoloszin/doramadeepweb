@@ -533,7 +533,7 @@ def build_audio(p: dict, cfg: Config, work: Path) -> tuple[Path, list[dict]]:
     for sp in _ambience_spans(p, bible()):
         try:
             f = elevenlabs.sound(sp["prompt"], duration=float(cfg.get("ambience.loop_seconds", 12)), loop=True)
-        except elevenlabs.Unavailable as exc:
+        except (elevenlabs.Unavailable, elevenlabs.OverCap) as exc:
             print(f"  !! ambiente sem som ({exc})")
             continue
         g = _gain_to(f, amb_lufs) + sp["db"]
@@ -575,7 +575,7 @@ def build_audio(p: dict, cfg: Config, work: Path) -> tuple[Path, list[dict]]:
                 # efeito gerado (ElevenLabs Sound Effects), em cache em assets/sfx/gen
                 try:
                     f = elevenlabs.sound(spec["gen"], duration=spec.get("dur"))
-                except elevenlabs.Unavailable as exc:
+                except (elevenlabs.Unavailable, elevenlabs.OverCap) as exc:
                     print(f"  !! efeito sem som ({exc})")
                     continue
                 g = _gain_to(f, sfx_lufs) + float(spec.get("db", 0.0))

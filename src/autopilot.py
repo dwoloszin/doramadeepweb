@@ -93,7 +93,10 @@ def render_missing(dry: bool) -> None:
         from . import elevenlabs
         need = sum(len(elevenlabs.strip_tags(ln.get("text", ""))) for sh in epd["shots"]
                    for ln in sh.get("lines") or [])
+        need += 40 * sum(float(x.get("dur", 3)) for sh in epd["shots"] for x in (sh.get("sfx") or [])
+                         if isinstance(x, dict) and x.get("gen"))   # efeitos novos (~40/s; os em cache saem de graca)
         have = sum(max(0.0, elevenlabs._Pool.credits(k) or 0.0) for k in elevenlabs._Pool().usable())
+        have = min(have, elevenlabs.allowance())     # e respeita o limite mensal do Dorama
         if have < need * 1.3:
             print(f"== {ep}: sem credito de voz suficiente (precisa ~{need}, tem {have:.0f}) — espera, sem gastar")
             continue

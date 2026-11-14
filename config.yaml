@@ -30,6 +30,10 @@ tts:
   # Cada fala e nivelada em level_lufs (por voz, padrao -18) antes da mixagem.
   # silencio maximo DENTRO de uma fala (o v3 as vezes respira 1s+). 0 = nao mexe
   max_gap: 0.4
+  # LIMITE MENSAL do Dorama (14/11): as chaves ElevenLabs sao COMPARTILHADAS com o bemnamosca e o
+  # canal de GTA. O Dorama gasta no maximo isto por mes (~30% de 9 chaves x 10 mil). Gasto em
+  # output/voz_uso.json. Atingiu: o Actions espera o mes seguinte (nao cai na voz reserva).
+  monthly_cap: 27000
 
 # Vozes premade (as unicas liberadas nas chaves gratuitas). Amostras para
 # comparar em output/amostras_voz/ — trocar = mudar o voice_id aqui.

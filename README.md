@@ -280,6 +280,12 @@ gratuito do ElevenLabs (ver `python main.py voices`).
   Depois de refazer um episódio local, rode `media-push` de novo.
 - Simular sem publicar: `python main.py autopilot --dry` (ou Run workflow com `dry`).
 
+**Voz com limite mensal** (14/11): as chaves do ElevenLabs são **compartilhadas** com o bemnamosca
+e o canal de GTA. O Dorama gasta no máximo `tts.monthly_cap` (27 mil créditos ≈ 30% do pool) por
+mês; o gasto fica em `output/voz_uso.json` (versionado). Atingiu o limite: o Actions espera o
+mês seguinte (não cai na voz reserva) e o Short de teaser sai sem voz. Roteiro e imagens não usam
+esse crédito — dá para adiantar episódios.
+
 **Segredos** (GitHub → Settings → Secrets, nunca no git): `GEMINI_API_KEY_IMG`,
 `ELEVENLABS_API_KEYS`, `INSTAGRAM_ACCESS_TOKEN`, `INSTAGRAM_USER_ID`, `DB_ARCHIVE_GITHUB_TOKEN`,
 `YOUTUBE_TOKEN_JSON` (conteúdo do token.json) e `YOUTUBE_CLIENT_SECRET_JSON`. As fotos-modelo

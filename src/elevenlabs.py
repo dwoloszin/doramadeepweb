@@ -34,6 +34,59 @@ class Unavailable(RuntimeError):
     """Nenhuma chave conseguiu sintetizar (o chamador cai no edge-tts)."""
 
 
+# --------------------------------------------------------------------------
+# LIMITE MENSAL DO DORAMA (14/11): as chaves sao COMPARTILHADAS com o bemnamosca e o canal
+# de GTA. O Dorama so pode gastar `tts.monthly_cap` creditos por mes (config.yaml); o gasto
+# fica em output/voz_uso.json (versionado: vale local e no GitHub Actions).
+# --------------------------------------------------------------------------
+USAGE = ROOT / "output" / "voz_uso.json"
+
+
+class OverCap(RuntimeError):
+    """Limite mensal do Dorama atingido — NAO cai na voz reserva: espera o mes seguinte."""
+
+
+def _month() -> str:
+    return time.strftime("%Y-%m")
+
+
+def monthly_cap() -> float:
+    try:
+        from .config import load_config
+        return float(load_config().get("tts.monthly_cap", 0) or 0)
+    except Exception:  # noqa: BLE001
+        return 0.0
+
+
+def used(month: str | None = None) -> float:
+    try:
+        return float(json.loads(USAGE.read_text(encoding="utf-8")).get(month or _month(), 0))
+    except Exception:  # noqa: BLE001
+        return 0.0
+
+
+def allowance() -> float:
+    """Quanto o Dorama ainda pode gastar neste mes (inf = sem limite)."""
+    cap = monthly_cap()
+    return max(0.0, cap - used()) if cap else float("inf")
+
+
+def _check(cost: float) -> None:
+    if cost > allowance():
+        raise OverCap(f"limite mensal de voz do Dorama atingido ({used():.0f}/{monthly_cap():.0f} em {_month()}); "
+                      "as chaves sao compartilhadas com os outros canais — espera o proximo mes")
+
+
+def _spend(cost: float) -> None:
+    try:
+        d = json.loads(USAGE.read_text(encoding="utf-8")) if USAGE.exists() else {}
+    except Exception:  # noqa: BLE001
+        d = {}
+    d[_month()] = round(float(d.get(_month(), 0)) + cost, 1)
+    USAGE.parent.mkdir(parents=True, exist_ok=True)
+    USAGE.write_text(json.dumps(d, indent=1), encoding="utf-8")
+
+
 def strip_tags(text: str) -> str:
     return re.sub(r"\s{2,}", " ", TAG_RE.sub(" ", text)).strip()
 
@@ -127,6 +180,7 @@ def synthesize(text: str, out: Path, v: dict, model: str) -> list[tuple[str, flo
     e = v["eleven"]
     voice_id = e["voice_id"]
     cost = len(text) * _COST.get(model, 1.0)
+    _check(cost)
     body = {
         "text": text,
         "model_id": model,
@@ -186,6 +240,7 @@ def synthesize(text: str, out: Path, v: dict, model: str) -> list[tuple[str, flo
                 raise RuntimeError("ElevenLabs sem alinhamento de palavras")
             if any(t > 0.6 for t in tag_durs) and not re.search(r"sigh|laugh|chuckle|exhale|gasp", text):
                 print(f"    [11labs] AVISO: uma marcacao pode ter sido falada: {text[:60]!r}")
+            _spend(cost)
             return words
     raise Unavailable(f"nenhuma chave ElevenLabs funcionou (ultimo erro: {last})")
 
@@ -212,6 +267,8 @@ def sound(prompt: str, *, duration: float | None = None, loop: bool = False,
     out = SFX_DIR / f"{slug}_{h}.mp3"
     if out.exists():
         return out
+    sfx_cost = 40.0 * float(body.get("duration_seconds", 5.0))   # efeito: ~40 creditos/segundo
+    _check(sfx_cost)
     pool = _Pool()
     last = None
     for k in pool.usable():
@@ -243,6 +300,7 @@ def sound(prompt: str, *, duration: float | None = None, loop: bool = False,
                 raise RuntimeError(f"ElevenLabs SFX {r.status_code}: {r.text[:300]}")
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_bytes(r.content)
+            _spend(sfx_cost)
             out.with_suffix(".json").write_text(json.dumps(body, ensure_ascii=False, indent=1), encoding="utf-8")
             print(f"    [som] gerado: {prompt[:60]}")
             return out
