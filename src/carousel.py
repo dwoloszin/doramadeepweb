@@ -11,7 +11,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from .cards import GOLD, cover, font, ornament, spaced, wrap
+from .cards import GOLD, cover, font, ornament, seal, spaced, wrap
 from .config import ROOT
 from .story import bible, episode
 
@@ -161,6 +161,8 @@ def build(ep_id: str) -> list[Path]:
                 y += 54
             fser = font("Poppins-Regular.ttf", 22)
             spaced(d, (W // 2, 40), b["series"]["title"].upper(), fser, (225, 215, 200), 8)
+            seal(img, W // 2, 88, 22)
+            d = ImageDraw.Draw(img)
             f = font("Poppins-SemiBold.ttf", 26)
             t = "deslize para ler"
             tw = d.textlength(t, font=f)
@@ -207,7 +209,6 @@ def build(ep_id: str) -> list[Path]:
     (out_dir / "caption.txt").write_text(cap, encoding="utf-8")
     tt = ep.get("publish", {}).get("tiktok_caption", "")
     if tt:  # TikTok e manual: legenda do VIDEO pronta para colar (output/epNN/tiktok.txt)
-        (out_dir.parent / "tiktok.txt").write_text(tt.strip() + "
-", encoding="utf-8")
+        (out_dir.parent / "tiktok.txt").write_text(tt.strip() + "\n", encoding="utf-8")
     print(f"carrossel: {len(paths)} slides em {out_dir}")
     return paths
