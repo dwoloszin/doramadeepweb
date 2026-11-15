@@ -201,12 +201,13 @@ shots:
     cast: [colega, davi]
     look: real
     visual: >-
-      Funny close two-shot from INSIDE the kitchen looking through the
-      pass-through window: in the foreground the lean coworker with the
-      fade, thin mustache and silver earring leans toward the window between
-      wrapped burgers under orange heat lamps, whispering with a mocking
-      grin; framed in the window, Davi (chubby, round face) gives him a
-      deadpan, exhausted look. Kitchen steam, warm light.
+      Funny close two-shot in profile at the kitchen pass-through, the two
+      standing side by side and FACING EACH OTHER: the lean coworker with the
+      fade, thin mustache and silver earring turns his head toward Davi and
+      leans in to whisper right next to his ear, one hand cupped beside his
+      mouth, with a mocking grin; Davi (chubby, round face, black visor)
+      looks sideways at him with a deadpan, exhausted face. Wrapped burgers
+      under orange heat lamps behind them, kitchen steam, background blurred.
     motion: push_in
     transition: cut
     lines:
