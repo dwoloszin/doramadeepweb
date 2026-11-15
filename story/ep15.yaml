@@ -21,12 +21,12 @@
 #
 #  ENRIQUECIMENTO: fatos checados — 1o celular do Brasil ativado em 1990 no Rio de Janeiro; Boeing 747
 #  ("Rainha dos Ceus", 1o voo em 1969) tem ~70 m de comprimento; congelados a -18 graus C.
-#  Novos: doca_recebimento, salao_loja, camara_fria (lugares); menino (so 1 fala, voz Harry).
+#  Novos: doca_recebimento, salao_loja, balcao_loja (lado de DENTRO do balcao), camara_fria (lugares); menino (so 1 fala, voz Harry).
 # ============================================================================
 
 id: ep15
 number: 15
-title: "O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos"
+title: "O Tour pelo Gigante de Vidro, o Lugar Secreto da Chave e a Pista dos Sonhos"
 source: scenes/scene15.txt
 
 voices:
@@ -121,6 +121,7 @@ shots:
     lines:
       - {who: narrador, text: "[Brazilian accent] [warmly] O primeiro dia foi mais pra conhecer. O gerente, super hospitaleiro, me levou num tour por tudo.", pause: 0.15}
       - {who: gerente, text: "[Brazilian accent] [friendly] É por essa porta que chega a mercadoria, Davi. [playfully] E logo, logo... quem vai carregar tudo isso pras câmaras é você.", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [eager] Pode deixar, Seu Roberto!", pause: 0.15}
 
   - id: s06
     day: noite
@@ -181,16 +182,21 @@ shots:
     cast: [davi, gerente]
     look: real
     visual: >-
-      Wide shot at night of the huge restaurant hall: long rows of spotless
-      tables, the tray-return station, restroom doors at the back with simple
-      pictograms, and the enormous floor-to-ceiling glass wall along the whole
-      side showing the lit runway and giant airplanes; the manager walks Davi
-      (red polo) through it, both small in the frame.
+      Very wide establishing shot at night of the huge, spacious restaurant
+      hall: a glossy floor shining with reflections, long rows of brand-new
+      white tables with red and yellow chairs, walls in white, red and yellow
+      with big backlit posters of burger combos, fries and sodas, the
+      tray-return station, restroom doors at the back, and the enormous
+      floor-to-ceiling glass wall along the whole side showing the lit runway
+      and giant airplanes; the manager walks Davi (red polo) through it, both
+      small in the frame.
     motion: pull_out
     transition: dissolve
     ambience: "Big restaurant hall inside an airport at night, soft chatter, trays, jets on the runway beyond the glass"
     lines:
-      - {who: narrador, text: "[Brazilian accent] [amazed] E então, o salão. Enorme: uns oito metros de largura por quase vinte de comprimento! [warmly] Banheiros no fundo, inclusive pra cadeirante... e mesas impecáveis.", pause: 0.2}
+      - {who: gerente, text: "[Brazilian accent] [proudly] E esse é o nosso salão, Davi: uma das maiores lojas do aeroporto!", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [amazed] Dá pra ver a pista inteira daqui!", pause: 0.15}
+      - {who: narrador, text: "[warmly] Quase vinte metros de salão, banheiros no fundo, inclusive pra cadeirante... e mesas impecáveis.", pause: 0.2}
 
   - id: s10
     day: noite
@@ -202,6 +208,7 @@ shots:
       boy of about 7 presses his nose and both hands against the glass, eyes
       huge, pointing at a giant airplane taxiing outside, while a smiling young man who brought him (a stranger)
       kneels beside him; other customers at tables also look out at the runway.
+      The airplane is plain white with NO airline name, NO logos, NO text.
     motion: push_in
     transition: cut
     sfx:
@@ -246,30 +253,39 @@ shots:
   # ---------------------------------------------------------------- O BALCAO
   - id: s13
     day: noite
-    location: salao_loja
+    location: balcao_loja
     cast: [davi, colega]
     look: real
     visual: >-
-      Funny medium shot at the service counter: the lean young coworker with a
-      fade haircut, thin mustache and silver earring sits relaxed on a tall stool
-      behind the counter in his red polo, spreading his arms like a king on a
-      throne; Davi in his red polo laughs, standing beside the register.
+      Funny medium shot with the camera INSIDE the work area, at the kitchen
+      pass-through, looking out toward the hall: in the foreground the
+      holding shelf with wrapped burgers under orange heat lamps and racks of
+      fresh burger buns; in the middle, the lean young coworker (fade
+      haircut, thin mustache, silver earring, red polo) has SWIVELED his tall
+      stool around to face the camera, his back to the counter, spreading his
+      arms like a king on a throne; next to him DAVI (exactly as in his
+      reference: same face, black visor, red polo, no glasses) laughs in
+      disbelief. BEHIND them, beyond the counter top with the register
+      screens facing us, a queue of customers faces the camera. Plain
+      packaging, no logos.
     motion: push_in
     transition: cut
     music: real
     lines:
       - {who: colega, text: "[Brazilian accent] [laughing] Bem-vindo ao paraíso, novato! [proudly] Aqui no balcão a gente trabalha sentado!", pause: 0.15}
-      - {who: narrador, text: "[warmly] Era o sonho de todo mundo: era só virar, pegar, montar o pedido e cobrar.", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [laughs] Sentado?! Achei que tinha errado de emprego!", pause: 0.15}
+      - {who: colega, text: "[Brazilian accent] [playfully] É só virar, pegar o lanche ali atrás, montar o pedido e cobrar. [laughs] Moleza!", pause: 0.15}
 
   - id: s14
     day: noite
-    location: salao_loja
+    location: balcao_loja
     cast: [davi]
     look: real
     visual: >-
-      Tense close-up at the counter: Davi in his red polo looks down at an open
-      cash register drawer full of banknotes and coins, swallowing hard, a drop
-      of sweat on his temple.
+      Tense close-up from the staff side behind the counter: Davi in his red
+      polo looks down at an open cash register drawer full of banknotes and
+      coins, swallowing hard, a drop of sweat on his temple; behind him, out of
+      focus, the heat lamps of the pass-through and stacked burger buns.
     motion: push_in
     transition: cut
     sfx:
@@ -303,9 +319,11 @@ shots:
     look: real
     visual: >-
       Suspenseful medium shot: the manager with thin black-framed glasses stops
-      in front of the stainless-steel swinging doors of the industrial kitchen
-      and looks back at Davi with a mysterious half-smile; Davi in his red polo
-      stares at the doors, steam and orange light leaking through the gap.
+      in front of the gleaming stainless-steel swinging doors of the industrial
+      kitchen and looks back at Davi with a mysterious half-smile; Davi in his
+      red polo stares at the doors; through the round door windows and the gap:
+      the long grill steaming, racks of burger buns, the order-ticket rail and
+      orange heat lamps glowing.
     motion: push_in
     transition: dissolve
     music: none
@@ -329,7 +347,7 @@ cards:
   title:
     kicker: "EPISÓDIO 15"
     title: "O Gigante de Vidro"
-    subtitle: "a Chave na Meia e a Pista dos Sonhos"
+    subtitle: "o Lugar Secreto da Chave e a Pista dos Sonhos"
   question:
     kicker: "E VOCÊ?"
     title: "Qual lugar marcou o seu primeiro emprego?"
@@ -340,7 +358,7 @@ cards:
 publish:
   title: "Ep. 15 — O Gigante de Vidro ✈️ #dorama #novela"
   description: |
-    Uma parede de vidro com a pista inteira do lado de fora, uma chave escondida na meia... e uma cozinha que ninguém queria no turno da noite.
+    Uma parede de vidro com a pista inteira do lado de fora, uma chave guardada num lugar que ninguém imaginava... e uma cozinha que ninguém queria no turno da noite.
 
     📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
 
@@ -361,12 +379,12 @@ publish:
          aeroporto de guarulhos, avioes, boeing 747, historia real, baseado em fatos reais, periferia de sao paulo,
          dorama da deep web, shorts]
   instagram_caption: |
-    Episódio 15 — O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos ✈️
+    Episódio 15 — O Tour pelo Gigante de Vidro, o Lugar Secreto da Chave e a Pista dos Sonhos ✈️
 
     📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
 
     Uma parede de vidro com a pista inteira do lado de fora.
-    E um segredo que ninguém sabia: a chave do cadeado... dentro da meia.
+    E um segredo que ninguém sabia... até hoje.
 
     🎧 Ouça com som — é uma história narrada.
     📖 Prefere ler? O capítulo completo está no carrossel.
@@ -468,17 +486,17 @@ carousel:
 # TEASERS "alerta de spoiler" — `python main.py teaser ep15`
 teaser:
   - id: t1
-    from: s08
+    from: s14
     zoom: 1.1
     focus: [0.5, 0.40]
     badge: "ALERTA DE SPOILER"
-    title: "O que o Davi está escondendo **dentro da meia?**"
+    title: "Por que o Davi está **suando frio?**"
     footer: "Não perca o próximo episódio!"
     caption: |
       🚨 ALERTA DE SPOILER 🚨
 
-      Olhou pros lados, ninguém vendo... e escondeu dentro da meia 🧦🤫
-      O que será?
+      Primeiro dia no emprego novo... e o Davi já está suando frio 😰
+      O que será que assustou ele?
 
       Chuta aqui nos comentários 👇
       O próximo episódio chega essa semana. Ative o sininho! 🔔
@@ -511,12 +529,12 @@ teaser:
     zoom: 1.2
     badge: "PRÓXIMO EPISÓDIO"
     kicker: "EPISÓDIO 15"
-    title: "O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos"
+    title: "O Tour pelo Gigante de Vidro, o Lugar Secreto da Chave e a Pista dos Sonhos"
     footer: "Estreia no próximo episódio · não perca!"
     caption: |
       🎬 PRÓXIMO EPISÓDIO 🎬
 
-      Episódio 15: O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos ✈️
+      Episódio 15: O Tour pelo Gigante de Vidro, o Lugar Secreto da Chave e a Pista dos Sonhos ✈️
 
       Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
       Ative o sininho e não perca a estreia! 🔔

@@ -594,10 +594,16 @@ locations:
   cozinha_industrial:
     ambience: "Fast-food industrial kitchen at night, a grill sizzling, fryers bubbling, timers beeping, steam hissing"
     description: >-
-      A stainless-steel fast-food industrial kitchen behind automatic
-      swinging doors: a long flat grill with steam rising, deep fryers,
-      heat lamps glowing orange, stacked trays, bright white light. No
-      readable text, no logos.
+      A gleaming, brand-new fast-food industrial kitchen like a real big
+      burger chain (but NO brand, NO logos): spotless polished stainless
+      steel everywhere, a long flat grill with steam rising, a row of deep
+      fryers with golden fries in baskets, a bun toaster, rolling racks
+      stacked with trays of fresh burger buns, a sandwich assembly line with
+      bins of lettuce, tomato, cheese and sauces, glowing orange heat lamps
+      over a stainless HOLDING SHELF / pass-through window full of wrapped
+      burgers and fry cartons waiting, order tickets clipped on a rail above
+      it, red and yellow accents, white tiled walls, bright clean light,
+      glossy red quarry-tile floor. No readable text, no logos.
     look: real
   # ---------------------------------------------------------------- Ep. 15
   doca_recebimento:
@@ -612,13 +618,34 @@ locations:
   salao_loja:
     ambience: "Big fast-food restaurant hall inside an airport at night, soft chatter, trays, a jet roaring on the runway beyond the glass"
     description: >-
-      A huge fast-food restaurant hall on the upper floor of the airport,
-      about 8 meters wide and 20 meters long: rows of spotless tables and
-      chairs, a tray-return and trash station, restroom doors at the back
-      (men, women, wheelchair-accessible, only simple pictograms), and along
-      the whole side an enormous floor-to-ceiling GLASS WALL looking out onto
-      the runway with giant airplanes; a service counter with red and yellow
-      accents (no logos) at the other end. No readable text.
+      A huge, WIDE and spacious brand-new fast-food restaurant hall on the
+      upper floor of the airport, styled exactly like a real big burger chain
+      restaurant but with NO brand and NO logos: a glossy polished floor that
+      shines and reflects the lights, rows of brand-new spotless WHITE tables
+      with red and yellow chairs, walls painted in WHITE, RED and YELLOW
+      blocks, big backlit POSTERS on the walls with mouth-watering photos of
+      burger combos, golden fries, sodas and sundaes (no readable text), a
+      tray-return and trash station, restroom doors at the back (men, women,
+      wheelchair-accessible, simple pictograms only), and along the whole
+      side an enormous floor-to-ceiling GLASS WALL looking out onto the
+      runway with giant airplanes. Bright, cheerful, modern. No readable
+      text, no logos.
+    look: real
+  balcao_loja:
+    ambience: "Behind a fast-food counter at night, a register beeping, fryer timers, a grill sizzling behind, soft customer chatter"
+    description: >-
+      Camera placed INSIDE the work area of a brand-new, gleaming airport
+      burger restaurant, standing at the kitchen pass-through and looking
+      OUT toward the customers' hall. FOREGROUND: the staff work aisle, with a
+      stainless heated holding shelf of wrapped burgers and fry cartons under
+      glowing orange heat lamps, order tickets clipped on a rail, and racks
+      stacked with fresh burger buns on the sides. MIDDLE: the long service
+      counter seen FROM BEHIND, the cash register screens and keypads facing
+      the camera, tall staff stools on this (camera) side. BACKGROUND, beyond
+      the counter: a short queue of customers FACING the camera, and the
+      bright hall with white tables, red and yellow chairs and walls in red,
+      yellow and white. Spotless, shiny, glossy floor, bright cheerful light.
+      Plain packaging and cups. No readable text, no logos, no brand.
     look: real
   camara_fria:
     ambience: "Walk-in cold room, a compressor humming loudly, icy air hissing, a heavy insulated door"
