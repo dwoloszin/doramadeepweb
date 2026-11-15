@@ -1,4 +1,4 @@
-# Andamento do Dorama — 15/11/2026 18:14
+# Andamento do Dorama — 15/11/2026 18:36
 
 | Ep | Título | Roteiro | Imagens | Voz + vídeo | Aprovado | Data | Já saiu |
 |---|---|---|---|---|---|---|---|
@@ -16,12 +16,12 @@
 | ep12 | A Carteira em Branco e o Caminho até Cumbica | ✅ | ✅ | ✅ | ✅ | 2027-01-24 | — |
 | ep13 | A Pergunta dos Dois Ônibus e a Primeira Grande Escolha | ✅ | ✅ | ✅ | ✅ | 2027-01-31 | — |
 | ep14 | O Uniforme Vermelho, as Luzes do Aeroporto e o Trajeto da Coragem | ✅ | ✅ | ✅ | ✅ | 2027-02-07 | — |
-| ep15 | O Tour pelo Gigante de Vidro, a Chave na Meia e a Pista dos Sonhos | ✅ | ✅ | ⏳ aguardando crédito de voz (~4304) | — | — | — |
+| ep15 | O Tour pelo Gigante de Vidro, o Lugar Secreto da Chave e a Pista dos Sonhos | ✅ | ✅ | ⏳ aguardando crédito de voz (~4413) | — | — | — |
 
 ## Voz (ElevenLabs)
 
 - Limite mensal do Dorama: 27000 de 27000 usados em 11/2026 → 0 livres
 - Créditos aproveitáveis nas chaves (acima da folga de 500 por chave; chaves reservadas a outro projeto não contam): 0
-- ep15: precisa ~5595 (com folga de 30%) → esperando crédito
+- ep15: precisa ~5737 (com folga de 30%) → esperando crédito
 
 _Quando houver crédito, o GitHub Actions renderiza sozinho e abre uma issue “pronto para revisão”._
