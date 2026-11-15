@@ -257,17 +257,21 @@ shots:
     cast: [davi, colega]
     look: real
     visual: >-
-      Funny medium shot with the camera INSIDE the work area, at the kitchen
-      pass-through, looking out toward the hall: in the foreground the
-      holding shelf with wrapped burgers under orange heat lamps and racks of
-      fresh burger buns; in the middle, the lean young coworker (fade
-      haircut, thin mustache, silver earring, red polo) has SWIVELED his tall
-      stool around to face the camera, his back to the counter, spreading his
-      arms like a king on a throne; next to him DAVI (exactly as in his
-      reference: same face, black visor, red polo, no glasses) laughs in
-      disbelief. BEHIND them, beyond the counter top with the register
-      screens facing us, a queue of customers faces the camera. Plain
-      packaging, no logos.
+      Funny medium shot with the camera INSIDE the work area behind the service
+      counter, seen from the side: the counter top runs from the foreground
+      into the depth on the right, with the customers' hall and a queue of
+      customers (casual clothes) BEYOND it on the far side. EXACTLY TWO
+      employees in the frame, both on the staff side: (1) THIAGO, the lean,
+      tall coworker with medium-brown skin, fade haircut, thin mustache and a
+      silver earring, sits NORMALLY on a tall stool at his register, body
+      facing the counter, turning only his torso and head toward the camera,
+      spreading his arms like a king on a throne, big grin; (2) DAVI, standing
+      in the work aisle next to him, exactly as in his reference: chubby with a
+      round face, fair skin, no mustache, no earring, black visor, red polo,
+      laughing in disbelief. They look clearly DIFFERENT. Behind them the
+      pass-through with wrapped burgers under orange heat lamps, order
+      tickets on a rail and racks of fresh burger buns. Plain packaging, no
+      logos, no other staff.
     motion: push_in
     transition: cut
     music: real
@@ -300,8 +304,10 @@ shots:
     cast: [davi, gerente]
     look: real
     visual: >-
-      Medium two-shot: the manager with thin black-framed glasses pulls open the
-      heavy white insulated door of a walk-in freezer and a thick wave of icy fog
+      Medium two-shot in the brand-new, spotless back area of the kitchen
+      (gleaming stainless steel, clean white tiles with red and yellow accent
+      stripes, shiny floor): the manager with thin black-framed glasses pulls
+      open the heavy glossy white insulated door of a walk-in freezer and a thick wave of icy fog
       pours out over the floor; Davi in his red polo instinctively hugs his own
       arms, eyebrows up; frosted boxes on steel shelves inside.
     motion: push_in
@@ -319,8 +325,9 @@ shots:
     look: real
     visual: >-
       Suspenseful medium shot: the manager with thin black-framed glasses stops
-      in front of the gleaming stainless-steel swinging doors of the industrial
-      kitchen and looks back at Davi with a mysterious half-smile; Davi in his
+      in front of the gleaming stainless-steel swinging doors of the brand-new,
+      spotless industrial kitchen (polished steel, clean white tiles with red
+      and yellow accent stripes, shiny red floor) and looks back at Davi with a mysterious half-smile; Davi in his
       red polo stares at the doors; through the round door windows and the gap:
       the long grill steaming, racks of burger buns, the order-ticket rail and
       orange heat lamps glowing.

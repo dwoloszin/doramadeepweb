@@ -650,10 +650,13 @@ locations:
   camara_fria:
     ambience: "Walk-in cold room, a compressor humming loudly, icy air hissing, a heavy insulated door"
     description: >-
-      A walk-in cold room behind the restaurant kitchen: a heavy white
-      insulated door with a big chrome handle, inside steel shelves of
-      boxes covered in frost, icy fog pouring out at the floor, cold blue
-      light. No readable text.
+      A brand-new walk-in cold room at the back of a gleaming, spotless
+      airport burger restaurant kitchen: a heavy glossy white insulated door
+      with a big chrome handle set in a clean white tiled wall with red and
+      yellow accent stripes, polished stainless steel all around, a shiny
+      clean red quarry-tile floor; inside, neat steel shelves with boxes
+      covered in frost, icy fog pouring out at the floor, cold blue light.
+      Bright, modern, immaculate. No readable text, no logos.
     look: real
   # ---------------------------------------------------------------- Ep. 3
   sala_casa:
