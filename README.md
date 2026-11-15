@@ -286,6 +286,13 @@ mês; o gasto fica em `output/voz_uso.json` (versionado). Atingiu o limite: o Ac
 mês seguinte (não cai na voz reserva) e o Short de teaser sai sem voz. Roteiro e imagens não usam
 esse crédito — dá para adiantar episódios.
 
+**Consulta antes de gastar**: antes de cada fala ou efeito, o saldo da chave é consultado e ela só é
+usada se sobrarem `tts.key_min_credits` (500) depois. Um episódio novo só começa se as chaves e o
+limite mensal cobrirem o episódio inteiro com 30% de folga (`elevenlabs.preflight`). As chaves em
+`tts.reserved_keys` (4 últimos caracteres) ficam para o projeto prioritário: o Dorama nem as enxerga.
+O andamento de cada episódio fica em `output/STATUS.md` (atualizado pelo autopilot ou por
+`python main.py status`).
+
 **Segredos** (GitHub → Settings → Secrets, nunca no git): `GEMINI_API_KEY_IMG`,
 `ELEVENLABS_API_KEYS`, `INSTAGRAM_ACCESS_TOKEN`, `INSTAGRAM_USER_ID`, `DB_ARCHIVE_GITHUB_TOKEN`,
 `YOUTUBE_TOKEN_JSON` (conteúdo do token.json) e `YOUTUBE_CLIENT_SECRET_JSON`. As fotos-modelo

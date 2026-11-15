@@ -87,6 +87,55 @@ def _spend(cost: float) -> None:
     USAGE.write_text(json.dumps(d, indent=1), encoding="utf-8")
 
 
+def _tts_cfg(key: str, default):
+    try:
+        from .config import load_config
+        v = load_config().get(f"tts.{key}", default)
+        return default if v is None else v
+    except Exception:  # noqa: BLE001
+        return default
+
+
+def reserved() -> list[str]:
+    """Finais (4 ultimos caracteres) das chaves que o Dorama NAO usa (reservadas a outro projeto)."""
+    return [str(x)[-4:] for x in (_tts_cfg("reserved_keys", []) or [])]
+
+
+def key_min() -> float:
+    """So usa uma chave se, DEPOIS da fala, ainda sobrar pelo menos isto (folga p/ os outros canais)."""
+    return float(_tts_cfg("key_min_credits", 500))
+
+
+def pool_credits() -> tuple[float, list[tuple[str, float]]]:
+    """Consulta o saldo de cada chave utilizavel -> (total aproveitavel, [(final, saldo)])."""
+    p, rows, tot = _Pool(), [], 0.0
+    for k in p.usable():
+        c = p.credits(k)
+        c = 0.0 if c is None else c
+        rows.append((k[-4:], c))
+        tot += max(0.0, c - key_min())
+    return tot, rows
+
+
+def estimate(epd: dict) -> float:
+    """Creditos de voz que o episodio vai gastar (falas + efeitos novos ~40/s)."""
+    need = sum(len(strip_tags(ln.get("text", ""))) for sh in epd["shots"] for ln in sh.get("lines") or [])
+    need += 40 * sum(float(x.get("dur", 3)) for sh in epd["shots"] for x in (sh.get("sfx") or [])
+                     if isinstance(x, dict) and x.get("gen"))
+    return float(need)
+
+
+def preflight(need: float, what: str = "") -> tuple[bool, str]:
+    """ANTES de chamar a API: tem credito de sobra (chaves + limite mensal) para `need`? (margem 30%)"""
+    have, _ = pool_credits()
+    cap_left = allowance()
+    ok = min(have, cap_left) >= need * 1.3
+    msg = (f"{what} precisa ~{need:.0f} creditos (+30% de folga); chaves: {have:.0f} aproveitaveis "
+           f"(acima do minimo de {key_min():.0f} por chave); limite mensal do Dorama: "
+           f"{'sem limite' if cap_left == float('inf') else f'{cap_left:.0f} restantes'}")
+    return ok, msg
+
+
 def strip_tags(text: str) -> str:
     return re.sub(r"\s{2,}", " ", TAG_RE.sub(" ", text)).strip()
 
@@ -98,7 +147,8 @@ def _kid(k: str) -> str:
 class _Pool:
     def __init__(self) -> None:
         raw = os.getenv("ELEVENLABS_API_KEYS", "") or os.getenv("ELEVENLABS_API_KEY", "")
-        self.keys = [k for k in re.split(r"[,;\s]+", raw) if k.startswith("sk_")]
+        res = reserved()   # chaves reservadas a outro projeto: o Dorama nem enxerga
+        self.keys = [k for k in re.split(r"[,;\s]+", raw) if k.startswith("sk_") and k[-4:] not in res]
         self.path = ROOT / "output" / "elevenlabs_state.json"
         try:
             self.state = json.loads(self.path.read_text(encoding="utf-8"))
@@ -198,9 +248,9 @@ def synthesize(text: str, out: Path, v: dict, model: str) -> list[tuple[str, flo
     last = None
     for k in keys:
         c = pool.credits(k)
-        if c is not None and c < cost + 30:
+        if c is None or c < cost + key_min():   # sem consulta OK ou pouco credito: nao chama
             print(f"    [11labs] chave ...{k[-4:]} com {c:.0f} creditos (precisa ~{cost:.0f}) — proxima")
-            if c < 300:
+            if c is not None and c < 300:
                 pool.mark(k, "exhausted_at")
             continue
         for attempt in range(3):
@@ -272,6 +322,9 @@ def sound(prompt: str, *, duration: float | None = None, loop: bool = False,
     pool = _Pool()
     last = None
     for k in pool.usable():
+        c = pool.credits(k)     # consulta ANTES de chamar
+        if c is None or c < sfx_cost + key_min():
+            continue
         for attempt in range(3):
             try:
                 r = requests.post(f"{API}/sound-generation", headers={"xi-api-key": k}, json=body, timeout=180)

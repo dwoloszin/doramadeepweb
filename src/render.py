@@ -654,6 +654,12 @@ def build(ep_id: str, *, only_audio: bool = False, retake: set | None = None) ->
     clips_dir.mkdir(parents=True, exist_ok=True)
     frames = out_dir / "frames"
 
+    # episodio NOVO (nenhuma fala em cache): consulta o saldo ANTES de chamar a ElevenLabs
+    if cfg.get("tts.provider", "elevenlabs") == "elevenlabs" and not list((work / "tts").glob("11_*.mp3")):
+        from . import elevenlabs
+        ok, msg = elevenlabs.preflight(elevenlabs.estimate(episode(ep_id)), ep_id)
+        if not ok:
+            raise SystemExit(f"sem credito de voz suficiente — nada foi gasto. {msg}")
     print("[1/5] narracao e linha do tempo")
     p = plan(ep_id, cfg, retake)
     ep = p["ep"]

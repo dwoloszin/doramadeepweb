@@ -11,6 +11,7 @@ assets/characters/*/modelo_fonte/
 output/*
 !output/CALENDARIO_TIKTOK.txt
 !output/voz_uso.json
+!output/STATUS.md
 !output/ep*/
 output/ep*/*
 !output/ep*/status.json

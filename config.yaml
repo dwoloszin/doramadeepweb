@@ -34,6 +34,11 @@ tts:
   # canal de GTA. O Dorama gasta no maximo isto por mes (~30% de 9 chaves x 10 mil). Gasto em
   # output/voz_uso.json. Atingiu: o Actions espera o mes seguinte (nao cai na voz reserva).
   monthly_cap: 27000
+  # Antes de CADA chamada (voz ou efeito) o saldo da chave e consultado: so usa a chave se sobrar
+  # pelo menos isto depois (folga para os outros canais). Episodio novo so comeca com +30% de sobra.
+  key_min_credits: 500
+  # Chaves que o Dorama NAO usa (4 ultimos caracteres) — reservadas ao projeto prioritario.
+  reserved_keys: ["8aa3"]
 
 # Vozes premade (as unicas liberadas nas chaves gratuitas). Amostras para
 # comparar em output/amostras_voz/ — trocar = mudar o voice_id aqui.
