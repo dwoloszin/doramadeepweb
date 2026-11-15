@@ -171,7 +171,7 @@ shots:
     sfx:
       - {gen: "Playful sneaky pizzicato, a tiny key jingle", line: 0, dur: 5, db: -8}
     lines:
-      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] O meu único bem precioso era a bicicleta. Então a chave do cadeado ia dentro da meia... e dentro do tênis!", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] O meu único bem precioso era a bicicleta... [softly] a mesma das vinte folhas de sulfite. [amused] Então a chave do cadeado ia dentro da meia... e dentro do tênis!", pause: 0.15}
       - {who: narrador, text: "[laughs] Lugar mais seguro não existia. Ninguém sabia dessa história... [playfully] agora vocês sabem!", pause: 0.25}
 
   # ---------------------------------------------------------------- O SALAO
@@ -208,7 +208,7 @@ shots:
       - {gen: "A huge jet engine spooling up on a runway outside a glass wall, muffled", line: 0, dur: 6, db: -8}
     lines:
       - {who: menino, text: "[Brazilian accent] [excited] Pai, pai! Olha o tamanho daquele avião!", pause: 0.15}
-      - {who: narrador, text: "[softly] Era a sensação do aeroporto: tinha gente que ia lá sem viajar... [warmly] só pra ver os aviões de pertinho.", pause: 0.2}
+      - {who: narrador, text: "[softly] Era a sensação do aeroporto: tinha gente que ia lá sem viajar... [warmly] só pra ver os aviões de pertinho. [softly] E eu, que até pouco tempo atrás só via avião em sonho...", pause: 0.2}
 
   - id: s11
     day: noite

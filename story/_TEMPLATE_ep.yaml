@@ -12,6 +12,8 @@
 #   [ ] Sonho -> realidade = card: shock (choque bem definido p/ a audiencia)
 #   [ ] "Baseado em fatos reais": linha no description/instagram_caption (80%) e no tiktok/teasers (curta)
 #   [ ] VARIAR o style do shock (shatter | wake | rewind | burn | glitch) — nao repetir o do ep anterior
+#   [ ] 1-2 GANCHOS com episodios anteriores (fato/objeto/frase ja contado, ex.: o alarme, a bicicleta
+#       das sulfites) — natural, sem forcar; incentiva a ver o episodio que perdeu
 #   [ ] Personagem novo (ou que ainda nao falou) TEM FALAS + voz propria (config.yaml -> voices)
 #   [ ] Personagem/LUGAR/OBJETO novo que pode voltar -> referencia salva na bible.yaml
 #       (characters | locations | props, com from_frames se ja apareceu) + python main.py refs
