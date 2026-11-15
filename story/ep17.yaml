@@ -1,0 +1,555 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock (VARIAR o style), personagem em cena FALA,
+# referencia p/ todo personagem/lugar/objeto, SEMPRE enriquecer (fatos checados), "baseado em fatos reais",
+# 1-2 GANCHOS com episodios anteriores.
+# ============================================================================
+#  EPISODIO 17 — 2a METADE de scenes/scene16.txt (a 1a metade e o Ep. 16): a noite com a Eva
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: o treinamento que o Davi imaginou — a Eva doce, petalas, paciencia
+#    titulo
+#    CHOQUE    card: shock style REWIND (o sonho "volta a fita" no grito dela) — ep16 shatter
+#    AS ORDENS "limpa ali, pega aquilo, confere os pedidos" — a noite toooda
+#              -> a torre de refrigerante (o refri da maquina e misturado na hora)
+#    O ERRO    pedido montado na bandeja... era pra viagem -> "PRESTA ATENCAO, MENINO!"
+#              -> "pra viagem... no aeroporto: quase todo mundo ali era pra viagem!"
+#              -> Thiago (GANCHO Ep. 15): "ainda acha que e o paraiso?"
+#    A VOLTA   o sol raiando; mais cansado que nos dias com o pai (GANCHO Ep. 2) -> 20 km de pedal
+#    EM CASA   cai na cama; a mae deixa dormir; 16h: "filho, ta tudo bem?"
+#    GANCHO    era so a 1a noite... e a cozinha ainda nem tinha mostrado por que ninguem queria ficar la
+#
+#  ENRIQUECIMENTO (checado): refrigerante de maquina ("post-mix") = xarope + agua gaseificada
+#  misturados na hora, ~5 partes de agua p/ 1 de xarope; 20 km de bicicleta ~1h20 a ~15 km/h;
+#  entre 3h e 5h da manha o corpo atinge o ponto mais baixo do ritmo circadiano (temperatura e alerta);
+#  adolescentes precisam de 8 a 10 horas de sono (Academia Americana de Medicina do Sono).
+# ============================================================================
+
+id: ep17
+number: 17
+title: "A Noite das Ordens, a Torre de Refrigerante e os Vinte Quilômetros"
+source: scenes/scene16.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "night, soft pastel pink and gold glow, floating petals"
+    wardrobe:
+      davi: uniforme_trabalho
+      eva: uniforme_trabalho
+  loja:
+    time: "night, 2 AM, airport lights beyond the glass"
+    wardrobe:
+      davi: uniforme_trabalho
+      eva: uniforme_trabalho
+      colega: uniforme_trabalho
+  amanhecer:
+    time: "6 AM, sunrise, golden orange light, long shadows"
+    wardrobe:
+      davi: madrugada_trabalho
+  manha:
+    time: "8 AM, soft morning light through the curtain"
+    wardrobe:
+      davi: madrugada_trabalho
+      mae: casa
+  tarde:
+    time: "4 PM, warm late-afternoon light through the curtain"
+    wardrobe:
+      davi: madrugada_trabalho
+      mae: casa
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (o treinamento imaginado)
+  - id: s01
+    day: sonho
+    location: balcao_loja
+    cast: [eva, davi]
+    look: dream
+    visual: >-
+      Enchanted fairy-tale K-drama dream, NOT a realistic restaurant: a
+      floating pastel-pink and gold dreamland counter made of light in the
+      clouds, cherry-blossom petals swirling, the heat lamps shining like
+      little suns and stars; medium close shot of Eva, with freckles and
+      shoulder-length copper-red hair, smiling sweetly as she gently guides
+      Davi's hands to close a burger box, both laughing softly, sparkles and
+      soft bloom everywhere. Magical and romantic.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Soft romantic music box melody with gentle chimes and a warm airy pad", line: 0, dur: 10, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Na minha cabeça, o treinamento ia ser assim: ela ensinando com paciência... [softly] um sorriso aqui, outro ali.", pause: 0.25}
+
+  - id: s02
+    card: title
+    bg: s01
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: sonho
+    location: balcao_loja
+    cast: [eva, davi]
+    look: dream
+    visual: >-
+      Dreamy slow-motion TIGHT close-up, background melted into pink and gold
+      bokeh with petals: Eva, glowing in golden backlight, tilts her head
+      with a tender smile and holds up a soda cup with a tiny heart drawn on
+      the lid toward the camera; Davi's hand reaching for it at the edge of
+      the frame.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: eva, text: "[Brazilian accent] [softly] [sweetly] Calma, Davi... com o tempo, você pega o jeito.", pause: 0.3}
+
+  # ---------------------------------------------------------------- CHOQUE (rewind)
+  - id: s04
+    card: shock
+    style: rewind                  # ep15 wake, ep16 shatter -> variar
+    duration: 1.6
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "A tape rewinding fast with a squeal, then a young woman shouting a name sharply", at: 0.1, dur: 2.0, db: -2}
+      - {gen: "Deep soft cinematic boom", at: 1.0, dur: 2.5, db: -4}
+
+  # ---------------------------------------------------------------- AS ORDENS
+  - id: s05
+    day: loja
+    location: balcao_loja
+    cast: [eva, davi]
+    look: real
+    music: real
+    ambience: "Fast-food counter at night, fryer timers, a register beeping, soft customer chatter, a jet outside"
+    visual: >-
+      Comic medium shot behind the counter, normal harsh light: Eva, a head
+      shorter, points in three directions at once with a stern face, giving
+      orders; Davi runs with a cleaning cloth in one hand and a stack of cups
+      in the other, sweating, confused.
+    motion: pan_right
+    transition: cut
+    lines:
+      - {who: eva, text: "[Brazilian accent] [sternly] Limpa ali! [quickly] Pega aquilo! [impatiently] Confere os pedidos!", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [panting] Sim, Eva! Já vou, Eva!", pause: 0.15}
+      - {who: narrador, text: "[Brazilian accent] [sighs] Na vida real... eram só ordens. [playfully] A noite toooda.", pause: 0.2}
+
+  - id: s06
+    day: loja
+    location: balcao_loja
+    cast: [davi, eva]
+    look: real
+    visual: >-
+      Medium shot at the soda fountain tower behind the counter: Davi kneels
+      changing a big syrup box connected by tubes under the machine, sticky
+      hands, a bead of sweat; Eva stands over him with arms crossed tapping
+      her foot. Plain machine and boxes, no logos, no readable text.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A soda fountain hissing, carbonated water fizzing, a syrup line connector clicking", line: 0, dur: 5, db: -8}
+    lines:
+      - {who: eva, text: "[Brazilian accent] [impatiently] E abastece a torre de refrigerante. Rápido!", pause: 0.15}
+      - {who: narrador, text: "[curious] Sabia que o refri da máquina é misturado na hora? [playfully] Uma parte de xarope pra umas cinco de água com gás.", pause: 0.2}
+
+  # ---------------------------------------------------------------- O ERRO
+  - id: s07
+    day: loja
+    location: balcao_loja
+    cast: [davi]
+    look: real
+    visual: >-
+      Comic close-up: Davi proudly finishes arranging a burger, fries and a
+      soda neatly on a red plastic tray, adjusting the napkin like an artist;
+      across the counter, out of focus, a traveler holds a rolling suitcase
+      and a boarding pass, glancing at his watch.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [proudly] Pedido montado, bandejinha caprichada...", pause: 0.15}
+
+  - id: s08
+    day: loja
+    location: balcao_loja
+    cast: [eva, davi]
+    look: real
+    visual: >-
+      Comic TIGHT low-angle close-up, background blurred: Eva, furious, her
+      freckled face red with anger, points one finger straight at the camera
+      (at the tray), her copper-red hair bouncing under the black visor; over
+      her shoulder, blurred and much taller, Davi shrinks with an
+      embarrassed grimace.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A comic dramatic orchestra hit", at: 0.0, dur: 1.5, db: -6}
+    lines:
+      - {who: eva, text: "[Brazilian accent] [angrily] Presta atenção, menino! [shouting] Era pra viagem! Não sabe fazer as coisas direito?!", pause: 0.2}
+      - {who: davi, text: "[Brazilian accent] [stammering] Mas... ninguém me falou!", pause: 0.1}
+      - {who: eva, text: "[Brazilian accent] [coldly] Tô falando agora.", pause: 0.2}
+      - {who: narrador, text: "[laughs] Pra viagem... no aeroporto. [amused] Quase todo mundo ali era pra viagem!", pause: 0.2}
+
+  - id: s09
+    day: loja
+    location: balcao_loja
+    cast: [colega, davi]
+    look: real
+    visual: >-
+      Funny close two-shot from INSIDE the kitchen looking through the
+      pass-through window: in the foreground the lean coworker with the
+      fade, thin mustache and silver earring leans toward the window between
+      wrapped burgers under orange heat lamps, whispering with a mocking
+      grin; framed in the window, Davi (chubby, round face) gives him a
+      deadpan, exhausted look. Kitchen steam, warm light.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: colega, text: "[Brazilian accent] [whispers] [laughing] E aí, novato... ainda acha que é o paraíso?", pause: 0.15}
+      - {who: colega, text: "[playfully] Relaxa, ela é assim com todo novato. [whispers] O último durou três dias.", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [sighs] Paraíso... sei.", pause: 0.2}
+
+  - id: s10
+    day: loja
+    location: salao_loja
+    cast: [davi, eva]
+    look: real
+    visual: >-
+      Wide melancholic shot of the empty restaurant hall at 4 AM: chairs up on
+      the white tables, the glossy floor reflecting the lights; Davi drags a
+      mop with heavy eyes, yawning, while Eva, small in the background behind
+      the counter, points at a spot he missed; through the glass wall, a
+      dark runway with a single plane's blinking lights.
+    motion: pull_out
+    transition: dissolve
+    ambience: "Empty restaurant at 4 AM, a mop squeaking, a refrigerator humming, a distant jet"
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] Sabia que entre três e cinco da manhã o corpo chega no ponto mais baixo de energia? [tired] É a hora mais difícil de quem trabalha à noite.", pause: 0.15}
+      - {who: eva, text: "[Brazilian accent] [sternly] Davi! Ali no canto ainda tá sujo!", pause: 0.2}
+
+  # ---------------------------------------------------------------- A VOLTA
+  - id: s11
+    day: amanhecer
+    location: aeroporto_noite
+    cast: [davi]
+    look: real
+    time: "6 AM, sunrise, golden orange light, long shadows"
+    ambience: "Airport at dawn, a jet taking off, birds, an early bus braking"
+    visual: >-
+      Wide shot at sunrise outside the airport service entrance: Davi, wearing
+      the reflective vest over his clothes, shuffles out pushing his old
+      bicycle, shoulders slumped, eyes half closed, while a plane takes off
+      into the orange sky behind him.
+    motion: pull_out
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [tired] Com o sol raiando, eu tava mais cansado do que nos dias de carregar caixa com o meu pai.", pause: 0.2}
+
+  - id: s12
+    day: amanhecer
+    location: rodovia_noite
+    cast: [davi]
+    look: real
+    time: "6:30 AM, sunrise, golden mist over the highway"
+    visual: >-
+      Medium tracking shot at dawn on the highway shoulder: Davi pedals the
+      old bicycle with heavy legs, the reflective vest catching the golden
+      light, trucks passing, his head hanging, a long road ahead into the
+      morning mist.
+    motion: pan_right
+    transition: dissolve
+    sfx:
+      - {gen: "A tired bicycle chain clicking slowly, trucks passing on a highway at dawn", line: 0, dur: 6, db: -8}
+    lines:
+      - {who: narrador, text: "[sighs] E ainda tinha vinte quilômetros de pedal. [amused] Mais de uma hora, com as pernas tremendo.", pause: 0.15}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [exhausted] E cada pedalada era uma ordem da Eva na minha cabeça... [sighs] limpa ali, pega aquilo...", pause: 0.2}
+
+  # ---------------------------------------------------------------- EM CASA
+  - id: s13
+    day: manha
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    visual: >-
+      Comic shot: Davi collapsed face-down across his narrow bed still in his
+      clothes and shoes, one arm hanging off the side, the reflective vest
+      half off, a backpack dropped on the floor, mouth open, deeply asleep.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A body flopping onto an old spring mattress, then deep snoring", at: 0.2, dur: 4, db: -6}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [exhausted] Escola? [sleepily] Que escola...", pause: 0.25}
+
+  - id: s14
+    day: manha
+    location: quarto_davi
+    cast: [mae, davi]
+    look: real
+    visual: >-
+      Tender medium shot from the doorway: his mother, in her apron, looks at
+      the sleeping boy with soft eyes, gently pulls the blanket over him and
+      closes the curtain, letting him sleep.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] A minha mãe viu o meu estado... [softly] e me deixou dormir.", pause: 0.2}
+
+  - id: s15
+    day: tarde
+    location: quarto_davi
+    cast: [mae, davi]
+    look: real
+    visual: >-
+      Medium shot in warm late-afternoon light: his mother sits on the edge of
+      the bed and gently shakes Davi's shoulder with a worried face; Davi
+      opens one swollen eye, confused, a pillow crease on his cheek.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: mae, text: "[Brazilian accent] [worried] Davi? Filho, acorda... [softly] já são quatro da tarde! Tá tudo bem?", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [sleepily] Tô, mãe... [yawns] sonhei que tava montando bandeja a noite inteira.", pause: 0.2}
+      - {who: narrador, text: "[curious] Adolescente precisa de oito a dez horas de sono. [laughs] Naquele dia, eu cobrei tudo de uma vez.", pause: 0.2}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s16
+    day: tarde
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    visual: >-
+      Moody close-up: Davi sits on the edge of the bed staring at his red
+      work polo and black visor hanging on the back of a chair, golden dust
+      floating in the late light, a long sigh on his face.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A suspenseful low string pulse with a distant grill sizzling, fading in", line: 0, dur: 10, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [suspenseful] E aquela era só a primeira noite... [mysterious] a cozinha ainda nem tinha mostrado por que ninguém queria ficar lá.", pause: 0.45}
+
+  - id: s17
+    card: question
+    bg: s08
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já teve um chefe ou colega assim? [playfully] Conta aqui nos comentários!", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 17"
+    title: "A Noite das Ordens"
+    subtitle: "a torre de refrigerante e os vinte quilômetros"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Já teve um chefe ou colega assim?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 18"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 17 — A Noite das Ordens 🥤 #dorama #novela"
+  description: |
+    O treinamento dos sonhos... e o treinamento de verdade. Uma noite inteira no balcão do aeroporto e uma longa volta pra casa.
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Episódio 17 da vídeo-novela: a primeira noite de trabalho de verdade no restaurante do aeroporto de Guarulhos, a torre de refrigerante e os vinte quilômetros de pedal de volta pra casa.
+
+    🥤 Você sabia? O refrigerante de máquina é misturado na hora: xarope com água gaseificada, mais ou menos uma parte pra cinco. E adolescente precisa de 8 a 10 horas de sono por noite.
+
+    💬 E você? Já teve um chefe ou colega assim? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 18.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #primeiroemprego #aeroporto #historiareal #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, primeiro emprego,
+         aeroporto de guarulhos, fast food, trabalho noturno, historia real, baseado em fatos reais,
+         periferia de sao paulo, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 17 — A Noite das Ordens, a Torre de Refrigerante e os Vinte Quilômetros 🥤
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    O treinamento que eu imaginei...
+    e o treinamento de verdade.
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já teve um chefe ou colega assim?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 18.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #primeiroemprego #aeroporto #historiareal #historianarrada
+  tiktok_caption: |
+    Episódio 17: A noite das ordens
+
+    📖 Baseado em fatos reais.
+
+    💬 Já teve um chefe ou colega assim? Conta aqui 👇
+
+    Segue pra não perder o Ep. 18 🍿
+
+    #dorama #primeiroemprego #aeroporto #historiareal #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 17"
+    title: "A Noite das Ordens"
+    hook: "Na minha cabeça, o treinamento ia ser assim..."
+
+  - bg: s03
+    text: |
+      Ela ensinando com paciência, um sorriso aqui, outro ali...
+
+      **— Calma, Davi... com o tempo, você pega o jeito.**
+
+  - bg: s05
+    text: |
+      Na vida real?
+
+      **— Limpa ali! Pega aquilo! Confere os pedidos!**
+
+      **— Sim, Eva! Já vou, Eva!**
+
+      Eram só ordens. A noite toooda.
+
+  - bg: s06
+    text: |
+      **— E abastece a torre de refrigerante. Rápido!**
+
+      O refri da máquina é misturado na hora: **uma parte de xarope pra umas cinco de água com gás**.
+
+  - bg: s08
+    text: |
+      _Pedido montado, bandejinha caprichada..._
+
+      **— Presta atenção, menino! Era pra viagem! Não sabe fazer as coisas direito?!**
+
+      **— Mas... ninguém me falou!**
+
+      **— Tô falando agora.**
+
+      Pra viagem... no aeroporto. Quase todo mundo ali era pra viagem!
+
+  - bg: s09
+    text: |
+      **— E aí, novato... ainda acha que é o paraíso?**
+
+      **— Paraíso... sei.**
+
+      **— Relaxa, ela é assim com todo novato. O último durou três dias.**
+
+  - bg: s12
+    text: |
+      Com o sol raiando, eu tava mais cansado do que nos dias de carregar caixa com o meu pai.
+
+      E ainda tinha **vinte quilômetros** de pedal. Mais de uma hora, com as pernas tremendo.
+
+  - bg: s15
+    text: |
+      Caí na cama. Escola? Que escola...
+
+      A minha mãe viu o meu estado e me deixou dormir.
+
+      **— Davi? Filho, acorda... já são quatro da tarde! Tá tudo bem?**
+
+      **— Tô, mãe... sonhei que tava montando bandeja a noite inteira.**
+
+  - type: end
+    bg: s16
+    big: "Só a primeira noite."
+    text: |
+      E aquela era só a primeira noite...
+
+      A cozinha ainda nem tinha mostrado por que ninguém queria ficar lá.
+    cta: "CONTINUA NO CAPÍTULO 18 · Salve e siga para não perder"
+
+  - type: question
+    bg: s08
+    kicker: "E VOCÊ?"
+    title: "Já teve um chefe ou colega assim?"
+    text: |
+      O meu tinha um metro e sessenta... e uma voz de general.
+
+      _E o seu?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep17`
+teaser:
+  - id: t1
+    from: s13
+    zoom: 1.1
+    focus: [0.5, 0.45]
+    badge: "ALERTA DE SPOILER"
+    title: "O que aconteceu **com o Davi?**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Desmaiado de roupa, tênis e tudo 😵
+      O que será que aconteceu nessa noite?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s06
+    zoom: 1.0
+    focus: [0.5, 0.42]
+    badge: "ALERTA DE SPOILER"
+    title: "Primeira noite **de verdade.**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Mãos grudando, suor escorrendo... e alguém olhando 👀
+      Como foi a sua primeira noite num emprego novo?
+
+      Conta aqui nos comentários 👇
+      Próximo episódio essa semana! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #primeiroemprego #novela #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 17"
+    title: "A Noite das Ordens, a Torre de Refrigerante e os Vinte Quilômetros"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 17: A Noite das Ordens, a Torre de Refrigerante e os Vinte Quilômetros 🥤
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

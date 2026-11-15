@@ -15,7 +15,7 @@ NOMES = {"narrador": "Narrador (Davi adulto)", "pensamento": "Pensamento do Davi
          "mae": "Mãe", "pai": "Pai", "camila": "Camila", "primos": "Primos", "tia": "Tia",
          "gerente": "Gerente (Seu Roberto)", "colega": "Thiago (colega)", "jornaleiro": "Jornaleiro",
          "recrutadora": "Moça do RH (telefone)", "diretor_sonho": "Diretor (sonho)", "menino": "Menino",
-         "amigo_escola": "Bruno", "porteiro": "Porteiro", "clara": "Teacher Clara"}
+         "amigo_escola": "Bruno", "porteiro": "Porteiro", "clara": "Teacher Clara", "eva": "Eva", "menino": "Menino"}
 CARD = {"title": "CARTELA DE TÍTULO", "shock": "CHOQUE DE REALIDADE (transição)", "question": "PERGUNTA FINAL"}
 
 

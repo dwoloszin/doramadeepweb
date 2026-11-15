@@ -1,0 +1,582 @@
+# REGRAS DA SERIE (ver README > Regras de roteiro): ABERTURA MAGICA, pergunta final, som imersivo,
+# transicao nao e fala, sonho->real = card: shock (VARIAR o style), personagem em cena FALA,
+# referencia p/ todo personagem/lugar/objeto, SEMPRE enriquecer (fatos checados), "baseado em fatos reais",
+# 1-2 GANCHOS com episodios anteriores.
+# ============================================================================
+#  EPISODIO 16 — 1a METADE de scenes/scene16.txt (a 2a metade, a noite com a Eva, e o Ep. 17)
+#
+#  Estrutura:
+#    ABERTURA  O DORAMA: Davi dorme e sonha que voa entre avioes de luz sobre a cidade
+#    titulo
+#    CHOQUE    card: shock style SHATTER (o ronco da Kombi estilhaca o sonho) — ep15 wake, ep14 glitch
+#    EM CASA   acorda com a Kombi (GANCHO Ep. 7: a Kombi que vivia enguicando) -> o cheiro do almoco
+#              -> o almoco: "voces precisam ver!" (pai orgulhoso, mae preocupada com o sono)
+#    ESCOLA    ultimos meses do ensino medio; o ENEM (criado em 1998); Bruno: "ja sabe o que vai prestar?"
+#              -> "mais perdido que cego em tiroteio" (expressao brasileira)
+#    A NOITE   estuda meia horinha: os coracoes no caderno (GANCHO Ep. 9) -> cochilo ate as 20h
+#              -> o colete do pai (GANCHO Ep. 14): "aquele, de verdade, seria o meu primeiro dia"
+#    A LOJA    o gerente distribui as duplas: "Davi... balcao, com a Eva"
+#    A EVA     o rosto dela pela 1a vez (no Ep. 15 so de costas): brilho de dorama...
+#              -> 1a fala: "presta atencao, porque eu nao vou repetir" -> o brilho some (risco de disco)
+#    GANCHO    "romance a vista? voces nao fazem ideia." -> a noite estava so comecando
+#
+#  ENRIQUECIMENTO (checado): a Kombi foi fabricada no Brasil de 1957 a 2013; ENEM criado em 1998 pelo MEC; com ele vieram as vagas em universidades
+#  publicas e as bolsas integrais do ProUni (desde 2005) — a chance de quem nao podia pagar.
+#  Novos: eva FALA (voz River, mais seca); nenhum lugar novo.
+# ============================================================================
+
+id: ep16
+number: 16
+title: "O Ronco da Kombi, a Prova Mais Temida e a Dupla da Noite"
+source: scenes/scene16.txt
+
+voices:
+  pensamento:
+    eleven: {stability: 0.5}
+    tempo: 1.0
+    fx: "thought_mid"
+
+days:
+  sonho:
+    time: "night, a magical starry sky, the city below like a carpet of golden lights"
+    wardrobe:
+      davi: dormir
+  acordar:
+    time: "late morning, bright sun through the curtain"
+    wardrobe:
+      davi: dormir
+  almoco:
+    time: "noon, warm daylight"
+    wardrobe:
+      davi: escola_uniforme
+      mae: casa
+      pai: trabalho_ceasa
+  escola:
+    time: "afternoon, hot daylight through the windows"
+    wardrobe:
+      davi: escola_uniforme
+      amigo_escola: escola_uniforme
+  noite_casa:
+    time: "7 PM, night, a warm desk lamp"
+    wardrobe:
+      davi: casual_noite
+  saida:
+    time: "8:30 PM, dark night, a single street lamp"
+    wardrobe:
+      davi: madrugada_trabalho
+  loja:
+    time: "10 PM, night, airport lights beyond the glass"
+    wardrobe:
+      davi: uniforme_trabalho
+      gerente: uniforme
+      colega: uniforme_trabalho
+      eva: uniforme_trabalho
+
+shots:
+  # ---------------------------------------------------------------- O DORAMA (abertura magica)
+  - id: s01
+    day: sonho
+    location: aeroporto_sonho
+    cast: [davi]
+    look: dream
+    visual: >-
+      Enchanted fairy-tale wide shot at night: Davi in his sleep clothes floats
+      peacefully in the starry sky, lying on his back as if on an invisible
+      bed, eyes closed with a soft smile, high above a city that glitters like
+      a carpet of golden lights; around him glowing airplanes made of soft
+      light glide slowly like paper planes, leaving trails of golden stardust;
+      blue and gold nebula mist, strong dreamy bloom. Magical, like a K-drama
+      dream.
+    motion: push_in
+    transition: fadeblack
+    music: none
+    sfx:
+      - {gen: "Magical airy shimmer with soft wind and a gentle music box, distant jets humming like a lullaby", line: 0, dur: 10, db: -4}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [dreamy] Depois da primeira noite no aeroporto, eu dormi como quem flutua... [softly] e sonhei que voava entre os aviões.", pause: 0.25}
+
+  - id: s02
+    card: title
+    bg: s01
+    duration: 2.2
+    transition: fadeblack
+    music: dream
+    sfx: [whoosh]
+
+  - id: s03
+    day: sonho
+    location: aeroporto_sonho
+    cast: [davi]
+    look: dream
+    visual: >-
+      Dreamy close-up in slow motion: Davi, asleep and floating among the
+      clouds, opens his arms like wings, a glowing jumbo jet of light passing
+      right beside him, golden sparkles in his hair, a blissful smile.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [softly] Lá de cima, a cidade inteira parecia um tapete de luzes...", pause: 0.3}
+
+  # ---------------------------------------------------------------- CHOQUE (a Kombi estilhaca o sonho)
+  - id: s04
+    card: shock
+    style: shatter                 # ep12 burn, ep13 rewind, ep14 glitch, ep15 wake -> variar
+    duration: 1.6
+    transition: cut
+    music: none
+    sfx:
+      - {gen: "An old Volkswagen van engine sputtering loudly and backfiring with a bang", at: 0.2, dur: 2.5, db: 0}
+      - {gen: "Deep soft cinematic boom", at: 1.0, dur: 2.5, db: -4}
+
+  # ---------------------------------------------------------------- EM CASA
+  - id: s05
+    day: acordar
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    ambience: "Periphery house late morning, an old van engine idling outside then switching off, a dog barking, birds"
+    visual: >-
+      Comic medium shot: Davi jolts awake in his narrow bed, hair sticking up
+      in every direction, one eye open, sunlight cutting through the curtain;
+      through the small barred window, the white roof of the old family VW
+      Kombi van parking at the gate, a puff of smoke from its exhaust.
+    motion: push_in
+    transition: cut
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [amused] Eu tinha deitado antes do sol nascer... [laughs] e só acordei com o ronco da velha Kombi. [playfully] A mesma que vivia enguiçando!", pause: 0.15}
+      - {who: narrador, text: "[curious] A Kombi foi fabricada no Brasil de 1957 a 2013... [laughs] e a nossa parecia ter rodado todos esses anos.", pause: 0.2}
+
+  - id: s06
+    day: acordar
+    location: banheiro_casa
+    cast: [davi]
+    look: real
+    visual: >-
+      Funny medium shot in the tiny bathroom: Davi with a toothbrush in his
+      mouth and foam on his lips closes his eyes in bliss, nose up, sniffing
+      the air; soft visible wisps of warm aroma curl in under the door like
+      in a cartoon.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "Garlic and onions sizzling in a pan in a nearby kitchen, a pressure cooker hissing", line: 0, dur: 6, db: -8}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [amused] De dentro do banheiro eu já sentia o cheiro... [hungry] feijão fresquinho, bife acebolado. Nossa, que fome!", pause: 0.2}
+
+  - id: s07
+    day: almoco
+    location: cozinha_casa
+    cast: [davi, mae, pai]
+    look: real
+    visual: >-
+      Warm medium shot at the small kitchen table: Davi in his school uniform,
+      mouth half full, waves his fork and spreads his arms wide describing
+      something enormous, eyes shining; his mother in her apron and his father
+      in his plaid work shirt, just arrived, listen with plates of rice,
+      beans and steak with onions in front of them.
+    motion: push_in
+    transition: dissolve
+    ambience: "Small family kitchen at lunch, cutlery on plates, a pressure cooker cooling, a radio low"
+    lines:
+      - {who: davi, text: "[Brazilian accent] [excited] Mãe, pai, vocês precisam ver! Uns aviões enormes, gente chique indo viajar... [proudly] e eu trabalho no lugar mais bonito de todo o aeroporto!", pause: 0.2}
+
+  - id: s08
+    day: almoco
+    location: cozinha_casa
+    cast: [mae, pai, davi]
+    look: real
+    visual: >-
+      Two-shot of the parents at the table: the father in his plaid work shirt
+      leans back with a proud, moved grin; the mother, in her apron, smiles
+      but looks at Davi with worried eyes, pushing the plate of food closer
+      to him.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: pai, text: "[Brazilian accent] [proudly] Olha só... o meu filho, no aeroporto internacional!", pause: 0.15}
+      - {who: mae, text: "[Brazilian accent] [worried] Bonito é... [softly] mas come direito, que você tá com uma cara de sono!", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [mouth full] [laughs] Tô ótimo, mãe! Só morrendo de fome!", pause: 0.2}
+
+  # ---------------------------------------------------------------- ESCOLA
+  - id: s09
+    day: escola
+    location: sala_real
+    cast: [davi, amigo_escola]
+    look: real
+    ambience: "Public school classroom in the afternoon, a ceiling fan rattling, students chattering, chalk on a board"
+    visual: >-
+      Medium shot in the crowded classroom: Davi at his desk, heavy-eyed,
+      stares at a thick stapled practice exam booklet (no readable text) as
+      if it were a monster; next to him Bruno leans over, curious.
+    motion: push_in
+    transition: dissolve
+    music: real
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [warmly] Depois do almoço, escola. Meus últimos meses de ensino médio... [tense] e vinha aí a prova mais temida de todas: o ENEM.", pause: 0.2}
+
+  - id: s10
+    day: escola
+    location: sala_real
+    cast: []
+    look: real
+    visual: >-
+      Symbolic close-up: a thick exam booklet and a filled-in multiple-choice
+      answer sheet with neat black bubbles (no readable text) on a scratched
+      school desk, a chewed pencil and an eraser beside it, a beam of
+      afternoon light falling on it like a spotlight.
+    motion: push_in
+    transition: dissolve
+    lines:
+      - {who: narrador, text: "[curious] O ENEM nasceu em 1998. [warmly] Pra um garoto da periferia como eu, era a única chance de uma faculdade pública... ou de uma bolsa integral numa particular.", pause: 0.2}
+
+  - id: s11
+    day: escola
+    location: sala_real
+    cast: [amigo_escola, davi]
+    look: real
+    visual: >-
+      Comic two-shot: Bruno asks with raised eyebrows; Davi answers with a
+      nervous laugh, shrugging, both hands up, completely lost.
+    motion: push_in
+    transition: cut
+    lines:
+      - {who: amigo_escola, text: "[Brazilian accent] [curious] E aí, Davi? Já sabe o que vai prestar?", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [laughs nervously] Eu? Tô mais perdido que cego em tiroteio!", pause: 0.15}
+      - {who: narrador, text: "[playfully] Mas isso... era preocupação pra depois.", pause: 0.2}
+
+  # ---------------------------------------------------------------- A NOITE EM CASA
+  - id: s12
+    day: noite_casa
+    location: quarto_davi
+    cast: [davi]
+    look: real
+    visual: >-
+      Tight close-up from above on an open school notebook under a warm desk
+      lamp: in the corner of the lined page, a cluster of small hand-drawn
+      HEARTS in blue ballpoint pen, clearly visible; Davi's fingertip gently
+      touches one of them; at the edge of the frame, his face lit by the lamp
+      with a bittersweet half-smile. No readable words.
+    motion: push_in
+    transition: dissolve
+    sfx:
+      - {gen: "A notebook page turning, a soft nostalgic piano note, crickets outside", line: 0, dur: 6, db: -8}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Jantei, estudei meia horinha...", pause: 0.1}
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [sadly] No canto do caderno, ainda tinha os corações daquela semana. [softly] Os olhos verdes estavam tão longe...", pause: 0.25}
+
+  - id: s13
+    day: saida
+    location: casa_davi
+    cast: [davi]
+    look: real
+    ambience: "Periphery street at night, crickets, a distant dog, a bicycle chain clicking"
+    visual: >-
+      Medium shot at the gate at night under a single street lamp: Davi,
+      after a short nap, zips up the reflective safety vest over his clothes,
+      the old bicycle beside him, and looks at the dark road ahead with a
+      determined face.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A zipper closing, a bicycle kickstand flipping up, a bike bell ringing once", at: 0.2, dur: 3, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [determined] Um cochilo até as oito, o colete do meu pai... [suspenseful] e pé no pedal. Aquele, de verdade, seria o meu primeiro dia de trabalho.", pause: 0.25}
+
+  # ---------------------------------------------------------------- A LOJA: as duplas
+  - id: s14
+    day: loja
+    location: balcao_loja
+    cast: [gerente, colega, davi, eva]
+    look: real
+    music: real
+    visual: >-
+      Medium wide shot behind the counter: the manager with thin black-framed
+      glasses and grey polo holds a clipboard and points, assigning stations
+      to the night crew standing in a half circle in red polos: the lean
+      coworker with the earring grins, Davi stands at the end, nervous; at
+      the edge of the group, a petite girl with copper-red hair under her
+      visor is seen only from the side, half hidden.
+    motion: pan_right
+    transition: dissolve
+    ambience: "Fast-food counter at night, fryer timers, a register beeping, soft customer chatter"
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [calmly] Como de costume, o gerente reunia todo mundo pra distribuir os postos.", pause: 0.1}
+      - {who: gerente, text: "[Brazilian accent] [firmly] Cada dupla na sua estação! Thiago, chapa. [playfully] Davi... balcão, com a Eva.", pause: 0.15}
+      - {who: colega, text: "[Brazilian accent] [whispers] [laughing] Xi... boa sorte, novato.", pause: 0.25}
+
+  # ---------------------------------------------------------------- A EVA (o rosto, pela 1a vez)
+  - id: s15
+    day: loja
+    location: balcao_loja
+    cast: [eva]
+    look: dream
+    visual: >-
+      TIGHT K-drama close-up, framing only her face and shoulders, background
+      completely blurred into golden bokeh: Eva turns toward the camera in
+      slow motion for the first time, very fair skin covered in freckles,
+      green-grey eyes, straight copper-red hair swinging to her shoulders
+      under the black visor; warm golden backlight glowing through her hair,
+      floating sparkles and a soft lens flare, as if the world had stopped.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A dreamy romantic swell with a soft harp glissando and a single slow heartbeat", line: 0, dur: 6, db: -5}
+    lines:
+      - {who: pensamento, text: "[Brazilian accent] [deep voice] [dreamy] Ruivinha, sardas no rosto... [softly] o meu primeiro dia ao lado dela.", pause: 0.2}
+
+  - id: s16
+    day: loja
+    location: balcao_loja
+    cast: [eva, davi]
+    look: real
+    visual: >-
+      Comic two-shot, normal light: Eva, a full head shorter than Davi, looks
+      up at him with her arms crossed and a stern, unimpressed face, one
+      eyebrow raised; Davi, much taller, swallows hard, his dreamy smile
+      melting.
+    motion: push_in
+    transition: cut
+    sfx:
+      - {gen: "A vinyl record scratch stopping romantic music abruptly", at: 0.0, dur: 1.2, db: -2}
+    lines:
+      - {who: eva, text: "[Brazilian accent] [sternly] Você é o novato? [coldly] Então presta atenção, porque eu não vou repetir.", pause: 0.15}
+      - {who: davi, text: "[Brazilian accent] [nervously] S-sim, senhora!", pause: 0.1}
+      - {who: eva, text: "[Brazilian accent] [coldly] Senhora não. Eva.", pause: 0.25}
+      - {who: narrador, text: "[amused] Romance à vista? [laughs] Ah... vocês não fazem ideia.", pause: 0.2}
+
+  # ---------------------------------------------------------------- GANCHO
+  - id: s17
+    day: loja
+    location: balcao_loja
+    cast: [eva, davi]
+    look: real
+    visual: >-
+      Suspenseful medium shot from behind the counter: Eva walks ahead
+      briskly, pointing at the counter, the soda fountain and the order
+      screens; Davi follows behind her, already carrying a tall wobbly stack
+      of trays, with the bright hall and the glass wall with the runway in
+      the background.
+    motion: pull_out
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A suspenseful rising string pulse with a ticking clock, a fast-food kitchen in the background", line: 0, dur: 8, db: -5}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [suspenseful] E a noite... estava só começando.", pause: 0.45}
+
+  - id: s18
+    card: question
+    bg: s16
+    duration: 3.0
+    lead: 0.3
+    transition: fadeblack
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [curious] E você? Já teve alguém que te deu medo logo no primeiro dia? [playfully] Conta aqui nos comentários!", pause: 0.4}
+
+# ----------------------------------------------------------------------------
+cards:
+  title:
+    kicker: "EPISÓDIO 16"
+    title: "A Dupla da Noite"
+    subtitle: "o ronco da Kombi e a prova mais temida"
+  question:
+    kicker: "E VOCÊ?"
+    title: "Quem te deu medo no primeiro dia?"
+    subtitle: "Conta pra gente nos comentários."
+    footer: "Continua no Episódio 17"
+
+# ----------------------------------------------------------------------------
+publish:
+  title: "Ep. 16 — A Dupla da Noite 🌙 #dorama #novela"
+  description: |
+    Um almoço com cheiro de casa, a prova mais temida de todas... e uma dupla de trabalho que ninguém esperava.
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Episódio 16 da vídeo-novela: o dia seguinte à primeira noite no aeroporto — a família no almoço, os últimos meses de escola, o ENEM batendo na porta e a primeira noite de trabalho de verdade.
+
+    📚 Você sabia? O ENEM nasceu em 1998. Para muitos jovens da periferia, ele virou a porta de entrada para a faculdade pública ou para uma bolsa integral.
+
+    💬 E você? Já teve alguém que te deu medo logo no primeiro dia? Conta nos comentários!
+
+    ▶ Ouça como audiobook: a história inteira é narrada.
+    ▶ Ative as legendas e siga para não perder o Episódio 17.
+
+    📸 Instagram (capítulo para ler no carrossel): https://www.instagram.com/doramadadeepweb/
+    🎵 TikTok: https://www.tiktok.com/@doramamagico
+
+    #dorama #kdrama #novela #enem #primeiroemprego #aeroporto #historiareal #historianarrada #doramasbrasil #shorts
+  tags: [dorama, doramas, kdrama, dorama brasileiro, novela, web novela, historia narrada, audiobook, enem,
+         ensino medio, primeiro emprego, aeroporto de guarulhos, historia real, baseado em fatos reais,
+         periferia de sao paulo, dorama da deep web, shorts]
+  instagram_caption: |
+    Episódio 16 — O Ronco da Kombi, a Prova Mais Temida e a Dupla da Noite 🌙
+
+    📖 Baseado em fatos reais: 80% desta história aconteceu de verdade na vida do autor. Os outros 20% são a magia do dorama.
+
+    Um almoço com cheiro de casa.
+    A prova mais temida de todas batendo na porta.
+    E uma dupla de trabalho que ninguém esperava...
+
+    🎧 Ouça com som — é uma história narrada.
+    📖 Prefere ler? O capítulo completo está no carrossel.
+
+    💬 E você? Já teve alguém que te deu medo logo no primeiro dia?
+    Conta aqui nos comentários 👇
+    Siga para o Episódio 17.
+
+    ▶ No YouTube: youtube.com/@doramadadeepweb · TikTok: @doramamagico
+
+    #dorama #enem #primeiroemprego #historiareal #historianarrada
+  tiktok_caption: |
+    Episódio 16: A dupla da noite
+
+    📖 Baseado em fatos reais.
+
+    💬 Já teve alguém que te deu medo no primeiro dia? Conta aqui 👇
+
+    Segue pra não perder o Ep. 17 🍿
+
+    #dorama #enem #primeiroemprego #historiareal #historianarrada
+
+# ----------------------------------------------------------------------------
+carousel:
+  - type: cover
+    bg: s01
+    kicker: "CAPÍTULO 16"
+    title: "A Dupla da Noite"
+    hook: "Eu dormi como quem flutua... e sonhei que voava entre os aviões."
+
+  - bg: s05
+    text: |
+      Eu tinha deitado antes do sol nascer. E só acordei com o ronco da velha Kombi do meu pai chegando do trabalho — a mesma que vivia enguiçando.
+
+      _De dentro do banheiro eu já sentia o cheiro do almoço. Nossa, que fome!_
+
+  - bg: s07
+    text: |
+      **— Mãe, pai, vocês precisam ver! Uns aviões enormes, gente chique indo viajar... e eu trabalho no lugar mais bonito de todo o aeroporto!**
+
+      **— Olha só... o meu filho, no aeroporto internacional!**
+
+      **— Bonito é... mas come direito, que você tá com uma cara de sono!**
+
+      **— Tô ótimo, mãe! Só morrendo de fome!**
+
+  - bg: s09
+    text: |
+      Depois do almoço, escola. Meus últimos meses de ensino médio... e vinha aí a prova mais temida de todas: o **ENEM**.
+
+      Ele nasceu em **1998**. Pra um garoto da periferia como eu, era a única chance de uma faculdade pública ou de uma bolsa integral numa particular.
+
+  - bg: s11
+    text: |
+      **— E aí, Davi? Já sabe o que vai prestar?**
+
+      **— Eu? Tô mais perdido que cego em tiroteio!**
+
+      Mas isso... era preocupação pra depois.
+
+  - bg: s12
+    text: |
+      Jantei, estudei meia horinha...
+
+      _No canto do caderno, ainda tinha os corações daquela semana. Os olhos verdes estavam tão longe..._
+
+  - bg: s13
+    text: |
+      Um cochilo até as oito, o colete do meu pai... e pé no pedal. Aquele, de verdade, seria o meu primeiro dia de trabalho.
+
+  - bg: s15
+    text: |
+      **— Cada dupla na sua estação! Thiago, chapa. Davi... balcão, com a Eva.**
+
+      _Ruivinha, sardas no rosto... o meu primeiro dia ao lado dela._
+
+  - type: end
+    bg: s16
+    big: "A Eva."
+    text: |
+      **— Você é o novato? Então presta atenção, porque eu não vou repetir.**
+
+      **— S-sim, senhora!**
+
+      **— Senhora não. Eva.**
+
+      Romance à vista? Ah... vocês não fazem ideia.
+
+      E a noite estava só começando.
+    cta: "CONTINUA NO CAPÍTULO 17 · Salve e siga para não perder"
+
+  - type: question
+    bg: s17
+    kicker: "E VOCÊ?"
+    title: "Quem te deu medo no primeiro dia?"
+    text: |
+      Pra mim, foi uma ruivinha de um metro e sessenta.
+
+      _E pra você?_
+    cta: "RESPONDA NOS COMENTÁRIOS"
+
+# ----------------------------------------------------------------------------
+# TEASERS "alerta de spoiler" — `python main.py teaser ep16`
+teaser:
+  - id: t1
+    from: s05
+    zoom: 1.1
+    focus: [0.5, 0.40]
+    badge: "ALERTA DE SPOILER"
+    title: "Que barulho foi **esse?!**"
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Dormindo feito anjo... até que 💥
+      O que será que acordou o Davi desse jeito?
+
+      Chuta aqui nos comentários 👇
+      O próximo episódio chega essa semana. Ative o sininho! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #spoiler #historianarrada
+  - id: t2
+    from: s09
+    zoom: 1.0
+    focus: [0.5, 0.40]
+    badge: "ALERTA DE SPOILER"
+    title: "A prova **mais temida** de todas."
+    footer: "Não perca o próximo episódio!"
+    caption: |
+      🚨 ALERTA DE SPOILER 🚨
+
+      Últimos meses de escola... e ela vindo aí 😰📚
+      Você lembra do seu medo dessa prova?
+
+      Conta aqui nos comentários 👇
+      Próximo episódio essa semana! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #enem #novela #spoiler #historianarrada
+  - id: t3
+    style: poster
+    from: s01
+    zoom: 1.2
+    badge: "PRÓXIMO EPISÓDIO"
+    kicker: "EPISÓDIO 16"
+    title: "O Ronco da Kombi, a Prova Mais Temida e a Dupla da Noite"
+    footer: "Estreia no próximo episódio · não perca!"
+    caption: |
+      🎬 PRÓXIMO EPISÓDIO 🎬
+
+      Episódio 16: O Ronco da Kombi, a Prova Mais Temida e a Dupla da Noite 🌙
+
+      Já tem palpite do que vem por aí? Conta aqui nos comentários 👇
+      Ative o sininho e não perca a estreia! 🔔
+
+      📖 Baseado em fatos reais.
+
+      #dorama #kdrama #novela #proximoepisodio #historianarrada

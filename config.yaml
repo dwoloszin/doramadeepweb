@@ -206,6 +206,16 @@ voices:
     rate: "+8%"
     pitch: "+12Hz"
     volume: "+0%"
+  eva:                          # Eva, a treinadora ruiva (Ep. 16+): River (aprovada) mais seca/rapida p/ soar mandona.
+    # A tia (Ep. 9) tambem e River, mas so falou naquele ep. Trocar se o ouvido do autor pedir.
+    eleven: {voice_id: "SAz9YHcvj6GT2YYXdXww", name: "River", lang: "pt", stability: 0.35, similarity: 0.8, style: 0.0}
+    level_lufs: -18
+    tempo: 1.06
+    fx: ""
+    voice: "pt-BR-FranciscaNeural"
+    rate: "+6%"
+    pitch: "+0Hz"
+    volume: "+0%"
   clara:                        # Teacher Clara (fala em ingles)
     eleven: {voice_id: "pFZP5JQG7iQjIQuC4Bku", name: "Lily", lang: "en", stability: 0.5, similarity: 0.8, style: 0.0}
     level_lufs: -18
