@@ -1,4 +1,4 @@
-# Andamento do Dorama — 15/11/2026 18:52
+# Andamento do Dorama — 15/11/2026 21:53
 
 | Ep | Título | Roteiro | Imagens | Voz + vídeo | Aprovado | Data | Já saiu |
 |---|---|---|---|---|---|---|---|
