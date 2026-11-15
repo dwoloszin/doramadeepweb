@@ -17,7 +17,8 @@
 #              -> "hoje o restaurante diminuiu: essa vista ficou so na minha memoria"
 #    O BALCAO  "o paraiso" (cadeira!) — o Thiago -> o medo do Davi: o CAIXA
 #    AS CAMARAS uma resfriada, outra a -18 graus (o gerente brinca)
-#    GANCHO    a cozinha: o lugar que ninguem queria no turno da noite... "depois voces vao entender"
+#    GANCHO    a cozinha (ninguem queria no turno da noite) -> "amanha o treinamento... com a Eva"
+#    FIM       a Eva DE COSTAS (ruiva, 1,60 m; Davi 1,84 m): romance a vista... ou encrenca? (ela fala no Ep. 16)
 #
 #  ENRIQUECIMENTO: fatos checados — 1o celular do Brasil ativado em 1990 no Rio de Janeiro; Boeing 747
 #  ("Rainha dos Ceus", 1o voo em 1969) tem ~70 m de comprimento; congelados a -18 graus C.
@@ -42,6 +43,7 @@ days:
       davi: uniforme_trabalho
       gerente: uniforme
       colega: uniforme_trabalho
+      eva: uniforme_trabalho
 
 shots:
   # ---------------------------------------------------------------- O DORAMA (abertura magica)
@@ -139,23 +141,6 @@ shots:
     lines:
       - {who: gerente, text: "[Brazilian accent] [friendly] Esse armário é seu. [calmly] Traz um cadeado amanhã pra guardar as suas coisas, tá?", pause: 0.2}
       - {who: narrador, text: "[Brazilian accent] [laughs softly] Coisas? Celular, naquela época, era coisa de adulto com dinheiro! [playfully] Hoje as crianças já nascem assistindo vídeo no celular...", pause: 0.15}
-
-  - id: s07
-    day: noite
-    location: vestiario
-    cast: []
-    look: real
-    visual: >-
-      Nostalgic close-up: an old chunky early mobile phone with a pull-out
-      antenna and a tiny green monochrome screen (no readable text) lying on a
-      wooden bench next to a small brass padlock, warm light, like a museum
-      piece.
-    motion: push_in
-    transition: dissolve
-    sfx:
-      - {gen: "An old monophonic cell phone ringtone beeping briefly, nostalgic", at: 0.2, dur: 2, db: -10}
-    lines:
-      - {who: narrador, text: "[curious] Sabia que o primeiro celular do Brasil foi ligado em 1990, no Rio de Janeiro? [amused] Era um tijolão... e custava uma fortuna.", pause: 0.2}
 
   - id: s08
     day: noite
@@ -338,16 +323,43 @@ shots:
       - {gen: "A suspenseful rising string pulse, a grill sizzling behind closed doors", line: 0, dur: 12, db: -5}
     lines:
       - {who: narrador, text: "[Brazilian accent] [mysterious] E por fim... a cozinha. [slowly] O lugar que ninguém queria na escala da noite.", pause: 0.15}
-      - {who: narrador, text: "[suspenseful] Logo, logo vocês vão entender por quê.", pause: 0.45}
+      - {who: gerente, text: "[Brazilian accent] [playfully] Amanhã começa o seu treinamento, Davi... [mysterious] com a Eva.", pause: 0.3}
 
+  # ---------------------------------------------------------------- ENCERRAMENTO: a Eva (de costas)
   - id: s17
+    day: noite
+    location: cozinha_industrial
+    cast: [eva, davi]
+    look: real
+    visual: >-
+      Cinematic romantic-mystery shot in the gleaming kitchen, warm golden
+      glow and soft bokeh, a hint of slow motion. LEFT FOREGROUND: EVA seen
+      ONLY FROM BEHIND (face never visible), petite, in the red crew polo
+      and black visor, straight copper-red hair falling exactly to her
+      shoulders with a glowing golden rim light, working at the stainless
+      sandwich line under orange heat lamps. RIGHT MIDDLE GROUND, clearly
+      visible and in soft focus, about 3 meters behind her: DAVI (exactly as
+      in his reference: chubby, round face, fair skin, black visor, red
+      polo; much taller than her) standing in the open kitchen doorway,
+      frozen, staring at her, lips slightly parted, holding a tray that is
+      about to tilt. Tiny warm sparkles float in the steam between them.
+    motion: push_in
+    transition: dissolve
+    music: none
+    sfx:
+      - {gen: "A soft romantic music-box chime with a single slow heartbeat, kitchen sounds fading away", line: 0, dur: 9, db: -6}
+    lines:
+      - {who: narrador, text: "[Brazilian accent] [softly] Cabelo ruivo até o ombro... [mysterious] e um jeito que eu ainda não sabia decifrar.", pause: 0.2}
+      - {who: narrador, text: "[playfully] Um novo romance à vista? [suspenseful] Não perca o próximo episódio.", pause: 0.4}
+
+  - id: s18
     card: question
     bg: s09
     duration: 3.0
     lead: 0.3
     transition: fadeblack
     lines:
-      - {who: narrador, text: "[Brazilian accent] [curious] E você? Qual foi o lugar mais marcante do seu primeiro emprego? Conta aqui nos comentários.", pause: 0.4}
+      - {who: narrador, text: "[Brazilian accent] [curious] E aí... romance à vista ou encrenca? [playfully] Deixa o seu palpite nos comentários!", pause: 0.4}
 
 # ----------------------------------------------------------------------------
 cards:
@@ -357,8 +369,8 @@ cards:
     subtitle: "o Lugar Secreto da Chave e a Pista dos Sonhos"
   question:
     kicker: "E VOCÊ?"
-    title: "Qual lugar marcou o seu primeiro emprego?"
-    subtitle: "Conta pra gente nos comentários."
+    title: "Romance à vista... ou encrenca?"
+    subtitle: "Deixa o seu palpite nos comentários."
     footer: "Continua no Episódio 16"
 
 # ----------------------------------------------------------------------------
@@ -428,7 +440,7 @@ carousel:
 
       **— É por essa porta que chega a mercadoria, Davi. E logo, logo... quem vai carregar tudo isso pras câmaras é você.**
 
-  - bg: s07
+  - bg: s06
     text: |
       **— Esse armário é seu. Traz um cadeado amanhã pra guardar as suas coisas, tá?**
 
@@ -471,22 +483,26 @@ carousel:
       **— Aqui são as câmaras: uma resfriada... e essa, a dezoito graus abaixo de zero. Não fica muito tempo aí dentro, hein!**
 
   - type: end
-    bg: s16
+    bg: s17
     big: "A cozinha."
     text: |
       E por fim... a cozinha. O lugar que ninguém queria na escala da noite.
 
-      Logo, logo vocês vão entender por quê.
+      **— Amanhã começa o seu treinamento, Davi... com a Eva.**
+
+      Cabelo ruivo até o ombro... e um jeito que eu ainda não sabia decifrar.
+
+      _Um novo romance à vista?_
     cta: "CONTINUA NO CAPÍTULO 16 · Salve e siga para não perder"
 
   - type: question
     bg: s09
     kicker: "E VOCÊ?"
-    title: "Qual lugar marcou o seu primeiro emprego?"
+    title: "Romance à vista... ou encrenca?"
     text: |
-      Pra mim, foi um salão de vidro com a pista inteira do lado de fora.
+      A Eva ia ser a minha treinadora.
 
-      _E pra você?_
+      _Qual é o seu palpite?_
     cta: "RESPONDA NOS COMENTÁRIOS"
 
 # ----------------------------------------------------------------------------

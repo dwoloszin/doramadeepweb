@@ -1,0 +1,9 @@
+{
+  "fp": "377840aaf66d5bd3",
+  "model": "gemini-3.1-flash-image",
+  "prompt": "CHARACTER REFERENCE SHEET. Reference image(s) = the exact same person: copy the face, eyes, skin tone, hair and BODY TYPE (weight, belly, build) exactly. Ignore the clothes in the reference photos. Character: Eva, a Brazilian young woman of about 19: petite, 1.60 m tall (her head reaches only Davi's shoulder; Davi is 1.84 m), very fair skin with lots of freckles across her nose and cheeks, straight copper-RED hair cut just at shoulder length, green-grey eyes, a confident, slightly stern posture. Clearly a different person from every other character. Outfit (must be shown clearly, every detail): The same night-shift crew uniform: bright red short-sleeve polo with no logo, black visor cap with no logo (her red hair falling to the shoulders below it), black trousers, black non-slip shoes, a blank name badge (no readable text). Layout on a plain light-grey studio background, three views side by side: full body front view, full body three-quarter view, and a close-up of the face. Same person and same clothes in all three views. Photorealistic, even soft studio light. No text, no letters on patches or crests, no labels, no watermark.",
+  "refs": [
+    "_face.png"
+  ],
+  "locked": true
+}
