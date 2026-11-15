@@ -1,9 +1,9 @@
-# Andamento do Dorama — 14/11/2026 21:14
+# Andamento do Dorama — 15/11/2026 15:08
 
 | Ep | Título | Roteiro | Imagens | Voz + vídeo | Aprovado | Data | Já saiu |
 |---|---|---|---|---|---|---|---|
 | ep01 | O Garoto do Fundo da Sala e os Olhos Verdes | ✅ | ✅ | ✅ | ✅ | — | YouTube, Instagram |
-| ep02 | O Perfume das Frutas e a Madrugada Gelada | ✅ | ✅ | ✅ | ✅ | 2026-11-15 | YouTube |
+| ep02 | O Perfume das Frutas e a Madrugada Gelada | ✅ | ✅ | ✅ | ✅ | 2026-11-15 | YouTube, Instagram |
 | ep03 | Vinte Folhas de Sulfite e Uma Bicicleta | ✅ | ✅ | ✅ | ✅ | 2026-11-22 | YouTube |
 | ep04 | O Caos Antes da Chegada e o Impacto dos Olhos Verdes | ✅ | ✅ | ✅ | ✅ | 2026-11-29 | — |
 | ep05 | Ensaios no Espelho, o Quase Beijo e a Casa Vazia | ✅ | ✅ | ✅ | ✅ | 2026-12-06 | — |

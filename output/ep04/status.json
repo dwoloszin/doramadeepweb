@@ -1,5 +1,10 @@
 {
   "approved": true,
-  "published": {},
+  "published": {
+    "youtube_t1": "hLz1fI6O-4s",
+    "youtube_t1_publish_at": "2026-11-24T12:00:00-03:00",
+    "youtube_t2": "nvPnGawUJPM",
+    "youtube_t2_publish_at": "2026-11-26T12:00:00-03:00"
+  },
   "approved_at": "2026-11-13 19:27"
 }
