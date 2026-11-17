@@ -46,6 +46,10 @@ characters:
     name: "Davi"
     role: "protagonista e narrador (conta a historia ja adulto, em 1a pessoa)"
     # Rosto = foto-modelo do usuario (assets/characters/davi/modelo/, fase 17 anos).
+    # ARCO DO CORPO (pedido 17/11/2026): fase do aeroporto (~6 meses, 20 km de bike/dia) -> a cada ep
+    # a partir do ep18 o Davi fica um pouco mais magro, ate o "gala" (corpo bonito, NADA maromba).
+    # ep18 menos rechonchudo | ep19 sem papada | ep20 rosto fino, uniforme folgado | ep21-22 esguio e confiante.
+    # Ao mudar: ajustar `identity` abaixo + `python main.py refs davi --force` (frames antigos nao mudam).
     identity: >-
       Davi, a 17-year-old Brazilian boy (the exact person in the model photos).
       Fair skin with a light olive undertone, chubby with a soft round face,
