@@ -47,8 +47,14 @@ def tags(base: list) -> list:
 
 def tiktok(text: str) -> str:
     """TikTok funciona como buscador: palavras-chave NA legenda + hashtags extra so do TikTok."""
+    import re
     lead = _cfg("tiktok_lead", "")
     t = text or ""
+    m = re.search(r"Epis[oó]dio\s+(\d+)", t)
+    if lead and m:  # buscas reais: "ep 1 dorama" -> numero do episodio na frase de palavras-chave
+        lead = lead.replace("{ep}", m.group(1))
+    elif lead:  # sem numero (ex.: teaser): frase sem o "Ep N do"
+        lead = "📖 Dorama brasileiro baseado em história real."
     if lead:
         for old in ("📖 Baseado em fatos reais.", "📖 Baseado em fatos reais"):
             if old in t:
