@@ -183,15 +183,22 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
     checked = {"yt": False, "ig": False}
     yt_budget = 3   # cota da API: ~1600 unidades por envio (10 mil/dia) -> no maximo 3 por execucao
 
-    def guard(yt: bool = False, ig: bool = False) -> None:
+    def guard(yt: bool = False, ig: bool = False) -> bool:
+        """False = Instagram fora do ar (conta bloqueada/token recusado): pula SO o Instagram,
+        o resto (YouTube, render, painel) segue normal e tenta de novo no dia seguinte."""
         if dry:
-            return
+            return True
         if yt and not checked["yt"]:
             publish.guard_accounts(cfg, youtube=True, instagram=False)
             checked["yt"] = True
         if ig and not checked["ig"]:
-            publish.guard_accounts(cfg, youtube=False, instagram=True)
-            checked["ig"] = True
+            try:
+                publish.guard_accounts(cfg, youtube=False, instagram=True)
+                checked["ig"] = True
+            except Exception as exc:  # noqa: BLE001
+                checked["ig"] = "down"
+                print(f"  !! Instagram indisponivel — pulando Instagram hoje: {str(exc)[:200]}")
+        return not (ig and checked["ig"] == "down")
 
     # --- YouTube: tudo sobe ANTES, ja agendado (publishAt). Episodios + Shorts de teaser
     #     (ter/qui/sab), em ordem de data, ate `yt_budget` envios por execucao (cota da API).
@@ -258,8 +265,7 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
             todo = [k for k in ("instagram_reel", "instagram_carousel") if k not in pubs]
             if todo:
                 print(f"  {ep}: Instagram -> {' + '.join(todo)}")
-                if not dry:
-                    guard(ig=True)
+                if not dry and guard(ig=True):
                     media.pull(ep, ("video", "carousel"))
                     out = ROOT / "output" / ep
                     pub = (yaml.safe_load((ROOT / "story" / f"{ep}.yaml").read_text(encoding="utf-8")) or {}).get("publish", {})
@@ -284,7 +290,8 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
             print(f"  {ep}: teaser {tid} -> Instagram (feed + Story)")
             if dry:
                 continue
-            guard(ig=True)
+            if not guard(ig=True):
+                continue
             media.pull(ep, ("teaser",))
             tdir = ROOT / "output" / ep / "teaser"
             feed, story_img = tdir / f"{tid}_feed.png", tdir / f"{tid}_story.png"
