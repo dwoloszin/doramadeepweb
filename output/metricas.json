@@ -42,7 +42,19 @@
     119,
     4,
     0
+   ],
+   "2026-11-23T11:20": [
+    119,
+    4,
+    0
    ]
+  },
+  "analytics": {
+   "views": 118,
+   "retencao_pct": 72.98,
+   "dur_media_s": 131,
+   "compart": 0,
+   "inscritos": 1
   }
  },
  "oKDN-ZSip24": {
@@ -89,7 +101,19 @@
     82,
     3,
     0
+   ],
+   "2026-11-23T11:20": [
+    82,
+    3,
+    0
    ]
+  },
+  "analytics": {
+   "views": 81,
+   "retencao_pct": 32.45,
+   "dur_media_s": 58,
+   "compart": 0,
+   "inscritos": 0
   }
  },
  "YtJqWUTdr88": {
@@ -131,7 +155,19 @@
     63,
     3,
     0
+   ],
+   "2026-11-23T11:20": [
+    63,
+    3,
+    0
    ]
+  },
+  "analytics": {
+   "views": 62,
+   "retencao_pct": 89.18,
+   "dur_media_s": 8,
+   "compart": 0,
+   "inscritos": 0
   }
  },
  "EHRrOmxuF-c": {
@@ -178,6 +214,11 @@
     83,
     9,
     1
+   ],
+   "2026-11-23T11:20": [
+    83,
+    9,
+    1
    ]
   }
  },
@@ -220,7 +261,19 @@
     32,
     1,
     0
+   ],
+   "2026-11-23T11:20": [
+    32,
+    1,
+    0
    ]
+  },
+  "analytics": {
+   "views": 30,
+   "retencao_pct": 86.89,
+   "dur_media_s": 8,
+   "compart": 0,
+   "inscritos": 0
   }
  },
  "-WZPnhskPbU": {
@@ -262,7 +315,19 @@
     39,
     1,
     0
+   ],
+   "2026-11-23T11:20": [
+    39,
+    1,
+    0
    ]
+  },
+  "analytics": {
+   "views": 29,
+   "retencao_pct": 77.84,
+   "dur_media_s": 7,
+   "compart": 0,
+   "inscritos": 0
   }
  },
  "jPrYXt53OS8": {
@@ -301,6 +366,11 @@
   "live_at": "2026-11-21T12:00:00-03:00",
   "snaps": {
    "2026-11-23T11:17": [
+    38,
+    2,
+    0
+   ],
+   "2026-11-23T11:20": [
     38,
     2,
     0
@@ -595,5 +665,68 @@
    "#shorts"
   ],
   "live_at": "2026-12-06T12:00:00-03:00"
+ },
+ "_canal": {
+  "origem": [
+   [
+    "SHORTS",
+    250
+   ],
+   [
+    "YT_SEARCH",
+    36
+   ],
+   [
+    "YT_CHANNEL",
+    28
+   ],
+   [
+    "SUBSCRIBER",
+    4
+   ],
+   [
+    "NOTIFICATION",
+    2
+   ],
+   [
+    "NO_LINK_OTHER",
+    0
+   ],
+   [
+    "YT_OTHER_PAGE",
+    0
+   ]
+  ],
+  "buscas": [
+   [
+    "novela de fruta",
+    3
+   ],
+   [
+    "doramas de frutas",
+    2
+   ],
+   [
+    "novela das frutas completo",
+    2
+   ],
+   [
+    "novelas de fruta",
+    2
+   ],
+   [
+    "episodio 2",
+    1
+   ],
+   [
+    "fruta do pe",
+    1
+   ],
+   [
+    "novela da fruta",
+    1
+   ]
+  ],
+  "atualizado": "2026-11-23"
  }
 }

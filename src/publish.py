@@ -27,7 +27,8 @@ from .config import ROOT, Config
 IG_API = "https://graph.instagram.com/v21.0"       # token IGAA... (login do Instagram)
 FB_API = "https://graph.facebook.com/v21.0"        # token EAA... (Unified login / usuario do sistema)
 MEDIA_REPO = "doramadeepweb-media"
-SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
+SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/yt-analytics.readonly"]  # retencao/origem das views (metricas)
 
 
 # --------------------------------------------------------------------------

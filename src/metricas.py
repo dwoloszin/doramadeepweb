@@ -70,9 +70,34 @@ def snapshot(now: dt.datetime | None = None) -> dict:
             s = it["statistics"]
             rec.setdefault("snaps", {})[now.strftime("%Y-%m-%dT%H:%M")] = [
                 int(s.get("viewCount", 0)), int(s.get("likeCount", 0)), int(s.get("commentCount", 0))]
+    try:
+        _analytics(db, publish, now)
+    except Exception as exc:  # noqa: BLE001  (sem permissao de Analytics: segue so com o basico)
+        print(f"  [metricas] Analytics indisponivel: {str(exc)[:150]}")
     DB.parent.mkdir(parents=True, exist_ok=True)
     DB.write_text(json.dumps(db, indent=1, ensure_ascii=False), encoding="utf-8")
     return db
+
+
+def _analytics(db: dict, publish, now: dt.datetime) -> None:
+    """YouTube Analytics (atraso de ~2 dias): retencao, compartilhamentos, inscritos, origem e buscas."""
+    from googleapiclient.discovery import build
+    svc = publish._yt_service()
+    ya = build("youtubeAnalytics", "v2", credentials=svc._http.credentials)
+    q = dict(ids="channel==MINE", startDate="2026-11-01", endDate=now.strftime("%Y-%m-%d"))
+    r = ya.reports().query(**q, metrics="views,averageViewPercentage,averageViewDuration,shares,subscribersGained",
+                           dimensions="video", sort="-views", maxResults=200).execute()
+    for vid, views, pct, dur, shares, subs in r.get("rows", []):
+        if vid in db:
+            db[vid]["analytics"] = {"views": views, "retencao_pct": pct, "dur_media_s": dur,
+                                    "compart": shares, "inscritos": subs}
+    meta = db.setdefault("_canal", {})
+    r = ya.reports().query(**q, metrics="views", dimensions="insightTrafficSourceType", sort="-views").execute()
+    meta["origem"] = r.get("rows", [])
+    r = ya.reports().query(**q, metrics="views", dimensions="insightTrafficSourceDetail",
+                           filters="insightTrafficSourceType==YT_SEARCH", sort="-views", maxResults=25).execute()
+    meta["buscas"] = r.get("rows", [])
+    meta["atualizado"] = now.strftime("%Y-%m-%d")
 
 
 def _age_days(live: str, when: str) -> float:
@@ -100,6 +125,8 @@ def report() -> Path:
     db = _load()
     rows = []
     for v, r in db.items():
+        if v.startswith("_"):
+            continue
         snaps = r.get("snaps") or {}
         if not snaps:
             continue
@@ -133,7 +160,23 @@ def report() -> Path:
         md.append(f"| {ts} | {kind} | {n} | {avg[0]:.0f} | {avg[1]:.1f} | {avg[2]:.1f} | {pc(_eng(avg))} |")
     if not groups:
         md.append("| (ainda sem vídeos com 3 dias de fotos) | | | | | | |")
-    md += ["", "_Retenção (quanto do vídeo assistem), compartilhamentos, inscritos ganhos e de qual busca/hashtag "
-           "veio cada view só chegam com a API de Analytics (precisa autorizar 1 vez)._"]
+    md += ["", "## Retenção e crescimento (YouTube Analytics, atraso de ~2 dias)", "",
+           "_Retenção = % média do vídeo que a pessoa assiste (no Shorts é o que mais pesa no algoritmo)._", "",
+           "| Ep | Tipo | Views | Retenção | Tempo médio | Compart. | Inscritos ganhos |", "|---|---|---|---|---|---|---|"]
+    for v, r in sorted(((v, r) for v, r in db.items() if not v.startswith("_") and r.get("analytics")),
+                       key=lambda x: (x[1]["ep"], x[1]["kind"])):
+        a = r["analytics"]
+        md.append(f"| {r['ep']} | {r['kind']} | {a['views']} | {a['retencao_pct']:.0f}% | {a['dur_media_s']}s | "
+                  f"{a['compart']} | {a['inscritos']} |")
+    canal = db.get("_canal") or {}
+    nomes = {"SHORTS": "feed do Shorts", "YT_SEARCH": "busca do YouTube", "YT_CHANNEL": "página do canal",
+             "SUBSCRIBER": "inscritos", "NOTIFICATION": "notificações", "PLAYLIST": "playlist",
+             "HASHTAGS": "páginas de hashtag", "EXT_URL": "links externos", "RELATED_VIDEO": "vídeos sugeridos"}
+    if canal.get("origem"):
+        md += ["", "## De onde vêm as views (canal todo)", ""]
+        md += [f"- {nomes.get(k, k)}: {n}" for k, n in canal["origem"] if n]
+    if canal.get("buscas"):
+        md += ["", "## O que as pessoas buscaram para chegar aqui", ""]
+        md += [f"- \"{k}\": {n}" for k, n in canal["buscas"]]
     REPORT.write_text(chr(10).join(md) + chr(10), encoding="utf-8")
     return REPORT
