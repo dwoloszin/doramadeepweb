@@ -149,6 +149,13 @@ def run(*, dry: bool = False, now: dt.datetime | None = None, render: bool = Tru
         _publish(dry=dry, now=now)
     if render:  # depois de publicar: render demora e nao pode atrasar o horario
         render_missing(dry)
+    if not dry:
+        try:  # foto diaria dos numeros do YouTube (output/METRICAS.md)
+            from . import metricas
+            metricas.snapshot()
+            print("  metricas:", metricas.report())
+        except Exception as exc:  # noqa: BLE001
+            print(f"  metricas falharam: {exc}")
     try:  # painel de andamento (output/STATUS.md)
         from . import painel
         print("  painel:", painel.build())

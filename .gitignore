@@ -13,6 +13,8 @@ output/*
 !output/voz_uso.json
 !output/STATUS.md
 !output/youtube_playlist.json
+!output/metricas.json
+!output/METRICAS.md
 !output/ep*/
 output/ep*/*
 !output/ep*/status.json
