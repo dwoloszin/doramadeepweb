@@ -43,6 +43,18 @@ def quando(ep_id: str, key: str) -> str:
     return f"{DIAS[d.weekday()]} {d:%d/%m/%Y} {hora}"
 
 
+def _tiktok_txt(ep: str, cap: str, hashtags) -> None:
+    """Mantem output/epNN/tiktok.txt em dia (data + hashtags atuais do config) — roda todo dia."""
+    if not cap:
+        return
+    f = ROOT / "output" / ep / "tiktok.txt"
+    nl = chr(10)
+    txt = f"===== POSTAR: {quando(ep, 'episode')} — arquivo: {ep}.mp4 =====" + nl + hashtags.add(cap.strip()) + nl
+    new = txt.replace(nl, chr(13) + nl).encode("utf-8")
+    if f.parent.exists() and (not f.exists() or f.read_bytes() != new):
+        f.write_bytes(new)
+
+
 def calendario() -> Path:
     from . import hashtags
     """output/CALENDARIO_TIKTOK.txt: cada dia, o que postar, qual arquivo e o texto."""
@@ -56,6 +68,7 @@ def calendario() -> Path:
         ds = datas(ep)
         items.append((ds["episode"], 1, ep, "VIDEO", f"output/{ep}/{ep}.mp4",
                       hashtags.add((data.get("publish") or {}).get("tiktok_caption", ""))))
+        _tiktok_txt(ep, (data.get("publish") or {}).get("tiktok_caption", ""), hashtags)
         for t in data.get("teaser") or []:
             if t["id"] in ds:
                 kind = "CARTAZ" if t.get("style") == "poster" else "TEASER"
