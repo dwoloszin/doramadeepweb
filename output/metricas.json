@@ -47,6 +47,11 @@
     119,
     4,
     0
+   ],
+   "2026-11-23T15:00": [
+    126,
+    4,
+    0
    ]
   },
   "analytics": {
@@ -106,6 +111,11 @@
     82,
     3,
     0
+   ],
+   "2026-11-23T15:00": [
+    87,
+    3,
+    0
    ]
   },
   "analytics": {
@@ -158,6 +168,11 @@
    ],
    "2026-11-23T11:20": [
     63,
+    3,
+    0
+   ],
+   "2026-11-23T15:00": [
+    64,
     3,
     0
    ]
@@ -219,6 +234,11 @@
     83,
     9,
     1
+   ],
+   "2026-11-23T15:00": [
+    100,
+    9,
+    1
    ]
   }
  },
@@ -263,6 +283,11 @@
     0
    ],
    "2026-11-23T11:20": [
+    32,
+    1,
+    0
+   ],
+   "2026-11-23T15:00": [
     32,
     1,
     0
@@ -320,6 +345,11 @@
     39,
     1,
     0
+   ],
+   "2026-11-23T15:00": [
+    39,
+    1,
+    0
    ]
   },
   "analytics": {
@@ -374,13 +404,18 @@
     38,
     2,
     0
+   ],
+   "2026-11-23T15:00": [
+    50,
+    2,
+    0
    ]
   }
  },
  "hLz1fI6O-4s": {
   "ep": "ep04",
   "kind": "t1",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "🚨 Alerta de spoiler — Ep. 4: O que será que o Davi acabou de ver? #shorts",
   "tags": [
    "audiobook",
@@ -388,9 +423,14 @@
    "dorama",
    "dorama brasileiro",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "periferia de sao paulo",
    "prima",
@@ -407,6 +447,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#shorts",
    "#spoiler"
   ],
@@ -415,7 +457,7 @@
  "nvPnGawUJPM": {
   "ep": "ep04",
   "kind": "t2",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "🚨 Alerta de spoiler — Ep. 4: Alguém está chegando... e o coração do Davi já sabe. #shorts",
   "tags": [
    "audiobook",
@@ -423,9 +465,14 @@
    "dorama",
    "dorama brasileiro",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "periferia de sao paulo",
    "prima",
@@ -442,6 +489,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#shorts",
    "#spoiler"
   ],
@@ -450,7 +499,7 @@
  "eteNadRkfP8": {
   "ep": "ep04",
   "kind": "t3",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "🎬 Próximo episódio — Ep. 4: O Caos Antes da Chegada e o Impacto dos Olhos Verdes #shorts",
   "tags": [
    "audiobook",
@@ -458,9 +507,14 @@
    "dorama",
    "dorama brasileiro",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "periferia de sao paulo",
    "prima",
@@ -477,6 +531,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#proximoepisodio",
    "#shorts"
   ],
@@ -485,7 +541,7 @@
  "letu6d9Lzpk": {
   "ep": "ep04",
   "kind": "episodio",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "Ep. 4 — O Impacto dos Olhos Verdes 💚 #dorama #novela",
   "tags": [
    "audiobook",
@@ -494,9 +550,14 @@
    "dorama brasileiro",
    "dorama da deep web",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "periferia de sao paulo",
    "prima",
@@ -515,6 +576,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#olhosverdes",
    "#primeiroamor",
    "#shorts"
@@ -524,7 +587,7 @@
  "NbQhDVhlZ3c": {
   "ep": "ep05",
   "kind": "t1",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "🚨 Alerta de spoiler — Ep. 5: O que será que aconteceu nesse corredor? #shorts",
   "tags": [
    "BV",
@@ -533,9 +596,14 @@
    "dorama",
    "dorama brasileiro",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "primeiro amor",
    "primeiro beijo",
@@ -551,6 +619,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#shorts",
    "#spoiler"
   ],
@@ -559,7 +629,7 @@
  "1K5XnI6K-wM": {
   "ep": "ep05",
   "kind": "t2",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "🚨 Alerta de spoiler — Ep. 5: Ensaiou no espelho... mas vai ter coragem? #shorts",
   "tags": [
    "BV",
@@ -568,9 +638,14 @@
    "dorama",
    "dorama brasileiro",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "primeiro amor",
    "primeiro beijo",
@@ -586,6 +661,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#shorts",
    "#spoiler"
   ],
@@ -594,7 +671,7 @@
  "O2liReYuQTU": {
   "ep": "ep05",
   "kind": "t3",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "🎬 Próximo episódio — Ep. 5: Ensaios no Espelho, o Quase Beijo e a Casa Vazia #shorts",
   "tags": [
    "BV",
@@ -603,9 +680,14 @@
    "dorama",
    "dorama brasileiro",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "primeiro amor",
    "primeiro beijo",
@@ -621,6 +703,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#proximoepisodio",
    "#shorts"
   ],
@@ -629,7 +713,7 @@
  "IzWv8l8iWlg": {
   "ep": "ep05",
   "kind": "episodio",
-  "tagset": "base",
+  "tagset": "frutas",
   "title": "Ep. 5 — Ensaios no Espelho 💚 #dorama #novela",
   "tags": [
    "BV",
@@ -639,9 +723,14 @@
    "dorama brasileiro",
    "dorama da deep web",
    "doramas",
+   "doramas de frutas",
+   "frutinovela",
    "historia narrada",
    "kdrama",
    "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
    "olhos verdes",
    "periferia de sao paulo",
    "primeiro amor",
@@ -659,6 +748,8 @@
    "#historianarrada",
    "#kdrama",
    "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
    "#olhosverdes",
    "#primeiroamor",
    "#primeirobeijo",
