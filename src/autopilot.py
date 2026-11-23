@@ -238,6 +238,12 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
             pubs["youtube"] = publish.youtube_upload(cfg, out / meta["video"], meta, out / meta["srt"], when=when)
             pubs["youtube_publish_at"] = when.isoformat()
         publish.save_status(ep, st)
+        if not tid:  # episodio novo -> entra na playlist "todos os episodios em ordem"
+            try:
+                from . import playlist
+                playlist.sync(cfg)
+            except Exception as exc:  # noqa: BLE001  (nunca trava a publicacao)
+                print(f"    playlist falhou: {exc}")
 
     for ep, day in sorted(dates.items(), key=lambda kv: kv[1]):
         st = publish.load_status(ep)

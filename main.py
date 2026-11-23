@@ -32,7 +32,7 @@ def main() -> None:
         except Exception:  # noqa: BLE001
             pass
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["voices", "check", "refs", "frames", "video", "carousel", "teaser", "all", "autopilot", "tiktok", "roteiro", "media-push", "media-pull", "approve", "unapprove", "publish", "status"])
+    ap.add_argument("cmd", choices=["voices", "check", "refs", "frames", "video", "carousel", "teaser", "all", "autopilot", "tiktok", "roteiro", "media-push", "media-pull", "approve", "unapprove", "publish", "status", "playlist"])
     ap.add_argument("ep", nargs="?")
     ap.add_argument("ids", nargs="*", help="cenas (frames) ou personagem/lugar (refs)")
     ap.add_argument("--force", action="store_true", help="refaz mesmo com cache/trava")
@@ -66,6 +66,11 @@ def main() -> None:
     if a.cmd == "autopilot":
         from src import autopilot
         autopilot.run(dry=a.dry, render=not a.no_render, publish_today=not a.render_only)
+        return
+    if a.cmd == "playlist":  # playlist do YouTube com todos os episodios em ordem
+        from src import playlist
+        pid = playlist.sync()
+        print(f"  -> https://www.youtube.com/playlist?list={pid}")
         return
     if a.cmd == "status":  # painel de andamento: output/STATUS.md
         from src import painel

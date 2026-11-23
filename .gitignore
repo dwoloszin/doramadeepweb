@@ -12,6 +12,7 @@ output/*
 !output/CALENDARIO_TIKTOK.txt
 !output/voz_uso.json
 !output/STATUS.md
+!output/youtube_playlist.json
 !output/ep*/
 output/ep*/*
 !output/ep*/status.json
