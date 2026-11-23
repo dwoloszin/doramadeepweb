@@ -265,6 +265,9 @@ hashtags:
   tagset: frutas            # nome do teste (comparado com "base" em output/METRICAS.md)
   extra_hashtags: ["#novelasdefrutas", "#novelasdasfrutas"]
   extra_tags: [novela de frutas, novela das frutas, novelas de frutas, doramas de frutas, frutinovela]
+  # TikTok = buscador: palavras-chave na propria legenda (troca a linha "📖 Baseado em fatos reais.")
+  tiktok_lead: "📖 Dorama brasileiro baseado em história real."
+  tiktok_extra_hashtags: ["#doramabrasileiro"]
 
 instagram:
   enabled: true

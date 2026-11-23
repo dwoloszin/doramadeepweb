@@ -43,3 +43,21 @@ def tags(base: list) -> list:
     while out and len(",".join(out)) > 480:   # limite do YouTube (~500 caracteres)
         out.pop(-1 - len(_cfg("extra_tags", [])) if len(out) > len(_cfg("extra_tags", [])) else -1)
     return out
+
+
+def tiktok(text: str) -> str:
+    """TikTok funciona como buscador: palavras-chave NA legenda + hashtags extra so do TikTok."""
+    lead = _cfg("tiktok_lead", "")
+    t = text or ""
+    if lead:
+        for old in ("📖 Baseado em fatos reais.", "📖 Baseado em fatos reais"):
+            if old in t:
+                t = t.replace(old, lead, 1)
+                break
+    t = add(t)
+    extra = [h for h in _cfg("tiktok_extra_hashtags", []) if h.lower() not in t.lower()]
+    if extra:
+        lines = t.rstrip().split("\n")
+        lines[-1] = lines[-1].rstrip() + " " + " ".join(extra)
+        t = "\n".join(lines)
+    return t

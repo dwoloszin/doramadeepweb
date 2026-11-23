@@ -427,7 +427,7 @@ def publish(cfg: Config, ep_id: str, *, youtube: bool, instagram: bool, yes: boo
             if pub.get("instagram_caption") and (out / "carousel").exists():
                 (out / "carousel" / "caption.txt").write_text(hashtags.add(pub["instagram_caption"]), encoding="utf-8")
             if pub.get("tiktok_caption"):  # TikTok e manual: texto pronto para colar
-                (out / "tiktok.txt").write_text(hashtags.add(pub["tiktok_caption"].strip()) + "\n", encoding="utf-8")
+                (out / "tiktok.txt").write_text(hashtags.tiktok(pub["tiktok_caption"].strip()) + "\n", encoding="utf-8")
                 print(f"  [tiktok] legenda pronta em output/{ep_id}/tiktok.txt (envio manual)")
     st = load_status(ep_id)
     video, srt = out / meta["video"], out / meta["srt"]
