@@ -43,7 +43,7 @@ def _videos() -> dict[str, dict]:
             if not (m and v):
                 continue
             kind = m.group(1) or "episodio"
-            tagset = pub.get("tagset" if kind == "episodio" else "teaser_tagset") or pub.get("tagset") or "base"
+            tagset = pubs.get(f"{k}_tagset") or "base"
             out[v] = {"ep": ep, "kind": kind, "live_at": pubs.get(f"{k}_publish_at"), "tagset": tagset}
     return out
 

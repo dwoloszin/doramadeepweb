@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from . import media, publish
+from . import hashtags, media, publish
 from .config import ROOT, load_config
 
 SCHED = ROOT / "schedule.yaml"
@@ -240,6 +240,7 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
                 meta = {"publish": teaser_short.yt_publish(episode(ep), _teaser_item(ep, tid))}
                 pubs[f"youtube_{tid}"] = publish.youtube_upload(cfg, video, meta, None, when=when)
                 pubs[f"youtube_{tid}_publish_at"] = when.isoformat()
+                pubs[f"youtube_{tid}_tagset"] = hashtags.tagset()
             except Exception as exc:  # noqa: BLE001
                 print(f"    Short do teaser {ep} {tid} falhou: {exc}")
                 continue
@@ -251,6 +252,7 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
                 meta["publish"] = pub
             pubs["youtube"] = publish.youtube_upload(cfg, out / meta["video"], meta, out / meta["srt"], when=when)
             pubs["youtube_publish_at"] = when.isoformat()
+            pubs["youtube_tagset"] = hashtags.tagset()
         publish.save_status(ep, st)
         if not tid:  # episodio novo -> entra na playlist "todos os episodios em ordem"
             try:
@@ -276,7 +278,7 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
                     media.pull(ep, ("video", "carousel"))
                     out = ROOT / "output" / ep
                     pub = (yaml.safe_load((ROOT / "story" / f"{ep}.yaml").read_text(encoding="utf-8")) or {}).get("publish", {})
-                    cap = pub.get("instagram_caption", "")
+                    cap = hashtags.add(pub.get("instagram_caption", ""))
                     if "instagram_reel" in todo:
                         pubs["instagram_reel"] = publish.instagram_reel(out / f"{ep}.mp4", cap)
                         publish.save_status(ep, st)
@@ -305,7 +307,7 @@ def _publish(*, dry: bool, now: dt.datetime | None) -> None:
             if not feed.exists():
                 print(f"    {feed} ausente — pulei")
                 continue
-            pubs[key] = publish.instagram_image(feed, (item.get("caption") or "").strip())
+            pubs[key] = publish.instagram_image(feed, hashtags.add((item.get("caption") or "").strip()))
             publish.save_status(ep, st)
             if story_img.exists():
                 try:

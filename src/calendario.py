@@ -44,6 +44,7 @@ def quando(ep_id: str, key: str) -> str:
 
 
 def calendario() -> Path:
+    from . import hashtags
     """output/CALENDARIO_TIKTOK.txt: cada dia, o que postar, qual arquivo e o texto."""
     s = _sched()
     items = []
@@ -54,13 +55,13 @@ def calendario() -> Path:
         data = yaml.safe_load(y.read_text(encoding="utf-8")) or {}
         ds = datas(ep)
         items.append((ds["episode"], 1, ep, "VIDEO", f"output/{ep}/{ep}.mp4",
-                      (data.get("publish") or {}).get("tiktok_caption", "")))
+                      hashtags.add((data.get("publish") or {}).get("tiktok_caption", ""))))
         for t in data.get("teaser") or []:
             if t["id"] in ds:
                 kind = "CARTAZ" if t.get("style") == "poster" else "TEASER"
                 items.append((ds[t["id"]], 0, ep, f"{kind} {t['id']}",
                               f"output/{ep}/teaser/{t['id']}_short.mp4  (video com voz; ou a foto {t['id']}_story.png)",
-                              t.get("caption", "")))
+                              hashtags.add(t.get("caption", ""))))
     hoje = dt.date.today()
     hora = str(s.get("time", "12:00")).replace(":00", "h")
     lines = ["CALENDARIO DO TIKTOK — mesmas datas do YouTube e do Instagram (schedule.yaml)",

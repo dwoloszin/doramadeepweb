@@ -259,6 +259,13 @@ youtube:
   category_id: "24"         # Entertainment
   synthetic_media: true     # imagens de IA -> obrigatorio marcar
 
+# Hashtags EXTRA (teste de alcance) — SOMAM as de cada episodio, nunca tiram o basico.
+# Buscas reais que trouxeram gente ao canal (Analytics, 23/11/2026): "novela de fruta", "doramas de frutas"...
+hashtags:
+  tagset: frutas            # nome do teste (comparado com "base" em output/METRICAS.md)
+  extra_hashtags: ["#novelasdefrutas", "#novelasdasfrutas"]
+  extra_tags: [novela de frutas, novela das frutas, novelas de frutas, doramas de frutas, frutinovela]
+
 instagram:
   enabled: true
   username: "doramadadeepweb"   # publish recusa se o token for de outro perfil

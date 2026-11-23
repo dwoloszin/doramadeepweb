@@ -22,6 +22,7 @@ from pathlib import Path
 
 import requests
 
+from . import hashtags
 from .config import ROOT, Config
 
 IG_API = "https://graph.instagram.com/v21.0"       # token IGAA... (login do Instagram)
@@ -102,8 +103,8 @@ def youtube_upload(cfg: Config, video: Path, meta: dict, srt: Path | None, when=
     pub = meta["publish"]
     from . import playlist
     body = {
-        "snippet": {"title": pub["title"][:100], "description": playlist.with_link(pub.get("description", ""))[:4900],
-                    "tags": pub.get("tags", []), "categoryId": str(cfg.get("youtube.category_id", "24")),
+        "snippet": {"title": pub["title"][:100], "description": hashtags.add(playlist.with_link(pub.get("description", "")))[:4900],
+                    "tags": hashtags.tags(pub.get("tags", [])), "categoryId": str(cfg.get("youtube.category_id", "24")),
                     "defaultLanguage": "pt-BR", "defaultAudioLanguage": "pt-BR"},
         "status": {"privacyStatus": cfg.get("youtube.privacy", "private"),
                    "selfDeclaredMadeForKids": False,
@@ -424,9 +425,9 @@ def publish(cfg: Config, ep_id: str, *, youtube: bool, instagram: bool, yes: boo
         if pub:
             meta["publish"] = pub
             if pub.get("instagram_caption") and (out / "carousel").exists():
-                (out / "carousel" / "caption.txt").write_text(pub["instagram_caption"], encoding="utf-8")
+                (out / "carousel" / "caption.txt").write_text(hashtags.add(pub["instagram_caption"]), encoding="utf-8")
             if pub.get("tiktok_caption"):  # TikTok e manual: texto pronto para colar
-                (out / "tiktok.txt").write_text(pub["tiktok_caption"].strip() + "\n", encoding="utf-8")
+                (out / "tiktok.txt").write_text(hashtags.add(pub["tiktok_caption"].strip()) + "\n", encoding="utf-8")
                 print(f"  [tiktok] legenda pronta em output/{ep_id}/tiktok.txt (envio manual)")
     st = load_status(ep_id)
     video, srt = out / meta["video"], out / meta["srt"]

@@ -8,7 +8,11 @@
     "youtube_t3": "O2liReYuQTU",
     "youtube_t3_publish_at": "2026-12-05T12:00:00-03:00",
     "youtube": "IzWv8l8iWlg",
-    "youtube_publish_at": "2026-12-06T12:00:00-03:00"
+    "youtube_publish_at": "2026-12-06T12:00:00-03:00",
+    "youtube_t1_tagset": "frutas",
+    "youtube_t2_tagset": "frutas",
+    "youtube_t3_tagset": "frutas",
+    "youtube_tagset": "frutas"
   },
   "approved_at": "2026-11-13 19:27"
 }
