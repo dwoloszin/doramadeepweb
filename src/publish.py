@@ -99,8 +99,9 @@ def youtube_upload(cfg: Config, video: Path, meta: dict, srt: Path | None, when=
     from googleapiclient.http import MediaFileUpload
     svc = _yt_service()
     pub = meta["publish"]
+    from . import playlist
     body = {
-        "snippet": {"title": pub["title"][:100], "description": pub.get("description", "")[:4900],
+        "snippet": {"title": pub["title"][:100], "description": playlist.with_link(pub.get("description", ""))[:4900],
                     "tags": pub.get("tags", []), "categoryId": str(cfg.get("youtube.category_id", "24")),
                     "defaultLanguage": "pt-BR", "defaultAudioLanguage": "pt-BR"},
         "status": {"privacyStatus": cfg.get("youtube.privacy", "private"),

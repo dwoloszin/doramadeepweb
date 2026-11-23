@@ -96,3 +96,43 @@ def sync(cfg: Config | None = None, dry: bool = False) -> str | None:
         have.append(vid)
         print(f"  [playlist] + {ep}")
     return pid
+
+
+def url() -> str | None:
+    pid = _state().get("id")
+    return f"https://www.youtube.com/playlist?list={pid}" if pid else None
+
+
+def with_link(desc: str) -> str:
+    """Poe a chamada da playlist logo apos o 1o paragrafo (aparece sem clicar em 'mais')."""
+    u = url()
+    if not u or u in (desc or ""):
+        return desc
+    line = f"📺 Perdeu algum capítulo? Reveja toda a história desde o começo, em ordem: {u}"
+    head, sep, rest = (desc or "").partition("\n\n")
+    return f"{head}\n\n{line}" + (f"\n\n{rest}" if sep else "")
+
+
+def update_existing(dry: bool = False) -> int:
+    """Coloca a chamada da playlist na descricao dos videos JA enviados (episodios + teasers)."""
+    from . import publish
+    ids = []
+    for st in sorted((ROOT / "output").glob("ep*/status.json")):
+        pubs = json.loads(st.read_text(encoding="utf-8")).get("published") or {}
+        ids += [v for k, v in pubs.items() if re.fullmatch(r"youtube(_t\d+)?", k) and v]
+    svc, n = publish._yt_service(), 0
+    for i in range(0, len(ids), 50):
+        for it in svc.videos().list(part="snippet", id=",".join(ids[i:i + 50])).execute().get("items", []):
+            sn = it["snippet"]
+            new = with_link(sn.get("description", ""))
+            if new == sn.get("description", ""):
+                continue
+            print(f"  [playlist] descricao: {sn['title'][:60]}")
+            if not dry:
+                body = {"id": it["id"], "snippet": {k: sn[k] for k in
+                        ("title", "description", "categoryId", "tags", "defaultLanguage", "defaultAudioLanguage")
+                        if k in sn}}
+                body["snippet"]["description"] = new
+                svc.videos().update(part="snippet", body=body).execute()
+            n += 1
+    return n
