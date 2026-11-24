@@ -52,12 +52,17 @@
     126,
     4,
     0
+   ],
+   "2026-11-24T15:00": [
+    130,
+    5,
+    1
    ]
   },
   "analytics": {
-   "views": 118,
-   "retencao_pct": 72.98,
-   "dur_media_s": 131,
+   "views": 119,
+   "retencao_pct": 72.03,
+   "dur_media_s": 129,
    "compart": 0,
    "inscritos": 1
   }
@@ -116,10 +121,15 @@
     87,
     3,
     0
+   ],
+   "2026-11-24T15:00": [
+    92,
+    4,
+    0
    ]
   },
   "analytics": {
-   "views": 81,
+   "views": 82,
    "retencao_pct": 32.45,
    "dur_media_s": 58,
    "compart": 0,
@@ -175,10 +185,15 @@
     64,
     3,
     0
+   ],
+   "2026-11-24T15:00": [
+    64,
+    3,
+    0
    ]
   },
   "analytics": {
-   "views": 62,
+   "views": 63,
    "retencao_pct": 89.18,
    "dur_media_s": 8,
    "compart": 0,
@@ -239,6 +254,11 @@
     100,
     9,
     1
+   ],
+   "2026-11-24T15:00": [
+    108,
+    10,
+    1
    ]
   }
  },
@@ -291,10 +311,15 @@
     32,
     1,
     0
+   ],
+   "2026-11-24T15:00": [
+    32,
+    1,
+    0
    ]
   },
   "analytics": {
-   "views": 30,
+   "views": 31,
    "retencao_pct": 86.89,
    "dur_media_s": 8,
    "compart": 0,
@@ -350,12 +375,17 @@
     39,
     1,
     0
+   ],
+   "2026-11-24T15:00": [
+    39,
+    1,
+    0
    ]
   },
   "analytics": {
-   "views": 29,
-   "retencao_pct": 77.84,
-   "dur_media_s": 7,
+   "views": 38,
+   "retencao_pct": 93.14,
+   "dur_media_s": 9,
    "compart": 0,
    "inscritos": 0
   }
@@ -409,7 +439,19 @@
     50,
     2,
     0
+   ],
+   "2026-11-24T15:00": [
+    53,
+    2,
+    0
    ]
+  },
+  "analytics": {
+   "views": 37,
+   "retencao_pct": 120.30000000000001,
+   "dur_media_s": 10,
+   "compart": 0,
+   "inscritos": 0
   }
  },
  "hLz1fI6O-4s": {
@@ -452,7 +494,14 @@
    "#shorts",
    "#spoiler"
   ],
-  "live_at": "2026-11-24T12:00:00-03:00"
+  "live_at": "2026-11-24T12:00:00-03:00",
+  "snaps": {
+   "2026-11-24T15:00": [
+    0,
+    0,
+    0
+   ]
+  }
  },
  "nvPnGawUJPM": {
   "ep": "ep04",
@@ -761,19 +810,19 @@
   "origem": [
    [
     "SHORTS",
-    250
+    289
    ],
    [
     "YT_SEARCH",
-    36
+    37
    ],
    [
     "YT_CHANNEL",
-    28
+    36
    ],
    [
     "SUBSCRIBER",
-    4
+    6
    ],
    [
     "NOTIFICATION",
@@ -816,8 +865,54 @@
    [
     "novela da fruta",
     1
+   ],
+   [
+    "novelas brasileiras capitulos completos",
+    1
    ]
   ],
-  "atualizado": "2026-11-23"
+  "atualizado": "2026-11-24"
+ },
+ "Nncd0JovDIM": {
+  "ep": "ep06",
+  "kind": "t1",
+  "tagset": "frutas",
+  "title": "🚨 Alerta de spoiler — Ep. 6: O que será que tem nesse papel? #shorts",
+  "tags": [
+   "audiobook",
+   "bilhete",
+   "carta de despedida",
+   "crush",
+   "declaracao",
+   "dorama",
+   "dorama brasileiro",
+   "doramas",
+   "doramas de frutas",
+   "frutinovela",
+   "historia narrada",
+   "kdrama",
+   "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
+   "olhos verdes",
+   "primeiro amor",
+   "proximo episodio",
+   "spoiler",
+   "teaser",
+   "timidez",
+   "web novela"
+  ],
+  "hashtags": [
+   "#dorama",
+   "#historianarrada",
+   "#kdrama",
+   "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
+   "#shorts",
+   "#spoiler"
+  ],
+  "live_at": "2026-12-08T12:00:00-03:00"
  }
 }

@@ -1,22 +1,23 @@
 # Desempenho no YouTube (considerando o tempo no ar)
 
-_Atualizado: 23/11/2026 15:00. Para comparar vídeos de idades diferentes use as colunas D1/D3/D7 (números com 1, 3 e 7 dias no ar; — = sem foto naquela idade) ou as taxas por dia. Engajamento = (likes + comentários) ÷ views._
+_Atualizado: 24/11/2026 15:00. Para comparar vídeos de idades diferentes use as colunas D1/D3/D7 (números com 1, 3 e 7 dias no ar; — = sem foto naquela idade) ou as taxas por dia. Engajamento = (likes + comentários) ÷ views._
 
 | Ep | Tipo | Hashtags | No ar | Views | Likes | Coment. | Views/dia | Likes/dia | Engaj. | Views D1/D3/D7 | Likes D1/D3/D7 | Engaj. D3 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ep01 | episodio | base | 11.0 d | 126 | 4 | 0 | 11 | 0.4 | 3.2% | — / — / — | — / — / — | — |
-| ep02 | episodio | base | 8.0 d | 87 | 3 | 0 | 11 | 0.4 | 3.4% | — / — / 82 | — / — / 3 | — |
-| ep02 | t3 | base | 8.8 d | 64 | 3 | 0 | 7 | 0.3 | 4.7% | — / — / — | — / — / — | — |
-| ep03 | episodio | base | 1.0 d | 100 | 9 | 1 | 100 | 9.0 | 10.0% | 100 / — / — | 9 / — / — | — |
-| ep03 | t1 | base | 6.0 d | 32 | 1 | 0 | 5 | 0.2 | 3.1% | — / — / — | — / — / — | — |
-| ep03 | t2 | base | 4.0 d | 39 | 1 | 0 | 10 | 0.2 | 2.6% | — / 39 / — | — / 1 / — | 2.6% |
-| ep03 | t3 | base | 2.0 d | 50 | 2 | 0 | 25 | 1.0 | 4.0% | 38 / — / — | 2 / — / — | — |
+| ep01 | episodio | base | 12.0 d | 130 | 5 | 1 | 11 | 0.4 | 4.6% | — / — / — | — / — / — | — |
+| ep02 | episodio | base | 9.0 d | 92 | 4 | 0 | 10 | 0.4 | 4.3% | — / — / 82 | — / — / 3 | — |
+| ep02 | t3 | base | 9.8 d | 64 | 3 | 0 | 7 | 0.3 | 4.7% | — / — / — | — / — / — | — |
+| ep03 | episodio | base | 2.0 d | 108 | 10 | 1 | 54 | 5.0 | 10.2% | 100 / — / — | 9 / — / — | — |
+| ep03 | t1 | base | 7.0 d | 32 | 1 | 0 | 5 | 0.1 | 3.1% | — / — / 32 | — / — / 1 | — |
+| ep03 | t2 | base | 5.0 d | 39 | 1 | 0 | 8 | 0.2 | 2.6% | — / 39 / — | — / 1 / — | 2.6% |
+| ep03 | t3 | base | 3.0 d | 53 | 2 | 0 | 18 | 0.7 | 3.8% | 38 / 53 / — | 2 / 2 / — | 3.8% |
+| ep04 | t1 | frutas | 0.5 d | 0 | 0 | 0 | 0 | 0.0 | — | — / — / — | — / — / — | — |
 
 ## Média por conjunto de hashtags (mesma idade: 3 dias no ar)
 
 | Conjunto | Tipo | Vídeos c/ D3 | Views D3 | Likes D3 | Coment. D3 | Engaj. D3 |
 |---|---|---|---|---|---|---|
-| base | teaser | 1 | 39 | 1.0 | 0.0 | 2.6% |
+| base | teaser | 2 | 46 | 1.5 | 0.0 | 3.3% |
 
 ## Retenção e crescimento (YouTube Analytics, atraso de ~2 dias)
 
@@ -24,18 +25,19 @@ _Retenção = % média do vídeo que a pessoa assiste (no Shorts é o que mais p
 
 | Ep | Tipo | Views | Retenção | Tempo médio | Compart. | Inscritos ganhos |
 |---|---|---|---|---|---|---|
-| ep01 | episodio | 118 | 73% | 131s | 0 | 1 |
-| ep02 | episodio | 81 | 32% | 58s | 0 | 0 |
-| ep02 | t3 | 62 | 89% | 8s | 0 | 0 |
-| ep03 | t1 | 30 | 87% | 8s | 0 | 0 |
-| ep03 | t2 | 29 | 78% | 7s | 0 | 0 |
+| ep01 | episodio | 119 | 72% | 129s | 0 | 1 |
+| ep02 | episodio | 82 | 32% | 58s | 0 | 0 |
+| ep02 | t3 | 63 | 89% | 8s | 0 | 0 |
+| ep03 | t1 | 31 | 87% | 8s | 0 | 0 |
+| ep03 | t2 | 38 | 93% | 9s | 0 | 0 |
+| ep03 | t3 | 37 | 120% | 10s | 0 | 0 |
 
 ## De onde vêm as views (canal todo)
 
-- feed do Shorts: 250
-- busca do YouTube: 36
-- página do canal: 28
-- inscritos: 4
+- feed do Shorts: 289
+- busca do YouTube: 37
+- página do canal: 36
+- inscritos: 6
 - notificações: 2
 
 ## O que as pessoas buscaram para chegar aqui
@@ -47,3 +49,4 @@ _Retenção = % média do vídeo que a pessoa assiste (no Shorts é o que mais p
 - "episodio 2": 1
 - "fruta do pe": 1
 - "novela da fruta": 1
+- "novelas brasileiras capitulos completos": 1
