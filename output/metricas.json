@@ -62,12 +62,17 @@
     130,
     5,
     1
+   ],
+   "2026-11-26T15:00": [
+    131,
+    5,
+    1
    ]
   },
   "analytics": {
-   "views": 119,
-   "retencao_pct": 72.03,
-   "dur_media_s": 129,
+   "views": 130,
+   "retencao_pct": 70.61,
+   "dur_media_s": 127,
    "compart": 0,
    "inscritos": 1
   }
@@ -136,12 +141,17 @@
     93,
     4,
     0
+   ],
+   "2026-11-26T15:00": [
+    95,
+    4,
+    0
    ]
   },
   "analytics": {
-   "views": 82,
-   "retencao_pct": 32.45,
-   "dur_media_s": 58,
+   "views": 92,
+   "retencao_pct": 34.15,
+   "dur_media_s": 61,
    "compart": 0,
    "inscritos": 0
   }
@@ -205,10 +215,15 @@
     64,
     3,
     0
+   ],
+   "2026-11-26T15:00": [
+    64,
+    3,
+    0
    ]
   },
   "analytics": {
-   "views": 63,
+   "views": 64,
    "retencao_pct": 89.18,
    "dur_media_s": 8,
    "compart": 0,
@@ -279,12 +294,17 @@
     110,
     10,
     1
+   ],
+   "2026-11-26T15:00": [
+    112,
+    10,
+    1
    ]
   },
   "analytics": {
-   "views": 83,
-   "retencao_pct": 48.82,
-   "dur_media_s": 81,
+   "views": 108,
+   "retencao_pct": 48.12,
+   "dur_media_s": 80,
    "compart": 0,
    "inscritos": 1
   }
@@ -348,10 +368,15 @@
     32,
     1,
     0
+   ],
+   "2026-11-26T15:00": [
+    32,
+    1,
+    0
    ]
   },
   "analytics": {
-   "views": 31,
+   "views": 32,
    "retencao_pct": 86.89,
    "dur_media_s": 8,
    "compart": 0,
@@ -414,6 +439,11 @@
     0
    ],
    "2026-11-25T15:00": [
+    39,
+    1,
+    0
+   ],
+   "2026-11-26T15:00": [
     39,
     1,
     0
@@ -486,11 +516,16 @@
     53,
     2,
     0
+   ],
+   "2026-11-26T15:00": [
+    55,
+    2,
+    0
    ]
   },
   "analytics": {
-   "views": 39,
-   "retencao_pct": 120.30000000000001,
+   "views": 53,
+   "retencao_pct": 111.79,
    "dur_media_s": 10,
    "compart": 0,
    "inscritos": 0
@@ -547,6 +582,11 @@
     23,
     1,
     0
+   ],
+   "2026-11-26T15:00": [
+    23,
+    1,
+    0
    ]
   }
  },
@@ -590,7 +630,14 @@
    "#shorts",
    "#spoiler"
   ],
-  "live_at": "2026-11-26T12:00:00-03:00"
+  "live_at": "2026-11-26T12:00:00-03:00",
+  "snaps": {
+   "2026-11-26T15:00": [
+    0,
+    0,
+    0
+   ]
+  }
  },
  "eteNadRkfP8": {
   "ep": "ep04",
@@ -857,19 +904,23 @@
   "origem": [
    [
     "SHORTS",
-    364
+    400
    ],
    [
     "YT_SEARCH",
-    42
+    65
    ],
    [
     "YT_CHANNEL",
-    41
+    43
    ],
    [
     "SUBSCRIBER",
     6
+   ],
+   [
+    "PLAYLIST",
+    2
    ],
    [
     "NOTIFICATION",
@@ -918,7 +969,7 @@
     1
    ]
   ],
-  "atualizado": "2026-11-25"
+  "atualizado": "2026-11-26"
  },
  "Nncd0JovDIM": {
   "ep": "ep06",
@@ -961,5 +1012,47 @@
    "#spoiler"
   ],
   "live_at": "2026-12-08T12:00:00-03:00"
+ },
+ "3L2E7ULNQ9U": {
+  "ep": "ep06",
+  "kind": "t2",
+  "tagset": "frutas",
+  "title": "🚨 Alerta de spoiler — Ep. 6: Casa vazia. Um bilhete na mesa. Onde foi todo mundo? #shorts",
+  "tags": [
+   "audiobook",
+   "bilhete",
+   "carta de despedida",
+   "crush",
+   "declaracao",
+   "dorama",
+   "dorama brasileiro",
+   "doramas",
+   "doramas de frutas",
+   "frutinovela",
+   "historia narrada",
+   "kdrama",
+   "novela",
+   "novela das frutas",
+   "novela de frutas",
+   "novelas de frutas",
+   "olhos verdes",
+   "primeiro amor",
+   "proximo episodio",
+   "spoiler",
+   "teaser",
+   "timidez",
+   "web novela"
+  ],
+  "hashtags": [
+   "#dorama",
+   "#historianarrada",
+   "#kdrama",
+   "#novela",
+   "#novelasdasfrutas",
+   "#novelasdefrutas",
+   "#shorts",
+   "#spoiler"
+  ],
+  "live_at": "2026-12-10T12:00:00-03:00"
  }
 }
