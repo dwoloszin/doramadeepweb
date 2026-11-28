@@ -1,4 +1,4 @@
-# Andamento do Dorama — 27/11/2026 15:00
+# Andamento do Dorama — 28/11/2026 15:00
 
 | Ep | Título | Roteiro | Imagens | Voz + vídeo | Aprovado | Data | Já saiu |
 |---|---|---|---|---|---|---|---|
@@ -23,7 +23,7 @@
 ## Voz (ElevenLabs)
 
 - Limite mensal do Dorama: 27000 de 27000 usados em 11/2026 → 0 livres
-- Créditos aproveitáveis nas chaves (acima da folga de 500 por chave; chaves reservadas a outro projeto não contam): 8387
+- Créditos aproveitáveis nas chaves (acima da folga de 500 por chave; chaves reservadas a outro projeto não contam): 8035
 - ep15: precisa ~6104 (com folga de 30%) → esperando crédito
 - ep16: precisa ~4764 (com folga de 30%) → esperando crédito
 - ep17: precisa ~4226 (com folga de 30%) → esperando crédito
